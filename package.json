@@ -44,7 +44,7 @@
     "build": "react-scripts build",
     "test": "jest --config ./jest.config.json",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix main.js",
+    "lint": "node ./scripts/tasks/eslint.js",
     "format": "prettier -w .",
     "test:coverage": "SKIP_PREFLIGHT_CHECK=true CI=true jest --config ./jest.config.json --coverage"
   },
