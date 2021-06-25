@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es6: true,
     jest: true,
   },
   extends: ["airbnb-base", "prettier", "plugin:react/recommended"],
@@ -9,7 +9,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 8,
     sourceType: "module",
   },
   plugins: ["prettier"],
