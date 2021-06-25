@@ -1,0 +1,32 @@
+{
+  "presets": [
+      [
+          "@babel/preset-env",
+          {
+              "modules": false,
+              "useBuiltIns": "usage", // or "entry"
+              "corejs": 3
+          }
+      ],
+      "@babel/preset-react"
+  ],
+  "plugins": [
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-proposal-class-properties",
+      ["@babel/plugin-proposal-decorators", { "legacy": true }]
+  ],
+  "env": {
+      "test": {
+          "presets": [
+              [
+                  "@babel/preset-env",
+                  {
+                      "targets": {
+                          "node": "current"
+                      }
+                  }
+              ]
+          ]
+      }
+  }
+}
