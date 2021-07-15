@@ -65,7 +65,11 @@ deploy:
   # dependencies:
   #   - build
   before_script:
-    - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/tunga.io/tunga-platform-provision.git
-    - ls
+    - apt-get update -qy
+    - apt-get install -y rsync
+    - pip install ansible
   script:
     - current_dir=$(pwd)
+    - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/tunga.io/tunga-platform-provision.git
+    - cd tunga-platform-provision
+    - ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook deploy-works-release.yml -i inventory/hosts.ini --extra-vars="runner_root_dir=$current_dir" --verbose
