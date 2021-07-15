@@ -68,6 +68,8 @@ deploy:
     - apt-get update -qy
     - apt-get install -y rsync
     - pip install ansible
+  only:
+    - main
   script:
     - current_dir=$(pwd)
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/tunga.io/tunga-platform-provision.git
