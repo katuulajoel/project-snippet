@@ -14,6 +14,7 @@ stages:
     - build
     - quality
     - test
+    - deploy
 
 install:
     stage: install
@@ -34,26 +35,37 @@ build:
     artifacts:
         paths:
             - build
-        expire_in: 1 week
+        expire_in: 60 mins
     dependencies:
         - install
 
-linting:
-    stage: quality
-    script:
-        - npm run lint
-    dependencies:
-        - install
+# linting:
+#     stage: quality
+#     script:
+#         - npm run lint
+#     dependencies:
+#         - install
 
-test:
-    stage: test
-    script:
-        - npm run test:coverage
-    dependencies:
-        - install
-    coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
-    artifacts:
-        when: always
-        paths:
-            - coverage/lcov-report/index.html
-        expire_in: 10 days
+# test:
+#     stage: test
+#     script:
+#         - npm run test:coverage
+#     dependencies:
+#         - install
+#     coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+#     artifacts:
+#         when: always
+#         paths:
+#             - coverage/lcov-report/index.html
+#         expire_in: 10 days
+
+deploy:
+  image: python:latest
+  stage: deploy
+  dependencies:
+    - build
+  before_script:
+    - git clone https://gitlab.com/tunga.io/tunga-platform-provision.git
+    - ls
+  script:
+    - current_dir=$(pwd)
