@@ -71,5 +71,11 @@ deploy:
   script:
     - current_dir=$(pwd)
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/tunga.io/tunga-platform-provision.git
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - cd tunga-platform-provision
     - ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook deploy-works-release.yml -i inventory/hosts.ini --extra-vars="runner_root_dir=$current_dir" --verbose
