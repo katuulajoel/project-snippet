@@ -1,11 +1,11 @@
 image: node:10
 
-include:
-    - template: Code-Quality.gitlab-ci.yml
+# include:
+#     - template: Code-Quality.gitlab-ci.yml
 
-code_quality:
-    artifacts:
-        paths: [gl-code-quality-report.json]
+# code_quality:
+#     artifacts:
+#         paths: [gl-code-quality-report.json]
 
 # You specify the stages. Those are the steps that GitLab will go through
 # Order matters.
