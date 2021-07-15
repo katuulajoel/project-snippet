@@ -2,8 +2,22 @@
 
 exports[`App.js Snapshot test for App component 1`] = `
 <div
-  className="App"
+  className="boot-logo"
 >
-  Welcome 
+  <div>
+    <img
+      src={Object {}}
+    />
+  </div>
+  <div
+    className="loading"
+    data-testid="loading"
+  >
+    <img
+      src={Object {}}
+    />
+     
+    
+  </div>
 </div>
 `;
