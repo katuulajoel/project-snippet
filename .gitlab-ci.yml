@@ -1,11 +1,11 @@
 image: node:10
 
-# include:
-#     - template: Code-Quality.gitlab-ci.yml
+include:
+    - template: Code-Quality.gitlab-ci.yml
 
-# code_quality:
-#     artifacts:
-#         paths: [gl-code-quality-report.json]
+code_quality:
+    artifacts:
+        paths: [gl-code-quality-report.json]
 
 # You specify the stages. Those are the steps that GitLab will go through
 # Order matters.
@@ -39,25 +39,25 @@ build:
     dependencies:
         - install
 
-# linting:
-#     stage: quality
-#     script:
-#         - npm run lint
-#     dependencies:
-#         - install
+linting:
+    stage: quality
+    script:
+        - npm run lint
+    dependencies:
+        - install
 
-# test:
-#     stage: test
-#     script:
-#         - npm run test:coverage
-#     dependencies:
-#         - install
-#     coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
-#     artifacts:
-#         when: always
-#         paths:
-#             - coverage/lcov-report/index.html
-#         expire_in: 10 days
+test:
+    stage: test
+    script:
+        - npm run test:coverage
+    dependencies:
+        - install
+    coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+    artifacts:
+        when: always
+        paths:
+            - coverage/lcov-report/index.html
+        expire_in: 10 days
 
 deploy:
   image: python:latest
