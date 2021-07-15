@@ -28,16 +28,16 @@ install:
             - .npm/
             - node_modules/
 
-build:
-    stage: build
-    script:
-        - CI=false npm run build
-    artifacts:
-        paths:
-            - build
-        expire_in: 60 mins
-    dependencies:
-        - install
+# build:
+#     stage: build
+#     script:
+#         - CI=false npm run build
+#     artifacts:
+#         paths:
+#             - build
+#         expire_in: 60 mins
+#     dependencies:
+#         - install
 
 # linting:
 #     stage: quality
@@ -65,7 +65,7 @@ deploy:
   dependencies:
     - build
   before_script:
-    - git clone https://gitlab.com/tunga.io/tunga-platform-provision.git
+    - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/tunga.io/tunga-platform-provision.git
     - ls
   script:
     - current_dir=$(pwd)
