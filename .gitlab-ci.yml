@@ -62,8 +62,8 @@ install:
 deploy:
   image: python:latest
   stage: deploy
-  dependencies:
-    - build
+  # dependencies:
+  #   - build
   before_script:
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/tunga.io/tunga-platform-provision.git
     - ls
