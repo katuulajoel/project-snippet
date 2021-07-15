@@ -1,0 +1,67 @@
+@import "../../../scss/variables.scss";
+@import "../../../scss/config.module.css";
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        font-size: px-to-rem(16);
+        line-height: px-to-rem(19);
+    }
+}
+
+.summary{
+    height: calc(var(--dashboardCardHeight) - var(--cardTitleHeight));
+    img {
+        width: 100px;
+        height: 74px;
+    }
+    
+    p{
+        color: rgba(62, 72, 87, 0.5);
+        margin-top: 24px;
+    }
+}
+
+.placeholder{
+    img {
+        width: 300px;
+        height: 300px;
+    }
+
+    p{
+        color: #151A30;
+        margin-top: 0px;
+    }
+}
+
+.page{
+    height: 100%;
+
+    @extend .placeholder;
+}
+
+.page-with-filters{
+    height: 100%;
+    height: -webkit-calc(100% - 102px);
+    height: -moz-calc(100% - 102px);
+    height: calc(100% - 102px);
+
+    @extend .placeholder;
+}
+
+.page-filters-pay-summary{
+    height: 100%;
+    height: -webkit-calc(100% - 185px);
+    height: -moz-calc(100% - 185px);
+    height: calc(100% - 185px);
+
+    @extend .placeholder;
+}
+
+.empty-table{
+    height: calc(100vh - 293px);
+}
