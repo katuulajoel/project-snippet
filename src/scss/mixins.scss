@@ -1,0 +1,53 @@
+@mixin padding-x($value) {
+    padding-left: $value;
+    padding-right: $value;
+}
+
+@mixin padding-y($value) {
+    padding-top: $value;
+    padding-bottom: $value;
+}
+
+@mixin padding($value) {
+    @include padding-x($value);
+    @include padding-y($value);
+}
+
+@mixin card-link($color) {
+    display: block;
+    color: $color;
+
+    &:hover, &:focus, &:active {
+        color: $color;
+        text-decoration: none;
+    }
+}
+
+@mixin clearfix() {
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+
+@mixin brand-link($color) {
+    color: $color;
+
+    &:hover, &:focus, &:active {
+        color: $color;
+        text-decoration: none;
+    }
+}
+
+@mixin alert-light-variant($color) {
+    background-color: transparent;
+    @include padding-x(0);
+
+    .status-icon {
+        color: $color;
+        display: inline-block;
+        font-size: 20px;
+        margin-right: 15px;
+    }
+}

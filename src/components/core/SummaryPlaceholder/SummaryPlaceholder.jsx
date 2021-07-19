@@ -7,30 +7,26 @@ import PlaceholderImg2 from "../../../assets/images/empty-state/person-waiting.p
 import css from "./SummaryPlaceholder.module.scss";
 
 const SummaryPlaceholder = ({ description, className }) => {
-    return (
-        <div className={`${css.empty} ${css[className]}`}>
-            {className !== "empty-table" && (
-                <img
-                    src={
-                        className == "summary"
-                            ? PlaceholderImg
-                            : PlaceholderImg2
-                    }
-                    alt="empty file image"
-                />
-            )}
-            <p>{description}</p>
-        </div>
-    );
+  return (
+    <div className={`${css.empty} ${css[className]}`}>
+      {className !== "empty-table" && (
+        <img
+          src={className == "summary" ? PlaceholderImg : PlaceholderImg2}
+          alt="empty file image"
+        />
+      )}
+      <p>{description}</p>
+    </div>
+  );
 };
 
 SummaryPlaceholder.propTypes = {
-    description: PropTypes.string,
-    className: PropTypes.string
+  description: PropTypes.string,
+  className: PropTypes.string,
 };
 
 SummaryPlaceholder.defaultProps = {
-    className: "summary"
+  className: "summary",
 };
 
 export default styleable(css)(SummaryPlaceholder);

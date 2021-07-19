@@ -9,56 +9,56 @@ import momentLocalizer from "react-widgets-moment";
 momentLocalizer(moment);
 
 export default class DateTimePicker extends React.Component {
-    static propTypes = {
-        onToggle: PropTypes.bool,
-        onClick: PropTypes.bool,
-        time: PropTypes.bool,
-        calendar: PropTypes.bool
-    };
+  static propTypes = {
+    onToggle: PropTypes.bool,
+    onClick: PropTypes.bool,
+    time: PropTypes.bool,
+    calendar: PropTypes.bool,
+  };
 
-    componentDidMount() {
-        $(".rw-i.rw-i-calendar").addClass("tg-ic-calendar2");
-        $(".rw-i.rw-i-calendar").removeClass("rw-i-calendar");
+  componentDidMount() {
+    $(".rw-i.rw-i-calendar").addClass("tg-ic-calendar2");
+    $(".rw-i.rw-i-calendar").removeClass("rw-i-calendar");
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { open: this.props.open || false };
+  }
+
+  onClick(event) {
+    if (event.target.tagName === "INPUT") {
+      const { time, calendar } = this.props;
+      this.open(time && !calendar ? "time" : "calendar");
     }
 
-    constructor(props) {
-        super(props);
-        this.state = { open: this.props.open || false };
+    const { onClick } = this.props;
+    if (onClick) {
+      onClick(event);
     }
+  }
 
-    onClick(event) {
-        if (event.target.tagName === "INPUT") {
-            const { time, calendar } = this.props;
-            this.open(time && !calendar ? "time" : "calendar");
-        }
+  onToggle(view) {
+    this.open(view);
 
-        const { onClick } = this.props;
-        if (onClick) {
-            onClick(event);
-        }
+    const { onToggle } = this.props;
+    if (onToggle) {
+      onToggle(view);
     }
+  }
 
-    onToggle(view) {
-        this.open(view);
+  open(view = null) {
+    this.setState({ open: view });
+  }
 
-        const { onToggle } = this.props;
-        if (onToggle) {
-            onToggle(view);
-        }
-    }
-
-    open(view = null) {
-        this.setState({ open: view });
-    }
-
-    render() {
-        return (
-            <DTP
-                {...this.props}
-                onClick={this.onClick.bind(this)}
-                onToggle={this.onToggle.bind(this)}
-                open={this.state.open}
-            />
-        );
-    }
+  render() {
+    return (
+      <DTP
+        {...this.props}
+        onClick={this.onClick.bind(this)}
+        onToggle={this.onToggle.bind(this)}
+        open={this.state.open}
+      />
+    );
+  }
 }
