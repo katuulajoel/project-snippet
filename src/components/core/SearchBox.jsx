@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 /* -------------------------------------------------------------------------- */
@@ -22,8 +23,8 @@ import { filterEventProps } from "./utils/events";
 import { filterInputProps } from "./utils/forms";
 
 import * as UserActions from "../../actions/UserActions";
-import * as ProjectActions from "../../actions/ProjectActions";
-import * as InvoiceActions from "../../actions/InvoiceActions";
+// import * as ProjectActions from "../../actions/ProjectActions";
+// import * as InvoiceActions from "../../actions/InvoiceActions";
 import LoadMore from "./LoadMore";
 import SummaryPlaceholder from "./SummaryPlaceholder/SummaryPlaceholder";
 
