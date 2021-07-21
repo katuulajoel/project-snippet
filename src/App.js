@@ -11,7 +11,8 @@ const App = (props) => {
   const { user, isVerifying } = useSelector(({ Auth }) => Auth);
 
   useEffect(() => {
-    if (!isVerifying && user.id) dispatch(verify());
+    console.log(isVerifying, user);
+    if (!isVerifying && !user.id) dispatch(verify());
   }, []);
 
   const rootProps = props;

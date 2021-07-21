@@ -1,13 +1,13 @@
+/* eslint-disable no-unused-vars */
 import axios from "axios";
+
 import {
   ENDPOINT_LOGIN,
   ENDPOINT_LOGOUT,
   ENDPOINT_VERIFY,
   ENDPOINT_REGISTER,
-  ENDPOINT_APPLY,
   ENDPOINT_RESET_PASSWORD,
   ENDPOINT_RESET_PASSWORD_CONFIRM,
-  ENDPOINT_EMAIL_VISITOR,
 } from "./utils/api";
 
 import {
@@ -15,12 +15,13 @@ import {
   sendTwitterSignUpEvent,
   GA_EVENT_CATEGORIES,
   GA_EVENT_ACTIONS,
-  GA_EVENT_LABELS,
   AUTH_METHODS,
   getGAUserType,
   getUserTypeTwitter,
 } from "./utils/tracking";
-import { getUser } from "../components/utils/auth";
+
+/* import getUser from "../components/utils/auth"; */
+const getUser = "lll";
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -34,12 +35,6 @@ export const LOGOUT_FAILED = "LOGOUT_FAILED";
 export const REGISTER_START = "REGISTER_START";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILED = "REGISTER_FAILED";
-export const APPLY_START = "APPLY_START";
-export const APPLY_SUCCESS = "APPLY_SUCCESS";
-export const APPLY_FAILED = "APPLY_FAILED";
-export const RETRIEVE_APPLICATION_START = "RETRIEVE_APPLICATION_START";
-export const RETRIEVE_APPLICATION_SUCCESS = "RETRIEVE_APPLICATION_SUCCESS";
-export const RETRIEVE_APPLICATION_FAILED = "RETRIEVE_APPLICATION_FAILED";
 export const RESET_PASSWORD_START = "RESET_PASSWORD_START";
 export const RESET_PASSWORD_SUCCESS = "RESET_PASSWORD_SUCCESS";
 export const RESET_PASSWORD_FAILED = "RESET_PASSWORD_FAILED";
@@ -47,12 +42,6 @@ export const RESET_PASSWORD_CONFIRM_START = "RESET_PASSWORD_CONFIRM_START";
 export const RESET_PASSWORD_CONFIRM_SUCCESS = "RESET_PASSWORD_CONFIRM_SUCCESS";
 export const RESET_PASSWORD_CONFIRM_FAILED = "RESET_PASSWORD_CONFIRM_FAILED";
 export const AUTH_REDIRECT = "AUTH_REDIRECT";
-export const EMAIL_VISITOR_AUTH_START = "EMAIL_VISITOR_AUTH_START";
-export const EMAIL_VISITOR_AUTH_SUCCESS = "EMAIL_VISITOR_AUTH_SUCCESS";
-export const EMAIL_VISITOR_AUTH_FAILED = "EMAIL_VISITOR_AUTH_FAILED";
-export const EMAIL_VISITOR_VERIFY_START = "EMAIL_VISITOR_VERIFY_START";
-export const EMAIL_VISITOR_VERIFY_SUCCESS = "EMAIL_VISITOR_VERIFY_SUCCESS";
-export const EMAIL_VISITOR_VERIFY_FAILED = "EMAIL_VISITOR_VERIFY_FAILED";
 
 const arr = [
   "Good to see you back!",
@@ -112,44 +101,6 @@ export function authFailed(error) {
   };
 }
 
-export function authenticateEmailVisitor(credentials) {
-  return (dispatch) => {
-    dispatch(authEmailVisitorStart(credentials));
-    axios
-      .post(ENDPOINT_EMAIL_VISITOR, credentials)
-      .then(function (response) {
-        dispatch(authEmailVisitorSuccess(response.data));
-      })
-      .catch(function (error) {
-        dispatch(
-          authEmailVisitorFailed(error.response ? error.response.data : null)
-        );
-      });
-  };
-}
-
-export function authEmailVisitorStart(credentials) {
-  return {
-    type: EMAIL_VISITOR_AUTH_START,
-    credentials,
-  };
-}
-
-export function authEmailVisitorSuccess(visitor) {
-  sendGAEvent(GA_EVENT_CATEGORIES.AUTH, GA_EVENT_ACTIONS.BROWSE_DEVS);
-  return {
-    type: EMAIL_VISITOR_AUTH_SUCCESS,
-    visitor,
-  };
-}
-
-export function authEmailVisitorFailed(error) {
-  return {
-    type: EMAIL_VISITOR_AUTH_FAILED,
-    error,
-  };
-}
-
 export function verify() {
   return (dispatch) => {
     dispatch(verifyStart());
@@ -159,7 +110,7 @@ export function verify() {
         dispatch(verifySuccess(response.data));
       })
       .catch(function () {
-        dispatch(verifyEmailVisitor());
+        //...
       });
   };
 }
@@ -183,42 +134,6 @@ export function verifySuccess(data) {
 export function verifyFailed(error) {
   return {
     type: VERIFY_FAILED,
-    error,
-  };
-}
-
-export function verifyEmailVisitor() {
-  return (dispatch) => {
-    dispatch(verifyEmailVisitorStart());
-    axios
-      .get(ENDPOINT_EMAIL_VISITOR)
-      .then(function (response) {
-        dispatch(verifyEmailVisitorSuccess(response.data));
-      })
-      .catch(function (error) {
-        dispatch(
-          verifyEmailVisitorFailed(error.response ? error.response.data : null)
-        );
-      });
-  };
-}
-
-export function verifyEmailVisitorStart() {
-  return {
-    type: EMAIL_VISITOR_VERIFY_START,
-  };
-}
-
-export function verifyEmailVisitorSuccess(visitor) {
-  return {
-    type: EMAIL_VISITOR_VERIFY_SUCCESS,
-    visitor,
-  };
-}
-
-export function verifyEmailVisitorFailed(error) {
-  return {
-    type: EMAIL_VISITOR_VERIFY_FAILED,
     error,
   };
 }
@@ -303,83 +218,6 @@ export function registerSuccess(data) {
 export function registerFailed(error) {
   return {
     type: REGISTER_FAILED,
-    error,
-  };
-}
-
-export function apply(details) {
-  return (dispatch) => {
-    dispatch(applyStart(details));
-    axios
-      .post(ENDPOINT_APPLY, details)
-      .then(function (response) {
-        dispatch(applySuccess(response.data));
-      })
-      .catch(function (error) {
-        dispatch(applyFailed(error.response ? error.response.data : null));
-      });
-  };
-}
-
-export function applyStart(details) {
-  return {
-    type: APPLY_START,
-    details,
-  };
-}
-
-export function applySuccess(application) {
-  sendGAEvent(
-    GA_EVENT_CATEGORIES.AUTH,
-    GA_EVENT_ACTIONS.DEV_APPLY,
-    GA_EVENT_LABELS.DEVELOPER
-  );
-  return {
-    type: APPLY_SUCCESS,
-    application,
-  };
-}
-
-export function applyFailed(error) {
-  return {
-    type: APPLY_FAILED,
-    error,
-  };
-}
-
-export function retrieveApplication(key) {
-  return (dispatch) => {
-    dispatch(retrieveApplicationStart(key));
-    axios
-      .get(ENDPOINT_APPLY + "key/" + key + "/")
-      .then(function (response) {
-        dispatch(retrieveApplicationSuccess(response.data));
-      })
-      .catch(function (error) {
-        dispatch(
-          retrieveApplicationFailed(error.response ? error.response.data : null)
-        );
-      });
-  };
-}
-
-export function retrieveApplicationStart(key) {
-  return {
-    type: RETRIEVE_APPLICATION_START,
-    key,
-  };
-}
-
-export function retrieveApplicationSuccess(application) {
-  return {
-    type: RETRIEVE_APPLICATION_SUCCESS,
-    application,
-  };
-}
-
-export function retrieveApplicationFailed(error) {
-  return {
-    type: RETRIEVE_APPLICATION_FAILED,
     error,
   };
 }
