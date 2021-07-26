@@ -120,15 +120,6 @@ export function sendGAEvent(category, action, label) {
       action || null,
       label || null
     );
-  } else {
-    /* console.log(
-            'GA Page View',
-            GA_COMMANDS.SEND,
-            GA_HIT.EVENT,
-            category || null,
-            action || null,
-            label || null,
-        ); */
   }
 }
 
