@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 /* ----------------------------- Input PropTypes ---------------------------- */
 const propTypes = {
   type: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
   errorMessage: PropTypes.string,
   placeholder: PropTypes.string,
   hasStrip: PropTypes.bool,
@@ -27,6 +27,7 @@ const defaultProps = {
   isInvalid: null,
 };
 
+// TODO: there is already an input component
 const Input = React.forwardRef(
   (
     {
@@ -37,7 +38,6 @@ const Input = React.forwardRef(
       label,
       isInvalid,
       errorMessage,
-
       ...rest
     },
     ref
@@ -53,7 +53,6 @@ const Input = React.forwardRef(
       >
         {label && <label htmlFor={label}>{label}</label>}
         <input
-          // eslint-disable-next-line react/jsx-props-no-spreading
           {...rest}
           type={type === "password" ? showPassword : type}
           id={id}
@@ -106,7 +105,6 @@ const InputContainer = styled.div`
     width: 190px;
   }
   input {
-    width: 400px;
     height: 40px;
     border: 1px solid rgba(194, 204, 217, 0.25);
     box-sizing: border-box;
@@ -129,7 +127,20 @@ const InputContainer = styled.div`
     ${(props) => (props.touched ? `box-shadow: none !important;` : ``)}
     &:focus {
       border: 1px solid #da3451 !important;
+      background: #ffffff;
       box-shadow: none !important;
+    }
+    &:autofill,
+    &:autofill:hover,
+    &:autofill:focus,
+    &:autofill:active {
+      box-shadow: 0 0 0 30px white inset !important;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
     }
   }
   label {
@@ -142,7 +153,7 @@ const InputContainer = styled.div`
   }
   button {
     &.input-icon {
-      height: 43px;
+      height: 42px;
       z-index: 12;
       width: 34px;
       align-items: center;
@@ -153,7 +164,7 @@ const InputContainer = styled.div`
       cursor: pointer;
       background: white;
       border: none;
-      margin-top: -2.8rem;
+      margin-top: -2.7rem;
 
       &.active__showpassword {
         svg {

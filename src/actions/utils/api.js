@@ -6,27 +6,29 @@ axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.withCredentials = true;
 axios.interceptors.response.use(undefined, (err) => {
-    const url = `${
-        process.env.REACT_APP_NODE_ENV === "production" ? window.location.origin + "/" : process.env.REACT_APP_BACKEND_ROOT
-    }api/auth/verify/`;
-    if (
-        err.request.responseURL !== url &&
+  const url = `${
+    process.env.REACT_APP_NODE_ENV === "production"
+      ? window.location.origin + "/"
+      : process.env.REACT_APP_BACKEND_ROOT
+  }api/auth/verify/`;
+  if (
+    err.request.responseURL !== url &&
     (err.response.status === 403 ||
       err.response.data.detail ===
         "Authentication credentials were not provided.")
-    ) {
-        window.location.pathname = `/login`;
-    }
-    return Promise.reject(err);
+  ) {
+    window.location.pathname = `/login`;
+  }
+  return Promise.reject(err);
 });
 
 let BACKEND_PATH =
-  process.env.REACT_APP_BACKEND_ROOT||
+  process.env.REACT_APP_BACKEND_ROOT ||
   (process.env.REACT_APP_NODE_ENV === "production"
-      ? /butterflyworks\.org/gi.test(window.location.hostname)
-          ? "https://tunga.io/"
-          : "/"
-      : "https://staging.tunga.io/");
+    ? /butterflyworks\.org/gi.test(window.location.hostname)
+      ? "https://tunga.io/"
+      : "/"
+    : "https://staging.tunga.io/");
 let API_PATH = "api/";
 let SOCIAL_LOGIN_PATH = "accounts/social/";
 
@@ -35,31 +37,31 @@ export const API_ROOT = `${BACKEND_PATH}${API_PATH}`;
 export const SOCIAL_LOGIN_PREFIX = `${BACKEND_PATH}${SOCIAL_LOGIN_PATH}`;
 
 function createSocialLoginUrl(provider) {
-    return SOCIAL_LOGIN_PREFIX + provider + "/";
+  return SOCIAL_LOGIN_PREFIX + provider + "/";
 }
 
 export const SOCIAL_PROVIDERS = {
-    facebook: "facebook",
-    google: "google",
-    linkedin: "linkedin",
-    github: "github",
-    coinbase: "coinbase",
-    slack: "slack",
-    trello: "trello",
-    "google-drive": "google-drive",
+  facebook: "facebook",
+  google: "google",
+  linkedin: "linkedin",
+  github: "github",
+  coinbase: "coinbase",
+  slack: "slack",
+  trello: "trello",
+  "google-drive": "google-drive",
 };
 
 export const SOCIAL_LOGIN_URLS = {
-    facebook: createSocialLoginUrl("facebook"),
-    google: createSocialLoginUrl("google"),
-    linkedin: createSocialLoginUrl("linkedin_oauth2"),
-    github: createSocialLoginUrl("github"),
-    coinbase: createSocialLoginUrl("coinbase"),
-    slack: createSocialLoginUrl("slack"),
+  facebook: createSocialLoginUrl("facebook"),
+  google: createSocialLoginUrl("google"),
+  linkedin: createSocialLoginUrl("linkedin_oauth2"),
+  github: createSocialLoginUrl("github"),
+  coinbase: createSocialLoginUrl("coinbase"),
+  slack: createSocialLoginUrl("slack"),
 };
 
 function getEndpointUrl(path) {
-    return API_ROOT + path;
+  return API_ROOT + path;
 }
 
 // Auth
@@ -73,7 +75,7 @@ export const ENDPOINT_INVITE = getEndpointUrl("invite/");
 export const ENDPOINT_CHANGE_PASSWORD = getEndpointUrl("auth/password/change/");
 export const ENDPOINT_RESET_PASSWORD = getEndpointUrl("auth/password/reset/");
 export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl(
-    "auth/password/reset/confirm/"
+  "auth/password/reset/confirm/"
 );
 
 // Account
@@ -121,81 +123,16 @@ export const ENDPOINT_GENERAL_RATING = getEndpointUrl("progress-reports/");
 
 export const ENDPOINT_TEST_RESULTS = getEndpointUrl("results/");
 
-export function flattenJson(jsonData, key) {
-    let flattenedData = {};
-
-    if (jsonData !== null && jsonData !== undefined) {
-        if (jsonData instanceof File) {
-            if (key) {
-                let flattenedUpdate = {};
-                flattenedUpdate[key] = jsonData;
-                flattenedData = { ...flattenedData, ...flattenedUpdate };
-            }
-        } else if (Array.isArray(jsonData)) {
-            if (key && jsonData.length) {
-                jsonData.forEach((item, idx) => {
-                    flattenedData = {
-                        ...flattenedData,
-                        ...flattenJson(item, `${key}[${idx}]`),
-                    };
-                });
-            }
-        } else if (typeof jsonData === "object") {
-            Object.keys(jsonData).forEach((nestedKey) => {
-                flattenedData = {
-                    ...flattenedData,
-                    ...flattenJson(
-                        jsonData[nestedKey],
-                        `${key ? `${key}${key.endsWith("]") ? "" : "."}` : ""}${nestedKey}`
-                    ),
-                };
-            });
-        } else if (key) {
-            let flattenedUpdate = {};
-            flattenedUpdate[key] = jsonData;
-            flattenedData = { ...flattenedData, ...flattenedUpdate };
-        }
-    }
-    return flattenedData;
-}
-
-export function composeFormData(jsonData) {
-    let flattenedData = flattenJson(jsonData);
-    let formData = new FormData();
-    Object.keys(flattenedData).forEach((key) => {
-        formData.append(key, flattenedData[key]);
-    });
-    return formData;
-}
-
-export function cleanSkills(skills) {
-    let cleanedData = [];
-    if (Array.isArray(skills)) {
-        skills.forEach((skill) => {
-            cleanedData = [...cleanedData, ...cleanSkills(skill)];
-        });
-    } else if (typeof skills === "object") {
-        cleanedData = [...cleanedData, skills];
-    } else if (typeof skills === "string") {
-        skills.split(",").forEach((skill) => {
-            if (skill) {
-                cleanedData = [...cleanedData, { name: skill.trim() }];
-            }
-        });
-    }
-    return cleanedData;
-}
-
 export const USER_TYPE_DEVELOPER = 1;
 export const USER_TYPE_PROJECT_OWNER = 2;
 export const USER_TYPE_PROJECT_MANAGER = 3;
 export const USER_TYPE_DESIGNER = 4;
 
 export const USER_TYPE_CHOICES = [
-    { id: USER_TYPE_DEVELOPER, name: "Developer" },
-    { id: USER_TYPE_DESIGNER, name: "Designer" },
-    { id: USER_TYPE_PROJECT_OWNER, name: "Project Owner" },
-    { id: USER_TYPE_PROJECT_MANAGER, name: "Project Manager" },
+  { id: USER_TYPE_DEVELOPER, name: "Developer" },
+  { id: USER_TYPE_DESIGNER, name: "Designer" },
+  { id: USER_TYPE_PROJECT_OWNER, name: "Project Owner" },
+  { id: USER_TYPE_PROJECT_MANAGER, name: "Project Manager" },
 ];
 
 export const PROJECT_TYPE_WEB = "web";
@@ -219,29 +156,29 @@ export const DOC_TYPE_OTHER = "other";
 export const DOC_TYPE_CONTRACT = "contract";
 
 export const DOCUMENT_TYPES = [
-    [DOC_TYPE_REQUIREMENTS, "Requirements"],
-    [DOC_TYPE_WIREFRAMES, "Wireframes"],
-    [DOC_TYPE_ESTIMATE, "Estimate"],
-    [DOC_TYPE_PROPOSAL, "Proposal"],
-    [DOC_TYPE_PLANNING, "Planning"],
-    [DOC_TYPE_TIMELINE, "Timeline"],
-    [DOC_TYPE_OTHER, "Other"],
-    [DOC_TYPE_CONTRACT, "Contracts"],
+  [DOC_TYPE_REQUIREMENTS, "Requirements"],
+  [DOC_TYPE_WIREFRAMES, "Wireframes"],
+  [DOC_TYPE_ESTIMATE, "Estimate"],
+  [DOC_TYPE_PROPOSAL, "Proposal"],
+  [DOC_TYPE_PLANNING, "Planning"],
+  [DOC_TYPE_TIMELINE, "Timeline"],
+  [DOC_TYPE_OTHER, "Other"],
+  [DOC_TYPE_CONTRACT, "Contracts"],
 ];
 
 let docTypesMap = {};
 DOCUMENT_TYPES.map((doc) => {
-    docTypesMap[doc[0]] = doc[1];
+  docTypesMap[doc[0]] = doc[1];
 });
 
 export const DOCUMENT_TYPES_MAP = docTypesMap;
 
 export const DOCUMENT_TYPES_CLIENTS = [
-    DOC_TYPE_REQUIREMENTS,
-    DOC_TYPE_WIREFRAMES,
-    DOC_TYPE_OTHER,
+  DOC_TYPE_REQUIREMENTS,
+  DOC_TYPE_WIREFRAMES,
+  DOC_TYPE_OTHER,
 ].map((docType) => {
-    return [docType, DOCUMENT_TYPES_MAP[docType]];
+  return [docType, DOCUMENT_TYPES_MAP[docType]];
 });
 
 export const REPORT_STATUS_AHEAD_OF_SCHEDULE = "ahead";
@@ -252,10 +189,10 @@ export const REPORT_STATUS_BEHIND_BUT_PROGRESSING = "behind_progressing";
 export const REPORT_STATUS_BEHIND_AND_STUCK = "behind_stuck";
 
 export const REPORT_STATUSES = [
-    [REPORT_STATUS_AHEAD_OF_SCHEDULE, "Ahead of schedule"],
-    [REPORT_STATUS_ON_SCHEDULE, "On schedule"],
-    [REPORT_STATUS_BEHIND_BUT_PROGRESSING, "Behind but Progressing"],
-    [REPORT_STATUS_BEHIND_AND_STUCK, "Behind and Stuck"],
+  [REPORT_STATUS_AHEAD_OF_SCHEDULE, "Ahead of schedule"],
+  [REPORT_STATUS_ON_SCHEDULE, "On schedule"],
+  [REPORT_STATUS_BEHIND_BUT_PROGRESSING, "Behind but Progressing"],
+  [REPORT_STATUS_BEHIND_AND_STUCK, "Behind and Stuck"],
 ];
 
 export const REPORT_STUCK_RESOLVING_ERROR = "resolving_error";
@@ -266,12 +203,12 @@ export const REPORT_STUCK_PERSONAL_ISSUE = "personal_issue";
 export const REPORT_STUCK_OTHER = "other";
 
 export const REPORT_STUCK_REASONS = [
-    [REPORT_STUCK_RESOLVING_ERROR, "Resolving an error"],
-    [REPORT_STUCK_POOR_DOC, "Poor documentation"],
-    [REPORT_STUCK_HARDWARE_PROBLEM, "Hardware problem"],
-    [REPORT_STUCK_UNCLEAR_SPEC, "Unclear specification"],
-    [REPORT_STUCK_PERSONAL_ISSUE, "Personal circumstances"],
-    [REPORT_STUCK_OTHER, "Other"],
+  [REPORT_STUCK_RESOLVING_ERROR, "Resolving an error"],
+  [REPORT_STUCK_POOR_DOC, "Poor documentation"],
+  [REPORT_STUCK_HARDWARE_PROBLEM, "Hardware problem"],
+  [REPORT_STUCK_UNCLEAR_SPEC, "Unclear specification"],
+  [REPORT_STUCK_PERSONAL_ISSUE, "Personal circumstances"],
+  [REPORT_STUCK_OTHER, "Other"],
 ];
 
 export const PROGRESS_EVENT_TYPE_MILESTONE = "milestone";
@@ -297,18 +234,18 @@ export const SLACK_SHARE_DOCS = "slack_share_tunga_docs";
 export const SLACK_SHARE_REPORTS = "slack_share_tunga_reports";
 
 export const SLACK_SHARE_EVENTS = [
-    [SLACK_SHARE_COMMENTS, "Comments"],
-    [SLACK_SHARE_DOCS, "Documents and uploads"],
-    [SLACK_SHARE_REPORTS, "Progress reports"],
+  [SLACK_SHARE_COMMENTS, "Comments"],
+  [SLACK_SHARE_DOCS, "Documents and uploads"],
+  [SLACK_SHARE_REPORTS, "Progress reports"],
 ];
 
 export const INVOICE_TYPE_SALE = "sale";
 export const INVOICE_TYPE_PURCHASE = "purchase";
 export const INVOICE_TYPE_CREDIT_NOTE = "credit_nota";
 export const INVOICE_TYPES = {
-    sale: "Payment",
-    purchase: "Payout",
-    credit_nota: "Credit Note",
+  sale: "Payment",
+  purchase: "Payout",
+  credit_nota: "Credit Note",
 };
 export const PAID_IN = "paid-in";
 export const PENDING_IN = "pending-in";
@@ -333,21 +270,8 @@ export const STATUS_INTERESTED = "interested";
 export const STATUS_UNINTERESTED = "uninterested";
 
 export const CHANNEL_TYPES = {
-    direct: 1,
-    topic: 2,
-    support: 3,
-    developer: 4,
+  direct: 1,
+  topic: 2,
+  support: 3,
+  developer: 4,
 };
-
-export function objectToQueryString(obj) {
-    let qs = _.reduce(
-        obj,
-        function(result, value, key) {
-            return !_.isNull(value) && !_.isUndefined(value)
-                ? (result += key + "=" + value + "&")
-                : result;
-        },
-        ""
-    ).slice(0, -1);
-    return qs;
-}

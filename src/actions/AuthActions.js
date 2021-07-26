@@ -62,10 +62,12 @@ export function authenticate(credentials) {
     return axios
       .post(ENDPOINT_LOGIN, credentials)
       .then(function (response) {
+        console.log("succcess", response);
         dispatch(authSuccess(response.data));
         return response.data;
       })
       .catch(function (error) {
+        console.log("here now", JSON.stringify(error));
         dispatch(authFailed(error.response ? error.response.data : null));
       });
   };

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout test Snapshot test for Login component 1`] = `
+<div
+  className="boot-logo"
+>
+  <div>
+    <img
+      src={Object {}}
+    />
+  </div>
+  <div
+    className="loading"
+    data-testid="loading"
+  >
+    <img
+      src={Object {}}
+      style={
+        Object {
+          "width": "20px",
+        }
+      }
+    />
+     
+    
+  </div>
+</div>
+`;
