@@ -5,7 +5,7 @@ import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import Login from "../Login";
 
-const mockAppStore = (isMakingRequest = { register: false }, errors = {}) => {
+const mockAppStore = (errors = {}) => {
   const mockStore = configureStore();
   const initialState = {
     Auth: {
@@ -17,7 +17,7 @@ const mockAppStore = (isMakingRequest = { register: false }, errors = {}) => {
   return mockStore(initialState);
 };
 
-describe("Auth layout test", () => {
+describe("Login snapshot test", () => {
   it("Snapshot test for Login component", () => {
     const tree = renderer
       .create(
@@ -30,4 +30,6 @@ describe("Auth layout test", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("should ", () => {});
 });
