@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout test Snapshot test for Login component 1`] = `
+<div
+  className="sc-bdnxRM jELQcl sidebar"
+  id="sidebar"
+>
+  <img
+    alt="company-logo"
+    src={Object {}}
+  />
+  <ul
+    className="nav"
+  >
+    <li>
+      <a
+        aria-current={null}
+        href="/dashboard"
+        onClick={[Function]}
+      >
+        <span
+          className="menu-icon"
+        >
+          <i
+            className="tg-ic-outline-dashboard tunga-ic-sz-sidebar "
+          />
+        </span>
+        <span>
+          Dashboard
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/projects"
+        onClick={[Function]}
+      >
+        <span
+          className="menu-icon"
+        >
+          <i
+            className="tg-ic-baseline-folder-open tunga-ic-sz-sidebar "
+          />
+        </span>
+        <span>
+          Projects
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/payments"
+        onClick={[Function]}
+      >
+        <span
+          className="menu-icon"
+        >
+          <i
+            className="tg-ic-round-payment tunga-ic-sz-sidebar "
+          />
+        </span>
+        <span>
+          Payments
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/settings"
+        onClick={[Function]}
+      >
+        <span
+          className="menu-icon"
+        >
+          <i
+            className="tg-ic-outline-settings tunga-ic-sz-sidebar "
+          />
+        </span>
+        <span>
+          Settings
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/logout"
+        onClick={[Function]}
+      >
+        <span
+          className="menu-icon"
+        >
+          <i
+            className="tg-ic-log-out tunga-ic-sz-sidebar "
+          />
+        </span>
+        <span>
+          Log Out
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+`;

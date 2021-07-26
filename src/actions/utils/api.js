@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import axios from "axios";
-import _ from "lodash";
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";

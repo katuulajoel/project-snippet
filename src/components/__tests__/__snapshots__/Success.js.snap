@@ -2,10 +2,10 @@
 
 exports[`Auth layout test Snapshot test for Login component 1`] = `
 <div
-  className="alert alert-danger"
+  className="alert alert-success"
 >
   <i
-    className="tg-ic-attention  "
+    className="tg-ic-check  status-icon"
   />
    
   
