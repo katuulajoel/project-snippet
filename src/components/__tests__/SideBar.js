@@ -4,31 +4,42 @@ import { BrowserRouter as Router } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import { render, fireEvent } from "@testing-library/react";
+import { useSelector, useDispatch } from "react-redux";
 import SideBar from "../SideBar";
 
-const mockAppStore = (errors = {}) => {
+const mockAppState = {
+  Auth: {
+    user: { uid: 123, email: "katuula@gmail.com" },
+  },
+};
+
+const mockAppStore = () => {
   const mockStore = configureStore();
-  const initialState = {
-    Auth: {
-      user: {},
-      isAuthenticating: {},
-      errors,
-    },
-  };
-  return mockStore(initialState);
+  return mockStore(mockAppState);
 };
 
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useDispatch: jest.fn(),
+  useSelector: jest.fn(),
 }));
 
-describe("Auth layout test", () => {
-  it("Snapshot test for Login component", () => {
+describe("Sidebar component test", () => {
+  const store = mockAppStore();
+  beforeEach(() => {
+    useSelector.mockImplementation((callback) => callback(mockAppState));
+    useDispatch.mockReturnValue(jest.fn());
+  });
+  afterEach(() => {
+    useSelector.mockClear();
+    useDispatch.mockClear();
+  });
+
+  it("Snapshot test for Sidebar component", () => {
     const tree = renderer
       .create(
         <Router>
-          <Provider store={mockAppStore()}>
+          <Provider store={store}>
             <SideBar />
           </Provider>
         </Router>
@@ -40,7 +51,7 @@ describe("Auth layout test", () => {
   it("calls logout function when logout link is clicked", () => {
     const wrapper = render(
       <Router>
-        <Provider store={mockAppStore()}>
+        <Provider store={store}>
           <SideBar />
         </Provider>
       </Router>
@@ -48,6 +59,8 @@ describe("Auth layout test", () => {
 
     const signout = wrapper.getByTestId("signout");
     fireEvent.click(signout);
-    
+    const actions = store.getActions();
+    console.log(signout, actions);
+    expect(useDispatch).toHaveBeenCalledTimes(1);
   });
 });
