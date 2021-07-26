@@ -43,7 +43,11 @@ const SideBar = () => {
           );
         })}
         <li>
-          <NavLink to="logout" onClick={(e) => onSignOut(e)}>
+          <NavLink
+            data-testid="signout"
+            to="logout"
+            onClick={(e) => onSignOut(e)}
+          >
             <span className="menu-icon">
               <Icon name="log-out" size="sidebar" />
             </span>
