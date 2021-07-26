@@ -7,15 +7,15 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 
 /* -------------------------- Internal Dependencies ------------------------- */
-import { getUser, isDev } from "../utils/auth";
-import OnboardContainer from "./onboard/OnboardContainer";
-import Dashboard from "./Dashboard";
-import PaymentsContainer from "./payments";
-import TestsContainer from "./tests";
-import SettingsContainer from "./settings/SettingsContainer";
-import ProjectsContainer from "./projects/ProjectsContainer";
-import Info from "../core/Info";
-import WorkRedirect from "./projects/WorkRedirect";
+import { getUser, isDev } from "../components/utils/auth";
+// import OnboardContainer from "./onboard/OnboardContainer";
+import Dashboard from "../pages/Dashboard/Dashboard";
+// import PaymentsContainer from "./payments";
+// import TestsContainer from "./tests";
+// import SettingsContainer from "./settings/SettingsContainer";
+// import ProjectsContainer from "./projects/ProjectsContainer";
+import Info from "../components/core/Info";
+// import WorkRedirect from "./projects/WorkRedirect";
 
 /* --------------------------- Component proptypes -------------------------- */
 const proptypes = {
@@ -59,7 +59,7 @@ const MainContent = ({
             />
           );
         })}
-        <Route path="/onboard" component={OnboardContainer} />
+        {/* <Route path="/onboard" component={OnboardContainer} /> */}
         {getUser().can_contribute ? (
           [
             <Route
@@ -69,39 +69,39 @@ const MainContent = ({
                 <Dashboard {...props} isLargeDevice={isLargeDevice} />
               )}
             />,
-            <Route
-              key="projects"
-              path="/projects"
-              component={ProjectsContainer}
-            />,
+            // <Route
+            //   key="projects"
+            //   path="/projects"
+            //   component={ProjectsContainer}
+            // />,
             ["/work/:taskId", "/work/:taskId/event/:eventId"].map((path) => {
               return (
                 <Route
                   key={`app-path--${path}`}
                   exact
                   path={path}
-                  render={(props) => (
-                    <WorkRedirect
-                      {...props}
-                      taskId={props.match.params.taskId}
-                      eventId={props.match.params.eventId}
-                    />
-                  )}
+                  //   render={(props) => (
+                  //     <WorkRedirect
+                  //       {...props}
+                  //       taskId={props.match.params.taskId}
+                  //       eventId={props.match.params.eventId}
+                  //     />
+                  //   )}
                 />
               );
             }),
             <Redirect key="projects-work" from="work" to="projects" />,
-            <Route key="tests" path="/tests" component={TestsContainer} />,
-            <Route
-              key="payments"
-              path="/payments/:filter"
-              component={PaymentsContainer}
-            />,
-            <Route
-              key="settings"
-              path="/settings"
-              component={SettingsContainer}
-            />,
+            // <Route key="tests" path="/tests" component={TestsContainer} />,
+            // <Route
+            //   key="payments"
+            //   path="/payments/:filter"
+            //   component={PaymentsContainer}
+            // />,
+            // <Route
+            //   key="settings"
+            //   path="/settings"
+            //   component={SettingsContainer}
+            // />,
             <Redirect
               key="payments-redirect"
               from="/payments"

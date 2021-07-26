@@ -1,11 +1,19 @@
 import { lazy } from "react";
+import CreateLayout from "../layouts/CreateLayout";
+import ReportCreateLayout from "../layouts/ReportCreateLayout";
+import Account from "../pages/Dashboard/settings/Account";
+import CompanyDetails from "../pages/Dashboard/settings/CompanyDetails";
+import CompanyProfile from "../pages/Dashboard/settings/CompanyProfile";
+import Experience from "../pages/Dashboard/settings/Experience";
+import Payment from "../pages/Dashboard/settings/Payment";
+import Privacy from "../pages/Dashboard/settings/Privacy";
+import Profile from "../pages/Dashboard/settings/Profile";
 import Routing from "./Routing";
 
 const Login = lazy(() =>
   import("../pages/AuthPages/Login/LoginForm/LoginForm")
 );
 const SignUp = lazy(() => import("../pages/AuthPages/Signup/Signup"));
-// const UserAgreement = lazy(() => import("../UserAgreement/UserAgreement"));
 const ForgotPassword = lazy(() =>
   import(
     "../pages/AuthPages/ForgotPassword/ForgotPasswordForm/ForgotPasswordForm"
@@ -14,8 +22,7 @@ const ForgotPassword = lazy(() =>
 const PasswordConfirm = lazy(() =>
   import("../pages/AuthPages/PasswordConfirm/PasswordResetConfirm")
 );
-const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
-// const Home = lazy(() => import("../home/Home"));
+const Dashboard = lazy(() => import("../components/Dashboard"));
 
 export const childRoutes = [
   {
@@ -48,12 +55,6 @@ export const childRoutes = [
     exact: false,
     component: PasswordConfirm,
   },
-  // {
-  //   path: Routing.userAgreement.path,
-  //   name: Routing.userAgreement.name,
-  //   exact: false,
-  //   component: UserAgreement,
-  // },
   {
     path: "/dashboard",
     component: Dashboard,
@@ -62,19 +63,55 @@ export const childRoutes = [
   },
   {
     path: "/projects",
-    component: Dashboard,
-    exact: false,
+    component: CreateLayout,
+    exact: true,
     name: "projects",
   },
   {
-    path: "/payments",
-    component: Dashboard,
-    exact: false,
+    path: "/projects/reports",
+    component: ReportCreateLayout,
+    exact: true,
     name: "payments",
   },
   {
-    path: "/settings",
-    component: Dashboard,
+    path: "/settings/account",
+    component: Account,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/company-details",
+    component: CompanyDetails,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/company-profile",
+    component: CompanyProfile,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/experience",
+    component: Experience,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/payment",
+    component: Payment,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/privacy",
+    component: Privacy,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/profile",
+    component: Profile,
     exact: false,
     name: "settings",
   },

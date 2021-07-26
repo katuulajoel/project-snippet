@@ -4,19 +4,13 @@
 /* -------------------------------------------------------------------------- */
 import React from "react";
 import PropTypes from "prop-types";
-// import { Redirect } from "react-router-dom";
 import moment from "moment";
-import { connect } from "react-redux";
 
 /* -------------------------- Internel Dependencies ------------------------- */
 import NavBar from "../components/NavBar/NavBar";
 import SideBar from "../components/SideBar";
-// import TitleBar from "./TitleBar";
-// import MainContent from "./MainContent";
+import MainContent from "../components/MainContent";
 import { openConfirm } from "../components/core/utils/modals";
-// import ProjectOutput from "./ProjectOutput";
-// import RightSideNav from "./projects/project/RightSideNav";
-// import FilterTests from "./tests/filterTests";
 
 const AGREEMENT_VERSION = 1.2; // TODO this need to go in a global config
 window.isAgreementOpen = false;
@@ -48,7 +42,6 @@ class DashboardLayout extends React.Component {
     // $("body").addClass("is-dashboard");
 
     const { user, AuthActions } = this.props;
-
     if (
       user &&
       user.id &&
@@ -92,115 +85,116 @@ class DashboardLayout extends React.Component {
     }
   }
 
-  //   checkIfProjectDetails = (location) => {
-  //     let projectId = location.pathname.split("/")[2];
-  //     if (!isNaN(projectId)) {
-  //       this.setState({ zIndexCap: false });
-  //     } else {
-  //       this.setState({ zIndexCap: true });
-  //     }
-  //   };
+  checkIfProjectDetails = (location) => {
+    let projectId = location.pathname.split("/")[2];
+    if (!isNaN(projectId)) {
+      this.setState({ zIndexCap: false });
+    } else {
+      this.setState({ zIndexCap: true });
+    }
+  };
 
-  //   componentWillMount() {
-  //     this.unlisten = this.props.history.listen((location) => {
-  //       this.checkIfProjectDetails(location);
-  //     });
-  //   }
+  componentWillMount() {
+    this.unlisten = this.props.history.listen((location) => {
+      this.checkIfProjectDetails(location);
+    });
+  }
 
-  //   componentWillUnmount() {
-  //     this.unlisten();
-  //   }
+  componentWillUnmount() {
+    this.unlisten();
+  }
 
-  //   getNavTitle() {
-  //     let title = "Dashboard";
-  //     switch (this.props.match.url) {
-  //       case "/projects/:projectId":
-  //         title = "Project title";
-  //         break;
-  //       case "/projects":
-  //         if (this.props.match.isExact) {
-  //           title = "Projects";
-  //         } else {
-  //           let projectId = this.props.location.pathname.split("/")[2];
-  //           if (!isNaN(projectId)) {
-  //             title = <ProjectOutput id={projectId} field="title" />;
-  //           } else {
-  //             title = "Projects";
-  //           }
-  //         }
-  //         break;
-  //       case "/network":
-  //         title = "Network";
-  //         break;
-  //       case "/payments":
-  //         title = "Payments";
-  //         break;
-  //       case "/settings":
-  //         title = "Settings";
-  //         break;
-  //       case "/tests":
-  //         title = "Tests";
-  //         break;
-  //       case "/onboard":
-  //         title = "Dashboard";
-  //         break;
-  //       default:
-  //         break;
-  //     }
+  getNavTitle() {
+    let title = "Dashboard";
+    switch (this.props.match.url) {
+      case "/projects/:projectId":
+        title = "Project title";
+        break;
+      case "/projects":
+        if (this.props.match.isExact) {
+          title = "Projects";
+        } else {
+          let projectId = this.props.location.pathname.split("/")[2];
+          if (!isNaN(projectId)) {
+            title = "implement this";
+          } else {
+            title = "Projects";
+          }
+        }
+        break;
+      case "/network":
+        title = "Network";
+        break;
+      case "/payments":
+        title = "Payments";
+        break;
+      case "/settings":
+        title = "Settings";
+        break;
+      case "/tests":
+        title = "Tests";
+        break;
+      case "/onboard":
+        title = "Dashboard";
+        break;
+      default:
+        break;
+    }
 
-  //     return title;
-  //   }
+    return title;
+  }
 
   render() {
-    // const {
-    //     user,
-    //     // logout,
-    //     match,
-    //     isLargeDevice,
-    //     // rightNavStatus: {
-    //     //   toggleRightSideNav: { rightNavContent },
-    //     // },
-    //   } = this.props,
-    //   isDashboardRoute = match.url === "/dashboard",
-    //   isWorkRoute = match.url === "/work",
-    //   isProposalRoute = match.url === "/proposal",
-    //   isOnBoarding = match.url === "/onboard",
-    //   isTests = match.url === "/tests",
-    //   isPayments = match.url === "/payments";
+    const {
+        user,
+        logout,
+        match,
+        isLargeDevice,
+        // rightNavStatus: {
+        //   toggleRightSideNav: { rightNavContent },
+        // },
+      } = this.props,
+      isDashboardRoute = match.url === "/dashboard",
+      isWorkRoute = match.url === "/work",
+      isProposalRoute = match.url === "/proposal",
+      isOnBoarding = match.url === "/onboard",
+      isTests = match.url === "/tests",
+      isPayments = match.url === "/payments";
 
-    // let projectId = this.props.location.pathname.split("/")[2];
-    // const isProjectDetailsRoute = !isNaN(projectId);
+    let projectId = this.props.location.pathname.split("/")[2];
+    const isProjectDetailsRoute = !isNaN(projectId);
 
-    // return user && user.id && !__MAINTENANCE__ ? (
     return (
       <>
         <NavBar
-        //   variant="dashboard"
-        //   //   title={this.getNavTitle()}
-        //   user={user}
-        //   noTitleBar={
-        //     isDashboardRoute ||
-        //     isWorkRoute ||
-        //     isProposalRoute ||
-        //     isOnBoarding ||
-        //     isTests ||
-        //     (isDashboardRoute && isPayments)
-        //   }
-        //   isLargeDevice={isLargeDevice}
+          variant="dashboard"
+          title={this.getNavTitle()}
+          user={user}
+          noTitleBar={
+            isDashboardRoute ||
+            isWorkRoute ||
+            isProposalRoute ||
+            isOnBoarding ||
+            isTests ||
+            (isDashboardRoute && isPayments)
+          }
+          isLargeDevice={isLargeDevice}
         />
         {/* TODO: we need to way to show this when not large */}
-        {/* {isLargeDevice ? <SideBar onSignOut={logout} /> : null} */}
-        <SideBar />
+        {isLargeDevice ? <SideBar onSignOut={logout} /> : null}
 
-        {/* {isDashboardRoute ||
-        isWorkRoute ||
-        isProposalRoute ||
-        isOnBoarding ||
-        isTests ? null : (
-          <TitleBar user={user} />
-        )} */}
+        {
+          isDashboardRoute ||
+          isWorkRoute ||
+          isProposalRoute ||
+          isOnBoarding ||
+          isTests
+            ? null
+            : null
+          //   <TitleBar user={user} />
+        }
 
-        {/* <MainContent
+        <MainContent
           isLargeDevice={isLargeDevice}
           zIndexCap={this.state.zIndexCap}
           isProjectDetailsRoute={isProjectDetailsRoute}
@@ -211,29 +205,10 @@ class DashboardLayout extends React.Component {
             isOnBoarding ||
             isTests
           }
-        /> */}
-        {/* {rightNavContent === "filter-tests" && (
-          <RightSideNav
-            navSections={[
-              {
-                component: <FilterTests />,
-                title: "Filters",
-              },
-            ]}
-          />
-        )} */}
+        />
       </>
     );
-    // : (
-    //   <Redirect from="*" to={`/${__MAINTENANCE__ ? "maintenance" : ""}`} />
-    // );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    rightNavStatus: state.Utility,
-  };
-}
-
-export default connect(mapStateToProps)(DashboardLayout);
+export default DashboardLayout;

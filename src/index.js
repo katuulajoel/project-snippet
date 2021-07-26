@@ -7,12 +7,16 @@ import "./index.css";
 import { Provider } from "react-redux";
 import App from "./App";
 import store from "./store";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
 
 export const ReactStrictMode = (
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </Router>
     </Provider>
   </React.StrictMode>
