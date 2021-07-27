@@ -8,12 +8,13 @@ import PropTypes from "prop-types";
 /* ----------------------------- Input PropTypes ---------------------------- */
 const propTypes = {
   type: PropTypes.string,
-  id: PropTypes.number,
+  id: PropTypes.string,
   errorMessage: PropTypes.string,
   placeholder: PropTypes.string,
   hasStrip: PropTypes.bool,
   label: PropTypes.string,
   isInvalid: PropTypes.bool,
+  dataTestId: PropTypes.string,
 };
 
 /* --------------------------- Input defaultProps --------------------------- */
@@ -25,6 +26,7 @@ const defaultProps = {
   hasStrip: null,
   label: "Label",
   isInvalid: null,
+  dataTestId: "",
 };
 
 // TODO: there is already an input component
@@ -38,6 +40,7 @@ const Input = React.forwardRef(
       label,
       isInvalid,
       errorMessage,
+      dataTestId,
       ...rest
     },
     ref
@@ -59,7 +62,7 @@ const Input = React.forwardRef(
           ref={ref}
           className="form-control"
           placeholder={placeholder}
-          data-testid="inputs"
+          data-testid={dataTestId}
         />
 
         {type === "password" && (
