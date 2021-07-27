@@ -64,6 +64,7 @@ const Wrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
 
         @media (max-height: 770px) {
           height: 100vh;
@@ -77,9 +78,9 @@ const Wrapper = styled.div`
           height: 100vh !important;
         }
         .child__item {
-          flex: 0.589 0;
-          @media (max-width: 768px) {
-            flex: 1 0 !important;
+          width: 400px;
+          @media (max-width: 980px) {
+            width: 100%;
           }
         }
         .logo {
@@ -98,6 +99,22 @@ const Wrapper = styled.div`
 `;
 
 export const AuthStylingLayoutChildren = styled.div`
+  .AuthForm__title {
+    margin-bottom: 40px;
+  }
+
+  .Auth_label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+
+    span {
+      color: #da3451;
+      padding-left: "2px";
+    }
+  }
+
   h3 {
     font-style: normal;
     font-weight: 600;

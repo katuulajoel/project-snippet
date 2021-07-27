@@ -1,9 +1,13 @@
-/* eslint-disable no-unused-vars */
+/* -------------------------------------------------------------------------- */
+/*                            External Dependencies                           */
+/* -------------------------------------------------------------------------- */
 import React, { useEffect, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { childRoutes } from "./configs/Routes.conf";
-import BootLogo from "./components/core/BootLogo";
 import { useDispatch, useSelector } from "react-redux";
+
+/* -------------------------- Internel Dependencies ------------------------- */
+import { childRoutes } from "./configs/Routes.conf";
+import BootLogo from "./components/BootLogo";
 import { verify } from "./actions/AuthActions";
 
 const App = (props) => {

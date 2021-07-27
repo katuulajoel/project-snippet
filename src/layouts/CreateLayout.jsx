@@ -7,7 +7,7 @@ import styled, { withTheme, createGlobalStyle } from "styled-components";
 import PropTypes from "prop-types";
 
 /* -------------------------- Internal dependencies ------------------------- */
-import Icon from "../components/core/Icon";
+import Icon from "../components/Icon";
 
 /* --------------------------- Component proptypes -------------------------- */
 const proptypes = {

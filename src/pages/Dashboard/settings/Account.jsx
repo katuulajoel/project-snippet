@@ -7,9 +7,9 @@ import { Row, Col, FormGroup, Label } from "reactstrap";
 import styled from "styled-components";
 
 /* ------------------------- Component dependencies ------------------------- */
-import CustomInputGroup from "../../../components/core/CustomInputGroup";
-import Button from "../../../components/core/Button";
-import Input from "../../../components/core/Input";
+import CustomInputGroup from "../../../components/CustomInputGroup";
+import Button from "../../../components/Button";
+import Input from "../../../components/Input";
 
 const Account = () => {
   return (

@@ -11,12 +11,12 @@ import Error from "../../../../components/core/Error";
 import MetaTags from "../../../../components/core/MetaTags";
 
 import PropTypes from "prop-types";
-import Button from "../../../../components/core/Button";
+import Button from "../../../../components/Button";
 import AuthLayout, {
   AuthStylingLayoutChildren,
 } from "../../../../layouts/AuthLayout";
 
-import Input from "../../../../components/core/input/index";
+import Input from "../../../../components/input/index";
 import querystring from "querystring";
 class Login extends React.Component {
   constructor(props) {

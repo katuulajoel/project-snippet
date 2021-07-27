@@ -1,32 +1,33 @@
-/* eslint-disable react/prop-types */
-import { isAdminOrPM } from "../components/utils/auth";
+/* -------------------------------------------------------------------------- */
+/*                            External Dependencies                           */
+/* -------------------------------------------------------------------------- */
 import React from "react";
 import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import { useDispatch } from "react-redux";
 
-import Icon from "../components/core/Icon";
+/* -------------------------- Internal Dependencies ------------------------- */
+import Icon from "./Icon";
+import { logout } from "../actions/AuthActions";
 
-const SideBar = (props) => {
+const SideBar = () => {
+  const dispatch = useDispatch();
+
   const onSignOut = (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-    if (props.onSignOut) {
-      props.onSignOut();
-    }
+    e.preventDefault();
+    dispatch(logout());
   };
 
   return (
-    <div id="sidebar" className="sidebar">
+    <Wrapper id="sidebar" className="sidebar">
       <img
         alt="company-logo"
-        src={require("../assets/images/icons/tunga_logo_round.png")}
-        style={{ width: "75px", margin: "2rem auto", display: "block" }}
+        src={require("../assets/images/logo_round.png")}
       />
       <ul className="nav">
         {[
           ["dashboard", "Dashboard", "outline-dashboard"],
           ["projects", "Projects", "baseline-folder-open"],
-          ...(isAdminOrPM() ? [["tests", "Tests", "award"]] : []),
           ["payments", "Payments", "round-payment"],
           ["settings", "Settings", "outline-settings"],
         ].map((item, idx) => {
@@ -42,7 +43,11 @@ const SideBar = (props) => {
           );
         })}
         <li>
-          <NavLink to="logout" onClick={onSignOut.bind(this)}>
+          <NavLink
+            data-testid="signout"
+            to="logout"
+            onClick={(e) => onSignOut(e)}
+          >
             <span className="menu-icon">
               <Icon name="log-out" size="sidebar" />
             </span>
@@ -50,8 +55,16 @@ const SideBar = (props) => {
           </NavLink>
         </li>
       </ul>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  img {
+    width: "75px";
+    margin: "2rem auto";
+    display: "block";
+  }
+`;
 
 export default SideBar;

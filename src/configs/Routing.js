@@ -13,5 +13,5 @@ export default {
     path: "/reset-password/confirm/:id/",
     name: "Reset Password",
   },
-  dashboard: { path: "/dashboard", name: "Log in", loc: "dashboard" },
+  dashboard: { path: "/dashboard", name: "Dashboard", loc: "dashboard" },
 };

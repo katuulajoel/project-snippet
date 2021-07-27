@@ -6,8 +6,8 @@ import { FormGroup } from "reactstrap";
 import styled from "styled-components";
 
 /* ------------------------- Component dependencies ------------------------- */
-import Button from "../../../components/core/Button";
-import Input from "../../../components/core/Input";
+import Button from "../../../components/Button";
+import Input from "../../../components/Input";
 
 const CompanyDetails = () => {
   return (

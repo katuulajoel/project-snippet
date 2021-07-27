@@ -43,19 +43,6 @@ export const RESET_PASSWORD_CONFIRM_SUCCESS = "RESET_PASSWORD_CONFIRM_SUCCESS";
 export const RESET_PASSWORD_CONFIRM_FAILED = "RESET_PASSWORD_CONFIRM_FAILED";
 export const AUTH_REDIRECT = "AUTH_REDIRECT";
 
-const arr = [
-  "Good to see you back!",
-  "How are you doing today?",
-  "Great to have you here!",
-  "What’s cooking, chef?",
-  "We’ve missed you!",
-  "Have a great day!",
-  "Hello, world!",
-  "Press Any Key to Continue…",
-  "Have you tried restarting?",
-  "You light my Fire(wall)",
-];
-
 export function authenticate(credentials) {
   return (dispatch) => {
     dispatch(authStart(credentials));
@@ -63,10 +50,9 @@ export function authenticate(credentials) {
       .post(ENDPOINT_LOGIN, credentials)
       .then(function (response) {
         dispatch(authSuccess(response.data));
-        return response.data;
       })
       .catch(function (error) {
-        dispatch(authFailed(error.response ? error.response.data : null));
+        dispatch(authFailed(error.response.data));
       });
   };
 }
@@ -79,18 +65,9 @@ export function authStart(credentials) {
 }
 
 export function authSuccess(data) {
-  let index = Math.floor(Math.random() * arr.length);
-  let user = Object.assign({}, data.user, { welcomeMessage: arr[index] });
-  window.localStorage.setItem("welcomeMsg", arr[index]);
-
-  sendGAEvent(
-    GA_EVENT_CATEGORIES.AUTH,
-    GA_EVENT_ACTIONS.SIGN_IN,
-    getGAUserType(user)
-  );
   return {
     type: LOGIN_SUCCESS,
-    user,
+    user: data.user,
   };
 }
 
@@ -131,13 +108,6 @@ export function verifySuccess(data) {
   };
 }
 
-export function verifyFailed(error) {
-  return {
-    type: VERIFY_FAILED,
-    error,
-  };
-}
-
 export function logout() {
   return (dispatch) => {
     dispatch(logoutStart());
@@ -147,7 +117,7 @@ export function logout() {
         dispatch(logoutSuccess());
       })
       .catch(function (error) {
-        dispatch(logoutFailed(error.response ? error.response.data : null));
+        dispatch(logoutFailed(error.response.data));
       });
   };
 }
@@ -159,12 +129,6 @@ export function logoutStart() {
 }
 
 export function logoutSuccess() {
-  window.localStorage.removeItem("welcomeMsg");
-  sendGAEvent(
-    GA_EVENT_CATEGORIES.AUTH,
-    GA_EVENT_ACTIONS.LOG_OUT,
-    getGAUserType(getUser())
-  );
   return {
     type: LOGOUT_SUCCESS,
   };
@@ -184,13 +148,9 @@ export function register(details) {
       .post(ENDPOINT_REGISTER, details)
       .then(function (response) {
         dispatch(registerSuccess(response.data));
-
-        let user_type = getUserTypeTwitter(details.type),
-          method = AUTH_METHODS.EMAIL;
-        sendTwitterSignUpEvent({ user_type, method });
       })
       .catch(function (error) {
-        dispatch(registerFailed(error.response ? error.response.data : null));
+        dispatch(registerFailed(error.response.data));
       });
   };
 }
@@ -204,11 +164,6 @@ export function registerStart(details) {
 
 export function registerSuccess(data) {
   let user = data.user;
-  sendGAEvent(
-    GA_EVENT_CATEGORIES.REGISTRATION,
-    GA_EVENT_ACTIONS.SIGN_UP,
-    getGAUserType(user)
-  );
   return {
     type: REGISTER_SUCCESS,
     user,
@@ -231,9 +186,7 @@ export function resetPassword(email) {
         dispatch(resetPasswordSuccess(response.data));
       })
       .catch(function (error) {
-        dispatch(
-          resetPasswordFailed(error.response ? error.response.data : null)
-        );
+        dispatch(resetPasswordFailed(error.response.data));
       });
   };
 }
@@ -246,7 +199,6 @@ export function resetPasswordStart(email) {
 }
 
 export function resetPasswordSuccess(response) {
-  sendGAEvent(GA_EVENT_CATEGORIES.AUTH, GA_EVENT_ACTIONS.RECOVER_PASSWORD);
   return {
     type: RESET_PASSWORD_SUCCESS,
     response,
@@ -269,11 +221,7 @@ export function resetPasswordConfirm(credentials) {
         dispatch(resetPasswordConfirmSuccess(response.data));
       })
       .catch(function (error) {
-        dispatch(
-          resetPasswordConfirmFailed(
-            error.response ? error.response.data : null
-          )
-        );
+        dispatch(resetPasswordConfirmFailed(error.response.data));
       });
   };
 }
@@ -286,10 +234,6 @@ export function resetPasswordConfirmStart(credentials) {
 }
 
 export function resetPasswordConfirmSuccess(response) {
-  sendGAEvent(
-    GA_EVENT_CATEGORIES.AUTH,
-    GA_EVENT_ACTIONS.RECOVER_PASSWORD_CONFIRM
-  );
   return {
     type: RESET_PASSWORD_CONFIRM_SUCCESS,
     response,
@@ -297,6 +241,10 @@ export function resetPasswordConfirmSuccess(response) {
 }
 
 export function resetPasswordConfirmFailed(error) {
+  console.log({
+    type: RESET_PASSWORD_CONFIRM_FAILED,
+    error,
+  });
   return {
     type: RESET_PASSWORD_CONFIRM_FAILED,
     error,

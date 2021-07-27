@@ -8,8 +8,8 @@ import styled from "styled-components";
 /* -------------------- Internel Dependencies (Utilites) -------------------- */
 
 /* ------------------------- Component dependencies ------------------------- */
-import TextArea from "../../../components/core/TextArea";
-import Input from "../../../components/core/Input";
+import TextArea from "../../../components/TextArea";
+import Input from "../../../components/Input";
 
 const CompanyProfile = () => {
   return (
