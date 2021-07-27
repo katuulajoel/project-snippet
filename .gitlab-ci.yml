@@ -70,6 +70,7 @@ deploy:
     - pip install ansible
   only:
     - main
+    - develop
   script:
     - current_dir=$(pwd)
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/tunga.io/tunga-platform-provision.git
