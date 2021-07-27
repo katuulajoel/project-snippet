@@ -1,5 +1,13 @@
 {
   "testRegex": "(/__tests__/.*|(\\.|/*.)(spec|test))\\.js?$",
+  "globals": {
+    "__PRODUCTION__": true,
+    "__DEV__": true,
+    "__CLIENT__": true,
+    "__SERVER__": true,
+    "__BACKEND_ROOT_URL__": true,
+    "__PRERELEASE__": true
+},
   "setupFilesAfterEnv": ["<rootDir>/jest_config/setupTests.js"],
   "collectCoverageFrom": [
     "src/**/*.js", 
@@ -22,7 +30,7 @@
   },
   "moduleNameMapper": {
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/jest_config/__mocks__/fileMock.js",
-    "\\.(css|less)$": "<rootDir>/jest_config/__mocks__/styleMock.js",
+    "\\.(css|less|scss)$": "<rootDir>/jest_config/__mocks__/styleMock.js",
     "^@/(.*)$": "<rootDir>/src/$1"
   }
 }

@@ -1,0 +1,277 @@
+@import "../../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
+@import "variables";
+@import "functions";
+@import "mixins";
+
+// <= 576px
+@include media-breakpoint-down(sm) {
+    .navbar {
+        .navbar-nav {
+            .btn.btn-nav {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
+        .input-group.input-search {
+            width: auto;
+        }
+
+        .nav-item.dropdown {
+            text-align: right;
+
+            &.show {
+                padding-bottom: 10px;
+            }
+        }
+    }
+
+    #friendly-notice {
+        padding-right: 55px;
+    }
+
+    #friendly-notice-close {
+        right: 40px;
+    }
+}
+
+// >= 0px
+@include media-breakpoint-up(xs) {
+}
+
+// >= 768px
+@include media-breakpoint-up(md) {
+    .navbar {
+        &.navbar-showcase {
+            background-color: transparent;
+            box-shadow: none;
+            margin-top: 20px;
+            padding-left: 0;
+            padding-right: 20px;
+
+            &.navbar-showcase-fixed,
+            &.navbar-showcase-always-fixed {
+                margin-top: 0;
+                background-color: $brand-color;
+            }
+
+            #navbar {
+                margin-left: 20px;
+            }
+
+            .navbar-nav {
+                &.navbar-main {
+                    li {
+                        @include padding-x(px-to-rem(10));
+
+                        &:first-child {
+                            padding-left: 0;
+                        }
+
+                        > a {
+                            color: get-color("light-grey");
+                            @include padding-y(px-to-rem(8));
+                            @include padding-x(0);
+
+                            &:hover,
+                            &.active,
+                            &:hover.active,
+                            &:focus.active,
+                            &:visited.active {
+                                color: get-color("light-grey");
+                                border-bottom: 1px solid get-color("light-grey");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .titlebar {
+        @include padding-x(px-to-rem(40));
+    }
+
+    .dashboard {
+        .card {
+            padding: 32px 30px;
+        }
+    }
+
+    .project-page {
+        .project-activity {
+            min-height: 520px;
+        }
+    }
+
+    .right-sidenav.open {
+        min-height: 520px;
+    }
+
+    .showcase {
+        /* header {
+            background-image: url("../assets/images/showcase/welcome-header.jpg");
+        } */
+
+        footer {
+            text-align: center;
+
+            .sections {
+                display: inline-block;
+                @include clearfix();
+
+                .section {
+                    @include clearfix();
+                }
+            }
+        }
+
+        .quality-page {
+            #new-quality-guide {
+                .step {
+                    margin-bottom: 0;
+
+                    .step-icon {
+                        float: left;
+                        max-width: 210px;
+                        text-align: center;
+                        margin-right: 20px;
+                    }
+
+                    .step-body {
+                        float: left;
+                        max-width: 480px;
+                    }
+
+                    &:nth-of-type(even) {
+                        .step-icon {
+                            float: right;
+                            margin-right: 0;
+                            margin-left: 20px;
+                        }
+
+                        .step-body {
+                            float: right;
+                        }
+                    }
+                }
+
+                .dot-connector {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+// >= 992px
+@include media-breakpoint-up(lg) {
+    .navbar {
+        &.navbar-showcase {
+            padding-right: 40px;
+
+            #navbar {
+                margin-left: 40px;
+            }
+
+            .navbar-nav {
+                a {
+                    font-size: px-to-rem(16);
+                }
+
+                &.navbar-main {
+                    li {
+                        @include padding-x(px-to-rem(20));
+                    }
+                }
+            }
+        }
+    }
+
+    .titlebar {
+        left: 220px;
+    }
+
+    .main-content {
+        margin-left: px-to-rem(220);
+    }
+
+    .dashboard {
+        .card {
+            height: 270px;
+
+            .card-content {
+                max-height: 163px;
+                overflow-y: auto;
+            }
+        }
+    }
+
+    .project-page {
+        .project-activity {
+            float: left;
+            width: 72.82%; // 600/824
+            max-width: 810px;
+        }
+    }
+
+    .right-sidenav {
+        &.open {
+            width: 24.76%; // 204/824
+            max-width: 336px;
+        }
+        float: right;
+    }
+
+    .showcase {
+
+        footer {
+            .sections {
+                display: inline-block;
+                @include clearfix();
+
+                .section {
+                    float: left;
+                    width: 270px;
+                    @include clearfix();
+
+                    &:first-child {
+                        margin-right: 86px;
+                    }
+
+                    &:last-child {
+                        width: auto;
+                        max-width: 270px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// >= 1200px
+@include media-breakpoint-up(xl) {
+    .dashboard {
+        .card {
+            padding: 32px 40px;
+        }
+    }
+
+    .right-sidenav.open {
+        width: 28.45%; // 330/1160
+        max-width: 336px;
+        padding: 24px;
+    }
+
+    .showcase {
+        header {
+            &.no-bg {
+                background: transparent none;
+
+                video {
+                    display: block;
+                }
+            }
+        }
+    }
+}

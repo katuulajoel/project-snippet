@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App.js Snapshot test for App component 1`] = `
+exports[`Auth layout test Snapshot test for Login component 1`] = `
 <div
   className="boot-logo"
 >

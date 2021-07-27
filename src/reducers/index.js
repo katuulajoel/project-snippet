@@ -1,9 +1,6 @@
 import { combineReducers } from "redux";
+import AuthReducers from "./AuthReducers";
 
-function app(state = null) {
-  return state;
-}
-
-const appReducer = combineReducers({ app });
+const appReducer = combineReducers({ Auth: AuthReducers });
 
 export default appReducer;
