@@ -85,10 +85,10 @@ const Login = (props) => {
                   type="email"
                   className="form-control"
                   name="username"
+                  id="email"
                   value={username || ""}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="Enter email address or username"
-                  required
                 />
               </div>
               <div className="form-group">
@@ -101,17 +101,18 @@ const Login = (props) => {
                 </label>
                 <Input
                   label=""
+                  id="password"
                   type="password"
                   className="form-control"
-                  name="password"
                   value={password || ""}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter password"
-                  required
                 />
               </div>
               <div className="text-center">
-                <Button type="submit">Login</Button>
+                <Button id="login-button" type="submit">
+                  Login
+                </Button>
               </div>
             </form>
           </div>
