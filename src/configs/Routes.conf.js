@@ -1,6 +1,5 @@
 import { lazy } from "react";
 import CreateLayout from "../layouts/CreateLayout";
-import ReportCreateLayout from "../layouts/ReportCreateLayout";
 import Account from "../pages/Dashboard/settings/Account";
 import CompanyDetails from "../pages/Dashboard/settings/CompanyDetails";
 import CompanyProfile from "../pages/Dashboard/settings/CompanyProfile";
@@ -66,12 +65,6 @@ export const childRoutes = [
     component: CreateLayout,
     exact: true,
     name: "projects",
-  },
-  {
-    path: "/projects/reports",
-    component: ReportCreateLayout,
-    exact: true,
-    name: "payments",
   },
   {
     path: "/settings/account",

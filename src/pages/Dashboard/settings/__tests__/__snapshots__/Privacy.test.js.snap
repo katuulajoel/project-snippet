@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout test Snapshot test for Login component 1`] = `
+<div>
+  <h2>
+    Privacy
+  </h2>
+</div>
+`;

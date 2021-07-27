@@ -1,0 +1,307 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout test Snapshot test for Login component 1`] = `
+<div
+  className="sc-gtsrHT liNnTL account-settings"
+>
+  <form>
+    <div
+      className="header"
+    >
+      Add admin email address for invoices
+    </div>
+    <label
+      className=""
+    >
+      Email Address
+      <span
+        className="label-style"
+      >
+        *
+      </span>
+    </label>
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-12"
+      >
+        <div
+          className="form-group"
+        >
+          <input
+            className="form-control  "
+            data-testid="input-field"
+            onChange={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col"
+      >
+        <button
+          className="btn btn-primary save  "
+          form={null}
+          type="submit"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+  <form
+    className="update-password-form"
+  >
+    <div
+      className="header"
+    >
+      Change Password
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className=""
+          >
+            Current Password
+            <span
+              className="label-style"
+            >
+              *
+            </span>
+          </label>
+          <div
+            className="input-group  password2 "
+          >
+            <input
+              className="form-control form-control "
+              data-testid="input-field"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              placeholder="Enter your password"
+              required={true}
+              type="password"
+              value=""
+            />
+            <span
+              className="input-group-prepend"
+            >
+              <span
+                className="input-group-text"
+              >
+                <button
+                  className="btn btn-icon sc-bdnxRM gIqEUJ  "
+                  form={null}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="tg-ic-outline-remove-red-eye tunga-ic-sz-md "
+                  />
+                </button>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className=""
+          >
+            New Password
+            <span
+              className="label-style"
+            >
+              *
+            </span>
+          </label>
+          <div
+            className="input-group  password2 "
+          >
+            <input
+              className="form-control form-control "
+              data-testid="input-field"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              placeholder="Enter new password"
+              required={true}
+              type="password"
+              value=""
+            />
+            <span
+              className="input-group-prepend"
+            >
+              <span
+                className="input-group-text"
+              >
+                <button
+                  className="btn btn-icon sc-bdnxRM gIqEUJ  "
+                  form={null}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="tg-ic-outline-remove-red-eye tunga-ic-sz-md "
+                  />
+                </button>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <button
+          className="btn btn-primary save  "
+          form={null}
+          type="submit"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+  <form>
+    <div
+      className="header"
+    >
+      Change Email Address
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-6"
+      >
+        <label
+          className=""
+        >
+          New Email Address
+          <span
+            className="label-style"
+          >
+            *
+          </span>
+        </label>
+        <div
+          className="form-group"
+        >
+          <input
+            className="form-control  "
+            data-testid="input-field"
+            onChange={[Function]}
+            placeholder="Enter new email address"
+            required={true}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-md-6"
+      >
+        <label
+          className=""
+        >
+          Password
+          <span
+            className="label-style"
+          >
+            *
+          </span>
+        </label>
+        <div
+          className="form-group"
+        >
+          <div
+            className="input-group  password2 "
+          >
+            <input
+              className="form-control form-control "
+              data-testid="input-field"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              placeholder="Enter your password"
+              required={true}
+              type="password"
+              value=""
+            />
+            <span
+              className="input-group-prepend"
+            >
+              <span
+                className="input-group-text"
+              >
+                <button
+                  className="btn btn-icon sc-bdnxRM gIqEUJ  "
+                  form={null}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="tg-ic-outline-remove-red-eye tunga-ic-sz-md "
+                  />
+                </button>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <button
+          className="btn btn-primary save  "
+          form={null}
+          type="submit"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+  <form>
+    <div
+      className="header"
+    >
+      Deactivate account
+    </div>
+    <div>
+      <button
+        className="btn btn-primary save  "
+        form={null}
+        type="submit"
+      >
+         
+        Deactivate my account
+      </button>
+    </div>
+  </form>
+</div>
+`;

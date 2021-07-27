@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useEffect, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { childRoutes } from "./configs/Routes.conf";
 import BootLogo from "./components/core/BootLogo";

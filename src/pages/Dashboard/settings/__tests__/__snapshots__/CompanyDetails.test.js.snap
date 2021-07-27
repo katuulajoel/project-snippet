@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout test Snapshot test for Login component 1`] = `
+<div
+  className="sc-bdnxRM haiVzK"
+>
+  <div
+    className="header"
+  >
+    Address
+  </div>
+  <form>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-6"
+      >
+        <div
+          className="form-group"
+        >
+          <label>
+            Street
+            <span
+              className="label-style"
+            >
+              *
+            </span>
+          </label>
+          <input
+            className="form-control  "
+            data-testid="input-field"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-sm-3"
+      >
+        <div
+          className="form-group"
+        >
+          <label>
+            Number/Plot
+            <span
+              className="label-style"
+            >
+              *
+            </span>
+          </label>
+          <input
+            className="form-control  "
+            data-testid="input-field"
+            onChange={[Function]}
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-sm-3"
+      >
+        <div
+          className="form-group"
+        >
+          <label>
+            Zip Code
+            <span
+              className="label-style"
+            >
+              *
+            </span>
+          </label>
+          <input
+            className="form-control  "
+            data-testid="input-field"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-6"
+      >
+        <div
+          className="form-group"
+        >
+          <label>
+            City
+            <span
+              className="label-style"
+            >
+              *
+            </span>
+          </label>
+          <input
+            className="form-control  "
+            data-testid="input-field"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-sm-6"
+      >
+        <div
+          className="country-selector form-group"
+        >
+          <label>
+            Country
+            <span
+              className="label-style"
+            >
+              *
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="form-group"
+        >
+          <label>
+            VAT Number
+          </label>
+          <input
+            className="form-control  "
+            data-testid="input-field"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="form-group"
+        >
+          <label>
+            Company Registration Number (Optional)
+          </label>
+          <input
+            className="form-control  "
+            data-testid="input-field"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-12 save-container"
+    >
+      <button
+        className="btn btn-primary float-right save  "
+        form={null}
+        type="save"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
+`;

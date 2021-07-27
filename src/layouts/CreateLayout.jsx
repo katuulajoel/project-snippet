@@ -32,7 +32,7 @@ const CreateLayout = () => {
           <div className="nav-content">
             <span className="layout-close">
               <Link to="/dashboard">
-                <Icon name="x-circle" size="sm" />
+                <Icon name="x-circle" />
                 Close
               </Link>
             </span>
