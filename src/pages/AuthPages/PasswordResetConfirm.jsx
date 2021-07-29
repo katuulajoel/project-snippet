@@ -1,43 +1,32 @@
 import React, { useRef, useEffect, useState } from "react";
-import querystring from "querystring";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import Error from "../../components/Error";
 import Button from "../../components/Button";
-import Input from "../../components/core/input/index";
+import Input from "../../components/Input";
 import Success from "../../components/Success";
 import FieldError from "../../components/FieldError";
 import PropTypes from "prop-types";
 import AuthLayout, {
   AuthStylingLayoutChildren,
 } from "../../layouts/AuthLayout";
-import usePrevious from "../../hooks/usePrevious";
 import { resetPasswordConfirm } from "../../actions/AuthActions";
 
 const PasswordResetConfirm = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const Auth = useSelector(({ Auth }) => Auth);
   const { newUser, uid, token } = props;
-  const prevAuthReset = usePrevious(Auth.isReset);
   const formEl = useRef(null);
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
 
-  const queryParams = querystring.parse(
-    (window.location.search || "").replace("?", "")
-  );
-
   useEffect(() => {
-    if (Auth.isReset && !prevAuthReset) {
-      formEl.current.reset();
-
-      let next = "/dashboard";
-      if (queryParams && queryParams.next) {
-        next = queryParams.next;
-      }
-      window.location.href = next;
+    if (Auth.isAuthenticated) {
+      history.push("/dashboard");
     }
-  });
+  }, []);
 
   const onConfirm = (e) => {
     e.preventDefault();
@@ -54,8 +43,6 @@ const PasswordResetConfirm = (props) => {
     );
   };
 
-  const isNew = newUser || queryParams.new_user;
-
   return (
     <AuthLayout>
       <AuthStylingLayoutChildren>
@@ -65,14 +52,14 @@ const PasswordResetConfirm = (props) => {
           role="form"
           ref={formEl}
         >
-          <h3>{isNew ? "Create" : "Reset"} Password</h3>
+          <h3>{newUser ? "Create" : "Reset"} Password</h3>
           {Auth.error.reset_confirm && Auth.error.reset_confirm.token && (
             <Error message="Invalid token" />
           )}
 
           {Auth.isReset && (
             <Success
-              message={`Password ${isNew ? "set" : "changed"} successfully`}
+              message={`Password ${newUser ? "set" : "changed"} successfully`}
             />
           )}
 
@@ -84,13 +71,14 @@ const PasswordResetConfirm = (props) => {
           )}
           <div className="form-group mt-4">
             <label className="Auth_label">
-              {isNew ? null : "New "}Password
+              {newUser ? null : "New "}Password
               <span>*</span>
             </label>
             <div>
               <Input
                 label=""
                 type="password"
+                id="password1"
                 className="form-control"
                 required
                 placeholder="Enter password"
@@ -107,13 +95,14 @@ const PasswordResetConfirm = (props) => {
           )}
           <div className="form-group">
             <label className="Auth_label">
-              Confirm {isNew ? null : "New "}Password
+              Confirm {newUser ? null : "New "}Password
               <span>*</span>
             </label>
             <div>
               <Input
                 label=""
                 type="password"
+                id="password2"
                 className="form-control"
                 required
                 placeholder="Enter password again"
@@ -129,7 +118,7 @@ const PasswordResetConfirm = (props) => {
               className="btn-block"
               disabled={Auth.isResetting}
             >
-              {isNew ? "Set" : "Change"} Password
+              {newUser ? "Set" : "Change"} Password
             </Button>
           </div>
         </form>
@@ -140,11 +129,13 @@ const PasswordResetConfirm = (props) => {
 
 PasswordResetConfirm.defaultProps = {
   newUser: false,
+  uid: "",
+  token: "",
 };
 
 PasswordResetConfirm.propTypes = {
-  uid: PropTypes.string.required,
-  token: PropTypes.string.required,
+  uid: PropTypes.string,
+  token: PropTypes.string,
   newUser: PropTypes.bool,
   Auth: PropTypes.any,
 };

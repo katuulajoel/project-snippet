@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import Login from "../Login";
+import ForgotPassword from "../ForgotPassword";
 import { mount } from "enzyme/build";
 import { MemoryRouter } from "react-router-dom";
 import { render } from "@testing-library/react";
@@ -38,7 +38,7 @@ describe("Login snapshot test", () => {
       .create(
         <BrowserRouter>
           <Provider store={mockAppStore()}>
-            <Login />
+            <ForgotPassword />
           </Provider>
         </BrowserRouter>
       )
@@ -46,48 +46,40 @@ describe("Login snapshot test", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should call authenticate function", async () => {
+  it("should call resetPassword function", async () => {
     const store = mockAppStore();
     const wrapper = mount(
       <BrowserRouter>
         <Provider store={store}>
-          <Login />
+          <ForgotPassword />
         </Provider>
       </BrowserRouter>
     );
-
-    wrapper
-      .find("#password")
-      .at(1)
-      .simulate("change", { target: { value: "password123" } });
 
     wrapper
       .find("#email")
       .at(1)
       .simulate("change", { target: { value: "test@gmail.com" } });
 
-    wrapper.find("#login-button").simulate("submit");
+    wrapper.find("button[type='submit']").simulate("submit");
 
     const expectedActions = [
-      {
-        type: "LOGIN_START",
-        credentials: { username: "test@gmail.com", password: "password123" },
-      },
+      { type: "RESET_PASSWORD_START", email: { email: "test@gmail.com" } },
     ];
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it("should not call authenticate function if no username and password", async () => {
+  it("should not call resetPassword function if no email", async () => {
     const store = mockAppStore();
     const wrapper = mount(
       <BrowserRouter>
         <Provider store={store}>
-          <Login />
+          <ForgotPassword />
         </Provider>
       </BrowserRouter>
     );
 
-    wrapper.find("#login-button").simulate("submit");
+    wrapper.find("button[type='submit']").simulate("submit");
     expect(store.getActions()).toEqual([]);
   });
 
@@ -99,7 +91,7 @@ describe("Login snapshot test", () => {
             Auth: { isAuthenticating: {}, isAuthenticated: true },
           })}
         >
-          <Login />
+          <ForgotPassword />
         </Provider>
       </MemoryRouter>
     );

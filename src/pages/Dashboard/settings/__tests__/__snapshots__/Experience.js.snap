@@ -1,9 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Auth layout test Snapshot test for Login component 1`] = `
-<div>
-  <h2>
-    Experience
-  </h2>
+<div
+  className="sc-bdnxRM ctgUqA"
+>
+  <form>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Role
+          </label>
+          <input
+            className="form-control"
+            placeholder="Role"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Your Bio
+          </label>
+          <textarea
+            className="form-control "
+            defaultValue=""
+            placeholder="Enter your bio"
+          />
+        </div>
+      </div>
+    </div>
+    <hr />
+    <h4>
+      Skillset
+    </h4>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="experience__form form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Skillsets
+          </label>
+          <div>
+            <button
+              className="btn btn-default   "
+              form={null}
+              type="button"
+            >
+              <i
+                className="tg-ic-round-add  "
+              />
+               Add new
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="experience__form form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Work Experience
+          </label>
+          <div>
+            <button
+              className="btn btn-default   "
+              form={null}
+              type="button"
+            >
+              <i
+                className="tg-ic-round-add  "
+              />
+               Add new
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="card work-education-wrapper"
+        >
+          <div
+            className="card-body"
+          >
+            <h3>
+              work-position, work-company
+              <span>
+                <i
+                  className="tg-ic-circle-edit-outline  "
+                />
+                <i
+                  className="tg-ic-delete-outline  "
+                />
+              </span>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-12 save-container"
+    >
+      <button
+        className="btn btn-primary float-right save"
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+  </form>
 </div>
 `;

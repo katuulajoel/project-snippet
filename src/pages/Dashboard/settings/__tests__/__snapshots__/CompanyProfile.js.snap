@@ -2,7 +2,7 @@
 
 exports[`Auth layout test Snapshot test for Login component 1`] = `
 <div
-  className="sc-bdnxRM gPevzM"
+  className="sc-dlnjwi dYfUsp"
 >
   <form
     onSubmit={[Function]}
@@ -26,14 +26,24 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               *
             </span>
           </label>
-          <input
-            className="form-control  "
-            data-testid="input-field"
-            onChange={[Function]}
-            placeholder="Company name"
-            type="text"
-            value=""
-          />
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <label
+              htmlFor="Label"
+            >
+              Label
+            </label>
+            <input
+              className="form-control"
+              data-testid=""
+              id=""
+              placeholder="Company name"
+              type="input"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -51,14 +61,24 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
           >
             Website
           </label>
-          <input
-            className="form-control  "
-            data-testid="input-field"
-            onChange={[Function]}
-            placeholder="https://example.com"
-            type="text"
-            value=""
-          />
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <label
+              htmlFor="Label"
+            >
+              Label
+            </label>
+            <input
+              className="form-control"
+              data-testid=""
+              id=""
+              placeholder="https://example.com"
+              type="input"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>

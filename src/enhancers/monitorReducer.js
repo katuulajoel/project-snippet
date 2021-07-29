@@ -7,9 +7,10 @@ const monitorReducerEnhancer =
       const start = performance.now();
       const newState = reducer(state, action);
       const end = performance.now();
+      // eslint-disable-next-line no-unused-vars
       const diff = round(end - start);
 
-      console.log("reducer process time:", diff);
+      // console.log("reducer process time:", diff);
 
       return newState;
     };

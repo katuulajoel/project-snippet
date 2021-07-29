@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 
-import { Cta, Input } from "../../components/Form/Form";
+import { Cta } from "../../components/Form/Form";
+import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Error from "../../components/Error";
 import { resetPassword } from "../../actions/AuthActions";
@@ -70,6 +71,7 @@ const ForgotPassword = (props) => {
                 <Input
                   label=""
                   type="email"
+                  id="email"
                   className="form-control"
                   name="email"
                   value={email || ""}

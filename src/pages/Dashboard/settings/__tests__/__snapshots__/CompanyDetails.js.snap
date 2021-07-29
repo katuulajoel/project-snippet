@@ -2,7 +2,7 @@
 
 exports[`Auth layout test Snapshot test for Login component 1`] = `
 <div
-  className="sc-bdnxRM haiVzK"
+  className="sc-dlnjwi lebFlj"
 >
   <div
     className="header"
@@ -27,13 +27,24 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               *
             </span>
           </label>
-          <input
-            className="form-control  "
-            data-testid="input-field"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <label
+              htmlFor="Label"
+            >
+              Label
+            </label>
+            <input
+              className="form-control"
+              data-testid=""
+              id=""
+              placeholder="input"
+              type="input"
+              value=""
+            />
+          </div>
         </div>
       </div>
       <div
@@ -50,13 +61,24 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               *
             </span>
           </label>
-          <input
-            className="form-control  "
-            data-testid="input-field"
-            onChange={[Function]}
-            type="number"
-            value=""
-          />
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <label
+              htmlFor="Label"
+            >
+              Label
+            </label>
+            <input
+              className="form-control"
+              data-testid=""
+              id=""
+              placeholder="input"
+              type="number"
+              value=""
+            />
+          </div>
         </div>
       </div>
       <div
@@ -73,13 +95,24 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               *
             </span>
           </label>
-          <input
-            className="form-control  "
-            data-testid="input-field"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <label
+              htmlFor="Label"
+            >
+              Label
+            </label>
+            <input
+              className="form-control"
+              data-testid=""
+              id=""
+              placeholder="input"
+              type="input"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -100,13 +133,24 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               *
             </span>
           </label>
-          <input
-            className="form-control  "
-            data-testid="input-field"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <label
+              htmlFor="Label"
+            >
+              Label
+            </label>
+            <input
+              className="form-control"
+              data-testid=""
+              id=""
+              placeholder="input"
+              type="input"
+              value=""
+            />
+          </div>
         </div>
       </div>
       <div
@@ -138,13 +182,24 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
           <label>
             VAT Number
           </label>
-          <input
-            className="form-control  "
-            data-testid="input-field"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <label
+              htmlFor="Label"
+            >
+              Label
+            </label>
+            <input
+              className="form-control"
+              data-testid=""
+              id=""
+              placeholder="input"
+              type="input"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -160,13 +215,24 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
           <label>
             Company Registration Number (Optional)
           </label>
-          <input
-            className="form-control  "
-            data-testid="input-field"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <label
+              htmlFor="Label"
+            >
+              Label
+            </label>
+            <input
+              className="form-control"
+              data-testid=""
+              id=""
+              placeholder="input"
+              type="input"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
