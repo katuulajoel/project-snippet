@@ -59,8 +59,6 @@ describe("Sidebar component test", () => {
 
     const signout = wrapper.getByTestId("signout");
     fireEvent.click(signout);
-    const actions = store.getActions();
-    console.log(signout, actions);
     expect(useDispatch).toHaveBeenCalledTimes(1);
   });
 });

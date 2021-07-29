@@ -241,10 +241,6 @@ export function resetPasswordConfirmSuccess(response) {
 }
 
 export function resetPasswordConfirmFailed(error) {
-  console.log({
-    type: RESET_PASSWORD_CONFIRM_FAILED,
-    error,
-  });
   return {
     type: RESET_PASSWORD_CONFIRM_FAILED,
     error,
