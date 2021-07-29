@@ -9,12 +9,6 @@ const __props = {
   className: PropTypes.string,
 };
 
-export const Input = ({ ...props }) => (
-  <input {...props} className={`${props.className || ""} Form__input`} />
-);
-
-Input.propTypes = { className: PropTypes.string };
-
 export const Group = ({ children, ...props }) => (
   <div {...props} className={`${props.className || ""} Form__group`}>
     {children}

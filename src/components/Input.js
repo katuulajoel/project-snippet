@@ -20,7 +20,7 @@ const propTypes = {
 /* --------------------------- Input defaultProps --------------------------- */
 const defaultProps = {
   type: "input",
-  id: 0,
+  id: "",
   placeholder: "input",
   errorMessage: "This field is required",
   hasStrip: null,

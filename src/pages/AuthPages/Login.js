@@ -13,7 +13,7 @@ import AuthLayout, {
   AuthStylingLayoutChildren,
 } from "../../layouts/AuthLayout";
 
-import Input from "../../components/core/input/index";
+import Input from "../../components/Input";
 import querystring from "querystring";
 import { Cta } from "../../components/Form/Form";
 const Login = (props) => {
@@ -31,6 +31,7 @@ const Login = (props) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+
     if (!username || !password) {
       return;
     }

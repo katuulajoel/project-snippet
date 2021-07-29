@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import Login from "../Login";
+import PasswordResetConfirm from "../PasswordResetConfirm";
 import { mount } from "enzyme/build";
 import { MemoryRouter } from "react-router-dom";
 import { render } from "@testing-library/react";
@@ -24,6 +24,7 @@ const mockAppState = {
   Auth: {
     user: { uid: 123, email: "test@gmail.com" },
     isAuthenticating: {},
+    error: {},
   },
 };
 
@@ -33,12 +34,12 @@ const mockAppStore = (state) => {
 };
 
 describe("Login snapshot test", () => {
-  it("Snapshot test for Login component", () => {
+  it("Should match snapshot test", () => {
     const tree = renderer
       .create(
         <BrowserRouter>
           <Provider store={mockAppStore()}>
-            <Login />
+            <PasswordResetConfirm />
           </Provider>
         </BrowserRouter>
       )
@@ -51,43 +52,48 @@ describe("Login snapshot test", () => {
     const wrapper = mount(
       <BrowserRouter>
         <Provider store={store}>
-          <Login />
+          <PasswordResetConfirm />
         </Provider>
       </BrowserRouter>
     );
 
     wrapper
-      .find("#password")
+      .find("#password1")
       .at(1)
       .simulate("change", { target: { value: "password123" } });
 
     wrapper
-      .find("#email")
+      .find("#password2")
       .at(1)
-      .simulate("change", { target: { value: "test@gmail.com" } });
+      .simulate("change", { target: { value: "password123" } });
 
-    wrapper.find("#login-button").simulate("submit");
+    wrapper.find("button[type='submit']").simulate("submit");
 
     const expectedActions = [
       {
-        type: "LOGIN_START",
-        credentials: { username: "test@gmail.com", password: "password123" },
+        type: "RESET_PASSWORD_CONFIRM_START",
+        credentials: {
+          uid: "",
+          token: "",
+          password1: "password123",
+          password2: "password123",
+        },
       },
     ];
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it("should not call authenticate function if no username and password", async () => {
+  it("should not call resetPasswordConfirm function if no username and password", async () => {
     const store = mockAppStore();
     const wrapper = mount(
       <BrowserRouter>
         <Provider store={store}>
-          <Login />
+          <PasswordResetConfirm />
         </Provider>
       </BrowserRouter>
     );
 
-    wrapper.find("#login-button").simulate("submit");
+    wrapper.find("button[type='submit']").simulate("submit");
     expect(store.getActions()).toEqual([]);
   });
 
@@ -96,10 +102,10 @@ describe("Login snapshot test", () => {
       <MemoryRouter>
         <Provider
           store={mockAppStore({
-            Auth: { isAuthenticating: {}, isAuthenticated: true },
+            Auth: { isAuthenticating: {}, isAuthenticated: true, error: {} },
           })}
         >
-          <Login />
+          <PasswordResetConfirm />
         </Provider>
       </MemoryRouter>
     );
