@@ -1,4 +1,12 @@
 import { lazy } from "react";
+import CreateLayout from "../layouts/CreateLayout";
+import Account from "../pages/Dashboard/settings/Account";
+import CompanyDetails from "../pages/Dashboard/settings/CompanyDetails";
+import CompanyProfile from "../pages/Dashboard/settings/CompanyProfile";
+import Experience from "../pages/Dashboard/settings/Experience";
+import Payment from "../pages/Dashboard/settings/Payment";
+import Privacy from "../pages/Dashboard/settings/Privacy";
+import Profile from "../pages/Dashboard/settings/Profile";
 import Routing from "./Routing";
 
 const Login = lazy(() => import("../pages/AuthPages/Login"));
@@ -7,7 +15,7 @@ const ForgotPassword = lazy(() => import("../pages/AuthPages/ForgotPassword"));
 const PasswordConfirm = lazy(() =>
   import("../pages/AuthPages/PasswordResetConfirm")
 );
-const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
+const Dashboard = lazy(() => import("../pages/Dashboard/dashboard/Dashboard"));
 
 export const childRoutes = [
   {
@@ -45,6 +53,54 @@ export const childRoutes = [
     component: Dashboard,
     exact: false,
     name: "dashboard",
+  },
+  {
+    path: "/projects",
+    component: CreateLayout,
+    exact: true,
+    name: "projects",
+  },
+  {
+    path: "/settings/account",
+    component: Account,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/company-details",
+    component: CompanyDetails,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/company-profile",
+    component: CompanyProfile,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/experience",
+    component: Experience,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/payment",
+    component: Payment,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/privacy",
+    component: Privacy,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/settings/profile",
+    component: Profile,
+    exact: false,
+    name: "settings",
   },
 ];
 

@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout test Snapshot test for Login component 1`] = `
+<div
+  className="sc-dlnjwi dYfUsp"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Company Name
+            <span
+              className="label-style"
+            >
+              *
+            </span>
+          </label>
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <label
+              htmlFor="Label"
+            >
+              Label
+            </label>
+            <input
+              className="form-control"
+              data-testid=""
+              id=""
+              placeholder="Company name"
+              type="input"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Website
+          </label>
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <label
+              htmlFor="Label"
+            >
+              Label
+            </label>
+            <input
+              className="form-control"
+              data-testid=""
+              id=""
+              placeholder="https://example.com"
+              type="input"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Company Bio
+          </label>
+          <textarea
+            className="form-control "
+            placeholder="Enter bio here"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Technologies used by my company
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-12 save-container"
+    >
+      <button
+        className="btn btn-primary float-right save"
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
+`;
