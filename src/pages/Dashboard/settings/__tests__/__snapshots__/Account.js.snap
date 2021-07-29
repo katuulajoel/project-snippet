@@ -43,7 +43,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
         className="col"
       >
         <button
-          className="btn btn-primary save  "
+          className="btn btn-default save  "
           form={null}
           type="submit"
         >
@@ -173,7 +173,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
         className="col"
       >
         <button
-          className="btn btn-primary save  "
+          className="btn btn-default save  "
           form={null}
           type="submit"
         >
@@ -277,7 +277,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
         className="col"
       >
         <button
-          className="btn btn-primary save  "
+          className="btn btn-default save  "
           form={null}
           type="submit"
         >
@@ -294,7 +294,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
     </div>
     <div>
       <button
-        className="btn btn-primary save  "
+        className="btn btn-default save  "
         form={null}
         type="submit"
       >

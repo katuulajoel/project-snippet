@@ -8,42 +8,42 @@ import Icon from "./Icon";
 import { addEventListeners, BUTTON_EVENTS } from "./utils/events";
 import { filterButtonProps } from "./utils/forms";
 
-const IconButton = props => {
-    return (
-        <StyledButton
-            type={props.type || "button"}
-            className={props.className || ""}
-            variant={props.variant}
-            {...filterButtonProps(props)}
-            {...addEventListeners(BUTTON_EVENTS, props)}
-            data-tip={props["data-tip"]}
-        >
-            <Icon name={props.name} size={props.size} />
-        </StyledButton>
-    );
+const IconButton = (props) => {
+  return (
+    <StyledButton
+      type={props.type || "button"}
+      className={props.className || ""}
+      variant={props.variant}
+      {...filterButtonProps(props)}
+      {...addEventListeners(BUTTON_EVENTS, props)}
+      data-tip={props["data-tip"]}
+    >
+      <Icon name={props.name} size={props.size} />
+    </StyledButton>
+  );
 };
 
 IconButton.defaultProps = {
-    variant: "icon",
-    type: "button",
-    size: "md"
+  variant: "icon",
+  type: "button",
+  size: "md",
 };
 
 IconButton.propTypes = {
-    variant: PropTypes.string,
-    type: PropTypes.string,
-    className: PropTypes.string,
-    name: PropTypes.string,
-    size: PropTypes.string,
-    "data-tip": PropTypes.string
+  variant: PropTypes.string,
+  type: PropTypes.string,
+  className: PropTypes.string,
+  name: PropTypes.string,
+  size: PropTypes.string,
+  "data-tip": PropTypes.string,
 };
 
 const StyledButton = styled(Button)`
-    &.red-icon {
-        i {
-            color: #da3451 !important;
-        }
+  &.red-icon {
+    i {
+      color: #da3451 !important;
     }
+  }
 `;
 
 export default IconButton;

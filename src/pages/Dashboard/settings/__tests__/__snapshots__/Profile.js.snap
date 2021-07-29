@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout test Snapshot test for Login component 1`] = `
+<div
+  className="sc-bdnxRM DBVeB"
+>
+  <form
+    method="post"
+  >
+    <div
+      className="header"
+    >
+      Biodata
+    </div>
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+        }
+      }
+    >
+      <div
+        className="profile-pic"
+      />
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              First Name
+              <span
+                className="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              className="form-control form-control "
+              data-testid="input-field"
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="col"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Last Name
+              <span
+                className="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              className="form-control  "
+              data-testid="input-field"
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="col-12"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Phone Number
+              <span
+                className="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              className="form-control  "
+              data-testid="input-field"
+              onChange={[Function]}
+              placeholder="Enter phone number"
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div
+      className="header"
+    >
+      Address
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-6"
+      >
+        <label
+          className="control-label"
+        >
+          Street
+          <span
+            className="label-style"
+          >
+            *
+          </span>
+        </label>
+        <input
+          className="form-control  "
+          data-testid="input-field"
+          onChange={[Function]}
+          placeholder="Bello, Yaba"
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="col-md-3"
+      >
+        <label
+          className="control-label"
+        >
+          Number / Plot
+          <span
+            className="label-style"
+          >
+            *
+          </span>
+        </label>
+        <input
+          className="form-control  "
+          data-testid="input-field"
+          onChange={[Function]}
+          placeholder="2"
+          required={true}
+          type="number"
+          value=""
+        />
+      </div>
+      <div
+        className="col-md-3"
+      >
+        <label
+          className="control-label"
+        >
+          Zip Code
+          <span
+            className="label-style"
+          >
+            *
+          </span>
+        </label>
+        <input
+          className="form-control  "
+          data-testid="input-field"
+          onChange={[Function]}
+          placeholder="10001"
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="col-md-6"
+      >
+        <label
+          className="control-label"
+        >
+          City
+          <span
+            className="label-style"
+          >
+            *
+          </span>
+        </label>
+        <input
+          className="form-control  "
+          data-testid="input-field"
+          onChange={[Function]}
+          placeholder="Enter City"
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="col-md-6"
+      >
+        <label
+          className="control-label"
+        >
+          Country
+          <span
+            className="label-style"
+          >
+            *
+          </span>
+        </label>
+      </div>
+    </div>
+    <hr />
+    <div
+      className="header"
+    >
+      Identification
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-12"
+      />
+    </div>
+    <div
+      className="col-12 save-container"
+    >
+      <button
+        className="btn btn-primary float-right save"
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
+`;

@@ -101,8 +101,7 @@ export const childRoutes = [
     component: Profile,
     exact: false,
     name: "settings",
-  }
+  },
 ];
-
 
 export default childRoutes;

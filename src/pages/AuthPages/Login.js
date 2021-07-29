@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 import { authenticate } from "../../actions/AuthActions";
 import Progress from "../../components/Progress";
-import Error from "../../../components/Error";
+import Error from "../../components/Error";
 import MetaTags from "../../components/MetaTags";
 
 import Button from "../../components/Button";
@@ -13,7 +13,7 @@ import AuthLayout, {
   AuthStylingLayoutChildren,
 } from "../../layouts/AuthLayout";
 
-import Input from "../../../components/input/index";
+import Input from "../../components/core/input/index";
 import querystring from "querystring";
 import { Cta } from "../../components/Form/Form";
 const Login = (props) => {

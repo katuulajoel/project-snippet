@@ -18,7 +18,7 @@ import AuthLayout, {
   AuthStylingLayoutChildren,
 } from "../../layouts/AuthLayout";
 
-import Input from "../../../components/input/index";
+import Input from "../../components/core/input/index";
 import connect from "../../connectors/AuthConnector";
 
 class SignUp extends React.Component {

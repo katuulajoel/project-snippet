@@ -49,10 +49,6 @@ const CreateLayout = () => {
 };
 
 const Wrapper = withTheme(styled.div`
-  .tg-ic-x-circle:before {
-    content: "\\e91d";
-  }
-
   height: 100vh;
   display: block;
   width: 100%;

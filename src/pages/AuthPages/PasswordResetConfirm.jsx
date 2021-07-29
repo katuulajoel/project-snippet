@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Error from "../../components/Error";
 import Button from "../../components/Button";
-import Input from "../../../components/input/index";
+import Input from "../../components/core/input/index";
 import Success from "../../components/Success";
 import FieldError from "../../components/FieldError";
 import PropTypes from "prop-types";
