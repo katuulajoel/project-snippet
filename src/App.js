@@ -4,6 +4,7 @@
 import React, { useEffect, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 /* -------------------------- Internel Dependencies ------------------------- */
 import { childRoutes } from "./configs/Routes.conf";
@@ -12,11 +13,20 @@ import { verify } from "./actions/AuthActions";
 
 const App = (props) => {
   const dispatch = useDispatch();
-  const { user, isVerifying } = useSelector(({ Auth }) => Auth);
+  const { user, isVerifying, isAuthenticated } = useSelector(
+    ({ Auth }) => Auth
+  );
+  const history = useHistory();
 
   useEffect(() => {
     if (!isVerifying && !user.id) dispatch(verify());
   }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/dashboard");
+    }
+  }, [isVerifying]);
 
   const rootProps = props;
   return (

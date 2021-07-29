@@ -5,8 +5,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 /* -------------------------- Internel Dependencies ------------------------- */
-/* import NavBar from "../components/NavBar";
-import SideBar from "../components/SideBar"; */
+import NavBar from "../components/NavBar";
+import SideBar from "../components/SideBar";
 
 window.isAgreementOpen = false;
 class DashboardLayout extends React.Component {
@@ -23,6 +23,7 @@ class DashboardLayout extends React.Component {
     history: PropTypes.object,
     rightNavStatus: PropTypes.object,
     AuthActions: PropTypes.object,
+    children: PropTypes.any,
   };
 
   constructor(props) {
@@ -35,8 +36,9 @@ class DashboardLayout extends React.Component {
   render() {
     return (
       <>
-        {/* <NavBar />
-        <SideBar /> */}
+        <NavBar />
+        <SideBar />
+        {this.props.children}
       </>
     );
   }
