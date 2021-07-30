@@ -9,22 +9,5 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
     href="/dashboard"
     onClick={[Function]}
   />
-  <button
-    aria-controls="navbar"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-    className="navbar-toggler"
-    data-target="#navbar"
-    data-toggle="collapse"
-    type="button"
-  >
-    <i
-      className="tg-ic-bars"
-    />
-  </button>
-  <div
-    className="collapse navbar-collapse"
-    id="navbar"
-  />
 </nav>
 `;
