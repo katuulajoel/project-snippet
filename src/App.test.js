@@ -1,12 +1,22 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { BrowserRouter } from "react-router-dom";
+import { render } from "@testing-library/react";
+import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import App from "./App";
 import configureStore from "redux-mock-store";
 
 const middlewares = [thunk];
+
+const mockHistoryPush = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useHistory: () => ({
+    push: mockHistoryPush,
+  }),
+}));
 
 const mockAppState = {
   Auth: {
@@ -15,9 +25,9 @@ const mockAppState = {
   },
 };
 
-const mockAppStore = () => {
+const mockAppStore = (state) => {
   const mockStore = configureStore(middlewares);
-  return mockStore(mockAppState);
+  return mockStore(state || mockAppState);
 };
 
 describe("App.js", () => {
@@ -32,5 +42,20 @@ describe("App.js", () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it("should redirect if authenticated", async () => {
+    render(
+      <MemoryRouter>
+        <Provider
+          store={mockAppStore({
+            Auth: { isAuthenticating: {}, isAuthenticated: true },
+          })}
+        >
+          <App />
+        </Provider>
+      </MemoryRouter>
+    );
+    expect(mockHistoryPush).toHaveBeenCalledWith("/dashboard");
   });
 });

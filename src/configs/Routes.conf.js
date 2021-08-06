@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { lazy } from "react";
 import CreateLayout from "../layouts/CreateLayout";
 import Account from "../pages/Dashboard/settings/Account";
@@ -7,6 +8,9 @@ import Experience from "../pages/Dashboard/settings/Experience";
 import Payment from "../pages/Dashboard/settings/Payment";
 import Privacy from "../pages/Dashboard/settings/Privacy";
 import Profile from "../pages/Dashboard/settings/Profile";
+import Payments from "../pages/Dashboard/payments";
+import Projects from "../pages/Dashboard/projects";
+import Settings from "../pages/Dashboard/settings";
 import Routing from "./Routing";
 
 const Login = lazy(() => import("../pages/AuthPages/Login"));
@@ -56,11 +60,29 @@ export const childRoutes = [
   },
   {
     path: "/projects",
+    component: Projects,
+    exact: false,
+    name: "projects",
+  },
+  /* {
+    path: "/projects/new",
     component: CreateLayout,
     exact: true,
     name: "projects",
+  }, */
+  {
+    path: "/payments",
+    component: Payments,
+    exact: false,
+    name: "payments",
   },
   {
+    path: "/settings",
+    component: Settings,
+    exact: false,
+    name: "settings",
+  },
+  /* {
     path: "/settings/account",
     component: Account,
     exact: false,
@@ -101,7 +123,7 @@ export const childRoutes = [
     component: Profile,
     exact: false,
     name: "settings",
-  },
+  }, */
 ];
 
 export default childRoutes;

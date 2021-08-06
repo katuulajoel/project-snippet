@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import store from "../../store";
 
 export function getAuth() {
@@ -6,18 +7,6 @@ export function getAuth() {
 
 export function getUser() {
   return getAuth().user;
-}
-
-export function isAuthenticated() {
-  return getAuth().isAuthenticated;
-}
-
-export function isEmailVisitor() {
-  return getAuth().isEmailVisitor;
-}
-
-export function getUserType() {
-  return getUser().type || null;
 }
 
 export function isAdmin() {

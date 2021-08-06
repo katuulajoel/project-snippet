@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Cta } from "../../components/Form/Form";
 import Input from "../../components/Input";
@@ -15,9 +15,10 @@ import AuthLayout, {
   AuthStylingLayoutChildren,
 } from "../../layouts/AuthLayout";
 
-const ForgotPassword = (props) => {
-  const { resetPassword, auth } = props;
+const ForgotPassword = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const auth = useSelector(({ Auth }) => Auth);
   const [email, setEmail] = useState("");
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const ForgotPassword = (props) => {
       return;
     }
 
-    resetPassword({ email });
+    dispatch(resetPassword({ email }));
   };
 
   return (
@@ -103,19 +104,7 @@ const ForgotPassword = (props) => {
 };
 
 ForgotPassword.propTypes = {
-  resetPassword: PropTypes.func,
-  auth: PropTypes.object,
   isAuthenticated: PropTypes.func,
 };
 
-const mapStateToProps = (store) => ({
-  auth: store.Auth,
-});
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    resetPassword: (credentials) => dispatch(resetPassword(credentials)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ForgotPassword);
+export default ForgotPassword;

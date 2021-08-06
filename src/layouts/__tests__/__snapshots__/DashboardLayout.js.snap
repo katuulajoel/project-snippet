@@ -3,13 +3,15 @@
 exports[`Auth layout test Snapshot test for Login component 1`] = `
 Array [
   <nav
-    className="sc-bdnxRM cZRQnq navbar fixed-top navbar-dashboard "
+    className="sc-bdnxRM jKTFas navbar fixed-top navbar-dashboard "
   >
     <a
       className="navbar-brand"
       href="/dashboard"
       onClick={[Function]}
-    />
+    >
+      Dashboard
+    </a>
   </nav>,
   <div
     className="sc-gtsrHT bGpMSf sidebar"

@@ -14,7 +14,6 @@ import AuthLayout, {
 } from "../../layouts/AuthLayout";
 
 import Input from "../../components/Input";
-import connect from "../../connectors/AuthConnector";
 const SignUp = (props) => {
   const { confirmationKey, invitationKey } = props;
 
@@ -236,4 +235,4 @@ SignUp.propTypes = {
   invitationKey: PropTypes.string,
 };
 
-export default connect(SignUp);
+export default SignUp;

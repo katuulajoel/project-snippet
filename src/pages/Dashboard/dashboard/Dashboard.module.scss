@@ -1,0 +1,256 @@
+// Variables: includes Bootstrap overrides
+.card {
+    padding: 24px;
+    margin-bottom: 20px;
+    border-width: 0;
+    border-radius: 0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.11);
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+.subText {
+    font-size: 14px;
+    line-height: 17px;
+    color: #8f9bb3;
+}
+
+.list_layout_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.title-text {
+    font-size: 18px;
+    line-height: 22px;
+    color: #151A30;
+}
+
+.header {
+    @extend .list_layout_row;
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+
+        h3,
+        span {
+            display: flex;
+            margin: 0;
+        }
+
+        h3 {
+            font-weight: bold;
+            @extend .title-text;
+        }
+    }
+
+    .date {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 0 0 auto;
+
+        span {
+            font-weight: 500;
+            text-align: right;
+        }
+    }
+}
+
+.title {
+    @extend .title-text;
+    font-weight: 600;
+}
+
+.content {
+    max-height: calc(var(--dashboardCardHeight) - var(--cardTitleHeight));
+    overflow-y: auto;
+    margin-right: -12px;
+    padding-right: 12px;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 4px;
+        padding-left: 20px;
+        margin-left: -10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: rgba(143, 155, 179, 0.15);
+        box-shadow: 0px 4px 8px rgba(62, 72, 87, 0.04);
+        border-radius: 4px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #8f9bb3;
+        /* ShaOne */
+
+        box-shadow: 0px 4px 8px rgba(62, 72, 87, 0.04);
+        border-radius: 4px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #6b7588;
+        cursor: pointer;
+    }
+
+    /* TODO: use mixin to use the same list layout */
+    .list_layout {
+        @extend .list_layout_row;
+        padding: 24px 0;
+        border-bottom: 1px solid #edf1f7;
+
+        .icon-avatar {
+            background: rgba(6, 46, 100, 0.1);
+            width: 48px;
+            height: 48px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            flex-shrink: 0;
+
+            span {
+                margin: auto 0 auto 0;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 22px;
+                color: #151A30;
+            }
+        }
+
+        .detail {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 10px;
+
+            p,
+            a,
+            span {
+                margin: 0;
+            }
+
+            p,
+            a {
+                margin-bottom: 4px;
+                font-size: 16px;
+                line-height: 22px;
+            }
+
+            p {
+                color: #3E4857;
+                a {
+                    font-weight: bold;
+                    color: #151A30;
+                }
+            }
+
+            > span {
+                display: flex;
+                i {
+                    margin-right: 10px;
+                }
+                i:nth-child(2) {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+
+    .notification {
+        @extend .list_layout;
+
+        .close {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 0 0 auto;
+
+            .btn-icon {
+                color: #8f9bb3;
+                i {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .overdue {
+        text-align: center;
+        font-weight: 600;
+        color: #eb5757;
+        font-size: 14px;
+        line-height: 22px;
+        background: rgba(235, 87, 87, 0.1);
+        border-radius: 50px;
+        padding: 2px 12px;
+        margin-top: 10px !important;
+        width: fit-content;
+    }
+    /* TODO: you need to compose this bit */
+    .active_project {
+        @extend .list_layout;
+
+        .detail {
+            a {
+                font-weight: 600;
+                color: #151A30;
+            }
+        }
+
+        .group-avatars-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 0 0 0 auto;
+
+            .overlapped_group_avatar {
+                margin-left: -15px;
+            }
+
+            .initial_group_avatar {
+                margin-left: 0px;
+            }
+
+            .more-avatars {
+                background: #8f9bb3;
+                width: 42px;
+                height: 42px;
+                border: 2px solid #fff;
+                border-radius: 50%;
+                position: relative;
+                display: inline-block;
+                margin-right: 5px;
+                margin-left: -15px;
+                display: flex;
+                justify-content: center;
+
+                span {
+                    margin: auto 0 auto 0;
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 22px;
+                    color: #fff;
+                }
+            }
+
+            .group_avatars-cta {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                color: #8f9bb3;
+                
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
