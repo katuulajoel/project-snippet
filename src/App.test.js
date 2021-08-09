@@ -49,7 +49,7 @@ describe("App.js", () => {
       <MemoryRouter>
         <Provider
           store={mockAppStore({
-            Auth: { isAuthenticating: {}, isAuthenticated: true },
+            Auth: { user: { id: 123456 }, isMakingRequest: {} },
           })}
         >
           <App />

@@ -1,54 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Tooltip } from "reactstrap";
 import randomstring from "./utils/stringUtils";
 
-export default class OverlayTooltip extends React.Component {
-  static defaultProps = {
-    placement: "auto",
+const OverlayTooltip = (props) => {
+  const [open, setOpen] = useState(false);
+  // eslint-disable-next-line react/prop-types
+  const { overlay, children, className, placement, tooltipId } = props;
+
+  const toggle = () => {
+    setOpen(!open);
   };
 
-  static propTypes = {
-    overlay: PropTypes.any,
-    className: PropTypes.string,
-    placement: PropTypes.string,
-  };
+  return (
+    <>
+      <div id={tooltipId} className={`d-inline-block ${className || ""}`}>
+        {children}
+      </div>
 
-  constructor(props) {
-    super(props);
+      <Tooltip
+        isOpen={open}
+        target={tooltipId}
+        toggle={toggle}
+        placement={placement}
+      >
+        {overlay}
+      </Tooltip>
+    </>
+  );
+};
 
-    this.state = {
-      open: false,
-      id: randomstring.generate(),
-    };
-  }
+OverlayTooltip.defaultProps = {
+  placement: "auto",
+  tooltipId: randomstring.generate(),
+};
 
-  toggle = () => {
-    this.setState({
-      open: !this.state.open,
-    });
-  };
+OverlayTooltip.propTypes = {
+  overlay: PropTypes.any,
+  className: PropTypes.string,
+  placement: PropTypes.string,
+  tooltipId: PropTypes.string,
+};
 
-  render() {
-    // eslint-disable-next-line react/prop-types
-    const { overlay, children, className, placement } = this.props,
-      elementId = `tooltip-${this.state.id}`;
-
-    return (
-      <>
-        <div id={elementId} className={`d-inline-block ${className || ""}`}>
-          {children}
-        </div>
-
-        <Tooltip
-          isOpen={this.state.open}
-          target={elementId}
-          toggle={this.toggle}
-          placement={placement}
-        >
-          {overlay}
-        </Tooltip>
-      </>
-    );
-  }
-}
+export default OverlayTooltip;

@@ -9,7 +9,7 @@ import Button from "../../components/Button";
 import Error from "../../components/Error";
 import { resetPassword } from "../../actions/AuthActions";
 import Progress from "../../components/Progress";
-import Success from "../../components/Success";
+// import Success from "../../components/Success";
 import MetaTags from "../../components/MetaTags";
 import AuthLayout, {
   AuthStylingLayoutChildren,
@@ -18,11 +18,11 @@ import AuthLayout, {
 const ForgotPassword = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const auth = useSelector(({ Auth }) => Auth);
+  const { user, isMakingRequest, errors } = useSelector(({ Auth }) => Auth);
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    if (auth.isAuthenticated) {
+    if (user?.id) {
       history.push("/dashboard");
     }
   }, []);
@@ -49,21 +49,19 @@ const ForgotPassword = () => {
         <AuthStylingLayoutChildren>
           <div>
             <form onSubmit={onFormSubmit} name="login" role="form">
-              {auth.errors &&
-                auth.errors.auth &&
-                auth.errors.auth.non_field_errors && (
-                  <Error
-                    message={
-                      auth.errors.auth.non_field_errors.join(", ") ||
-                      "Sorry, we couldn't reset your password. Please try again."
-                    }
-                  />
-                )}
-              <h3 className="AuthForm__title">Reset Password</h3>
-              {auth.isResetting && <Progress />}
-              {auth.isReset && (
-                <Success message="Instructions for resetting your password have been sent to your email if we find an account associated with it." />
+              {errors && errors.resetPassword && (
+                <Error
+                  message={
+                    errors.resetPassword ||
+                    "Sorry, we couldn't reset your password. Please try again."
+                  }
+                />
               )}
+              <h3 className="AuthForm__title">Reset Password</h3>
+              {isMakingRequest.resetPassword && <Progress />}
+              {/* {auth.isReset && (
+                <Success message="Instructions for resetting your password have been sent to your email if we find an account associated with it." />
+              )} */}
               <div className="form-group">
                 <label className="Auth_label">
                   Email address
@@ -91,7 +89,7 @@ const ForgotPassword = () => {
                 Have an account? Login
               </Cta>
               <div className="text-center">
-                <Button type="submit" disabled={auth.isResetting}>
+                <Button type="submit" disabled={isMakingRequest.resetPassword}>
                   Reset Password
                 </Button>
               </div>

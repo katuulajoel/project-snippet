@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "reactstrap";
 import moment from "moment";
 import Avatar from "../../../components/Avatar";
-import DashboardLayout from "../../../layouts/DashboardLayout/DashboardLayout";
+import DashboardLayout from "../../../layouts/DashboardLayout";
 import css from "./Dashboard.module.scss";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
 import { isAdminOrPM, isDev, isPM } from "../../../components/utils/auth";

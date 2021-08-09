@@ -23,8 +23,8 @@ jest.mock("react-router-dom", () => ({
 const mockAppState = {
   Auth: {
     user: { uid: 123, email: "test@gmail.com" },
-    isAuthenticating: {},
-    error: {},
+    isMakingRequest: {},
+    errors: {},
   },
 };
 
@@ -102,7 +102,7 @@ describe("Login snapshot test", () => {
       <MemoryRouter>
         <Provider
           store={mockAppStore({
-            Auth: { isAuthenticating: {}, isAuthenticated: true, error: {} },
+            Auth: { user: { id: 123456 }, isMakingRequest: {}, errors: {} },
           })}
         >
           <PasswordResetConfirm />

@@ -19,13 +19,13 @@ import { Cta } from "../../components/Form/Form";
 const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const auth = useSelector(({ Auth }) => Auth);
+  const { user, isMakingRequest, errors } = useSelector(({ Auth }) => Auth);
 
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
 
   useEffect(() => {
-    if (auth.isAuthenticated) {
+    if (user?.id) {
       history.push("/dashboard");
     }
   }, []);
@@ -57,16 +57,14 @@ const Login = () => {
           <h3>Login</h3>
           <div>
             <form onSubmit={onFormSubmit}>
-              {auth.errors &&
-                auth.errors.login &&
-                auth.errors.login.non_field_errors && (
-                  <Error
-                    message={
-                      auth.errors.login.non_field_errors.join(", ") ||
-                      "Sorry, we couldn't log you in. Please try again."
-                    }
-                  />
-                )}
+              {errors && errors.login && errors.login.non_field_errors && (
+                <Error
+                  message={
+                    errors.login.non_field_errors.join(", ") ||
+                    "Sorry, we couldn't log you in. Please try again."
+                  }
+                />
+              )}
               <div className="AuthForm__title">
                 {queryParams && queryParams.deactivated ? (
                   <div className="alert alert-danger">
@@ -76,7 +74,7 @@ const Login = () => {
                   "Welcome back"
                 )}
               </div>
-              {auth.isMakingRequest.login && <Progress />}
+              {isMakingRequest.login && <Progress />}
               <div className="form-group">
                 <label className="Auth_label">
                   Email address or Username

@@ -139,11 +139,10 @@ Array [
           className="undefined undefined"
         >
           <div
-            className="avatar-wrapper "
-            id="avatarbzo81HYP"
+            className="sc-bdnxRM cjPjlm"
           >
             <div
-              className="avatar avatar-dash avatar-icon"
+              className="avatar-dash avatar-icon"
               style={Object {}}
             >
               <i
@@ -163,7 +162,7 @@ Array [
           </div>
           <div>
             <span>
-              Fri, 6th Aug 2021
+              Mon, 9th Aug 2021
             </span>
           </div>
         </div>
