@@ -60,9 +60,7 @@ const scrollbar = css`
 `;
 
 const borderBottom = css`
-   {
-    border-bottom: 1px solid #062e64;
-  }
+  border-bottom: 1px solid #062e64;
 `;
 
 export const mixins = {

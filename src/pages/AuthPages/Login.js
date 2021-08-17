@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import { authenticate } from "../../actions/AuthActions";
 import Progress from "../../components/Progress";
@@ -16,15 +16,16 @@ import AuthLayout, {
 import Input from "../../components/Input";
 import querystring from "querystring";
 import { Cta } from "../../components/Form/Form";
-const Login = (props) => {
-  const { authenticate, auth } = props;
+const Login = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { user, isMakingRequest, errors } = useSelector(({ Auth }) => Auth);
 
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
 
   useEffect(() => {
-    if (auth.isAuthenticated) {
+    if (user?.id) {
       history.push("/dashboard");
     }
   }, []);
@@ -35,7 +36,7 @@ const Login = (props) => {
     if (!username || !password) {
       return;
     }
-    authenticate({ username, password });
+    dispatch(authenticate({ username, password }));
   };
 
   const queryParams = querystring.parse(
@@ -56,16 +57,14 @@ const Login = (props) => {
           <h3>Login</h3>
           <div>
             <form onSubmit={onFormSubmit}>
-              {auth.errors &&
-                auth.errors.auth &&
-                auth.errors.auth.non_field_errors && (
-                  <Error
-                    message={
-                      auth.errors.auth.non_field_errors.join(", ") ||
-                      "Sorry, we couldn't log you in. Please try again."
-                    }
-                  />
-                )}
+              {errors && errors.login && errors.login.non_field_errors && (
+                <Error
+                  message={
+                    errors.login.non_field_errors.join(", ") ||
+                    "Sorry, we couldn't log you in. Please try again."
+                  }
+                />
+              )}
               <div className="AuthForm__title">
                 {queryParams && queryParams.deactivated ? (
                   <div className="alert alert-danger">
@@ -75,7 +74,7 @@ const Login = (props) => {
                   "Welcome back"
                 )}
               </div>
-              {auth.isAuthenticating.isLoginStart && <Progress />}
+              {isMakingRequest.login && <Progress />}
               <div className="form-group">
                 <label className="Auth_label">
                   Email address or Username
@@ -124,21 +123,9 @@ const Login = (props) => {
 };
 
 Login.propTypes = {
-  auth: PropTypes.object,
   isAuthenticated: PropTypes.func,
-  authenticate: PropTypes.func,
   confirmationKey: PropTypes.string,
   invitationKey: PropTypes.string,
 };
 
-const mapStateToProps = (store) => ({
-  auth: store.Auth,
-});
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    authenticate: (credentials) => dispatch(authenticate(credentials)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

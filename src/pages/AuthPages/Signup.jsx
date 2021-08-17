@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import Progress from "../../components/Progress";
 import Error from "../../components/Error";
-import Success from "../../components/Success";
+// import Success from "../../components/Success";
 import FieldError from "../../components/FieldError";
 import MetaTags from "../../components/MetaTags";
 
@@ -14,14 +14,14 @@ import AuthLayout, {
 } from "../../layouts/AuthLayout";
 
 import Input from "../../components/Input";
-import connect from "../../connectors/AuthConnector";
 const SignUp = (props) => {
   const { confirmationKey, invitationKey } = props;
 
   const formEl = useRef(null);
 
-  const Auth = useSelector(({ Auth }) => Auth);
-  const { application, invitation } = Auth;
+  const { application, invitation, isMakingRequest, errors } = useSelector(
+    ({ Auth }) => Auth
+  );
 
   let is_applying_developer = !!confirmationKey,
     is_invited_user = !!invitationKey,
@@ -41,16 +41,16 @@ const SignUp = (props) => {
           <h3>Create account</h3>
           <p className="intro__text">Enter your details to get started</p>
           <div className="auth-form-wrapper p-0 m-0 w-100">
-            {(Auth.isRetrievingApplication && is_applying_developer) ||
-            (Auth.isRetrievingInvitation && is_invited_user) ? (
+            {(isMakingRequest.retrieveApplication && is_applying_developer) ||
+            (isMakingRequest.retrieveInvitation && is_invited_user) ? (
               <Progress />
             ) : is_pre_approved && !application.id && !invitation.id ? (
               <Error message="Oops! We couldn't find your invite." />
             ) : (
               <form onSubmit={() => {}} name="signup" role="form" ref={formEl}>
-                {Auth.isRegistering && <Progress />}
+                {isMakingRequest.register && <Progress />}
 
-                {Auth.isRegistered && (
+                {/* {Auth.isRegistered && (
                   <Success
                     message={`Your account has been created successfully. ${
                       is_pre_approved
@@ -58,11 +58,11 @@ const SignUp = (props) => {
                         : "Please check your e-mail for further instructions."
                     }`}
                   />
-                )}
-                {Auth.error.register && (
+                )} */}
+                {errors.register && (
                   <Error
                     message={
-                      Auth.error.register.non_field_errors ||
+                      errors.register.non_field_errors ||
                       "Please correct the errors below"
                     }
                   />
@@ -93,8 +93,8 @@ const SignUp = (props) => {
                     </div>
                   </div>
                 )}
-                {Auth.error.register && Auth.error.register.username ? (
-                  <FieldError message={Auth.error.register.username} />
+                {errors.register && errors.register.username ? (
+                  <FieldError message={errors.register.username} />
                 ) : null}
                 <div className="form-group">
                   <label className="Auth_label">
@@ -114,8 +114,8 @@ const SignUp = (props) => {
                 {is_applying_developer ? null : (
                   <div className="row">
                     <div className="col-md-6">
-                      {Auth.error.register && Auth.error.register.first_name ? (
-                        <FieldError message={Auth.error.register.first_name} />
+                      {errors.register && errors.register.first_name ? (
+                        <FieldError message={errors.register.first_name} />
                       ) : null}
                       <div className="form-group">
                         <label className="Auth_label">
@@ -134,8 +134,8 @@ const SignUp = (props) => {
                       </div>
                     </div>
                     <div className="col-md-6">
-                      {Auth.error.register && Auth.error.register.last_name ? (
-                        <FieldError message={Auth.error.register.last_name} />
+                      {errors.register && errors.register.last_name ? (
+                        <FieldError message={errors.register.last_name} />
                       ) : null}
                       <div className="form-group">
                         <label className="Auth_label">
@@ -154,8 +154,8 @@ const SignUp = (props) => {
                       </div>
                     </div>
 
-                    {Auth.error.register && Auth.error.register.email ? (
-                      <FieldError message={Auth.error.register.email} />
+                    {errors.register && errors.register.email ? (
+                      <FieldError message={errors.register.email} />
                     ) : null}
                     {is_invited_user ? null : (
                       <div className="form-group">
@@ -176,8 +176,8 @@ const SignUp = (props) => {
                   </div>
                 )}
 
-                {Auth.error.register && Auth.error.register.password1 ? (
-                  <FieldError message={Auth.error.register.password1} />
+                {errors.register && errors.register.password1 ? (
+                  <FieldError message={errors.register.password1} />
                 ) : null}
                 <div className="form-group">
                   <label className="Auth_label">
@@ -194,8 +194,8 @@ const SignUp = (props) => {
                   />
                 </div>
 
-                {Auth.error.register && Auth.error.register.password2 ? (
-                  <FieldError message={Auth.error.register.password2} />
+                {errors.register && errors.register.password2 ? (
+                  <FieldError message={errors.register.password2} />
                 ) : null}
                 <div className="form-group">
                   <label className="Auth_label">
@@ -213,7 +213,7 @@ const SignUp = (props) => {
                 </div>
 
                 <div className="text-center">
-                  <Button type="submit" disabled={Auth.isRegistering}>
+                  <Button type="submit" disabled={isMakingRequest.register}>
                     Sign up
                   </Button>
                 </div>
@@ -236,4 +236,4 @@ SignUp.propTypes = {
   invitationKey: PropTypes.string,
 };
 
-export default connect(SignUp);
+export default SignUp;

@@ -3,33 +3,21 @@
 exports[`Dashboard test Should match snapshot test 1`] = `
 Array [
   <nav
-    className="sc-bdnxRM cZRQnq navbar fixed-top navbar-dashboard "
+    className="sc-gtsrHT qtFtx navbar fixed-top navbar-dashboard "
   >
     <a
       className="navbar-brand"
       href="/dashboard"
       onClick={[Function]}
-    />
-    <button
-      aria-controls="navbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      className="navbar-toggler"
-      data-target="#navbar"
-      data-toggle="collapse"
-      type="button"
     >
-      <i
-        className="tg-ic-bars"
-      />
-    </button>
-    <div
-      className="collapse navbar-collapse"
-      id="navbar"
-    />
+      Dashboard
+    </a>
   </nav>,
   <div
-    className="sc-gtsrHT bGpMSf sidebar"
+    className="sc-jSFjdj gwJgzw"
+  />,
+  <div
+    className="sc-dlnjwi fYoGVD sidebar"
     id="sidebar"
   >
     <img
@@ -141,9 +129,125 @@ Array [
       }
     }
   >
-    <h3>
-      Dashboard
-    </h3>
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-8"
+      >
+        <div
+          className="undefined undefined"
+        >
+          <div
+            className="sc-bdnxRM cjPjlm"
+          >
+            <div
+              className="avatar-dash avatar-icon"
+              style={Object {}}
+            >
+              <i
+                className="tg-ic-avatar  "
+              />
+            </div>
+          </div>
+          <div>
+            <h3>
+              Hi 
+              Katuula Joel
+               👋🏻
+            </h3>
+            <span>
+              Welcome Back.
+            </span>
+          </div>
+          <div>
+            <span>
+              Mon, 9th Aug 2021
+            </span>
+          </div>
+        </div>
+        <div>
+          <h3>
+            Recent Notifications
+            <small
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                  "float": "right",
+                }
+              }
+            >
+              Clear all
+            </small>
+          </h3>
+          <div
+            className="undefined undefined"
+          >
+            <img
+              alt="empty file image"
+              src={Object {}}
+            />
+            <p>
+              No recent notifications
+            </p>
+          </div>
+        </div>
+        <div>
+          <h3>
+            Your 
+            Active Projects
+          </h3>
+          <div
+            className="undefined undefined"
+          >
+            <img
+              alt="empty file image"
+              src={Object {}}
+            />
+            <p>
+              No active projects
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-sm-4"
+      >
+        <div>
+          <h3>
+            Latest reports
+          </h3>
+          <div
+            className="undefined undefined"
+          >
+            <img
+              alt="empty file image"
+              src={Object {}}
+            />
+            <p>
+              No upcoming updates
+            </p>
+          </div>
+        </div>
+        <div>
+          <h3>
+            Upcoming Payments
+          </h3>
+          <div
+            className="undefined undefined"
+          >
+            <img
+              alt="empty file image"
+              src={Object {}}
+            />
+            <p>
+              No upcoming payments
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
 ]
 `;

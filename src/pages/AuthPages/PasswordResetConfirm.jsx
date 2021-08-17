@@ -16,14 +16,14 @@ import { resetPasswordConfirm } from "../../actions/AuthActions";
 const PasswordResetConfirm = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const Auth = useSelector(({ Auth }) => Auth);
+  const { user, isMakingRequest, errors } = useSelector(({ Auth }) => Auth);
   const { newUser, uid, token } = props;
   const formEl = useRef(null);
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
 
   useEffect(() => {
-    if (Auth.isAuthenticated) {
+    if (user?.id) {
       history.push("/dashboard");
     }
   }, []);
@@ -53,19 +53,18 @@ const PasswordResetConfirm = (props) => {
           ref={formEl}
         >
           <h3>{newUser ? "Create" : "Reset"} Password</h3>
-          {Auth.error.reset_confirm && Auth.error.reset_confirm.token && (
+          {errors.confirmPassword && errors.confirmPassword.token && (
             <Error message="Invalid token" />
           )}
 
-          {Auth.isReset && (
+          {isMakingRequest.confirmPassword && (
             <Success
               message={`Password ${newUser ? "set" : "changed"} successfully`}
             />
           )}
 
-          {Auth.error.reset_confirm &&
-          Auth.error.reset_confirm.new_password1 ? (
-            <FieldError message={Auth.error.reset_confirm.new_password1} />
+          {errors.confirmPassword && errors.confirmPassword.new_password1 ? (
+            <FieldError message={errors.confirmPassword.new_password1} />
           ) : (
             ""
           )}
@@ -87,9 +86,8 @@ const PasswordResetConfirm = (props) => {
               />
             </div>
           </div>
-          {Auth.error.reset_confirm &&
-          Auth.error.reset_confirm.new_password2 ? (
-            <FieldError message={Auth.error.reset_confirm.new_password2} />
+          {errors.confirmPassword && errors.confirmPassword.new_password2 ? (
+            <FieldError message={errors.confirmPassword.new_password2} />
           ) : (
             ""
           )}
@@ -116,7 +114,7 @@ const PasswordResetConfirm = (props) => {
             <Button
               type="submit"
               className="btn-block"
-              disabled={Auth.isResetting}
+              disabled={isMakingRequest.confirmPassword}
             >
               {newUser ? "Set" : "Change"} Password
             </Button>

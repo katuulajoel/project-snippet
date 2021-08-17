@@ -13,20 +13,26 @@ import { verify } from "./actions/AuthActions";
 
 const App = (props) => {
   const dispatch = useDispatch();
-  const { user, isVerifying, isAuthenticated } = useSelector(
-    ({ Auth }) => Auth
-  );
+  const { user, isMakingRequest } = useSelector(({ Auth }) => Auth);
   const history = useHistory();
 
   useEffect(() => {
-    if (!isVerifying && !user.id) dispatch(verify());
+    if (user?.id) {
+      history.push("/dashboard");
+    } else {
+      dispatch(verify());
+    }
   }, []);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      history.push("/dashboard");
+    if (!isMakingRequest.verify) {
+      if (user?.id) {
+        history.push("/dashboard");
+      } else {
+        history.push("/");
+      }
     }
-  }, [isVerifying]);
+  }, [isMakingRequest]);
 
   const rootProps = props;
   return (

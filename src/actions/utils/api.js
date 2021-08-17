@@ -63,3 +63,7 @@ export const PROJECT_TYPE_OTHER = "other";
 export const PROJECT_DURATION_2_WEEKS = "2w";
 export const PROJECT_DURATION_6_MONTHS = "6m";
 export const PROJECT_DURATION_PERMANENT = "permanent";
+
+export const STATUS_INITIAL = "initial";
+export const STATUS_INTERESTED = "interested";
+export const STATUS_UNINTERESTED = "uninterested";

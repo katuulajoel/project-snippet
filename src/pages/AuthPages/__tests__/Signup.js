@@ -11,8 +11,8 @@ const middlewares = [thunk];
 const mockAppState = {
   Auth: {
     user: { uid: 123, email: "test@gmail.com" },
-    isAuthenticating: {},
-    error: {},
+    isMakingRequest: {},
+    errors: {},
   },
 };
 

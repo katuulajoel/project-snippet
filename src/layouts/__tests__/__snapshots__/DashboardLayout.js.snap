@@ -3,31 +3,19 @@
 exports[`Auth layout test Snapshot test for Login component 1`] = `
 Array [
   <nav
-    className="sc-bdnxRM cZRQnq navbar fixed-top navbar-dashboard "
+    className="sc-bdnxRM jKTFas navbar fixed-top navbar-dashboard "
   >
     <a
       className="navbar-brand"
       href="/dashboard"
       onClick={[Function]}
-    />
-    <button
-      aria-controls="navbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      className="navbar-toggler"
-      data-target="#navbar"
-      data-toggle="collapse"
-      type="button"
     >
-      <i
-        className="tg-ic-bars"
-      />
-    </button>
-    <div
-      className="collapse navbar-collapse"
-      id="navbar"
-    />
+      Dashboard
+    </a>
   </nav>,
+  <div
+    className="sc-eCApnc csjOyl"
+  />,
   <div
     className="sc-gtsrHT bGpMSf sidebar"
     id="sidebar"

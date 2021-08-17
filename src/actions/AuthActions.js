@@ -10,23 +10,10 @@ import {
   ENDPOINT_RESET_PASSWORD_CONFIRM,
 } from "./utils/api";
 
-import {
-  sendGAEvent,
-  sendTwitterSignUpEvent,
-  GA_EVENT_CATEGORIES,
-  GA_EVENT_ACTIONS,
-  AUTH_METHODS,
-  getGAUserType,
-  getUserTypeTwitter,
-} from "./utils/tracking";
-
-/* import getUser from "../components/utils/auth"; */
-const getUser = "lll";
-
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILED = "LOGIN_FAILED";
-export const VERIFY_START = "VERIFY_START";
+export const VERIFY_START = "@@INIT";
 export const VERIFY_SUCCESS = "VERIFY_SUCCESS";
 export const VERIFY_FAILED = "VERIFY_FAILED";
 export const LOGOUT_START = "LOGOUT_START";
@@ -79,7 +66,7 @@ export function authFailed(error) {
 }
 
 export function verify() {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(verifyStart());
     axios
       .get(ENDPOINT_VERIFY)

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Cta } from "../../components/Form/Form";
 import Input from "../../components/Input";
@@ -9,19 +9,20 @@ import Button from "../../components/Button";
 import Error from "../../components/Error";
 import { resetPassword } from "../../actions/AuthActions";
 import Progress from "../../components/Progress";
-import Success from "../../components/Success";
+// import Success from "../../components/Success";
 import MetaTags from "../../components/MetaTags";
 import AuthLayout, {
   AuthStylingLayoutChildren,
 } from "../../layouts/AuthLayout";
 
-const ForgotPassword = (props) => {
-  const { resetPassword, auth } = props;
+const ForgotPassword = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { user, isMakingRequest, errors } = useSelector(({ Auth }) => Auth);
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    if (auth.isAuthenticated) {
+    if (user?.id) {
       history.push("/dashboard");
     }
   }, []);
@@ -32,7 +33,7 @@ const ForgotPassword = (props) => {
       return;
     }
 
-    resetPassword({ email });
+    dispatch(resetPassword({ email }));
   };
 
   return (
@@ -48,21 +49,19 @@ const ForgotPassword = (props) => {
         <AuthStylingLayoutChildren>
           <div>
             <form onSubmit={onFormSubmit} name="login" role="form">
-              {auth.errors &&
-                auth.errors.auth &&
-                auth.errors.auth.non_field_errors && (
-                  <Error
-                    message={
-                      auth.errors.auth.non_field_errors.join(", ") ||
-                      "Sorry, we couldn't reset your password. Please try again."
-                    }
-                  />
-                )}
-              <h3 className="AuthForm__title">Reset Password</h3>
-              {auth.isResetting && <Progress />}
-              {auth.isReset && (
-                <Success message="Instructions for resetting your password have been sent to your email if we find an account associated with it." />
+              {errors && errors.resetPassword && (
+                <Error
+                  message={
+                    errors.resetPassword ||
+                    "Sorry, we couldn't reset your password. Please try again."
+                  }
+                />
               )}
+              <h3 className="AuthForm__title">Reset Password</h3>
+              {isMakingRequest.resetPassword && <Progress />}
+              {/* {auth.isReset && (
+                <Success message="Instructions for resetting your password have been sent to your email if we find an account associated with it." />
+              )} */}
               <div className="form-group">
                 <label className="Auth_label">
                   Email address
@@ -90,7 +89,7 @@ const ForgotPassword = (props) => {
                 Have an account? Login
               </Cta>
               <div className="text-center">
-                <Button type="submit" disabled={auth.isResetting}>
+                <Button type="submit" disabled={isMakingRequest.resetPassword}>
                   Reset Password
                 </Button>
               </div>
@@ -103,19 +102,7 @@ const ForgotPassword = (props) => {
 };
 
 ForgotPassword.propTypes = {
-  resetPassword: PropTypes.func,
-  auth: PropTypes.object,
   isAuthenticated: PropTypes.func,
 };
 
-const mapStateToProps = (store) => ({
-  auth: store.Auth,
-});
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    resetPassword: (credentials) => dispatch(resetPassword(credentials)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ForgotPassword);
+export default ForgotPassword;
