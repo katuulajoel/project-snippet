@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Switch, Route, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 
 import Icon from "../../../components/Icon";
 import SectionNav from "../../../components/SectionNav";
@@ -17,11 +19,22 @@ import {
   INVOICE_TYPE_PURCHASE,
 } from "../../../actions/utils/api";
 
+import { getInvoiceSummary } from "../../../actions/InvoiceActions";
+
 export default function PaymentsPage() {
   let { type } = useParams();
   const [filter, setFilter] = useState(null);
   const [exportType, setexportType] = useState(null);
   const [invoiceTotals, setInvoiceTotals] = useState({});
+  const dispatch = useDispatch();
+
+  var date = new Date();
+  const { summary } = useSelector(({ Invoice }) => Invoice);
+  var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+  const [summariesRange, setSummariesRange] = useState({
+    start: `${moment(firstDay).format(moment.HTML5_FMT.DATE)}T00:00:00`,
+    end: `${moment(new Date()).format(moment.HTML5_FMT.DATE)}T23:59:59`,
+  });
 
   const performAction = (action) => {
     setInvoiceTotals(action);
@@ -29,8 +42,27 @@ export default function PaymentsPage() {
     setFilter(action.export.filter);
   };
 
+  useEffect(() => {
+    getInvoiceSummary({
+      min_date: summariesRange.start,
+      max_date: summariesRange.end,
+      type: "sale",
+    })(dispatch);
+  }, []);
+
   const exportCsv = () => {
     // downloadCsv(filter, exportType, InvoiceActions);
+  };
+
+  const numberWithCommas = (x) => {
+    if (x) {
+      return x
+        .toFixed(2)
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    } else {
+      return x ? x.toFixed(2) : "0.00";
+    }
   };
 
   return (
@@ -40,15 +72,24 @@ export default function PaymentsPage() {
           <ul>
             <li>
               <span>Total Payments</span>
-              <p>€ 0.00</p>
+              <p>€{numberWithCommas(summary.total)}</p>
             </li>
             <li>
               <span>Paid</span>
-              <p>€ 0.00</p>
+              <p>€{numberWithCommas(summary.paid)}</p>
             </li>
             <li>
               <span>Unpaid</span>
-              <p>€ 0.00</p>
+              <p>€{numberWithCommas(summary.unpaid)}</p>
+            </li>
+            <li>
+              <span>Credit Notes</span>
+              <p>
+                -€
+                {summary.credit_notes
+                  ? numberWithCommas(summary.credit_notes.total)
+                  : "0.00"}
+              </p>
             </li>
           </ul>
         </div>

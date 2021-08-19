@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
@@ -12,7 +13,6 @@ import { useDispatch } from "react-redux";
 
 /* -------------------------- Internel Dependencies ------------------------- */
 import Button from "./Button";
-import ModalHeader from "./ModalHeader";
 import store from "../store";
 
 /* const GenericModal = (props) => {

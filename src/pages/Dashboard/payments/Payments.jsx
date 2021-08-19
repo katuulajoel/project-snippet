@@ -14,16 +14,6 @@ import { useTable, usePagination } from "react-table";
 import Icon from "../../../components/Icon";
 import Progress from "../../../components/Progress";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
-/* import {
-  sumInvoices,
-  filterInvoices,
-  onGenerateInvoice,
-  onUpdateInvoice,
-  onMarkPaid,
-  onMarkArchived,
-  onDeleteInvoice,
-  getPaidInvoices,
-} from "../../utils/payments"; */
 import {
   ENDPOINT_INVOICES,
   INVOICE_TYPE_CREDIT_NOTE,
@@ -32,12 +22,9 @@ import {
 import { isAdmin, isClient, isPayAdmin } from "../../../components/utils/auth";
 
 import PaginationWrapper from "../../../components/Pagination";
-// import ModalHeader from "../projects/common/modals/Header";
 
 /* --------------------------- Styles dependencies -------------------------- */
 import { StyledButtonDropdown, StyledTable } from "./styles";
-// import MakePaymentModal from "../projects/project/payments/components/MakePaymentModal";
-// import { openConfirm, openModal } from "components/core/utils/modals";
 
 /* --------------------------- Component proptypes -------------------------- */
 const proptypes = {
@@ -138,16 +125,6 @@ const Payments = (props) => {
     });
   }, []);
 
-  /* const pay = (invoice) => {
-    openModal(<MakePaymentModal invoice={invoice} />, "Make Payment", true, {
-      className: "modal-report modal-make-payment",
-    });
-  }; */
-
-  const pay = () => {
-    return;
-  };
-
   const checkIfFinalised = () => {
     if (checked.filter((e) => e.finalized).length > 0) {
       return true;
@@ -164,25 +141,6 @@ const Payments = (props) => {
     }
   };
 
-  /* const confirmAction = (title, action, description) => {
-    openConfirm(
-      <div>{description}</div>,
-      "",
-      true,
-      { ok: "Approve", cancel: "Cancel" },
-      <ModalHeader
-        style={{ paddingBottom: "8px" }}
-        options={{ title: title }}
-      />
-    ).then(
-      () => {
-        action();
-      },
-      () => {
-        // Nothing
-      }
-    );
-  }; */
   const confirmAction = () => {
     return;
   };
