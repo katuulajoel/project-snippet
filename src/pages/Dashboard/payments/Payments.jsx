@@ -401,7 +401,7 @@ const Payments = (props) => {
                     }}
                     href="#"
                     onClick={() => {
-                      pay(invoice);
+                      // pay(invoice);
                     }}
                   >
                     Pay
