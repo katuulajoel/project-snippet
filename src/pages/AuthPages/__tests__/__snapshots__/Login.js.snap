@@ -56,11 +56,11 @@ exports[`Login snapshot test Snapshot test for Login component 1`] = `
                     className="sc-dlnjwi dsniKH"
                     data-testid="input"
                   >
-                    
                     <input
                       className="form-control"
                       data-testid=""
                       id="email"
+                      label=""
                       name="username"
                       onChange={[Function]}
                       placeholder="Enter email address or username"
@@ -96,11 +96,11 @@ exports[`Login snapshot test Snapshot test for Login component 1`] = `
                     className="sc-dlnjwi dsniKH"
                     data-testid="input"
                   >
-                    
                     <input
                       className="form-control"
                       data-testid=""
                       id="password"
+                      label=""
                       onChange={[Function]}
                       placeholder="Enter password"
                       type="password"

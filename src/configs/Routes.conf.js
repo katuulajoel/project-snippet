@@ -71,16 +71,20 @@ export const childRoutes = [
     name: "projects",
   }, */
   {
-    path: "/payments",
+    path: "/settings",
+    component: Settings,
+    exact: false,
+    name: "settings",
+  },
+  {
+    path: "/payments/:type/:status",
     component: Payments,
     exact: false,
     name: "payments",
   },
   {
-    path: "/settings",
-    component: Settings,
-    exact: false,
-    name: "settings",
+    path: "/payments",
+    redirect: "/payments/in/all",
   },
   /* {
     path: "/settings/account",

@@ -9,18 +9,12 @@ import styled from "styled-components";
 import TitleBarSwitch from "./TitleBarSwitch";
 
 /* -------------------- Internel Dependencies (Utilites) -------------------- */
-import {
-  isAdmin,
-  isAdminOrPM,
-  isClient,
-  isDev,
-  isPM,
-} from "../../components/utils/auth";
+import { isAdmin, isAdminOrPM, isClient, isDev, isPM } from "./utils/auth";
 import {
   STATUS_INITIAL,
   STATUS_INTERESTED,
   STATUS_UNINTERESTED,
-} from "../../actions/utils/api";
+} from "../actions/utils/api";
 
 /* ------------------------- Component dependencies ------------------------- */
 import TitleBarContent from "./TitleBarContent";
@@ -29,10 +23,9 @@ import TitleBarContent from "./TitleBarContent";
 const proptypes = {
   user: PropTypes.object,
   Project: PropTypes.object,
-  location: PropTypes.object,
 };
 
-const TitleBar = ({ location }) => {
+const NavLinks = () => {
   let projectsSections = [
       ["/projects/dedicated", "Dedicated Developers"],
       ["/projects/managed", "Managed Projects"],
@@ -100,16 +93,17 @@ const TitleBar = ({ location }) => {
 };
 
 const Wrapper = styled.div`
-  position: fixed;
+  /* position: fixed;
   z-index: 1031;
   top: 73px;
   left: 220px;
-  right: 0;
+  right: 0; */
+  width: 100%;
   background-color: #fff;
-  padding-left: 40px;
+  /* padding-left: 40px;
   padding-right: 40px;
-  padding-top: 5px;
-  box-shadow: 0 2px 4px 0 rgba(204, 204, 204, 0.5);
+  padding-top: 5px; */
+  /* box-shadow: 0 2px 4px 0 rgba(204, 204, 204, 0.5); */
 `;
 
 const LinkBadge = styled.span`
@@ -127,6 +121,6 @@ const LinkBadge = styled.span`
   font-weight: bold;
 `;
 
-TitleBar.propTypes = proptypes;
+NavLinks.propTypes = proptypes;
 
-export default TitleBar;
+export default NavLinks;

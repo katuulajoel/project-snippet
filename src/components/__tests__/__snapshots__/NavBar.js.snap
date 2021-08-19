@@ -1,13 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Auth layout test Snapshot test for Login component 1`] = `
+exports[`Auth layout test Snapshot test for NavBar component 1`] = `
 <nav
-  className="sc-bdnxRM jKTFas navbar fixed-top navbar-dashboard "
+  className="sc-pNWdM ixJkbw navbar "
 >
-  <a
-    className="navbar-brand"
-    href="/dashboard"
-    onClick={[Function]}
+  <div
+    className="title-bar"
+  >
+    <a
+      className="navbar-brand"
+      href="/dashboard"
+      onClick={[Function]}
+    >
+      Dashboard
+    </a>
+    <ul
+      className="navbar-nav ml-auto"
+    >
+      <li>
+        <div
+          className="sc-hKFxyN bCNRUe"
+        >
+          <div
+            className="input-group sc-eCApnc kyswBz input-search "
+          >
+            <span
+              className="input-group-prepend"
+            >
+              <span
+                className="input-group-text"
+              >
+                <i
+                  className="tg-ic-search1  "
+                />
+              </span>
+            </span>
+            <div
+              className="sc-gtsrHT jGBtBH"
+              data-testid="input"
+            >
+              <input
+                autoComplete="off"
+                className="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="search"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Search...."
+                type="input"
+                value=""
+              />
+            </div>
+            <span
+              className="input-group-prepend"
+            />
+          </div>
+          
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="sc-iCoGMd WMEpx"
   />
 </nav>
 `;

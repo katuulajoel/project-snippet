@@ -31,15 +31,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             className="sc-bdnxRM lboORq"
             data-testid="input"
           >
-            <label
-              htmlFor="Label"
-            >
-              Label
-            </label>
             <input
               className="form-control"
               data-testid=""
               id=""
+              label="Label"
               placeholder="input"
               type="input"
               value=""
@@ -65,15 +61,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             className="sc-bdnxRM lboORq"
             data-testid="input"
           >
-            <label
-              htmlFor="Label"
-            >
-              Label
-            </label>
             <input
               className="form-control"
               data-testid=""
               id=""
+              label="Label"
               placeholder="input"
               type="number"
               value=""
@@ -99,15 +91,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             className="sc-bdnxRM lboORq"
             data-testid="input"
           >
-            <label
-              htmlFor="Label"
-            >
-              Label
-            </label>
             <input
               className="form-control"
               data-testid=""
               id=""
+              label="Label"
               placeholder="input"
               type="input"
               value=""
@@ -137,15 +125,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             className="sc-bdnxRM lboORq"
             data-testid="input"
           >
-            <label
-              htmlFor="Label"
-            >
-              Label
-            </label>
             <input
               className="form-control"
               data-testid=""
               id=""
+              label="Label"
               placeholder="input"
               type="input"
               value=""
@@ -186,15 +170,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             className="sc-bdnxRM lboORq"
             data-testid="input"
           >
-            <label
-              htmlFor="Label"
-            >
-              Label
-            </label>
             <input
               className="form-control"
               data-testid=""
               id=""
+              label="Label"
               placeholder="input"
               type="input"
               value=""
@@ -219,15 +199,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             className="sc-bdnxRM lboORq"
             data-testid="input"
           >
-            <label
-              htmlFor="Label"
-            >
-              Label
-            </label>
             <input
               className="form-control"
               data-testid=""
               id=""
+              label="Label"
               placeholder="input"
               type="input"
               value=""

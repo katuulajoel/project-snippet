@@ -21,7 +21,7 @@ jest.mock("react-router-dom", () => ({
 const mockAppState = {
   Auth: {
     user: { uid: 123, email: "katuula@gmail.com" },
-    isAuthenticating: {},
+    isMakingRequest: {},
   },
 };
 

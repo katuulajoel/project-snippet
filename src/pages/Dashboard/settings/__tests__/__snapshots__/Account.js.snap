@@ -33,15 +33,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             className="sc-gtsrHT jGBtBH"
             data-testid="input"
           >
-            <label
-              htmlFor="Label"
-            >
-              Label
-            </label>
             <input
               className="form-control"
               data-testid=""
               id=""
+              label="Label"
               placeholder="input"
               required={true}
               type="input"
@@ -97,15 +93,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               className="sc-gtsrHT jGBtBH"
               data-testid="input"
             >
-              <label
-                htmlFor="Label"
-              >
-                Label
-              </label>
               <input
                 className="form-control"
                 data-testid=""
                 id=""
+                label="Label"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 placeholder="Enter your password"
@@ -176,15 +168,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               className="sc-gtsrHT jGBtBH"
               data-testid="input"
             >
-              <label
-                htmlFor="Label"
-              >
-                Label
-              </label>
               <input
                 className="form-control"
                 data-testid=""
                 id=""
+                label="Label"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 placeholder="Enter new password"
@@ -278,15 +266,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             className="sc-gtsrHT jGBtBH"
             data-testid="input"
           >
-            <label
-              htmlFor="Label"
-            >
-              Label
-            </label>
             <input
               className="form-control"
               data-testid=""
               id=""
+              label="Label"
               placeholder="Enter new email address"
               required={true}
               type="input"
@@ -318,15 +302,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               className="sc-gtsrHT jGBtBH"
               data-testid="input"
             >
-              <label
-                htmlFor="Label"
-              >
-                Label
-              </label>
               <input
                 className="form-control"
                 data-testid=""
                 id=""
+                label="Label"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 placeholder="Enter your password"

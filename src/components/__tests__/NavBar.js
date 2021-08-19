@@ -4,11 +4,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "../NavBar";
 
 describe("Auth layout test", () => {
-  it("Snapshot test for Login component", () => {
+  it("Snapshot test for NavBar component", () => {
     const tree = renderer
       .create(
         <Router>
-          <NavBar />
+          <NavBar ref={{ current: "" }} />
         </Router>
       )
       .toJSON();

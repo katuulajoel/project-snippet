@@ -57,11 +57,7 @@ describe("Authencation actions tests", () => {
 
   it("creates LOGIN_START and LOGIN_FAILED when login has failed", async () => {
     const error = {
-      response: {
-        data: {
-          non_field_errors: ["Unable to log in with provided credentials."],
-        },
-      },
+      message: "Error!",
     };
     axios.post.mockRejectedValue(error);
 
@@ -72,9 +68,7 @@ describe("Authencation actions tests", () => {
       },
       {
         type: actions.LOGIN_FAILED,
-        error: {
-          non_field_errors: ["Unable to log in with provided credentials."],
-        },
+        error: "Error!",
       },
     ];
 
@@ -112,11 +106,7 @@ describe("Authencation actions tests", () => {
 
   it("creates LOGOUT_FAILED when logout has failed", async () => {
     const error = {
-      response: {
-        data: {
-          message: "error",
-        },
-      },
+      message: "Error!",
     };
     axios.post.mockReturnValue(Promise.reject(error));
 
@@ -124,7 +114,7 @@ describe("Authencation actions tests", () => {
       { type: actions.LOGOUT_START },
       {
         type: actions.LOGOUT_FAILED,
-        error: { message: "error" },
+        error: "Error!",
       },
     ];
 
@@ -147,11 +137,7 @@ describe("Authencation actions tests", () => {
 
   it("creates REGISTER_FAILED when register has failed", async () => {
     const error = {
-      response: {
-        data: {
-          message: "error",
-        },
-      },
+      message: "Error!",
     };
     axios.post.mockReturnValue(Promise.reject(error));
 
@@ -159,7 +145,7 @@ describe("Authencation actions tests", () => {
       { type: actions.REGISTER_START, details: { name: "" } },
       {
         type: actions.REGISTER_FAILED,
-        error: { message: "error" },
+        error: "Error!",
       },
     ];
 
@@ -182,11 +168,7 @@ describe("Authencation actions tests", () => {
 
   it("creates RESET_PASSWORD_FAILED when reset password has failed", async () => {
     const error = {
-      response: {
-        data: {
-          message: "error",
-        },
-      },
+      message: "Error!",
     };
     axios.post.mockReturnValue(Promise.reject(error));
 
@@ -194,7 +176,7 @@ describe("Authencation actions tests", () => {
       { type: actions.RESET_PASSWORD_START, email: "test@email.com" },
       {
         type: actions.RESET_PASSWORD_FAILED,
-        error: { message: "error" },
+        error: "Error!",
       },
     ];
 
@@ -220,11 +202,7 @@ describe("Authencation actions tests", () => {
 
   it("creates RESET_PASSWORD_CONFIRM_FAILED when reset password confirmation has failed", async () => {
     const error = {
-      response: {
-        data: {
-          message: "error",
-        },
-      },
+      message: "Error!",
     };
     axios.post.mockReturnValue(Promise.reject(error));
 
@@ -235,7 +213,7 @@ describe("Authencation actions tests", () => {
       },
       {
         type: actions.RESET_PASSWORD_CONFIRM_FAILED,
-        error: { message: "error" },
+        error: "Error!",
       },
     ];
 

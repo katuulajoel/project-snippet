@@ -5,6 +5,8 @@ import DashboardLayout from "../DashboardLayout";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
+import { ThemeProvider } from "styled-components";
+import theme from "../../theme";
 
 const middlewares = [thunk];
 
@@ -13,13 +15,15 @@ const mockAppStore = (state) => {
   return mockStore(state);
 };
 
-describe("Auth layout test", () => {
+describe("Dashboard layout test", () => {
   it("Snapshot test for Login component", () => {
     const tree = renderer
       .create(
         <Router>
           <Provider store={mockAppStore()}>
-            <DashboardLayout />
+            <ThemeProvider theme={theme}>
+              <DashboardLayout />
+            </ThemeProvider>
           </Provider>
         </Router>
       )

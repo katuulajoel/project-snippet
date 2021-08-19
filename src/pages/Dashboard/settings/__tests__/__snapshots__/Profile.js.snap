@@ -46,15 +46,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               className="sc-bdnxRM lboORq"
               data-testid="input"
             >
-              <label
-                htmlFor="Label"
-              >
-                Label
-              </label>
               <input
                 className="form-control"
                 data-testid=""
                 id=""
+                label="Label"
                 placeholder="input"
                 required={true}
                 type="input"
@@ -83,15 +79,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               className="sc-bdnxRM lboORq"
               data-testid="input"
             >
-              <label
-                htmlFor="Label"
-              >
-                Label
-              </label>
               <input
                 className="form-control"
                 data-testid=""
                 id=""
+                label="Label"
                 placeholder="input"
                 required={true}
                 type="input"
@@ -120,15 +112,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
               className="sc-bdnxRM lboORq"
               data-testid="input"
             >
-              <label
-                htmlFor="Label"
-              >
-                Label
-              </label>
               <input
                 className="form-control"
                 data-testid=""
                 id=""
+                label="Label"
                 placeholder="Enter phone number"
                 required={true}
                 type="input"
@@ -165,15 +153,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
           className="sc-bdnxRM lboORq"
           data-testid="input"
         >
-          <label
-            htmlFor="Label"
-          >
-            Label
-          </label>
           <input
             className="form-control"
             data-testid=""
             id=""
+            label="Label"
             placeholder="Bello, Yaba"
             required={true}
             type="input"
@@ -198,15 +182,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
           className="sc-bdnxRM lboORq"
           data-testid="input"
         >
-          <label
-            htmlFor="Label"
-          >
-            Label
-          </label>
           <input
             className="form-control"
             data-testid=""
             id=""
+            label="Label"
             placeholder="2"
             required={true}
             type="number"
@@ -231,15 +211,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
           className="sc-bdnxRM lboORq"
           data-testid="input"
         >
-          <label
-            htmlFor="Label"
-          >
-            Label
-          </label>
           <input
             className="form-control"
             data-testid=""
             id=""
+            label="Label"
             placeholder="10001"
             required={true}
             type="input"
@@ -264,15 +240,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
           className="sc-bdnxRM lboORq"
           data-testid="input"
         >
-          <label
-            htmlFor="Label"
-          >
-            Label
-          </label>
           <input
             className="form-control"
             data-testid=""
             id=""
+            label="Label"
             placeholder="Enter City"
             required={true}
             type="input"

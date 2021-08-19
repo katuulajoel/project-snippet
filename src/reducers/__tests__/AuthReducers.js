@@ -113,7 +113,7 @@ describe("Auth reducers tests", () => {
     });
   });
 
-  it("handles login/verify/register successfully", () => {
+  it("handles login/verify/register/logout successfully", () => {
     const user = { uid: 123456, email: "katuula@gmail.com" };
     expect(
       reducer(initialState, { type: actions.LOGIN_SUCCESS, user })
@@ -130,6 +130,9 @@ describe("Auth reducers tests", () => {
     expect(
       reducer(initialState, { type: actions.REGISTER_SUCCESS, user })
     ).toEqual({
+      ...initialState,
+    });
+    expect(reducer(initialState, { type: actions.LOGOUT_SUCCESS })).toEqual({
       ...initialState,
     });
   });

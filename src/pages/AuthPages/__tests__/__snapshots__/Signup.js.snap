@@ -60,11 +60,11 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     className="sc-dlnjwi dsniKH"
                     data-testid="input"
                   >
-                    
                     <input
                       className="form-control"
                       data-testid=""
                       id="username"
+                      label=""
                       placeholder="Username"
                       required={true}
                       type="text"
@@ -92,12 +92,12 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                         className="sc-dlnjwi dsniKH"
                         data-testid="input"
                       >
-                        
                         <input
                           className="form-control"
                           data-testid=""
                           defaultValue=""
                           id="fname"
+                          label=""
                           placeholder="First name"
                           required={true}
                           type="text"
@@ -123,12 +123,12 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                         className="sc-dlnjwi dsniKH"
                         data-testid="input"
                       >
-                        
                         <input
                           className="form-control"
                           data-testid=""
                           defaultValue=""
                           id="lname"
+                          label=""
                           placeholder="Last name"
                           required={true}
                           type="text"
@@ -151,11 +151,11 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                       className="sc-dlnjwi dsniKH"
                       data-testid="input"
                     >
-                      
                       <input
                         className="form-control"
                         data-testid=""
                         id="email"
+                        label=""
                         placeholder="Email"
                         required={true}
                         type="email"
@@ -178,11 +178,11 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     className="sc-dlnjwi dsniKH"
                     data-testid="input"
                   >
-                    
                     <input
                       className="form-control"
                       data-testid=""
                       id="pwd"
+                      label=""
                       placeholder="Password"
                       required={true}
                       type="password"
@@ -222,11 +222,11 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     className="sc-dlnjwi dsniKH"
                     data-testid="input"
                   >
-                    
                     <input
                       className="form-control"
                       data-testid=""
                       id="pwd-confirm"
+                      label=""
                       placeholder="Confirm Password"
                       required={true}
                       type="password"

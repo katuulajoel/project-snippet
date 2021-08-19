@@ -32,14 +32,16 @@ const App = (props) => {
         history.push("/");
       }
     }
-  }, [isMakingRequest]);
+  }, [isMakingRequest.verify]);
 
   const rootProps = props;
   return (
     <Suspense fallback={<BootLogo />}>
       <Switch>
         {childRoutes.map((route, i) => {
-          return (
+          return route.redirect ? (
+            <Redirect key={i} to={route.redirect} />
+          ) : (
             <Route
               exact={route.exact}
               key={i}

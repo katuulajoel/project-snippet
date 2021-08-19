@@ -1353,7 +1353,7 @@ table {
 // Navbar
 .navbar {
     @include padding-y(10);
-    background-color: get-color("white");
+    background-color: #fff;
 
     &.navbar-dashboard {
         left: 220px;
