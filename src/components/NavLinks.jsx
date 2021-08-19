@@ -93,17 +93,8 @@ const NavLinks = () => {
 };
 
 const Wrapper = styled.div`
-  /* position: fixed;
-  z-index: 1031;
-  top: 73px;
-  left: 220px;
-  right: 0; */
   width: 100%;
   background-color: #fff;
-  /* padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 5px; */
-  /* box-shadow: 0 2px 4px 0 rgba(204, 204, 204, 0.5); */
 `;
 
 const LinkBadge = styled.span`

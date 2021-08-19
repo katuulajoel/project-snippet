@@ -64,7 +64,7 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
     </ul>
   </div>
   <div
-    className="sc-iCoGMd WMEpx"
+    className="sc-iCoGMd liNCSM"
   />
 </nav>
 `;

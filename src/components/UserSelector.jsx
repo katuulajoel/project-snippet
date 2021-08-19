@@ -1,21 +1,21 @@
+/* eslint-disable no-unused-vars */
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import Avatar from "./Avatar";
 
 import { filterEventProps } from "./utils/events";
 import { filterInputProps } from "./utils/forms";
 
-import * as UserActions from "../../actions/UserActions";
 import Input from "./Input";
 import IconButton from "./IconButton";
 import { generateUserIntials } from "./utils/project";
 import usePrevious from "../hooks/usePrevious";
 
 const VARIANT_BOTTOM = "bottom";
-
+/* 
 const UserSelector = (props) => {
   const {
     max,
@@ -66,12 +66,6 @@ const UserSelector = (props) => {
     setSearch(username);
     setShowSuggestions(!!username);
   };
-
-  /* UNSAFE_componentWillReceiveProps(nextProps) {
-    if (!_.isEqual(nextProps.selected, this.props.selected)) {
-      this.setState({ selected: nextProps.selected });
-    }
-  } */
 
   const onSelectUser = (user, e) => {
     e.preventDefault();
@@ -162,7 +156,7 @@ const UserSelector = (props) => {
 
         {showSuggestions && (
           <div className="list-group suggestions">
-            {/* {(this.props.User.ids[this.searchKey()] || []).map((id) => {
+            {(this.props.User.ids[this.searchKey()] || []).map((id) => {
               let user = this.props.User.users[id] || {};
               if (
                 this.state.selected.indexOf(id) > -1 ||
@@ -189,7 +183,7 @@ const UserSelector = (props) => {
                   <span>{user.display_name}</span>
                 </div>
               );
-            })} */}
+            })}
           </div>
         )}
       </div>
@@ -327,3 +321,4 @@ UserSelector.propTypes = {
 };
 
 export default UserSelector;
+ */
