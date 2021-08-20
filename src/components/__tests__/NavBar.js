@@ -1,19 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { BrowserRouter, Router } from "react-router-dom";
-// import { MemoryRouter } from "react-router-dom";
-import { render, screen } from "@testing-library/react";
+import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { render } from "@testing-library/react";
 import NavBar from "../NavBar";
-import { createMemoryHistory } from "history";
-
-const mockHistoryPush = jest.fn();
-
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useHistory: () => ({
-    push: mockHistoryPush,
-  }),
-}));
 
 describe("Auth layout test", () => {
   it("Snapshot test for NavBar component", () => {
@@ -27,23 +16,73 @@ describe("Auth layout test", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should show right title basing on url path", async () => {
-    const history = createMemoryHistory();
-    render(
-      <Router history={history}>
+  it("should render Dashboard title", async () => {
+    const { container } = render(
+      <MemoryRouter>
         <NavBar ref={{ current: "" }} />
-      </Router>
+      </MemoryRouter>
     );
+    const title = container.querySelector(".navbar-brand");
+    expect(title.innerHTML).toEqual("Dashboard");
+  });
 
-    const dashboardTitle = screen.getByText("Dashboard");
-    expect(dashboardTitle).toBeInTheDocument();
-
-    /* history.push("/projects");
-    render(
-      <Router history={history}>
+  it("should render Projects title", async () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={["/projects"]}>
         <NavBar ref={{ current: "" }} />
-      </Router>
+      </MemoryRouter>
     );
-    expect(screen.getByText("Projects")).toBeInTheDocument(); */
+    const title = container.querySelector(".navbar-brand");
+    expect(title.innerHTML).toEqual("Projects");
+  });
+
+  it("should render network title", async () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={["/network"]}>
+        <NavBar ref={{ current: "" }} />
+      </MemoryRouter>
+    );
+    const title = container.querySelector(".navbar-brand");
+    expect(title.innerHTML).toEqual("Network");
+  });
+
+  it("should render payments title", async () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={["/payments"]}>
+        <NavBar ref={{ current: "" }} />
+      </MemoryRouter>
+    );
+    const title = container.querySelector(".navbar-brand");
+    expect(title.innerHTML).toEqual("Payments");
+  });
+
+  it("should render settings title", async () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={["/settings"]}>
+        <NavBar ref={{ current: "" }} />
+      </MemoryRouter>
+    );
+    const title = container.querySelector(".navbar-brand");
+    expect(title.innerHTML).toEqual("Settings");
+  });
+
+  it("should render tests title", async () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={["/tests"]}>
+        <NavBar ref={{ current: "" }} />
+      </MemoryRouter>
+    );
+    const title = container.querySelector(".navbar-brand");
+    expect(title.innerHTML).toEqual("Tests");
+  });
+
+  it("should render community guide title", async () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={["/communityguide"]}>
+        <NavBar ref={{ current: "" }} />
+      </MemoryRouter>
+    );
+    const title = container.querySelector(".navbar-brand");
+    expect(title.innerHTML).toEqual("Community Guide");
   });
 });

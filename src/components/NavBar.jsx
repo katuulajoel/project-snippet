@@ -17,18 +17,9 @@ const NavBar = (props, ref) => {
 
   const getNavTitle = () => {
     let title = "Dashboard";
-    switch (history.pathname) {
+    switch (history.location.pathname) {
       case "/projects":
-        if (history.isExact) {
-          title = "Projects";
-        } else {
-          let projectId = location.pathname.split("/")[2];
-          if (!isNaN(projectId)) {
-            //  title = <ProjectOutput id={projectId} field="title" />;
-          } else {
-            title = "Projects";
-          }
-        }
+        title = "Projects";
         break;
       case "/network":
         title = "Network";
@@ -42,16 +33,12 @@ const NavBar = (props, ref) => {
       case "/tests":
         title = "Tests";
         break;
-      case "/onboard":
-        title = "Dashboard";
-        break;
       case "/communityguide":
         title = "Community Guide";
         break;
       default:
         break;
     }
-
     return title;
   };
 
