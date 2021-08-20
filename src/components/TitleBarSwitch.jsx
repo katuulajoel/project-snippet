@@ -9,22 +9,13 @@ const proptypes = {
 };
 
 const TitleBarSwitch = () => {
-  const onChangeValue = () => {
-    //...
-  };
-
   return (
     <Wrapper>
       <div className="switch">
         <label htmlFor="toggle" style={{ margin: 0 }}>
           Show all projects
         </label>
-        <input
-          type="checkbox"
-          className="toggle-switch"
-          id="toggle"
-          onChange={(e) => onChangeValue(e.target.checked)}
-        />
+        <input type="checkbox" className="toggle-switch" id="toggle" />
       </div>
     </Wrapper>
   );

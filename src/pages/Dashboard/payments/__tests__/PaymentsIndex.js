@@ -5,6 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
+import { ThemeProvider } from "styled-components";
+import theme from "../../../../theme";
 
 const middlewares = [thunk];
 
@@ -30,7 +32,9 @@ describe("Dashboard test", () => {
       .create(
         <BrowserRouter>
           <Provider store={mockAppStore(mockAppState)}>
-            <Payments />
+            <ThemeProvider theme={theme}>
+              <Payments />
+            </ThemeProvider>
           </Provider>
         </BrowserRouter>
       )

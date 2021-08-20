@@ -15,7 +15,7 @@ import AuthLayout, {
 
 import Input from "../../components/Input";
 import querystring from "querystring";
-import { Cta } from "../../components/Form/Form";
+import Cta from "../../components/Cta";
 const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();

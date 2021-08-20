@@ -14,8 +14,8 @@ import IconButton from "./IconButton";
 import { generateUserIntials } from "./utils/project";
 import usePrevious from "../hooks/usePrevious";
 
-const VARIANT_BOTTOM = "bottom";
 /* 
+const VARIANT_BOTTOM = "bottom";
 const UserSelector = (props) => {
   const {
     max,
