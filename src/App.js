@@ -32,7 +32,7 @@ const App = (props) => {
         history.push("/");
       }
     }
-  }, [isMakingRequest.verify]);
+  }, [isMakingRequest.verify, isMakingRequest.logout]);
 
   const rootProps = props;
   return (

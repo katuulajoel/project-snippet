@@ -22,13 +22,7 @@ axios.interceptors.response.use(undefined, (err) => {
   return Promise.reject(err);
 });
 
-let BACKEND_PATH =
-  process.env.REACT_APP_BACKEND_ROOT ||
-  (process.env.REACT_APP_NODE_ENV === "production"
-    ? /butterflyworks\.org/gi.test(window.location.hostname)
-      ? "https://tunga.io/"
-      : "/"
-    : "https://staging.tunga.io/");
+let BACKEND_PATH = process.env.REACT_APP_BACKEND_ROOT;
 let API_PATH = "api/";
 
 export const API_ROOT = `${BACKEND_PATH}${API_PATH}`;

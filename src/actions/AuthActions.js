@@ -39,7 +39,7 @@ export function authenticate(credentials) {
         dispatch(authSuccess(response.data));
       })
       .catch(function (error) {
-        dispatch(authFailed(error.message));
+        dispatch(authFailed(error.response.data));
       });
   };
 }

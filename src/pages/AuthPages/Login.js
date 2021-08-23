@@ -28,7 +28,7 @@ const Login = () => {
     if (user?.id) {
       history.push("/dashboard");
     }
-  }, []);
+  }, [user]);
 
   const onFormSubmit = (e) => {
     e.preventDefault();

@@ -56,9 +56,7 @@ describe("Authencation actions tests", () => {
   });
 
   it("creates LOGIN_START and LOGIN_FAILED when login has failed", async () => {
-    const error = {
-      message: "Error!",
-    };
+    const error = { response: { data: "Error!" } };
     axios.post.mockRejectedValue(error);
 
     const expectedActions = [
