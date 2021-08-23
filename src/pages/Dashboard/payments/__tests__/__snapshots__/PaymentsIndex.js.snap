@@ -1,0 +1,302 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard test Should match snapshot test 1`] = `
+Array [
+  <nav
+    className="sc-jrsJWt clZEa navbar "
+  >
+    <div
+      className="title-bar"
+    >
+      <a
+        className="navbar-brand"
+        href="/dashboard"
+        onClick={[Function]}
+      >
+        Dashboard
+      </a>
+      <ul
+        className="navbar-nav ml-auto"
+      >
+        <li>
+          <div
+            className="sc-eCApnc WEWHt"
+          >
+            <div
+              className="input-group sc-jSFjdj hTzrBi input-search "
+            >
+              <span
+                className="input-group-prepend"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  <i
+                    className="tg-ic-search1  "
+                  />
+                </span>
+              </span>
+              <div
+                className="sc-dlnjwi dsniKH"
+                data-testid="input"
+              >
+                <input
+                  autoComplete="off"
+                  className="form-control"
+                  data-testid=""
+                  id=""
+                  label="Label"
+                  name="search"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Search...."
+                  type="input"
+                  value=""
+                />
+              </div>
+              <span
+                className="input-group-prepend"
+              />
+            </div>
+            
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="sc-fujyAs cKNmWV"
+    >
+      <div
+        className="sc-iCoGMd hobTSF"
+      >
+        <div
+          className="title-filters"
+        />
+      </div>
+    </div>
+  </nav>,
+  <div
+    className="sc-kEqXSa erQXIw sidebar"
+    id="sidebar"
+  >
+    <img
+      alt="company-logo"
+      src={Object {}}
+    />
+    <ul
+      className="nav"
+    >
+      <li>
+        <a
+          aria-current={null}
+          href="/dashboard"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-outline-dashboard tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Dashboard
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/projects"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-baseline-folder-open tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Projects
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current="page"
+          className="active"
+          href="/payments"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-round-payment tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Payments
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/settings"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-outline-settings tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Settings
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          data-testid="signout"
+          href="/payments/undefined/logout"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-log-out tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Log Out
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>,
+  <div
+    className="sc-iqAclL fXoAys"
+  >
+    <div
+      className="sc-dIvrsQ bcdxtO"
+    >
+      <div
+        className="pay-summary"
+      >
+        <ul>
+          <li>
+            <span>
+              Total Payments
+            </span>
+            <p>
+              €
+              0.00
+            </p>
+          </li>
+          <li>
+            <span>
+              Paid
+            </span>
+            <p>
+              €
+              0.00
+            </p>
+          </li>
+          <li>
+            <span>
+              Unpaid
+            </span>
+            <p>
+              €
+              0.00
+            </p>
+          </li>
+          <li>
+            <span>
+              Credit Notes
+            </span>
+            <p>
+              -€
+              0.00
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div
+          className="sc-bdnxRM dNpxFo"
+          style={
+            Object {
+              "marginTop": "40px",
+            }
+          }
+        >
+          <div
+            className="filter-links"
+          >
+            <a
+              aria-current="page"
+              className="active"
+              href="/payments/undefined/all"
+              onClick={[Function]}
+              style={Object {}}
+            >
+              All
+            </a>
+            <a
+              aria-current={null}
+              href="/payments/undefined/overdue"
+              onClick={[Function]}
+            >
+              Overdue
+            </a>
+            <a
+              aria-current={null}
+              href="/payments/undefined/pending"
+              onClick={[Function]}
+            >
+              Pending
+            </a>
+            <a
+              aria-current={null}
+              href="/payments/undefined/paid"
+              onClick={[Function]}
+            >
+              Paid
+            </a>
+            <a
+              aria-current={null}
+              href="/payments/undefined/archived"
+              onClick={[Function]}
+            >
+              Archived
+            </a>
+          </div>
+          <div
+            className="sc-iemWCZ bVygUd"
+          >
+            <a
+              className="add-btn"
+              href="#"
+              onClick={[Function]}
+            >
+              <i
+                className="tg-ic-file-upload-outline tunga-ic-sz-sm "
+              />
+               Export
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

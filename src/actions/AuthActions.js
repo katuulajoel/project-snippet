@@ -39,7 +39,7 @@ export function authenticate(credentials) {
         dispatch(authSuccess(response.data));
       })
       .catch(function (error) {
-        dispatch(authFailed(error.response.data));
+        dispatch(authFailed(error.message));
       });
   };
 }
@@ -104,7 +104,7 @@ export function logout() {
         dispatch(logoutSuccess());
       })
       .catch(function (error) {
-        dispatch(logoutFailed(error.response.data));
+        dispatch(logoutFailed(error.message));
       });
   };
 }
@@ -137,7 +137,7 @@ export function register(details) {
         dispatch(registerSuccess(response.data));
       })
       .catch(function (error) {
-        dispatch(registerFailed(error.response.data));
+        dispatch(registerFailed(error.message));
       });
   };
 }
@@ -173,7 +173,7 @@ export function resetPassword(email) {
         dispatch(resetPasswordSuccess(response.data));
       })
       .catch(function (error) {
-        dispatch(resetPasswordFailed(error.response.data));
+        dispatch(resetPasswordFailed(error.message));
       });
   };
 }
@@ -208,7 +208,7 @@ export function resetPasswordConfirm(credentials) {
         dispatch(resetPasswordConfirmSuccess(response.data));
       })
       .catch(function (error) {
-        dispatch(resetPasswordConfirmFailed(error.response.data));
+        dispatch(resetPasswordConfirmFailed(error.message));
       });
   };
 }

@@ -9,11 +9,9 @@ import PropTypes from "prop-types";
 const propTypes = {
   type: PropTypes.string,
   id: PropTypes.string,
-  errorMessage: PropTypes.string,
   placeholder: PropTypes.string,
   hasStrip: PropTypes.bool,
   label: PropTypes.string,
-  isInvalid: PropTypes.bool,
   dataTestId: PropTypes.string,
 };
 
@@ -22,39 +20,22 @@ const defaultProps = {
   type: "input",
   id: "",
   placeholder: "input",
-  errorMessage: "This field is required",
   hasStrip: null,
   label: "Label",
-  isInvalid: null,
   dataTestId: "",
 };
 
 // TODO: there is already an input component
 const Input = React.forwardRef(
-  (
-    {
-      id,
-      type,
-      placeholder,
-      hasStrip,
-      label,
-      isInvalid,
-      errorMessage,
-      dataTestId,
-      ...rest
-    },
-    ref
-  ) => {
+  ({ id, type, placeholder, hasStrip, dataTestId, ...rest }, ref) => {
     const [showPassword, onShowPassword] = useState("password");
 
     return (
       <InputContainer
         hasStrip={hasStrip}
-        isInvalid={isInvalid}
         disabled={rest?.disabled}
         data-testid="input"
       >
-        {label && <label htmlFor={label}>{label}</label>}
         <input
           {...rest}
           type={type === "password" ? showPassword : type}
@@ -90,11 +71,6 @@ const Input = React.forwardRef(
               />
             </svg>
           </button>
-        )}
-        {isInvalid && (
-          <Text color="#f66262" fontSize="12px" className="error">
-            {errorMessage}
-          </Text>
         )}
       </InputContainer>
     );

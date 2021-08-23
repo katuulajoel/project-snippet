@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Cta } from "../../components/Form/Form";
+import Cta from "../../components/Cta";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Error from "../../components/Error";

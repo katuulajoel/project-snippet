@@ -30,15 +30,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             className="sc-bdnxRM lboORq"
             data-testid="input"
           >
-            <label
-              htmlFor="Label"
-            >
-              Label
-            </label>
             <input
               className="form-control"
               data-testid=""
               id=""
+              label="Label"
               placeholder="Company name"
               type="input"
               value=""
@@ -65,15 +61,11 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             className="sc-bdnxRM lboORq"
             data-testid="input"
           >
-            <label
-              htmlFor="Label"
-            >
-              Label
-            </label>
             <input
               className="form-control"
               data-testid=""
               id=""
+              label="Label"
               placeholder="https://example.com"
               type="input"
               value=""

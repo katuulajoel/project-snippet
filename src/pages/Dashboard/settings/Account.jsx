@@ -7,7 +7,7 @@ import { Row, Col, FormGroup, Label } from "reactstrap";
 import styled from "styled-components";
 
 /* ------------------------- Component dependencies ------------------------- */
-import CustomInputGroup from "../../../components/CustomInputGroup";
+// import CustomInputGroup from "../../../components/CustomInputGroup";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 
@@ -43,13 +43,13 @@ const Account = () => {
                 Current Password
                 <span className="label-style">*</span>
               </Label>
-              <CustomInputGroup
+              {/* <CustomInputGroup
                 className="password2"
                 variant="password2"
                 placeholder="Enter your password"
                 value=""
                 required
-              />
+              /> */}
             </FormGroup>
           </Col>
 
@@ -59,13 +59,13 @@ const Account = () => {
                 New Password
                 <span className="label-style">*</span>
               </Label>
-              <CustomInputGroup
+              {/* <CustomInputGroup
                 className="password2"
                 variant="password2"
                 placeholder="Enter new password"
                 value=""
                 required
-              />
+              /> */}
             </FormGroup>
           </Col>
         </Row>
@@ -95,13 +95,13 @@ const Account = () => {
               <span className="label-style">*</span>
             </Label>
             <FormGroup>
-              <CustomInputGroup
+              {/* <CustomInputGroup
                 className="password2"
                 variant="password2"
                 placeholder="Enter your password"
                 value=""
                 required
-              />
+              /> */}
             </FormGroup>
           </Col>
         </Row>

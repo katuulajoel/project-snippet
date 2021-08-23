@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout test Snapshot test for Login component 1`] = `
+<nav
+  aria-label="Page navigation example"
+  className=""
+>
+  <ul
+    className="pagination"
+  >
+    <li
+      className="sc-bdnxRM fERAOk page-item"
+      onClick={[Function]}
+    >
+      <a
+        className="page-link"
+        href="#"
+      >
+        <i
+          className="tg-ic-arrow-left tunga-ic-sz-sm "
+        />
+      </a>
+    </li>
+    <div
+      className="Table__visiblePagesWrapper"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    />
+    <li
+      className="sc-bdnxRM fERAOk page-item"
+      onClick={[Function]}
+    >
+      <a
+        className="page-link"
+        href="#"
+      >
+        <i
+          className="tg-ic-arrow-right tunga-ic-sz-sm "
+        />
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

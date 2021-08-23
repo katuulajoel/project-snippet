@@ -45,7 +45,7 @@ const Wrapper = styled.div`
   .title-filters {
     a {
       display: inline-block;
-      font-weight: normal;
+      font-weight: 500;
       text-align: left;
       color: #444;
       padding-bottom: 8px;

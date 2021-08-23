@@ -50,6 +50,8 @@ export const ENDPOINT_RESET_PASSWORD = getEndpointUrl("auth/password/reset/");
 export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl(
   "auth/password/reset/confirm/"
 );
+export const ENDPOINT_INVOICES_SUMMARY = getEndpointUrl("invoices/summary/");
+export const ENDPOINT_INVOICES = getEndpointUrl("invoices/");
 
 export const USER_TYPE_DEVELOPER = 1;
 export const USER_TYPE_PROJECT_OWNER = 2;
@@ -67,3 +69,12 @@ export const PROJECT_DURATION_PERMANENT = "permanent";
 export const STATUS_INITIAL = "initial";
 export const STATUS_INTERESTED = "interested";
 export const STATUS_UNINTERESTED = "uninterested";
+
+export const INVOICE_TYPE_SALE = "sale";
+export const INVOICE_TYPE_PURCHASE = "purchase";
+export const INVOICE_TYPE_CREDIT_NOTE = "credit_nota";
+export const INVOICE_TYPES = {
+  sale: "Payment",
+  purchase: "Payout",
+  credit_nota: "Credit Note",
+};
