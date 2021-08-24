@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
@@ -98,9 +96,9 @@ const Wrapper = styled.nav`
   }
 `;
 
-/* NavBar.propTypes = {
+NavBar.propTypes = {
   title: PropTypes.string,
   className: PropTypes.string,
-}; */
+};
 
 export default forwardRef(NavBar);

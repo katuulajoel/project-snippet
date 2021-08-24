@@ -1,0 +1,133 @@
+* {
+  font-family: "IBM Plex Sans", sans-serif !important;
+}
+
+:root {
+  --dashboardCardHeight: 416px;
+  --cardTitleHeight: 46px;
+}
+
+.dashboard-card {
+  padding: 24px;
+  margin-bottom: 20px;
+  border-width: 0;
+  border-radius: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.11);
+  background-color: #fff;
+  border-radius: 6px;
+  border: 0.5px solid rgba(0, 0, 0, 0.05);
+
+  .title {
+    font-size: 18px;
+    line-height: 22px;
+    color: #151a30;
+    font-weight: 600;
+  }
+
+  .content {
+    max-height: calc(var(--dashboardCardHeight) - var(--cardTitleHeight));
+    overflow-y: auto;
+    margin-right: -12px;
+    padding-right: 12px;
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 4px;
+      padding-left: 20px;
+      margin-left: -10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: rgba(143, 155, 179, 0.15);
+      box-shadow: 0px 4px 8px rgba(62, 72, 87, 0.04);
+      border-radius: 4px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #8f9bb3;
+      /* ShaOne */
+
+      box-shadow: 0px 4px 8px rgba(62, 72, 87, 0.04);
+      border-radius: 4px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #6b7588;
+      cursor: pointer;
+    }
+
+    .list-layout {
+      display: flex;
+      flex-direction: row;
+      padding: 24px 0;
+      border-bottom: 1px solid #edf1f7;
+
+      .icon-avatar {
+        background: rgba(6, 46, 100, 0.1);
+        width: 48px;
+        height: 48px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        flex-shrink: 0;
+
+        span {
+          margin: auto 0 auto 0;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 22px;
+          color: #151a30;
+        }
+      }
+
+      .detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+
+        p,
+        a,
+        span {
+          margin: 0;
+        }
+
+        p,
+        a {
+          margin-bottom: 4px;
+          font-size: 16px;
+          line-height: 22px;
+        }
+
+        p {
+          color: #3e4857;
+          a {
+            font-weight: bold;
+            color: #151a30;
+            text-decoration: none;
+          }
+        }
+
+        > span {
+          display: flex;
+          i {
+            margin-right: 10px;
+          }
+          i:nth-child(2) {
+            margin-left: 15px;
+          }
+        }
+
+        .sub-text {
+          font-size: 14px;
+          line-height: 17px;
+          color: #8f9bb3;
+        }
+      }
+    }
+  }
+}

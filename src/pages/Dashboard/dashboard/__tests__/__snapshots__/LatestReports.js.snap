@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Latest reports test Should match snapshot test 1`] = `
+<div
+  className="dashboard-card"
+>
+  <h3
+    className="title"
+  >
+    Latest reports
+  </h3>
+  <div
+    className="content"
+  >
+    <div
+      className="list-layout clearfix"
+    >
+      <div
+        className="icon-avatar"
+      >
+        <span>
+          <i
+            className="tg-ic-baseline-folder-open tunga-ic-sz-sm "
+          />
+        </span>
+      </div>
+      <div
+        className="detail"
+      >
+        <p>
+          Scheduled update for
+           
+          <a
+            href="/projects/1/events/1"
+            onClick={[Function]}
+          >
+            title
+            : title
+          </a>
+        </p>
+        <span
+          className="sub-text"
+        >
+          <i
+            className="tg-ic-clock-outline tunga-ic-sz-sm "
+          />
+           
+          Today
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
