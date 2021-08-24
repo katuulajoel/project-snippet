@@ -1,24 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
 import Helmet from "react-helmet";
-import ReactDOMServer from "react-dom/server";
-import striptags from "striptags";
-
-function safeStringify(value) {
-  let parsedValue = value;
-  if (typeof value === "object") {
-    try {
-      parsedValue = ReactDOMServer.renderToStaticMarkup(value);
-    } catch (e) {
-      parsedValue = value.toString();
-    }
-  }
-  return striptags(parsedValue);
-}
 
 const MetaTags = ({ title, description, keywords }) => {
-  const metaTitle = `Tunga | ${safeStringify(title)}`;
-  const metaDescription = safeStringify(description);
+  const metaTitle = `Tunga | ${title}`;
+  const metaDescription = description;
 
   return (
     <Helmet>

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
@@ -10,11 +9,6 @@ import TitleBarSwitch from "./TitleBarSwitch";
 
 /* -------------------- Internel Dependencies (Utilites) -------------------- */
 import { isAdmin, isAdminOrPM, isClient, isDev, isPM } from "./utils/auth";
-import {
-  STATUS_INITIAL,
-  STATUS_INTERESTED,
-  STATUS_UNINTERESTED,
-} from "../actions/utils/api";
 
 /* ------------------------- Component dependencies ------------------------- */
 import TitleBarContent from "./TitleBarContent";
@@ -95,21 +89,6 @@ const NavLinks = () => {
 const Wrapper = styled.div`
   width: 100%;
   background-color: #fff;
-`;
-
-const LinkBadge = styled.span`
-  background: #da3451;
-  border-radius: 50%;
-  min-width: 25px;
-  min-height: 25px;
-  text-align: center;
-  margin-left: 8px;
-  display: none;
-  vertical-align: top;
-  color: white;
-  font-size: 12px;
-  padding-top: 4px;
-  font-weight: bold;
 `;
 
 NavLinks.propTypes = proptypes;

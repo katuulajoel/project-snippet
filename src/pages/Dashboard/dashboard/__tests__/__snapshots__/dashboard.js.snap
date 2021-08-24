@@ -3,7 +3,7 @@
 exports[`Dashboard test Should match snapshot test 1`] = `
 Array [
   <nav
-    className="sc-jrsJWt clZEa navbar "
+    className="sc-pNWdM ixJkbw navbar "
   >
     <div
       className="title-bar"
@@ -69,7 +69,7 @@ Array [
     />
   </nav>,
   <div
-    className="sc-kEqXSa erQXIw sidebar"
+    className="sc-jrsJWt ilZZuz sidebar"
     id="sidebar"
   >
     <img
@@ -173,7 +173,7 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-iqAclL fXoAys"
+    className="sc-kEqXSa gCTtLP"
   >
     <div
       className="row"
@@ -208,7 +208,7 @@ Array [
           </div>
           <div>
             <span>
-              Mon, 23rd Aug 2021
+              Tue, 24th Aug 2021
             </span>
           </div>
         </div>
@@ -260,21 +260,17 @@ Array [
       <div
         className="col-sm-4"
       >
-        <div>
-          <h3>
+        <div
+          className="dashboard-card"
+        >
+          <h3
+            className="title"
+          >
             Latest reports
           </h3>
           <div
-            className="undefined undefined"
-          >
-            <img
-              alt="empty file image"
-              src={Object {}}
-            />
-            <p>
-              No upcoming updates
-            </p>
-          </div>
+            className="content"
+          />
         </div>
         <div>
           <h3>

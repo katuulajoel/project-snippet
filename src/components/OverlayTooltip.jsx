@@ -5,7 +5,6 @@ import randomstring from "./utils/stringUtils";
 
 const OverlayTooltip = (props) => {
   const [open, setOpen] = useState(false);
-  // eslint-disable-next-line react/prop-types
   const { overlay, children, className, placement, tooltipId } = props;
 
   const toggle = () => {
@@ -40,6 +39,7 @@ OverlayTooltip.propTypes = {
   className: PropTypes.string,
   placement: PropTypes.string,
   tooltipId: PropTypes.string,
+  children: PropTypes.any,
 };
 
 export default OverlayTooltip;

@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
-import AuthReducers from "./AuthReducers";
+import Auth from "./AuthReducers";
 import Invoice from "./InvoiceReducers";
+import Dashboard from "./DashboardReducer";
 
-const appReducer = combineReducers({ Auth: AuthReducers, Invoice });
+const appReducer = combineReducers({ Auth, Invoice, Dashboard });
 
 export default appReducer;

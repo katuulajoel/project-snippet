@@ -3,7 +3,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import "./index.css";
+import "./index.scss";
 import { Provider } from "react-redux";
 import App from "./App";
 import store from "./store";

@@ -3,7 +3,7 @@
 exports[`Dashboard test Should match snapshot test 1`] = `
 Array [
   <nav
-    className="sc-jrsJWt clZEa navbar "
+    className="sc-pNWdM ixJkbw navbar "
   >
     <div
       className="title-bar"
@@ -77,7 +77,7 @@ Array [
     </div>
   </nav>,
   <div
-    className="sc-kEqXSa erQXIw sidebar"
+    className="sc-jrsJWt ilZZuz sidebar"
     id="sidebar"
   >
     <img
@@ -183,10 +183,10 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-iqAclL fXoAys"
+    className="sc-kEqXSa gCTtLP"
   >
     <div
-      className="sc-dIvrsQ bcdxtO"
+      className="sc-iemWCZ gLWovS"
     >
       <div
         className="pay-summary"
@@ -281,7 +281,7 @@ Array [
             </a>
           </div>
           <div
-            className="sc-iemWCZ bVygUd"
+            className="sc-bkbkJK cloizH"
           >
             <a
               className="add-btn"

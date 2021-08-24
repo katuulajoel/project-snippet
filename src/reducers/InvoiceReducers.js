@@ -132,7 +132,7 @@ function list(state = { data: [], count: 0, next: "", previous: "" }, action) {
  * @param {*} action
  * @returns
  */
-export function isMakingRequest(_, action) {
+function isMakingRequest(_, action) {
   switch (action.type) {
     case CREATE_INVOICE_START:
       return { create: true };
