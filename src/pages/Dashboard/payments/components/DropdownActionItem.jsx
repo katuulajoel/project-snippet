@@ -1,11 +1,11 @@
-/* eslint-disable react/prop-types */
 /* -------------------------------------------------------------------------- */
 /*                            External dependencies                           */
 /* -------------------------------------------------------------------------- */
-/* import React from "react";
+import PropTypes from "prop-types";
+import React from "react";
 import { DropdownItem } from "reactstrap";
 
-import { showAction, performAction } from "../../../utils/payments";
+import { showAction, performAction } from "./utils";
 
 const DropdownActionItem = (props) => {
   const { action, invoice, children } = props;
@@ -21,4 +21,10 @@ const DropdownActionItem = (props) => {
   ) : null;
 };
 
-export default DropdownActionItem; */
+DropdownActionItem.propTypes = {
+  action: PropTypes.any, // TODO: add the acceptable prop types
+  children: PropTypes.any,
+  invoice: PropTypes.any,
+};
+
+export default DropdownActionItem;

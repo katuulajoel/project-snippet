@@ -23,7 +23,7 @@ Array [
             className="sc-eCApnc WEWHt"
           >
             <div
-              className="input-group sc-jSFjdj hTzrBi input-search "
+              className="input-group sc-jSFjdj hTzrBi input-search"
             >
               <span
                 className="input-group-prepend"
@@ -37,7 +37,7 @@ Array [
                 </span>
               </span>
               <div
-                className="sc-dlnjwi dsniKH"
+                className="sc-gtsrHT jGBtBH"
                 data-testid="input"
               >
                 <input
@@ -47,9 +47,7 @@ Array [
                   id=""
                   label="Label"
                   name="search"
-                  onBlur={[Function]}
                   onChange={[Function]}
-                  onFocus={[Function]}
                   placeholder="Search...."
                   type="input"
                   value=""
@@ -208,7 +206,7 @@ Array [
           </div>
           <div>
             <span>
-              Tue, 24th Aug 2021
+              Thu, 26th Aug 2021
             </span>
           </div>
         </div>
@@ -239,22 +237,18 @@ Array [
             </p>
           </div>
         </div>
-        <div>
-          <h3>
+        <div
+          className="dashboard-card"
+        >
+          <h3
+            className="title"
+          >
             Your 
             Active Projects
           </h3>
           <div
-            className="undefined undefined"
-          >
-            <img
-              alt="empty file image"
-              src={Object {}}
-            />
-            <p>
-              No active projects
-            </p>
-          </div>
+            className="content"
+          />
         </div>
       </div>
       <div
@@ -272,21 +266,17 @@ Array [
             className="content"
           />
         </div>
-        <div>
-          <h3>
-            Upcoming Payments
+        <div
+          className="dashboard-card"
+        >
+          <h3
+            className="title"
+          >
+            Latest reports
           </h3>
           <div
-            className="undefined undefined"
-          >
-            <img
-              alt="empty file image"
-              src={Object {}}
-            />
-            <p>
-              No upcoming payments
-            </p>
-          </div>
+            className="content"
+          />
         </div>
       </div>
     </div>

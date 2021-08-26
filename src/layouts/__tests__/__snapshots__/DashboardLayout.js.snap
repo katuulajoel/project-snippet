@@ -23,7 +23,7 @@ Array [
             className="sc-hKFxyN gYEyVl"
           >
             <div
-              className="input-group sc-eCApnc kyswBz input-search "
+              className="input-group sc-eCApnc kyswBz input-search"
             >
               <span
                 className="input-group-prepend"
@@ -37,7 +37,7 @@ Array [
                 </span>
               </span>
               <div
-                className="sc-gtsrHT jGBtBH"
+                className="sc-bdnxRM lboORq"
                 data-testid="input"
               >
                 <input
@@ -47,9 +47,7 @@ Array [
                   id=""
                   label="Label"
                   name="search"
-                  onBlur={[Function]}
                   onChange={[Function]}
-                  onFocus={[Function]}
                   placeholder="Search...."
                   type="input"
                   value=""

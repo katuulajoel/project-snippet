@@ -6,9 +6,10 @@ import Avatar from "../../../components/Avatar";
 import DashboardLayout from "../../../layouts/DashboardLayout";
 import css from "./Dashboard.module.scss";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
-import { isAdminOrPM } from "../../../components/utils/auth";
 import { getNotifications } from "../../../actions/DashboardActions";
 import LatestReports from "./LatestReports";
+import UpcomingPayments from "./UpcomingPayments";
+import ActiveProjects from "./ActiveProjects";
 
 export default function Dashboard() {
   const user = {
@@ -57,22 +58,12 @@ export default function Dashboard() {
             <SummaryPlaceholder description="No recent notifications" />
           </div>
 
-          <div className={css.card}>
-            <h3 className={css.title}>
-              {`${isAdminOrPM() ? "" : "Your "}`}
-              Active Projects
-            </h3>
-
-            <SummaryPlaceholder description="No active projects" />
-          </div>
+          <ActiveProjects />
         </Col>
         <Col sm={4}>
           <LatestReports />
 
-          <div className={css.card}>
-            <h3 className={css.title}>Upcoming Payments</h3>
-            <SummaryPlaceholder description="No upcoming payments" />
-          </div>
+          <UpcomingPayments />
         </Col>
       </Row>
     </DashboardLayout>
