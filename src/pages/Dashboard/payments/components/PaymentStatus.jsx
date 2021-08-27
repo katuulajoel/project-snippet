@@ -1,10 +1,9 @@
-/* eslint-disable react/prop-types */
 /* -------------------------------------------------------------------------- */
 /*                            External dependencies                           */
 /* -------------------------------------------------------------------------- */
-/* import React from "react";
-
-import Progress from "../../../core/Progress";
+import PropTypes from "prop-types";
+import React from "react";
+import Progress from "../../../../components/Progress";
 
 const PaymentStatus = (props) => {
   const { invoice, isSaving } = props;
@@ -21,4 +20,13 @@ const PaymentStatus = (props) => {
   return <span className="pending">Pending</span>;
 };
 
-export default PaymentStatus; */
+PaymentStatus.propTypes = {
+  invoice: PropTypes.shape({
+    due_at: PropTypes.string,
+    id: PropTypes.string,
+    paid: PropTypes.bool,
+  }),
+  isSaving: PropTypes.any, // TODO: changed this to isMakingRequest
+};
+
+export default PaymentStatus;

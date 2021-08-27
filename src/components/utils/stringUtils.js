@@ -11,4 +11,19 @@ const helpers = {
   },
 };
 
+export const numberWithCommas = (x) => {
+  if (x) {
+    return x
+      .toFixed(2)
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  } else {
+    return x ? x.toFixed(2) : "0.00";
+  }
+};
+
+export function generateUserIntials(user) {
+  return !user.avatar_url ? user.display_name.match(/\b(\w)/g).join("") : null;
+}
+
 export default helpers;

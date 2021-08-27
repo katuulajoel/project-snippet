@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
 /* -------------------------------------------------------------------------- */
 /*                            External dependencies                           */
 /* -------------------------------------------------------------------------- */
-/* import React from "react";
-import { showAction, performAction } from "../../../utils/payments";
+import PropTypes from "prop-types";
+import React from "react";
+import { showAction, performAction } from "./utils";
 
 const ActionItem = (props) => {
   const { action, invoice, children } = props;
@@ -19,4 +19,10 @@ const ActionItem = (props) => {
   ) : null;
 };
 
-export default ActionItem; */
+ActionItem.propTypes = {
+  action: PropTypes.any, // TODO: add the acceptable prop types
+  children: PropTypes.any,
+  invoice: PropTypes.any,
+};
+
+export default ActionItem;

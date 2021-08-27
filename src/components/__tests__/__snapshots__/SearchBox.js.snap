@@ -5,7 +5,7 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
   className="sc-hKFxyN bCNRUe"
 >
   <div
-    className="input-group sc-eCApnc kyswBz input-search "
+    className="input-group sc-eCApnc kyswBz input-search"
   >
     <span
       className="input-group-prepend"
@@ -19,7 +19,7 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
       </span>
     </span>
     <div
-      className="sc-gtsrHT jGBtBH"
+      className="sc-bdnxRM lboORq"
       data-testid="input"
     >
       <input
@@ -29,9 +29,7 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
         id=""
         label="Label"
         name="search"
-        onBlur={[Function]}
         onChange={[Function]}
-        onFocus={[Function]}
         placeholder="Search...."
         type="input"
         value=""

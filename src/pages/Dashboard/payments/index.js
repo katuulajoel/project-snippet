@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
 
 import Icon from "../../../components/Icon";
 import SectionNav from "../../../components/SectionNav";
@@ -20,13 +21,14 @@ import {
 } from "../../../actions/utils/api";
 
 import { getInvoiceSummary } from "../../../actions/InvoiceActions";
+import { numberWithCommas } from "../../../components/utils/stringUtils";
 
 export default function PaymentsPage() {
-  let { type } = useParams();
+  let { type, status } = useParams();
   const [filter, setFilter] = useState(null);
   const [exportType, setexportType] = useState(null);
-  const [invoiceTotals, setInvoiceTotals] = useState({});
   const dispatch = useDispatch();
+  const history = useHistory();
 
   var date = new Date();
   const { summary } = useSelector(({ Invoice }) => Invoice);
@@ -36,12 +38,6 @@ export default function PaymentsPage() {
     end: `${moment(new Date()).format(moment.HTML5_FMT.DATE)}T23:59:59`,
   });
 
-  const performAction = (action) => {
-    setInvoiceTotals(action);
-    setexportType(action.export.type);
-    setFilter(action.export.filter);
-  };
-
   useEffect(() => {
     getInvoiceSummary({
       min_date: summariesRange.start,
@@ -50,19 +46,14 @@ export default function PaymentsPage() {
     })(dispatch);
   }, []);
 
+  useEffect(() => {
+    const title = history.location.pathname.split("/")[1];
+    setexportType(title);
+    setFilter(status);
+  }, [status]);
+
   const exportCsv = () => {
     // downloadCsv(filter, exportType, InvoiceActions);
-  };
-
-  const numberWithCommas = (x) => {
-    if (x) {
-      return x
-        .toFixed(2)
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    } else {
-      return x ? x.toFixed(2) : "0.00";
-    }
   };
 
   return (
@@ -149,12 +140,7 @@ export default function PaymentsPage() {
                     : { type: INVOICE_TYPE_PURCHASE })}
                 >
                   {type === "in" ? (
-                    <Payments
-                      {...props}
-                      filter={type}
-                      setInvoviceTotals={performAction}
-                      exportCsv={exportCsv}
-                    />
+                    <Payments {...props} filter={type} exportCsv={exportCsv} />
                   ) : (
                     <>
                       {/* <Payouts
