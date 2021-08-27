@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-const BulkActions = (checked) => {
+const BulkActions = ({ checked }) => {
   let { status } = useParams();
   const canGenerateInvoice = checked.filter(
     (invoice) => !invoice.finalized && !invoice.last_sent_at && !invoice.paid
@@ -124,6 +125,10 @@ const BulkActions = (checked) => {
       )}
     </ActionSlate>
   );
+};
+
+BulkActions.propTypes = {
+  checked: PropTypes.array, // TODO:...
 };
 
 export const ActionSlate = styled.div`

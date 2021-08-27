@@ -1,7 +1,9 @@
-import { isPayAdmin } from "../../../../components/utils/auth";
+// import { isPayAdmin } from "../../../../components/utils/auth";
+
+//TODO: check if use is pay admin to active batch actions, add ...isPayAdmin() && on line 6
 
 export const getTableColumns = (filter) => [
-  ...(isPayAdmin() && !(filter === "archived" || filter === "paid")
+  ...(!(filter === "archived" || filter === "paid")
     ? [
         {
           Header: " ",

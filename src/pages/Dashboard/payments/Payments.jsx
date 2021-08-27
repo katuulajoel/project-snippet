@@ -14,7 +14,7 @@ import {
   ENDPOINT_INVOICES,
   INVOICE_TYPE_CREDIT_NOTE,
 } from "../../../actions/utils/api";
-import { isPayAdmin } from "../../../components/utils/auth";
+// import { isPayAdmin } from "../../../components/utils/auth";
 import { getTableColumns } from "./components/columns";
 import { tableData } from "./components/row";
 import PaymentStatus from "./components/PaymentStatus";
@@ -96,7 +96,6 @@ const Payments = (props) => {
               <input
                 type="checkbox"
                 className="custom-checkbox"
-                value={cell.value}
                 onClick={() => checkItem(cell.value)}
               />
             )}
@@ -254,7 +253,7 @@ const Payments = (props) => {
         />
       ) : (
         <div className="section">
-          {checked.length !== 0 && isPayAdmin() && (
+          {checked.length !== 0 && ( // TODO: add ....&& isPayAdmin()
             <BulkActions checked={checked} />
           )}
           <div className="table-responsive">
