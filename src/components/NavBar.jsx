@@ -9,29 +9,35 @@ import styled from "styled-components";
 import SearchBox from "../components/SearchBox";
 import NavLinks from "./NavLinks";
 
+function getMainPath(str) {
+  const regex = /^\/([^?\\/]+)/;
+  console.log(str.match(regex)[1]);
+  return str.match(regex)[1];
+}
+
 const NavBar = (props, ref) => {
   const { className } = props;
   let history = useHistory();
 
   const getNavTitle = () => {
     let title = "Dashboard";
-    switch (history.location.pathname) {
-      case "/projects":
+    switch (getMainPath(history.location.pathname)) {
+      case "projects":
         title = "Projects";
         break;
-      case "/network":
+      case "network":
         title = "Network";
         break;
-      case "/payments":
+      case "payments":
         title = "Payments";
         break;
-      case "/settings":
+      case "settings":
         title = "Settings";
         break;
-      case "/tests":
+      case "tests":
         title = "Tests";
         break;
-      case "/communityguide":
+      case "community":
         title = "Community Guide";
         break;
       default:
