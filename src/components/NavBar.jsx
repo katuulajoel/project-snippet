@@ -11,8 +11,7 @@ import NavLinks from "./NavLinks";
 
 function getMainPath(str) {
   const regex = /^\/([^?\\/]+)/;
-  console.log(str.match(regex)[1]);
-  return str.match(regex)[1];
+  return str.match(regex) ? str.match(regex)[1] : "";
 }
 
 const NavBar = (props, ref) => {

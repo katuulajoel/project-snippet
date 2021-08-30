@@ -2,7 +2,7 @@
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
 import React, { useEffect, Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -10,24 +10,27 @@ import { useHistory } from "react-router-dom";
 import { childRoutes } from "./configs/Routes.conf";
 import BootLogo from "./components/BootLogo";
 import { verify } from "./actions/AuthActions";
+import usePrevious from "./hooks/usePrevious";
 
 const App = (props) => {
   const dispatch = useDispatch();
   const { user, isMakingRequest } = useSelector(({ Auth }) => Auth);
   const history = useHistory();
+  let location = useLocation();
+  const prevIsMakingReq = usePrevious(isMakingRequest);
 
   useEffect(() => {
     if (user?.id) {
-      history.push("/dashboard");
+      history.push(location.pathname);
     } else {
       dispatch(verify());
     }
   }, []);
 
   useEffect(() => {
-    if (!isMakingRequest.verify) {
+    if ((prevIsMakingReq?.verify && user?.id) || prevIsMakingReq?.logout) {
       if (user?.id) {
-        history.push("/dashboard");
+        history.push(location.pathname);
       } else {
         history.push("/");
       }

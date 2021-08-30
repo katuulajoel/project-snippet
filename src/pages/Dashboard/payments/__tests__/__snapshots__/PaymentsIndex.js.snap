@@ -13,7 +13,7 @@ Array [
         href="/dashboard"
         onClick={[Function]}
       >
-        Dashboard
+        Payments
       </a>
       <ul
         className="navbar-nav ml-auto"
@@ -156,6 +156,24 @@ Array [
           </span>
           <span>
             Settings
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/community"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-baseline-folder-open tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Community
           </span>
         </a>
       </li>

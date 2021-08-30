@@ -6,18 +6,18 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import _ from "lodash";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 
 /* -------------------------- Internel Dependencies ------------------------- */
 import InputGroup from "./InputGroup";
 import Icon from "./Icon";
 import IconButton from "./IconButton";
 import SummaryPlaceholder from "./SummaryPlaceholder/SummaryPlaceholder";
-import { listInvoices } from "../actions/InvoiceActions";
+// import { listInvoices } from "../actions/InvoiceActions";
 
 const SearchBox = ({ navHieght }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const sendQuery = (query) => {
     // SearchActions.listProjects({ search: query, page_size: 3 }, searchKey);
     // dispatch(listInvoices({ search: query, page_size: 3 }));
