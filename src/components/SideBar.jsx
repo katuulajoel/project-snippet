@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import Icon from "./Icon";
 import { logout } from "../actions/AuthActions";
 import logo from "../assets/images/logo_round.png";
+import { isPayAdminOrPM } from "./utils/auth";
 
 const SideBar = () => {
   const dispatch = useDispatch();
@@ -26,8 +27,10 @@ const SideBar = () => {
         {[
           ["dashboard", "Dashboard", "outline-dashboard"],
           ["projects", "Projects", "baseline-folder-open"],
+          ...(isPayAdminOrPM() ? [["tests", "Tests", "award"]] : []),
           ["payments", "Payments", "round-payment"],
           ["settings", "Settings", "outline-settings"],
+          ["community", "Community", "baseline-folder-open"],
         ].map((item, idx) => {
           return (
             <li key={`dashboard-${idx}`}>

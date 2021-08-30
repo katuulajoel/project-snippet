@@ -10,6 +10,8 @@ import Privacy from "../pages/Dashboard/settings/Privacy";
 import Profile from "../pages/Dashboard/settings/Profile";
 import Payments from "../pages/Dashboard/payments";
 import Projects from "../pages/Dashboard/projects";
+import Tests from "../pages/Dashboard/tests";
+import Community from "../pages/Dashboard/community";
 import Settings from "../pages/Dashboard/settings";
 import Routing from "./Routing";
 
@@ -63,6 +65,18 @@ export const childRoutes = [
     component: Projects,
     exact: false,
     name: "projects",
+  },
+  {
+    path: "/tests",
+    component: Tests,
+    exact: false,
+    name: "Tests",
+  },
+  {
+    path: "/community",
+    component: Community,
+    exact: false,
+    name: "Community Guide",
   },
   /* {
     path: "/projects/new",

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
@@ -5,17 +6,23 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import _ from "lodash";
 import styled from "styled-components";
+// import { useDispatch } from "react-redux";
 
 /* -------------------------- Internel Dependencies ------------------------- */
 import InputGroup from "./InputGroup";
 import Icon from "./Icon";
 import IconButton from "./IconButton";
 import SummaryPlaceholder from "./SummaryPlaceholder/SummaryPlaceholder";
+// import { listInvoices } from "../actions/InvoiceActions";
 
 const SearchBox = ({ navHieght }) => {
   const [searchTerm, setSearchTerm] = useState("");
-
-  const sendQuery = (query) => console.log(`Querying for ${query}`); // TODO
+  // const dispatch = useDispatch();
+  const sendQuery = (query) => {
+    // SearchActions.listProjects({ search: query, page_size: 3 }, searchKey);
+    // dispatch(listInvoices({ search: query, page_size: 3 }));
+    console.log(`Querying for ${query}`);
+  };
 
   const delayedQuery = _.debounce((q) => sendQuery(q), 500);
 
@@ -25,7 +32,7 @@ const SearchBox = ({ navHieght }) => {
   };
 
   const clearSearch = (context) => {
-    context.props.onChange({
+    context?.props.onChange({
       target: {
         value: "",
       },

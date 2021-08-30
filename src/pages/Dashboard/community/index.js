@@ -1,10 +1,10 @@
 import React from "react";
 import DashboardLayout from "../../../layouts/DashboardLayout";
 
-export default function Tests() {
+export default function Community() {
   return (
     <DashboardLayout>
-      <h3>tests</h3>
+      <h3>Community</h3>
     </DashboardLayout>
   );
 }

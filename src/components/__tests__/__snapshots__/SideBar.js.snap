@@ -87,6 +87,24 @@ exports[`Sidebar component test Snapshot test for Sidebar component 1`] = `
     <li>
       <a
         aria-current={null}
+        href="/community"
+        onClick={[Function]}
+      >
+        <span
+          className="menu-icon"
+        >
+          <i
+            className="tg-ic-baseline-folder-open tunga-ic-sz-sidebar "
+          />
+        </span>
+        <span>
+          Community
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
         data-testid="signout"
         href="/logout"
         onClick={[Function]}

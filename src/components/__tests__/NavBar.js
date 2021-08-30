@@ -78,7 +78,7 @@ describe("Auth layout test", () => {
 
   it("should render community guide title", async () => {
     const { container } = render(
-      <MemoryRouter initialEntries={["/communityguide"]}>
+      <MemoryRouter initialEntries={["/community"]}>
         <NavBar ref={{ current: "" }} />
       </MemoryRouter>
     );
