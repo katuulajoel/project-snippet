@@ -5,11 +5,12 @@ import { useDispatch } from "react-redux";
 import Avatar from "../../../components/Avatar";
 import DashboardLayout from "../../../layouts/DashboardLayout";
 import css from "./Dashboard.module.scss";
-import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
 import { getNotifications } from "../../../actions/DashboardActions";
 import LatestReports from "./LatestReports";
 import UpcomingPayments from "./UpcomingPayments";
 import ActiveProjects from "./ActiveProjects";
+import RecentNotifications from "./RecentNotifications";
+import { generateUserIntials } from "../../../components/utils/stringUtils";
 
 export default function Dashboard() {
   const user = {
@@ -29,7 +30,12 @@ export default function Dashboard() {
       <Row>
         <Col sm={8}>
           <div className={`${css.card} ${css.header}`}>
-            <Avatar image={user.avatar_url} size="dash" />
+            <Avatar
+              image={user.avatar_url}
+              size="dash"
+              className="avatar-initials"
+              initials={generateUserIntials(user)}
+            />
             <div className={css.profile}>
               <h3>Hi {user.display_name} 👋🏻</h3>
 
@@ -41,22 +47,7 @@ export default function Dashboard() {
               </span>
             </div>
           </div>
-          <div className={css.card}>
-            <h3 className={css.title}>
-              Recent Notifications
-              <small
-                onClick={() => {}}
-                style={{
-                  float: "right",
-                  cursor: "pointer",
-                }}
-              >
-                Clear all
-              </small>
-            </h3>
-
-            <SummaryPlaceholder description="No recent notifications" />
-          </div>
+          <RecentNotifications />
 
           <ActiveProjects />
         </Col>

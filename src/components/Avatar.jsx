@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import Icon from "./Icon";
@@ -7,29 +6,15 @@ import OverlayTooltip from "./OverlayTooltip";
 import styled from "styled-components";
 
 const Avatar = (props) => {
-  const {
-    className,
-    image,
-    icon,
-    size,
-    title,
-    link,
-    badge,
-    verified,
-    initials,
-  } = props;
+  const { className, image, icon, title, badge, verified, initials } = props;
   let avatar = (
     <div
-      className={`${size ? `avatar-${size}` : ""} ${
-        image ? "" : initials ? "avatar-initials" : "avatar-icon"
-      }`}
+      className={`avatar ${className}`}
       style={image ? { backgroundImage: `url(${image})` } : {}}
     >
       {image ? null : initials ? initials : icon || <Icon name="avatar" />}
     </div>
   );
-
-  let linkifiedAvatar = link ? <Link to={link}>{avatar}</Link> : avatar;
 
   return (
     <Wrapper className={className}>
@@ -37,10 +22,10 @@ const Avatar = (props) => {
       {verified ? <Icon name="check" className="verified" /> : null}
       {title ? (
         <OverlayTooltip placement="top" overlay={title}>
-          {linkifiedAvatar}
+          {avatar}
         </OverlayTooltip>
       ) : (
-        linkifiedAvatar
+        avatar
       )}
     </Wrapper>
   );
@@ -52,18 +37,32 @@ const Wrapper = styled.div`
   margin-right: 5px;
   border-radius: 100%;
 
-  &.avatar-dash {
-    font-size: 48px;
+  .avatar {
     width: 48px;
     height: 48px;
-  }
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 5px 8px 24px;
 
-  & .avatar-initials {
-    font-size: 14px !important;
-  }
+    &.avatar-initials {
+      align-items: center;
+      color: #fff;
+      background-color: #062e64;
+    }
 
-  &.avatar-tunga .avatar-initials {
-    background-color: #da3451;
+    &.avatar-tunga {
+      align-items: center;
+      color: #fff;
+      background-color: #da3451;
+    }
+
+    &.avatar-icon {
+      background: #e9edf0;
+      align-items: center;
+    }
   }
 `;
 
@@ -71,10 +70,8 @@ Avatar.propTypes = {
   className: PropTypes.string,
   image: PropTypes.string,
   icon: PropTypes.string,
-  size: PropTypes.string,
-  title: PropTypes.string,
-  link: PropTypes.string,
   badge: PropTypes.number,
+  title: PropTypes.number,
   verified: PropTypes.bool,
   remove: PropTypes.bool,
   onRemove: PropTypes.func,

@@ -23,7 +23,9 @@ export const numberWithCommas = (x) => {
 };
 
 export function generateUserIntials(user) {
-  return !user.avatar_url ? user.display_name.match(/\b(\w)/g).join("") : null;
+  return !user?.avatar_url
+    ? user?.display_name.match(/\b(\w)/g).join("")
+    : null;
 }
 
 export default helpers;
