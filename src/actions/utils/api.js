@@ -47,6 +47,7 @@ export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl(
 export const ENDPOINT_INVOICES_SUMMARY = getEndpointUrl("invoices/summary/");
 export const ENDPOINT_INVOICES = getEndpointUrl("invoices/");
 export const ENDPOINT_NOTIFICATIONS = getEndpointUrl("me/notification/");
+export const ENDPOINT_NOTIFICATION_LOG = getEndpointUrl("notification-log/");
 
 export const USER_TYPE_DEVELOPER = 1;
 export const USER_TYPE_PROJECT_OWNER = 2;

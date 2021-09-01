@@ -9,7 +9,7 @@ const initialState = {
   isMakingRequest: {},
   errors: {},
   notifications: {
-    profile: { required: [], optional: [] },
+    profile: { cleared: [], required: [], optional: [] },
     projects: [],
     invoices: [],
     events: [],

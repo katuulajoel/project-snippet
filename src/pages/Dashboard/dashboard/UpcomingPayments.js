@@ -21,7 +21,7 @@ const UpcomingPayments = () => {
         <div className="content">
           {invoices?.map((invoice) => {
             return (
-              <div key={event.id} className="list-layout clearfix">
+              <div key={invoice.id} className="list-layout clearfix">
                 <div className="icon-avatar">
                   <span>
                     <Icon name="round-payment" size="sm" />

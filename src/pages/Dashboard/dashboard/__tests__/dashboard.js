@@ -20,7 +20,17 @@ describe("Dashboard test", () => {
     const tree = renderer
       .create(
         <BrowserRouter>
-          <Provider store={mockAppStore({ Dashboard: { notifications: {} } })}>
+          <Provider
+            store={mockAppStore({
+              Dashboard: {
+                notifications: {
+                  profile: { required: [], optional: [] },
+                  activities: [],
+                },
+                isMakingRequest: {},
+              },
+            })}
+          >
             <ThemeProvider theme={theme}>
               <Dashboard />
             </ThemeProvider>

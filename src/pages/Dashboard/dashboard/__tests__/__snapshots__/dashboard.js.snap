@@ -201,15 +201,13 @@ Array [
           className="undefined undefined"
         >
           <div
-            className="sc-bdnxRM cjPjlm"
+            className="sc-bdnxRM eNsiXn avatar-initials"
           >
             <div
-              className="avatar-dash avatar-icon"
+              className="avatar avatar-initials"
               style={Object {}}
             >
-              <i
-                className="tg-ic-avatar  "
-              />
+              KJ
             </div>
           </div>
           <div>
@@ -224,12 +222,16 @@ Array [
           </div>
           <div>
             <span>
-              Mon, 30th Aug 2021
+              Wed, 1st Sep 2021
             </span>
           </div>
         </div>
-        <div>
-          <h3>
+        <div
+          className="dashboard-card"
+        >
+          <h3
+            className="title"
+          >
             Recent Notifications
             <small
               onClick={[Function]}
