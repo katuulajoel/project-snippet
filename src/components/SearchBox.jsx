@@ -32,12 +32,8 @@ const SearchBox = ({ navHieght }) => {
     delayedQuery(event.target.value);
   };
 
-  const clearSearch = (context) => {
-    context?.props.onChange({
-      target: {
-        value: "",
-      },
-    });
+  const clearSearch = () => {
+    setSearchTerm("");
   };
 
   return (
