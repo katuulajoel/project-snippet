@@ -43,6 +43,7 @@ const initialState = {
   isMakingRequest: {},
   errors: {},
   summary: {},
+  search: { data: [], count: 0, next: "", previous: "" },
   list: { data: [], count: 0, next: "", previous: "" },
   invoice: {},
   csv: {},
