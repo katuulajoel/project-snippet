@@ -29,6 +29,9 @@ describe("Dashboard test", () => {
                 },
                 isMakingRequest: {},
               },
+              Invoice: {
+                search: {},
+              },
             })}
           >
             <ThemeProvider theme={theme}>

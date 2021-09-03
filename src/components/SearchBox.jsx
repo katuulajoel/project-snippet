@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
@@ -6,22 +5,24 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import _ from "lodash";
 import styled from "styled-components";
-// import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 /* -------------------------- Internel Dependencies ------------------------- */
 import InputGroup from "./InputGroup";
 import Icon from "./Icon";
 import IconButton from "./IconButton";
 import SummaryPlaceholder from "./SummaryPlaceholder/SummaryPlaceholder";
-// import { listInvoices } from "../actions/InvoiceActions";
+import { listInvoices, listMoreInvoices } from "../actions/InvoiceActions";
+import Progress from "./Progress";
+import { Link } from "react-router-dom";
+import LoadMore from "./LoadMore";
 
 const SearchBox = ({ navHieght }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const { search, isMakingRequest } = useSelector(({ Invoice }) => Invoice);
   const sendQuery = (query) => {
-    // SearchActions.listProjects({ search: query, page_size: 3 }, searchKey);
-    // dispatch(listInvoices({ search: query, page_size: 3 }));
-    console.log(`Querying for ${query}`);
+    dispatch(listInvoices({ search: query, page_size: 3 }, true));
   };
 
   const delayedQuery = _.debounce((q) => sendQuery(q), 500);
@@ -31,12 +32,8 @@ const SearchBox = ({ navHieght }) => {
     delayedQuery(event.target.value);
   };
 
-  const clearSearch = (context) => {
-    context?.props.onChange({
-      target: {
-        value: "",
-      },
-    });
+  const clearSearch = () => {
+    setSearchTerm("");
   };
 
   return (
@@ -56,7 +53,49 @@ const SearchBox = ({ navHieght }) => {
 
       {searchTerm && (
         <div className="search-results">
-          <SummaryPlaceholder description="No results found" />
+          {isMakingRequest.search && <Progress />}
+          {search.data.length == 0 ? (
+            <SummaryPlaceholder description="No results found" />
+          ) : (
+            <div className="results">
+              {search.data.length && (
+                <span className="counter" data-testid="counter">
+                  Showing <strong>{search.data.length}</strong> results for{" "}
+                  <strong>&quot;{searchTerm}&quot;</strong>
+                </span>
+              )}
+
+              {isMakingRequest.search ? null : search.data.length ? (
+                <div className="section">
+                  <div className="title">Payments</div>
+                  {search.data.map((invoice) => {
+                    return (
+                      <Link
+                        key={invoice?.id}
+                        to={`/projects/${invoice?.project.id}/pay`}
+                        className="result-item"
+                        onClick={clearSearch}
+                      >
+                        <b>{invoice?.project.title}</b>: {invoice?.title}
+                      </Link>
+                    );
+                  })}
+
+                  <LoadMore
+                    type="text"
+                    hasMore={search.next && search.next != ""}
+                    isLoadingMore={isMakingRequest.search}
+                    onLoadMore={() =>
+                      dispatch(listMoreInvoices(search.next, true))
+                    }
+                    variant="outline-primary"
+                  >
+                    View More
+                  </LoadMore>
+                </div>
+              ) : null}
+            </div>
+          )}
         </div>
       )}
     </Wrapper>
@@ -81,6 +120,60 @@ const Wrapper = styled.div`
       font-size: 16px;
       line-height: 19px;
       color: #151a30;
+
+      .counter {
+        b {
+          font-weight: 600;
+        }
+      }
+      .section {
+        padding: 40px 0;
+        border-bottom: 1px solid #edf1f7;
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+
+        .title {
+          font-weight: 600;
+          margin-bottom: 16px;
+        }
+        a {
+          display: block;
+          text-decoration: none;
+          font-weight: 500;
+          margin-bottom: 16px;
+          color: #151a30;
+          b {
+            font-weight: 600;
+          }
+        }
+
+        .text-link {
+          button {
+            border: none;
+            padding: 0;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            color: #da3451;
+          }
+          button:hover,
+          button:focus {
+            background-color: #fff;
+            color: #da3451;
+          }
+        }
+
+        .avatar.avatar-dash {
+          width: 48px;
+          height: 48px;
+
+          &.avatar-initials {
+            font-size: 16px;
+          }
+        }
+      }
     }
   }
 `;

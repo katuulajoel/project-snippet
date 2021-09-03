@@ -6,6 +6,12 @@ import {
   FETCH_NOTIFICATIONS_START,
   FETCH_NOTIFICATIONS_SUCCESS,
   FETCH_NOTIFICATIONS_FAILED,
+  CREATE_NOTIFICATION_LOG_SUCCESS,
+  CREATE_NOTIFICATION_LOG_FAILED,
+  CREATE_NOTIFICATION_LOG_START,
+  DELETE_NOTIFICATIONS_START,
+  DELETE_NOTIFICATIONS_SUCCESS,
+  DELETE_NOTIFICATIONS_FAILED,
 } from "../utils/ActionTypes";
 
 const middlewares = [thunk];
@@ -49,6 +55,74 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.getNotifications());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should create notifications log", async () => {
+    axios.post.mockReturnValue(Promise.resolve({ data: { id: 1234 } }));
+    const expectedActions = [
+      { type: CREATE_NOTIFICATION_LOG_START },
+      {
+        type: CREATE_NOTIFICATION_LOG_SUCCESS,
+        data: { id: 1234 },
+      },
+    ];
+
+    await store.dispatch(actions.createNotificationLog());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should clear notifications", async () => {
+    axios.delete.mockReturnValue(Promise.resolve({ data: {} }));
+    const expectedActions = [
+      { type: DELETE_NOTIFICATIONS_START },
+      {
+        type: DELETE_NOTIFICATIONS_SUCCESS,
+        data: {},
+      },
+    ];
+
+    await store.dispatch(actions.clearNotification());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch CREATE_NOTIFICATION_LOG_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.post.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: CREATE_NOTIFICATION_LOG_START },
+      {
+        type: CREATE_NOTIFICATION_LOG_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.createNotificationLog());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch DELETE_NOTIFICATIONS_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.delete.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: DELETE_NOTIFICATIONS_START },
+      {
+        type: DELETE_NOTIFICATIONS_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.clearNotification());
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

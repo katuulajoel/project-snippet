@@ -2,7 +2,7 @@
 
 exports[`Auth layout test Snapshot test for NavBar component 1`] = `
 <div
-  className="sc-hKFxyN bCNRUe"
+  className="sc-hKFxyN eOLOZR"
 >
   <div
     className="input-group sc-eCApnc kyswBz input-search"

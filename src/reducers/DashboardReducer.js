@@ -38,7 +38,6 @@ function notifications(state = defaultNotifications, action) {
         let newActivites = state.activities.filter(
           (item) => item.id != action.data.notification_id
         );
-        console.log(newActivites);
         return {
           ...state,
           activities: newActivites,

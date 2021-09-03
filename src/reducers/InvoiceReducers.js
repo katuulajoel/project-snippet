@@ -13,6 +13,9 @@ import {
   LIST_INVOICES_START,
   LIST_INVOICES_SUCCESS,
   LIST_INVOICES_FAILED,
+  SEARCH_INVOICES_START,
+  SEARCH_INVOICES_SUCCESS,
+  SEARCH_INVOICES_FAILED,
   RETRIEVE_INVOICE_START,
   RETRIEVE_INVOICE_SUCCESS,
   RETRIEVE_INVOICE_FAILED,
@@ -22,6 +25,9 @@ import {
   LIST_MORE_INVOICES_START,
   LIST_MORE_INVOICES_SUCCESS,
   LIST_MORE_INVOICES_FAILED,
+  SEARCH_MORE_INVOICES_START,
+  SEARCH_MORE_INVOICES_SUCCESS,
+  SEARCH_MORE_INVOICES_FAILED,
   DELETE_INVOICE_START,
   DELETE_INVOICE_SUCCESS,
   DELETE_INVOICE_FAILED,
@@ -77,6 +83,30 @@ function invoice(state = {}, action) {
   switch (action.type) {
     case RETRIEVE_INVOICE_SUCCESS:
       return action.data;
+    default:
+      return state;
+  }
+}
+
+function search(
+  state = { data: [], count: 0, next: "", previous: "" },
+  action
+) {
+  switch (action.type) {
+    case SEARCH_INVOICES_SUCCESS:
+      return {
+        data: action.data.results,
+        count: action.data.count,
+        next: action.data.next,
+        previous: action.data.previous,
+      };
+    case SEARCH_MORE_INVOICES_SUCCESS:
+      return {
+        data: [...state.data, ...action.data.results],
+        count: action.data.count,
+        next: action.data.next,
+        previous: action.data.previous,
+      };
     default:
       return state;
   }
@@ -142,12 +172,16 @@ function isMakingRequest(_, action) {
       return { download: true };
     case LIST_INVOICES_START:
       return { list: true };
+    case SEARCH_INVOICES_START:
+      return { search: true };
     case RETRIEVE_INVOICE_START:
       return { fetch: true };
     case UPDATE_INVOICE_START:
       return { update: true };
     case LIST_MORE_INVOICES_START:
       return { more: true };
+    case SEARCH_MORE_INVOICES_START:
+      return { searchMore: true };
     case DELETE_INVOICE_START:
       return { delete: true };
     case ARCHIVE_INVOICE_START:
@@ -175,12 +209,16 @@ function errors(state = {}, action) {
       return { download: action.error };
     case LIST_INVOICES_FAILED:
       return { list: action.error };
+    case SEARCH_INVOICES_FAILED:
+      return { search: action.error };
     case RETRIEVE_INVOICE_FAILED:
       return { fetch: action.error };
     case UPDATE_INVOICE_FAILED:
       return { update: action.error };
     case LIST_MORE_INVOICES_FAILED:
       return { more: action.error };
+    case SEARCH_MORE_INVOICES_FAILED:
+      return { searchMore: action.error };
     case DELETE_INVOICE_FAILED:
       return { delete: action.error };
     case ARCHIVE_INVOICE_FAILED:
@@ -201,6 +239,7 @@ function errors(state = {}, action) {
 const Invoice = combineReducers({
   csv,
   invoice,
+  search,
   list,
   summary,
   isMakingRequest,

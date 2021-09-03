@@ -15,6 +15,9 @@ import {
   LIST_INVOICES_START,
   LIST_INVOICES_SUCCESS,
   LIST_INVOICES_FAILED,
+  SEARCH_INVOICES_START,
+  SEARCH_INVOICES_SUCCESS,
+  SEARCH_INVOICES_FAILED,
   RETRIEVE_INVOICE_START,
   RETRIEVE_INVOICE_SUCCESS,
   RETRIEVE_INVOICE_FAILED,
@@ -24,6 +27,9 @@ import {
   LIST_MORE_INVOICES_START,
   LIST_MORE_INVOICES_SUCCESS,
   LIST_MORE_INVOICES_FAILED,
+  SEARCH_MORE_INVOICES_START,
+  SEARCH_MORE_INVOICES_SUCCESS,
+  SEARCH_MORE_INVOICES_FAILED,
   DELETE_INVOICE_START,
   DELETE_INVOICE_SUCCESS,
   DELETE_INVOICE_FAILED,
@@ -94,9 +100,9 @@ export function downloadInoicesCsv(invoiceSet, type = "", filter = "") {
   };
 }
 
-export function listInvoices(filter) {
+export function listInvoices(filter, search = false) {
   return (dispatch) => {
-    dispatch(start(LIST_INVOICES_START));
+    dispatch(start(search ? SEARCH_INVOICES_START : LIST_INVOICES_START));
     // TODO: refactor even further
     axios
       .get(
@@ -110,10 +116,17 @@ export function listInvoices(filter) {
           : { params: filter }
       )
       .then(function (response) {
-        dispatch(success(LIST_INVOICES_SUCCESS, response.data));
+        dispatch(
+          success(
+            search ? SEARCH_INVOICES_SUCCESS : LIST_INVOICES_SUCCESS,
+            response.data
+          )
+        );
       })
       .catch(function (error) {
-        dispatch(failed(LIST_INVOICES_FAILED, error));
+        dispatch(
+          failed(search ? SEARCH_INVOICES_FAILED : LIST_INVOICES_FAILED, error)
+        );
       });
   };
 }
@@ -154,16 +167,28 @@ export function updateInvoice(id, invoice) {
   };
 }
 
-export function listMoreInvoices(url) {
+export function listMoreInvoices(url, search = false) {
   return (dispatch) => {
-    dispatch(start(LIST_MORE_INVOICES_START));
+    dispatch(
+      start(search ? SEARCH_MORE_INVOICES_START : LIST_MORE_INVOICES_START)
+    );
     axios
       .get(url)
       .then(function (response) {
-        dispatch(success(LIST_MORE_INVOICES_SUCCESS, response.data));
+        dispatch(
+          success(
+            search ? SEARCH_MORE_INVOICES_SUCCESS : LIST_MORE_INVOICES_SUCCESS,
+            response.data
+          )
+        );
       })
       .catch(function (error) {
-        dispatch(failed(LIST_MORE_INVOICES_FAILED, error));
+        dispatch(
+          failed(
+            search ? SEARCH_MORE_INVOICES_FAILED : LIST_MORE_INVOICES_FAILED,
+            error
+          )
+        );
       });
   };
 }
