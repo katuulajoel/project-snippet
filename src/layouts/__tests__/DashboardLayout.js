@@ -20,7 +20,7 @@ describe("Dashboard layout test", () => {
     const tree = renderer
       .create(
         <Router>
-          <Provider store={mockAppStore()}>
+          <Provider store={mockAppStore({ Invoice: { search: {} } })}>
             <ThemeProvider theme={theme}>
               <DashboardLayout />
             </ThemeProvider>

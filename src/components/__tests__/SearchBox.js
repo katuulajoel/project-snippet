@@ -9,6 +9,7 @@ const middlewares = [thunk];
 
 const mockAppState = {
   Auth: {},
+  Invoice: { search: {} },
 };
 
 const mockAppStore = (state) => {
