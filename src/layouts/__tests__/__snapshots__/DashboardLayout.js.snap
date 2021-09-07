@@ -116,7 +116,7 @@ Array [
       <li>
         <a
           aria-current={null}
-          href="/payments"
+          href="/payments/in/all"
           onClick={[Function]}
         >
           <span

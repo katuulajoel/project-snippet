@@ -116,7 +116,7 @@ Array [
       <li>
         <a
           aria-current={null}
-          href="/payments"
+          href="/payments/in/all"
           onClick={[Function]}
         >
           <span
@@ -222,7 +222,7 @@ Array [
           </div>
           <div>
             <span>
-              Fri, 3rd Sep 2021
+              Tue, 7th Sep 2021
             </span>
           </div>
         </div>

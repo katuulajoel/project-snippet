@@ -11,6 +11,42 @@ export const DELETE_ACTION = "DELETE_ACTION";
 export const MARK_AS_PAID_ACTION = "MARK_AS_PAID_ACTION";
 export const ARCHIVE_ACTION = "ARCHIVE_ACTION";
 
+export function filterInvoices(invoices, type) {
+  return invoices?.filter((invoice) => invoice?.type === type);
+}
+
+export function batchInvoices(invoices) {
+  let batchedInvoices = {};
+  invoices?.forEach((invoice) => {
+    batchedInvoices[invoice.batch_ref] = [
+      ...(batchedInvoices[invoice.batch_ref] || []),
+      invoice,
+    ];
+  });
+
+  let batchObjects = [];
+  Object.keys(batchedInvoices).map((ref) => {
+    let batchObj = {
+      ...batchedInvoices[ref][0],
+      invoices: batchedInvoices[ref],
+    };
+    batchObj.ref = ref;
+    batchObj.amount = sumInvoices(batchedInvoices[ref]);
+    batchObjects.push(batchObj);
+  });
+  return batchObjects;
+}
+
+export function sumInvoices(invoices) {
+  return invoices
+    .map((invoice) => {
+      return invoice.amount || 0;
+    })
+    .reduce((total, number) => {
+      return total + Math.round(number * 100) / 100;
+    }, 0);
+}
+
 export const showAction = (action, invoice) => {
   switch (action) {
     case GENERATE_INVOICE_ACTION:

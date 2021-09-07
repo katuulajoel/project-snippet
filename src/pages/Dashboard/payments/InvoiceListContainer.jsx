@@ -42,9 +42,10 @@ const InvoiceListContainer = (props) => {
   const getList = (prevFilters = {}) => {
     let filters_ = {
       ...getPaymentsFilters(filter),
-      ...({ types } || { type }),
+      ...(types ? { types } : { type }),
       ...prevFilters,
     };
+    console.log(filters_);
     setFilters(filters_); // memoization of filters
     listInvoices(filters_)(dispatch);
   };
