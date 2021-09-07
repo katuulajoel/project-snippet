@@ -28,7 +28,7 @@ const SideBar = () => {
           ["dashboard", "Dashboard", "outline-dashboard"],
           ["projects", "Projects", "baseline-folder-open"],
           ...(isPayAdminOrPM() ? [["tests", "Tests", "award"]] : []),
-          ["payments", "Payments", "round-payment"],
+          ["payments/in/all", "Payments", "round-payment"], // TODO: // use payments instead of payments/in/all
           ["settings", "Settings", "outline-settings"],
           ["community", "Community", "baseline-folder-open"],
         ].map((item, idx) => {

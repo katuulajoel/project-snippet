@@ -96,10 +96,10 @@ export const childRoutes = [
     exact: false,
     name: "payments",
   },
-  {
+  /* {
     path: "/payments",
     redirect: "/payments/in/all",
-  },
+  }, */
   /* {
     path: "/settings/account",
     component: Account,

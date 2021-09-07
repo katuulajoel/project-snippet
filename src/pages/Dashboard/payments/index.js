@@ -22,6 +22,7 @@ import {
 
 import { getInvoiceSummary } from "../../../actions/InvoiceActions";
 import { numberWithCommas } from "../../../components/utils/stringUtils";
+import Payouts from "./Payouts";
 
 export default function PaymentsPage() {
   let { type, status } = useParams();
@@ -56,6 +57,7 @@ export default function PaymentsPage() {
     // downloadCsv(filter, exportType, InvoiceActions);
   };
 
+  console.log("type:", type);
   return (
     <DashboardLayout>
       <Wrapper>
@@ -142,20 +144,13 @@ export default function PaymentsPage() {
                   {type === "in" ? (
                     <Payments {...props} filter={type} exportCsv={exportCsv} />
                   ) : (
-                    <>
-                      {/* <Payouts
-                        {...props}
-                        filter={type}
-                        setInvoviceTotals={performAction}
-                        exportCsv={exportCsv}
-                      /> */}
-                    </>
+                    <Payouts {...props} filter={type} exportCsv={exportCsv} />
                   )}
                 </InvoiceListContainer>
               );
             }}
           />
-          <Redirect from="*" to={`/payments/${type}/all`} />
+          {/* <Redirect from="*" to={`/payments/${type}/all`} /> */}
         </Switch>
       </Wrapper>
     </DashboardLayout>

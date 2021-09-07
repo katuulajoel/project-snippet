@@ -30,8 +30,8 @@ const NavLinks = () => {
     paymentSections = [
       ...(isAdminOrPM()
         ? [
-            ["/payments/in", "Payments"],
-            ["/payments/out", "Payouts"],
+            ["/payments/in/all", "Payments"], // TODO: remove the all to make more generic
+            ["/payments/out/all", "Payouts"], // TODO: remove the all to make more generic
           ]
         : []),
     ],

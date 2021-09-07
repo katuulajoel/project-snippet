@@ -13,7 +13,7 @@ Array [
         href="/dashboard"
         onClick={[Function]}
       >
-        Payments
+        Dashboard
       </a>
       <ul
         className="navbar-nav ml-auto"
@@ -64,15 +64,7 @@ Array [
     </div>
     <div
       className="sc-fujyAs cKNmWV"
-    >
-      <div
-        className="sc-iCoGMd hobTSF"
-      >
-        <div
-          className="title-filters"
-        />
-      </div>
-    </div>
+    />
   </nav>,
   <div
     className="sc-jrsJWt ilZZuz sidebar"
@@ -123,11 +115,9 @@ Array [
       </li>
       <li>
         <a
-          aria-current="page"
-          className="active"
-          href="/payments"
+          aria-current={null}
+          href="/payments/in/all"
           onClick={[Function]}
-          style={Object {}}
         >
           <span
             className="menu-icon"
@@ -181,7 +171,7 @@ Array [
         <a
           aria-current={null}
           data-testid="signout"
-          href="/payments/undefined/logout"
+          href="/logout"
           onClick={[Function]}
         >
           <span
@@ -202,7 +192,7 @@ Array [
     className="sc-kEqXSa gCTtLP"
   >
     <div
-      className="sc-iemWCZ gLWovS"
+      className="sc-hHEiqL iSkYYM"
     >
       <div
         className="pay-summary"
@@ -259,11 +249,9 @@ Array [
             className="filter-links"
           >
             <a
-              aria-current="page"
-              className="active"
+              aria-current={null}
               href="/payments/undefined/all"
               onClick={[Function]}
-              style={Object {}}
             >
               All
             </a>
@@ -297,7 +285,7 @@ Array [
             </a>
           </div>
           <div
-            className="sc-bkbkJK cloizH"
+            className="sc-dIvrsQ gJrOoh"
           >
             <a
               className="add-btn"
