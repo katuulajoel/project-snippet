@@ -14,12 +14,6 @@ import DashboardLayout from "../../../layouts/DashboardLayout";
 import InvoiceListContainer from "./InvoiceListContainer";
 import Payments from "./Payments";
 
-import {
-  INVOICE_TYPE_SALE,
-  INVOICE_TYPE_CREDIT_NOTE,
-  INVOICE_TYPE_PURCHASE,
-} from "../../../actions/utils/api";
-
 import { getInvoiceSummary } from "../../../actions/InvoiceActions";
 import { numberWithCommas } from "../../../components/utils/stringUtils";
 import Payouts from "./Payouts";
@@ -57,7 +51,6 @@ export default function PaymentsPage() {
     // downloadCsv(filter, exportType, InvoiceActions);
   };
 
-  console.log("type:", type);
   return (
     <DashboardLayout>
       <Wrapper>
@@ -132,25 +125,17 @@ export default function PaymentsPage() {
             path={`/payments/${type}/:filter`}
             render={(props) => {
               return (
-                <InvoiceListContainer
-                  {...props}
-                  {...(type === "in"
-                    ? {
-                        types:
-                          INVOICE_TYPE_SALE + "," + INVOICE_TYPE_CREDIT_NOTE,
-                      }
-                    : { type: INVOICE_TYPE_PURCHASE })}
-                >
+                <InvoiceListContainer {...props} type={type}>
                   {type === "in" ? (
-                    <Payments {...props} filter={type} exportCsv={exportCsv} />
+                    <Payments {...props} exportCsv={exportCsv} />
                   ) : (
-                    <Payouts {...props} filter={type} exportCsv={exportCsv} />
+                    <Payouts {...props} exportCsv={exportCsv} />
                   )}
                 </InvoiceListContainer>
               );
             }}
           />
-          {/* <Redirect from="*" to={`/payments/${type}/all`} /> */}
+          <Redirect from="*" to={`/payments/${type}/all`} />
         </Switch>
       </Wrapper>
     </DashboardLayout>

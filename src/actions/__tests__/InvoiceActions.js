@@ -36,9 +36,6 @@ import {
   BULK_ACTION_START,
   BULK_ACTION_SUCCESS,
   BULK_ACTION_FAILED,
-  PAY_INVOICE_START,
-  PAY_INVOICE_SUCCESS,
-  PAY_INVOICE_FAILED,
   INVOICE_SUMMARY_START,
   INVOICE_SUMMARY_SUCCESS,
   INVOICE_SUMMARY_FAILED,
@@ -448,40 +445,6 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.bulkAction([[{}], "action"]));
-    const storeActions = await store.getActions();
-    expect(storeActions).toEqual(expectedActions);
-  });
-
-  it("should dispatch PAY_INVOICE_SUCCESS", async () => {
-    axios.post.mockReturnValue(Promise.resolve({ data: {} }));
-    const expectedActions = [
-      { type: PAY_INVOICE_START },
-      {
-        type: PAY_INVOICE_SUCCESS,
-        data: {},
-      },
-    ];
-
-    await store.dispatch(actions.payInvoice("id", {}));
-    const storeActions = await store.getActions();
-    expect(storeActions).toEqual(expectedActions);
-  });
-
-  it("should dispatch PAY_INVOICE_FAILED with error", async () => {
-    const error = {
-      message: "Error!",
-    };
-    axios.post.mockRejectedValue(error);
-
-    const expectedActions = [
-      { type: PAY_INVOICE_START },
-      {
-        type: PAY_INVOICE_FAILED,
-        error: "Error!",
-      },
-    ];
-
-    await store.dispatch(actions.payInvoice("id", {}));
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

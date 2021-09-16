@@ -13,7 +13,7 @@ Array [
         href="/dashboard"
         onClick={[Function]}
       >
-        Dashboard
+        Payments
       </a>
       <ul
         className="navbar-nav ml-auto"
@@ -64,7 +64,15 @@ Array [
     </div>
     <div
       className="sc-fujyAs cKNmWV"
-    />
+    >
+      <div
+        className="sc-iCoGMd hobTSF"
+      >
+        <div
+          className="title-filters"
+        />
+      </div>
+    </div>
   </nav>,
   <div
     className="sc-jrsJWt ilZZuz sidebar"
@@ -171,7 +179,7 @@ Array [
         <a
           aria-current={null}
           data-testid="signout"
-          href="/logout"
+          href="/payments/undefined/logout"
           onClick={[Function]}
         >
           <span
@@ -192,7 +200,7 @@ Array [
     className="sc-kEqXSa gCTtLP"
   >
     <div
-      className="sc-hHEiqL iSkYYM"
+      className="sc-fKgJPI dPktoE"
     >
       <div
         className="pay-summary"
@@ -249,9 +257,11 @@ Array [
             className="filter-links"
           >
             <a
-              aria-current={null}
+              aria-current="page"
+              className="active"
               href="/payments/undefined/all"
               onClick={[Function]}
+              style={Object {}}
             >
               All
             </a>
@@ -285,7 +295,7 @@ Array [
             </a>
           </div>
           <div
-            className="sc-dIvrsQ gJrOoh"
+            className="sc-kfYoZR bnFGPZ"
           >
             <a
               className="add-btn"
@@ -299,6 +309,17 @@ Array [
             </a>
           </div>
         </div>
+      </div>
+      <div
+        className="undefined undefined"
+      >
+        <img
+          alt="empty file image"
+          src={Object {}}
+        />
+        <p>
+          No payouts have been created yet
+        </p>
       </div>
     </div>
   </div>,

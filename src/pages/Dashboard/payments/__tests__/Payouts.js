@@ -1,12 +1,11 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Payments from "../Payments";
+import Payouts from "../Payouts";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { mount } from "enzyme/build";
-import * as utils from "../utils/utils";
 
 const middlewares = [thunk];
 
@@ -32,7 +31,7 @@ const mockAppStore = (state) => {
   return mockStore(state);
 };
 
-export const dummyInvoice = {
+const invoice = {
   id: "42",
   project: {
     id: 1,
@@ -49,10 +48,10 @@ export const dummyInvoice = {
   due_at: "2021-06-09T23:59:59.999999",
   is_overdue: true,
   title: "Pay Dami",
-  type: "sale",
+  type: "purchase",
   amount: "1000.00",
   number: "2021/3/P1/42",
-  status: "approved",
+  status: "pending",
   paid: false,
   finalized: true,
   archived: false,
@@ -66,7 +65,7 @@ describe("Dashboard test", () => {
       .create(
         <BrowserRouter>
           <Provider store={mockAppStore(mockAppState)}>
-            <Payments data={[]} />
+            <Payouts data={[]} />
           </Provider>
         </BrowserRouter>
       )
@@ -78,7 +77,7 @@ describe("Dashboard test", () => {
     const wrapper = mount(
       <BrowserRouter>
         <Provider store={mockAppStore(mockAppState)}>
-          <Payments data={[dummyInvoice]} onLoadMore={() => {}} filter="in" />
+          <Payouts data={[invoice]} onLoadMore={() => {}} filter="in" />
         </Provider>
       </BrowserRouter>
     );
@@ -89,26 +88,5 @@ describe("Dashboard test", () => {
     expect(wrapper.find("BulkActions").exists()).toBeTruthy();
     checkbox.simulate("click");
     expect(wrapper.find("BulkActions").exists()).toBeFalsy();
-  });
-
-  it("should open dropdown actions", async () => {
-    jest.spyOn(utils, "showAction").mockReturnValueOnce(true);
-
-    // eslint-disable-next-line no-unused-vars
-    const wrapper = mount(
-      <BrowserRouter>
-        <Provider store={mockAppStore(mockAppState)}>
-          <Payments data={[dummyInvoice]} onLoadMore={() => {}} filter="in" />
-        </Provider>
-      </BrowserRouter>
-    );
-
-    // TODO: unfinished test for toggle dropdown action
-    //var dropdownAction = wrapper.find(".btn-group > button");
-    /* expect(wrapper.find("BulkActions").exists()).toBeFalsy();
-    checkbox.simulate("click");
-    expect(wrapper.find("BulkActions").exists()).toBeTruthy();
-    checkbox.simulate("click");
-    expect(wrapper.find("BulkActions").exists()).toBeFalsy(); */
   });
 });

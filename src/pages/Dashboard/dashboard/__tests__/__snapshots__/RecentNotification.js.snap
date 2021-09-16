@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard test Should match snapshot test 1`] = `
+<div
+  className="dashboard-card"
+>
+  <h3
+    className="title"
+  >
+    Recent Notifications
+    <small
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+          "float": "right",
+        }
+      }
+    >
+      Clear all
+    </small>
+  </h3>
+  <div
+    className="content"
+  >
+    <div
+      className="list-layout"
+    >
+      <div
+        className="sc-bdnxRM eNsiXn"
+      >
+        <div
+          className="avatar "
+          style={Object {}}
+        >
+          <i
+            className="tg-ic-avatar  "
+          />
+        </div>
+      </div>
+      <div
+        className="detail"
+      >
+        <p>
+          <span>
+            You have
+             
+            been added to 
+            your
+             team for 
+            <a
+              href="/projects/undefined/team"
+              onClick={[Function]}
+            />
+          </span>
+        </p>
+        <span
+          className="sub-text"
+        >
+          Today, 12:34 PM
+        </span>
+      </div>
+      <div
+        className="sc-dlnjwi iqEnIB"
+      >
+        <button
+          className="btn btn-icon sc-gtsrHT fvXHXw btn-icon  "
+          form={null}
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="tg-ic-cross tunga-ic-sz-sm "
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      className="list-layout"
+    >
+      <div
+        className="sc-bdnxRM eNsiXn avatar-initials"
+      >
+        <div
+          className="avatar avatar-initials"
+          style={Object {}}
+        >
+          AT
+        </div>
+      </div>
+      <div
+        className="detail"
+      >
+        <p>
+          <span>
+            You
+             added a undefined document to project 
+            <a
+              href="/projects/undefined/docs"
+              onClick={[Function]}
+            />
+          </span>
+        </p>
+        <span
+          className="sub-text"
+        >
+          Today, 12:34 PM
+        </span>
+      </div>
+      <div
+        className="sc-dlnjwi iqEnIB"
+      >
+        <button
+          className="btn btn-icon sc-gtsrHT fvXHXw btn-icon  "
+          form={null}
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="tg-ic-cross tunga-ic-sz-sm "
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Payment Status tests Should match snapshot test for payments 1`] = `
+<span
+  className="overdue"
+>
+  Overdue
+</span>
+`;
+
+exports[`Payment Status tests Should match snapshot test for payouts batch 1`] = `
+<span
+  className="overdue"
+>
+  Overdue
+</span>
+`;

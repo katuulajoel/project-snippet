@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard test Should match snapshot test 1`] = `
+<div
+  className="undefined undefined"
+>
+  <img
+    alt="empty file image"
+    src={Object {}}
+  />
+  <p>
+    No payouts have been created yet
+  </p>
+</div>
+`;

@@ -198,7 +198,7 @@ Array [
         className="col-sm-8"
       >
         <div
-          className="undefined undefined"
+          className="sc-bqGGPW dtAQkC dashboard-card"
         >
           <div
             className="sc-bdnxRM eNsiXn avatar-initials"
@@ -210,19 +210,27 @@ Array [
               KJ
             </div>
           </div>
-          <div>
+          <div
+            className="profile"
+          >
             <h3>
               Hi 
               Katuula Joel
                👋🏻
             </h3>
-            <span>
+            <span
+              className="sub-text"
+            >
               Welcome Back.
             </span>
           </div>
-          <div>
-            <span>
-              Tue, 7th Sep 2021
+          <div
+            className="date"
+          >
+            <span
+              className="sub-text"
+            >
+              Thu, 16th Sep 2021
             </span>
           </div>
         </div>

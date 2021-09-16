@@ -2,7 +2,7 @@
 /* -------------------------------------------------------------------------- */
 /*                            External dependencies                           */
 /* -------------------------------------------------------------------------- */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { DropdownToggle, DropdownMenu } from "reactstrap";
@@ -14,11 +14,11 @@ import {
   ENDPOINT_INVOICES,
   INVOICE_TYPE_CREDIT_NOTE,
 } from "../../../actions/utils/api";
-// import { isPayAdmin } from "../../../components/utils/auth";
-import { getTableColumns } from "./components/columns";
-import { tableData } from "./components/row";
+import { getTableColumns } from "./utils/columns";
+import { tableData } from "./utils/row";
 import PaymentStatus from "./components/PaymentStatus";
 import ActionItem from "./components/ActionItem";
+import { showAction } from "./utils/utils";
 import {
   GENERATE_INVOICE_ACTION,
   PAY_ACTION,
@@ -26,8 +26,7 @@ import {
   ARCHIVE_ACTION,
   EDIT_ACTION,
   DELETE_ACTION,
-  showAction,
-} from "./components/utils";
+} from "./utils/constant";
 
 /* --------------------------- Styles dependencies -------------------------- */
 import { StyledButtonDropdown } from "./styles";
@@ -45,7 +44,7 @@ const proptypes = {
   exportCsv: PropTypes.func,
   onLoadMore: PropTypes.func,
   trackPagination: PropTypes.func,
-  lastPageIndex: PropTypes.number,
+  currentPage: PropTypes.number,
 };
 
 const Payments = (props) => {
@@ -55,13 +54,11 @@ const Payments = (props) => {
     isSaving,
     count,
     onLoadMore,
-    trackPagination,
-    lastPageIndex,
+    currentPage,
   } = props;
 
   const [open, setopen] = useState(null);
   const [checked, setChecked] = useState([]);
-  const [tablePageIndex, setTablePageIndex] = useState(0);
 
   const checkItem = (item) => {
     let newArr = [];
@@ -77,12 +74,6 @@ const Payments = (props) => {
   const toggleAction = (invoiceId) => {
     setopen(open === invoiceId ? null : invoiceId);
   };
-
-  useEffect(() => {
-    return () => {
-      trackPagination(tablePageIndex);
-    };
-  }, []);
 
   const getTableDisplayValue = (cell) => {
     let invoice = cell.value;
@@ -235,13 +226,7 @@ const Payments = (props) => {
           </td>
         );
       }
-      default:
-        return null;
     }
-  };
-
-  const getTablePageIndex = (index) => {
-    setTablePageIndex(index);
   };
 
   return (
@@ -260,11 +245,10 @@ const Payments = (props) => {
             <ReactTable
               tableData={tableData(invoices)}
               tableColumns={getTableColumns(filter)}
-              lastPageIndex={lastPageIndex}
+              initialPage={currentPage}
               count={count}
               getTableDisplayValue={getTableDisplayValue}
-              onLoadMore={onLoadMore}
-              getTablePageIndex={getTablePageIndex}
+              loadPage={onLoadMore}
             />
           </div>
         </div>

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionItem tests Should match snapshot test 1`] = `
+<button
+  className="dropdown-item dropdown-item"
+  onClick={[Function]}
+  role="menuitem"
+  tabIndex="0"
+  type="button"
+/>
+`;

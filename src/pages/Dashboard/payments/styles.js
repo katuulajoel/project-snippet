@@ -98,6 +98,9 @@ export const StyledTable = styled(Table)`
       vertical-align: middle;
       padding: 10px;
       border-bottom: 1px solid #edf1f7;
+      &.nowrap {
+        white-space: "nowrap";
+      }
     }
     th:nth-last-child(2) {
       width: 150px;

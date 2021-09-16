@@ -4,13 +4,13 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import Avatar from "../../../components/Avatar";
 import DashboardLayout from "../../../layouts/DashboardLayout";
-import css from "./Dashboard.module.scss";
 import { getNotifications } from "../../../actions/DashboardActions";
 import LatestReports from "./LatestReports";
 import UpcomingPayments from "./UpcomingPayments";
 import ActiveProjects from "./ActiveProjects";
 import RecentNotifications from "./RecentNotifications";
 import { generateUserIntials } from "../../../components/utils/stringUtils";
+import styled from "styled-components";
 
 export default function Dashboard() {
   const user = {
@@ -29,24 +29,24 @@ export default function Dashboard() {
     <DashboardLayout>
       <Row>
         <Col sm={8}>
-          <div className={`${css.card} ${css.header}`}>
+          <ProfileCard className="dashboard-card">
             <Avatar
               image={user.avatar_url}
               size="dash"
               className="avatar-initials"
               initials={generateUserIntials(user)}
             />
-            <div className={css.profile}>
+            <div className="profile">
               <h3>Hi {user.display_name} 👋🏻</h3>
 
-              <span className={css.subText}>{user.welcomeMessage}</span>
+              <span className="sub-text">{user.welcomeMessage}</span>
             </div>
-            <div className={css.date}>
-              <span className={css.subText}>
+            <div className="date">
+              <span className="sub-text">
                 {moment().format("ddd, Do MMM YYYY")}
               </span>
             </div>
-          </div>
+          </ProfileCard>
           <RecentNotifications />
 
           <ActiveProjects />
@@ -60,3 +60,40 @@ export default function Dashboard() {
     </DashboardLayout>
   );
 }
+
+const ProfileCard = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+
+    h3,
+    span {
+      display: flex;
+      margin: 0;
+    }
+
+    h3 {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 22px;
+      color: #151a30;
+    }
+  }
+
+  .date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 0 0 auto;
+
+    span {
+      font-weight: 500;
+      text-align: right;
+    }
+  }
+`;
