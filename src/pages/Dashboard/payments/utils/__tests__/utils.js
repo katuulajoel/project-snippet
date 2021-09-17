@@ -1,4 +1,4 @@
-import { performAction } from "../utils";
+import { performAction, getPaymentsFilters } from "../utils";
 import * as actions from "../paymentActions";
 import * as types from "../constant";
 
@@ -19,5 +19,18 @@ describe("Payment utils tests", () => {
     const approvePayoutStub = jest.spyOn(actions, "approvePayout");
     performAction(types.APPROVE_BATCH_ACTION, { id: 123 });
     expect(approvePayoutStub).toHaveBeenCalled();
+  });
+
+  it("should generate right query params", () => {
+    expect(getPaymentsFilters("paid")).toEqual({ paid: "True" });
+    expect(getPaymentsFilters("pending")).toEqual({
+      paid: "False",
+      overdue: "False",
+    });
+    expect(getPaymentsFilters("overdue")).toEqual({
+      overdue: "True",
+      paid: "False",
+    });
+    expect(getPaymentsFilters("archived")).toEqual({ archived: "True" });
   });
 });

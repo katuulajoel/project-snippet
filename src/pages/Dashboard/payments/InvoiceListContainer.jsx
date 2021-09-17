@@ -14,12 +14,12 @@ import {
   listMoreInvoices,
 } from "../../../actions/InvoiceActions";
 import usePrevious from "../../../hooks/usePrevious";
-import { getPaymentsFilters } from "../../../components/utils/payments";
 import {
   INVOICE_TYPE_SALE,
   INVOICE_TYPE_CREDIT_NOTE,
   INVOICE_TYPE_PURCHASE,
 } from "../../../actions/utils/api";
+import { getPaymentsFilters } from "./utils/utils";
 
 const InvoiceListContainer = ({
   children,

@@ -4,6 +4,8 @@ import SearchBox from "../SearchBox";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
+import mount from "enzyme/build/mount";
+import * as actions from "../../actions/InvoiceActions";
 
 const middlewares = [thunk];
 
@@ -27,5 +29,23 @@ describe("Auth layout test", () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it.only("should clear sarch input", () => {
+    const listInvoicesStub = jest
+      .spyOn(actions, "listInvoices")
+      .mockReturnValue();
+    const wrapper = mount(
+      <Provider store={mockAppStore()}>
+        <SearchBox />
+      </Provider>
+    );
+
+    //console.log(wrapper.debug());
+
+    const searchInput = wrapper.find("input");
+    console.log(searchInput.debug());
+
+    // searchInput.simulate("change", { target: { value: "Hello" } });
   });
 });

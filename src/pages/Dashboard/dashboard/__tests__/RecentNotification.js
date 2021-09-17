@@ -66,6 +66,9 @@ describe("Dashboard test", () => {
   });
 
   it("Should match snapshot test", () => {
+    const mockDate = new Date(1466424490000);
+    const spy = jest.spyOn(global, "Date").mockImplementation(() => mockDate);
+
     const tree = renderer
       .create(
         <BrowserRouter>
@@ -78,6 +81,7 @@ describe("Dashboard test", () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+    spy.mockRestore();
   });
 
   it("should clear all notifications", () => {

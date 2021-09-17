@@ -20,45 +20,41 @@ Array [
       >
         <li>
           <div
-            className="sc-eCApnc keDeAe"
+            className="input-group sc-jSFjdj hTzrBi input-search"
           >
-            <div
-              className="input-group sc-jSFjdj hTzrBi input-search"
+            <span
+              className="input-group-prepend"
             >
               <span
-                className="input-group-prepend"
+                className="input-group-text"
               >
-                <span
-                  className="input-group-text"
-                >
-                  <i
-                    className="tg-ic-search1  "
-                  />
-                </span>
-              </span>
-              <div
-                className="sc-gtsrHT jGBtBH"
-                data-testid="input"
-              >
-                <input
-                  autoComplete="off"
-                  className="form-control"
-                  data-testid=""
-                  id=""
-                  label="Label"
-                  name="search"
-                  onChange={[Function]}
-                  placeholder="Search...."
-                  type="input"
-                  value=""
+                <i
+                  className="tg-ic-search1  "
                 />
-              </div>
-              <span
-                className="input-group-prepend"
+              </span>
+            </span>
+            <div
+              className="sc-gtsrHT jGBtBH"
+              data-testid="input"
+            >
+              <input
+                autoComplete="off"
+                className="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="search"
+                onChange={[Function]}
+                placeholder="Search...."
+                type="input"
+                value=""
               />
             </div>
-            
+            <span
+              className="input-group-prepend"
+            />
           </div>
+          
         </li>
       </ul>
     </div>

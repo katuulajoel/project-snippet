@@ -57,7 +57,7 @@ exports[`Dashboard test Should match snapshot test 1`] = `
         <span
           className="sub-text"
         >
-          Today, 12:34 PM
+          Today, 03:08 PM
         </span>
       </div>
       <div
@@ -104,7 +104,7 @@ exports[`Dashboard test Should match snapshot test 1`] = `
         <span
           className="sub-text"
         >
-          Today, 12:34 PM
+          Today, 03:08 PM
         </span>
       </div>
       <div
