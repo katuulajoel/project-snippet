@@ -5,7 +5,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
   className="auth-page"
 >
   <div
-    className="sc-bdnxRM bITDsc"
+    className="sc-gtsrHT kYVhcJ"
   >
     <div
       className="grid_layout d-block d-md-grid"
@@ -27,7 +27,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
             />
           </a>
           <div
-            className="sc-gtsrHT dUlXpy"
+            className="sc-dlnjwi kGJCDK"
           >
             <h3>
               Create account
@@ -57,7 +57,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     </span>
                   </label>
                   <div
-                    className="sc-dlnjwi dsniKH"
+                    className="sc-hKFxyN gjxWXv"
                     data-testid="input"
                   >
                     <input
@@ -89,7 +89,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                         </span>
                       </label>
                       <div
-                        className="sc-dlnjwi dsniKH"
+                        className="sc-hKFxyN gjxWXv"
                         data-testid="input"
                       >
                         <input
@@ -120,7 +120,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                         </span>
                       </label>
                       <div
-                        className="sc-dlnjwi dsniKH"
+                        className="sc-hKFxyN gjxWXv"
                         data-testid="input"
                       >
                         <input
@@ -148,7 +148,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                       </span>
                     </label>
                     <div
-                      className="sc-dlnjwi dsniKH"
+                      className="sc-hKFxyN gjxWXv"
                       data-testid="input"
                     >
                       <input
@@ -175,7 +175,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     </span>
                   </label>
                   <div
-                    className="sc-dlnjwi dsniKH"
+                    className="sc-hKFxyN gjxWXv"
                     data-testid="input"
                   >
                     <input
@@ -219,7 +219,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     </span>
                   </label>
                   <div
-                    className="sc-dlnjwi dsniKH"
+                    className="sc-hKFxyN gjxWXv"
                     data-testid="input"
                   >
                     <input

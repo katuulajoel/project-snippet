@@ -28,6 +28,7 @@ const mockAppStore = (state) => {
 
 describe("Dashboard test", () => {
   it("Should match snapshot test", () => {
+    global.URL.createObjectURL = jest.fn(() => "details");
     const tree = renderer
       .create(
         <BrowserRouter>

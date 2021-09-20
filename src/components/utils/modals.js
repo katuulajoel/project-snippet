@@ -34,3 +34,23 @@ export function openConfirm(
     header
   );
 }
+
+export function openModal(
+  body,
+  title = null,
+  canClose = true,
+  options = null,
+  header = null,
+  hideActions = true
+) {
+  return openGenericModal(
+    body,
+    {
+      hideActions: hideActions,
+      mustRespond: !canClose,
+      title,
+      ...(options || {}),
+    },
+    header
+  );
+}

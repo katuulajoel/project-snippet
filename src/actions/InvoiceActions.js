@@ -36,9 +36,8 @@ export function downloadInoicesCsv(invoiceSet) {
     dispatch(start(types.DOWNLOAD_INVOICE_CSV_STARTED));
     axios
       .get(`${ENDPOINT_INVOICES}export/`, { params: invoiceSet })
-      .then(function () {
-        // TODO: Add invoice download
-        dispatch(success(types.DOWNLOAD_INVOICE_CSV_SUCCESS));
+      .then(function ({ data }) {
+        dispatch(success(types.DOWNLOAD_INVOICE_CSV_SUCCESS, data));
       })
       .catch(function (error) {
         dispatch(failed(types.DOWNLOAD_INVOICE_CSV_FAILED, error));
@@ -57,11 +56,7 @@ export function listInvoices(filter, search = false) {
         filter.archived == "True"
           ? ENDPOINT_INVOICES + "archived/"
           : ENDPOINT_INVOICES,
-        filter.archived == "True"
-          ? filter.project
-            ? { params: { ...filter, project: filter.project } }
-            : { params: filter }
-          : { params: filter }
+        { params: filter }
       )
       .then(function (response) {
         dispatch(

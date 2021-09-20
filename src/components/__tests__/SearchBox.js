@@ -31,10 +31,8 @@ describe("Auth layout test", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it.only("should clear sarch input", () => {
-    const listInvoicesStub = jest
-      .spyOn(actions, "listInvoices")
-      .mockReturnValue();
+  it("should clear search input", () => {
+    jest.spyOn(actions, "listInvoices").mockReturnValue();
     const wrapper = mount(
       <Provider store={mockAppStore()}>
         <SearchBox />

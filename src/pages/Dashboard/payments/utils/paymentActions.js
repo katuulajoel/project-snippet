@@ -1,12 +1,23 @@
+import PropTypes from "prop-types";
 import React from "react";
 import {
   archiveInvoice,
   generateInvoice as generateInvoiceAction,
   updateInvoice,
+  downloadInoicesCsv,
 } from "../../../../actions/InvoiceActions";
+import DateRangeForm from "../../../../components/DateRangeForm";
 import ModalHeader from "../../../../components/ModalHeader";
-import { openConfirm } from "../../../../components/utils/modals";
+import { openConfirm, openModal } from "../../../../components/utils/modals";
 import store from "../../../../store";
+
+const Header = ({ title }) => (
+  <ModalHeader style={{ paddingBottom: "8px" }} options={title} />
+);
+
+Header.propTypes = {
+  title: PropTypes.string,
+};
 
 export function generateInvoice(invoiceId) {
   openConfirm(
@@ -14,10 +25,7 @@ export function generateInvoice(invoiceId) {
     null,
     true,
     { ok: "Yes" },
-    <ModalHeader
-      style={{ paddingBottom: "8px" }}
-      options={{ title: "Generate Invoice" }}
-    />
+    <Header title="Generate Invoice" />
   ).then(() => {
     store.dispatch(generateInvoiceAction(invoiceId));
   });
@@ -29,10 +37,7 @@ export function markAsPaid(invoiceId) {
     null,
     true,
     { ok: "Yes" },
-    <ModalHeader
-      style={{ paddingBottom: "8px" }}
-      options={{ title: "Mark as Paid" }}
-    />
+    <Header title="Mark as Paid" />
   ).then(() => {
     store.dispatch(updateInvoice(invoiceId, { paid: true }));
   });
@@ -44,10 +49,7 @@ export function markAsArchived(invoiceId) {
     null,
     true,
     { ok: "Yes" },
-    <ModalHeader
-      style={{ paddingBottom: "8px" }}
-      options={{ title: "Archive invoice" }}
-    />
+    <Header title="Archive invoice" />
   ).then(() => {
     store.dispatch(archiveInvoice(invoiceId));
   });
@@ -59,13 +61,64 @@ export function approvePayout(invoices) {
     null,
     true,
     { ok: "Approve", cancel: "Cancel" },
-    <ModalHeader
-      style={{ paddingBottom: "8px" }}
-      options={{ title: "Approve payout" }}
-    />
+    <Header title="Approve payout" />
   ).then(() => {
     invoices.forEach((invoice) => {
       store.dispatch(updateInvoice(invoice.id, { status: "approved" }));
     });
+  });
+}
+
+export function downloadCsv(filter, type) {
+  console.log(filter);
+  openModal(
+    <DateRangeForm id={`export-form`} />,
+    "",
+    true,
+    {
+      className: "modal-payments",
+      ok: `Download CSV`,
+      form: {
+        type: "submit",
+        form: `export-form`,
+      },
+    },
+    <Header title={`Export ${type}`} />,
+    false
+  ).then((data) => {
+    if (data) {
+      let params = {};
+
+      if (filter === "archived") {
+        params["archived"] = "True";
+        params["paid"] = "False";
+      } else if (filter === "all") {
+        params["archived"] = "False";
+      } else if (filter === "pending") {
+        params["archived"] = "False";
+        params["paid"] = "False";
+        params["overdue"] = "False";
+      } else if (filter === "overdue") {
+        params["archived"] = "False";
+        params["paid"] = "False";
+        params["overdue"] = "True";
+      } else if (filter === "paid") {
+        params["archived"] = "False";
+        params["paid"] = "True";
+      }
+
+      store.dispatch(
+        downloadInoicesCsv(
+          {
+            start: data.start,
+            end: data.end,
+            type: type === "Payments" ? "sale" : "purchase",
+            ...params,
+          },
+          type,
+          filter
+        )
+      );
+    }
   });
 }

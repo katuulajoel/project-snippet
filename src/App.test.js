@@ -6,16 +6,33 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import App from "./App";
 import configureStore from "redux-mock-store";
+import * as InvoiceActions from "./actions/AuthActions";
 
 const middlewares = [thunk];
 
 const mockHistoryPush = jest.fn();
 
+const mockUseLocationValue = {
+  pathname: "/dashboard",
+  search: "",
+  hash: "",
+  state: null,
+};
+
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useHistory: () => ({
     push: mockHistoryPush,
+    location: mockUseLocationValue,
   }),
+  useLocation: jest.fn().mockImplementation(() => {
+    return mockUseLocationValue;
+  }),
+}));
+
+jest.mock("./hooks/usePrevious", () => ({
+  __esModule: true,
+  default: () => ({ logout: true }),
 }));
 
 const mockAppState = {
@@ -23,6 +40,7 @@ const mockAppState = {
     user: { uid: 123, email: "katuula@gmail.com" },
     isMakingRequest: {},
   },
+  Invoice: { search: {} },
 };
 
 const mockAppStore = (state) => {
@@ -57,5 +75,56 @@ describe("App.js", () => {
       </MemoryRouter>
     );
     expect(mockHistoryPush).toHaveBeenCalledWith("/dashboard");
+  });
+
+  it("should verify if users id is null", () => {
+    const verifyStub = jest.spyOn(InvoiceActions, "verify");
+    render(
+      <MemoryRouter initialEntries={["/projects"]}>
+        <Provider
+          store={mockAppStore({
+            Auth: { user: {}, isMakingRequest: {} },
+            Invoice: { search: {} },
+          })}
+        >
+          <App />
+        </Provider>
+      </MemoryRouter>
+    );
+    expect(verifyStub).toHaveBeenCalled();
+  });
+
+  it("should redirect to login page if logged out", () => {
+    const store = mockAppStore({
+      Auth: { user: {}, isMakingRequest: {} },
+      Invoice: { search: {} },
+    });
+    mockUseLocationValue.pathname = "/projects";
+    render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    expect(mockHistoryPush).toHaveBeenCalledWith("/");
+  });
+
+  it("should remain on page if user is authenticatted", () => {
+    const store = mockAppStore({
+      Auth: { user: { id: 123 }, isMakingRequest: {} },
+      Invoice: { search: {} },
+    });
+    mockUseLocationValue.pathname = "/projects";
+    render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    expect(mockHistoryPush).toHaveBeenCalledWith("/projects");
   });
 });

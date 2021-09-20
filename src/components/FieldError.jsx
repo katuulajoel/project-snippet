@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 
 const FieldError = ({ message }) => {
   return (
-    <div className="error">
+    <Wrapper>
       {message
         ? Array.isArray(message)
           ? message.map((item, idx) => {
@@ -11,12 +12,16 @@ const FieldError = ({ message }) => {
             })
           : message
         : ""}
-    </div>
+    </Wrapper>
   );
 };
 
 FieldError.propTypes = {
   message: PropTypes.string,
 };
+
+const Wrapper = styled.div`
+  color: #e93232;
+`;
 
 export default FieldError;

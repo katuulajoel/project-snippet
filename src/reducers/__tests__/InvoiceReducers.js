@@ -50,7 +50,7 @@ const initialState = {
   search: { data: [], count: 0, next: "", previous: "" },
   list: { data: [], count: 0, next: "", previous: "" },
   invoice: {},
-  csv: {},
+  csv: null,
 };
 
 describe("Auth reducers tests", () => {
