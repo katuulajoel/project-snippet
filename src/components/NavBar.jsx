@@ -6,7 +6,7 @@ import React, { forwardRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
-import SearchBox from "../components/SearchBox";
+import SearchBox from "./SearchBox";
 import NavLinks from "./NavLinks";
 
 function getMainPath(str) {

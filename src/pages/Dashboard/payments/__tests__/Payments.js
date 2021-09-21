@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { mount } from "enzyme/build";
+import * as utils from "../utils/utils";
 
 const middlewares = [thunk];
 
@@ -31,7 +32,7 @@ const mockAppStore = (state) => {
   return mockStore(state);
 };
 
-const invoice = {
+export const dummyInvoice = {
   id: "42",
   project: {
     id: 1,
@@ -77,7 +78,7 @@ describe("Dashboard test", () => {
     const wrapper = mount(
       <BrowserRouter>
         <Provider store={mockAppStore(mockAppState)}>
-          <Payments data={[invoice]} onLoadMore={() => {}} filter="in" />
+          <Payments data={[dummyInvoice]} onLoadMore={() => {}} filter="in" />
         </Provider>
       </BrowserRouter>
     );
@@ -88,5 +89,26 @@ describe("Dashboard test", () => {
     expect(wrapper.find("BulkActions").exists()).toBeTruthy();
     checkbox.simulate("click");
     expect(wrapper.find("BulkActions").exists()).toBeFalsy();
+  });
+
+  it("should open dropdown actions", async () => {
+    jest.spyOn(utils, "showAction").mockReturnValueOnce(true);
+
+    // eslint-disable-next-line no-unused-vars
+    const wrapper = mount(
+      <BrowserRouter>
+        <Provider store={mockAppStore(mockAppState)}>
+          <Payments data={[dummyInvoice]} onLoadMore={() => {}} filter="in" />
+        </Provider>
+      </BrowserRouter>
+    );
+
+    // TODO: unfinished test for toggle dropdown action
+    //var dropdownAction = wrapper.find(".btn-group > button");
+    /* expect(wrapper.find("BulkActions").exists()).toBeFalsy();
+    checkbox.simulate("click");
+    expect(wrapper.find("BulkActions").exists()).toBeTruthy();
+    checkbox.simulate("click");
+    expect(wrapper.find("BulkActions").exists()).toBeFalsy(); */
   });
 });

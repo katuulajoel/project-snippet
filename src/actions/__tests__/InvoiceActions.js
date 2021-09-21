@@ -36,12 +36,15 @@ import {
   BULK_ACTION_START,
   BULK_ACTION_SUCCESS,
   BULK_ACTION_FAILED,
-  PAY_INVOICE_START,
-  PAY_INVOICE_SUCCESS,
-  PAY_INVOICE_FAILED,
   INVOICE_SUMMARY_START,
   INVOICE_SUMMARY_SUCCESS,
   INVOICE_SUMMARY_FAILED,
+  SEARCH_INVOICES_START,
+  SEARCH_INVOICES_SUCCESS,
+  SEARCH_INVOICES_FAILED,
+  SEARCH_MORE_INVOICES_FAILED,
+  SEARCH_MORE_INVOICES_SUCCESS,
+  SEARCH_MORE_INVOICES_START,
 } from "../utils/ActionTypes";
 
 const middlewares = [thunk];
@@ -149,6 +152,7 @@ describe("Invoice actions tests", () => {
       { type: DOWNLOAD_INVOICE_CSV_STARTED },
       {
         type: DOWNLOAD_INVOICE_CSV_SUCCESS,
+        data: { id: 1234 },
       },
     ];
 
@@ -182,7 +186,7 @@ describe("Invoice actions tests", () => {
 
   it("should dispatch LIST_INVOICES_SUCCESS", async () => {
     axios.get.mockReturnValue(Promise.resolve({ data: [{ id: 1234 }] }));
-    const expectedActions = [
+    let expectedActions = [
       { type: LIST_INVOICES_START },
       {
         type: LIST_INVOICES_SUCCESS,
@@ -191,7 +195,22 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.listInvoices({ key: "" }));
-    const storeActions = await store.getActions();
+    let storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+    store.clearActions();
+
+    expectedActions = [
+      { type: SEARCH_INVOICES_START },
+      {
+        type: SEARCH_INVOICES_SUCCESS,
+        data: [{ id: 1234 }],
+      },
+    ];
+
+    await store.dispatch(
+      actions.listInvoices({ key: "", archived: "True" }, true)
+    );
+    storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
 
@@ -201,7 +220,7 @@ describe("Invoice actions tests", () => {
     };
     axios.get.mockRejectedValue(error);
 
-    const expectedActions = [
+    let expectedActions = [
       { type: LIST_INVOICES_START },
       {
         type: LIST_INVOICES_FAILED,
@@ -210,7 +229,20 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.listInvoices({ key: "" }));
-    const storeActions = await store.getActions();
+    let storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+    store.clearActions();
+
+    expectedActions = [
+      { type: SEARCH_INVOICES_START },
+      {
+        type: SEARCH_INVOICES_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.listInvoices({ key: "" }, true));
+    storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
 
@@ -284,7 +316,7 @@ describe("Invoice actions tests", () => {
 
   it("should dispatch LIST_MORE_INVOICES_SUCCESS", async () => {
     axios.get.mockReturnValue(Promise.resolve({ data: [{ id: 1234 }] }));
-    const expectedActions = [
+    let expectedActions = [
       { type: LIST_MORE_INVOICES_START },
       {
         type: LIST_MORE_INVOICES_SUCCESS,
@@ -293,7 +325,20 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.listMoreInvoices("url"));
-    const storeActions = await store.getActions();
+    let storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+    store.clearActions();
+
+    expectedActions = [
+      { type: SEARCH_MORE_INVOICES_START },
+      {
+        type: SEARCH_MORE_INVOICES_SUCCESS,
+        data: [{ id: 1234 }],
+      },
+    ];
+
+    await store.dispatch(actions.listMoreInvoices({ key: "" }, true));
+    storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
 
@@ -303,7 +348,7 @@ describe("Invoice actions tests", () => {
     };
     axios.get.mockRejectedValue(error);
 
-    const expectedActions = [
+    let expectedActions = [
       { type: LIST_MORE_INVOICES_START },
       {
         type: LIST_MORE_INVOICES_FAILED,
@@ -312,7 +357,20 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.listMoreInvoices("url"));
-    const storeActions = await store.getActions();
+    let storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+    store.clearActions();
+
+    expectedActions = [
+      { type: SEARCH_MORE_INVOICES_START },
+      {
+        type: SEARCH_MORE_INVOICES_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.listMoreInvoices({ key: "" }, true));
+    storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
 
@@ -448,40 +506,6 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.bulkAction([[{}], "action"]));
-    const storeActions = await store.getActions();
-    expect(storeActions).toEqual(expectedActions);
-  });
-
-  it("should dispatch PAY_INVOICE_SUCCESS", async () => {
-    axios.post.mockReturnValue(Promise.resolve({ data: {} }));
-    const expectedActions = [
-      { type: PAY_INVOICE_START },
-      {
-        type: PAY_INVOICE_SUCCESS,
-        data: {},
-      },
-    ];
-
-    await store.dispatch(actions.payInvoice("id", {}));
-    const storeActions = await store.getActions();
-    expect(storeActions).toEqual(expectedActions);
-  });
-
-  it("should dispatch PAY_INVOICE_FAILED with error", async () => {
-    const error = {
-      message: "Error!",
-    };
-    axios.post.mockRejectedValue(error);
-
-    const expectedActions = [
-      { type: PAY_INVOICE_START },
-      {
-        type: PAY_INVOICE_FAILED,
-        error: "Error!",
-      },
-    ];
-
-    await store.dispatch(actions.payInvoice("id", {}));
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

@@ -3,11 +3,11 @@ import humanizeDuration from "humanize-duration";
 
 export const getdateFormated = (date, showTime = false) => {
   const localTime = convertUTCToLocal(date);
-  var otherDates = moment(localTime).fromNow();
+  var otherDates = moment(localTime, "YYYY-MM-DD HH:mm:ss A").fromNow();
   var calback = function () {
     return showTime ? "[" + otherDates + "], hh:mm A" : "[" + otherDates + "]";
   };
-  return moment(localTime).calendar(null, {
+  return moment(localTime, "YYYY-MM-DD HH:mm:ss A").calendar(null, {
     sameDay: showTime ? "[Today], hh:mm A" : "[Today]",
     nextDay: calback,
     nextWeek: calback,
@@ -25,7 +25,7 @@ function convertUTCToLocal(utcDt) {
 
 export const getDays = (date) => {
   let period = humanizeDuration(
-    (moment().unix() - moment.utc(date).add("day", 1).startOf("day").unix()) *
+    (moment().unix() - moment.utc(date).add(1, "day").startOf("day").unix()) *
       1000,
     { largest: 1, round: true, units: ["d"] }
   ).split(" ");

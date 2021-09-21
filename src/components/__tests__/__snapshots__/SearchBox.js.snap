@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Auth layout test Snapshot test for NavBar component 1`] = `
-<div
-  className="sc-hKFxyN eOLOZR"
->
+Array [
   <div
     className="input-group sc-eCApnc kyswBz input-search"
   >
@@ -38,7 +36,7 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
     <span
       className="input-group-prepend"
     />
-  </div>
-  
-</div>
+  </div>,
+  "",
+]
 `;

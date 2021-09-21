@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Latest reports test Should match snapshot test 1`] = `
+<div
+  className="dashboard-card"
+>
+  <h3
+    className="title"
+  >
+    Latest reports
+  </h3>
+  <div
+    className="content"
+  >
+    <div
+      className="list-layout clearfix"
+    >
+      <div
+        className="icon-avatar"
+      >
+        <span>
+          <i
+            className="tg-ic-round-payment tunga-ic-sz-sm "
+          />
+        </span>
+      </div>
+      <div
+        className="detail"
+      >
+        <p>
+          Payment for
+           
+          <a
+            href="/projects/123/pay/payments"
+            onClick={[Function]}
+          >
+            Test project 2 (update): Milestone 3
+          </a>
+          .
+        </p>
+        <span
+          className="sub-text"
+        >
+          <i
+            className="tg-ic-clock-outline tunga-ic-sz-sm "
+          />
+           
+          22nd Sep 2020
+          <i
+            className="tg-ic-exclamation-triangle tunga-ic-sz-sm text-danger"
+          />
+        </span>
+        <span
+          className="sc-bdnxRM EmtJF"
+        >
+          Overdue by 
+          363
+           
+          days
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

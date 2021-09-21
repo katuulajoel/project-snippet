@@ -13,58 +13,62 @@ Array [
         href="/dashboard"
         onClick={[Function]}
       >
-        Dashboard
+        Payments
       </a>
       <ul
         className="navbar-nav ml-auto"
       >
         <li>
           <div
-            className="sc-eCApnc keDeAe"
+            className="input-group sc-jSFjdj hTzrBi input-search"
           >
-            <div
-              className="input-group sc-jSFjdj hTzrBi input-search"
+            <span
+              className="input-group-prepend"
             >
               <span
-                className="input-group-prepend"
+                className="input-group-text"
               >
-                <span
-                  className="input-group-text"
-                >
-                  <i
-                    className="tg-ic-search1  "
-                  />
-                </span>
-              </span>
-              <div
-                className="sc-gtsrHT jGBtBH"
-                data-testid="input"
-              >
-                <input
-                  autoComplete="off"
-                  className="form-control"
-                  data-testid=""
-                  id=""
-                  label="Label"
-                  name="search"
-                  onChange={[Function]}
-                  placeholder="Search...."
-                  type="input"
-                  value=""
+                <i
+                  className="tg-ic-search1  "
                 />
-              </div>
-              <span
-                className="input-group-prepend"
+              </span>
+            </span>
+            <div
+              className="sc-gtsrHT jGBtBH"
+              data-testid="input"
+            >
+              <input
+                autoComplete="off"
+                className="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="search"
+                onChange={[Function]}
+                placeholder="Search...."
+                type="input"
+                value=""
               />
             </div>
-            
+            <span
+              className="input-group-prepend"
+            />
           </div>
+          
         </li>
       </ul>
     </div>
     <div
       className="sc-fujyAs cKNmWV"
-    />
+    >
+      <div
+        className="sc-iCoGMd hobTSF"
+      >
+        <div
+          className="title-filters"
+        />
+      </div>
+    </div>
   </nav>,
   <div
     className="sc-jrsJWt ilZZuz sidebar"
@@ -171,7 +175,7 @@ Array [
         <a
           aria-current={null}
           data-testid="signout"
-          href="/logout"
+          href="/payments/undefined/logout"
           onClick={[Function]}
         >
           <span
@@ -192,10 +196,10 @@ Array [
     className="sc-kEqXSa gCTtLP"
   >
     <div
-      className="sc-hHEiqL iSkYYM"
+      className="sc-iJCRrE fCIMUZ"
     >
       <div
-        className="pay-summary"
+        className="sc-cxNHIi kQaffx"
       >
         <ul>
           <li>
@@ -249,9 +253,11 @@ Array [
             className="filter-links"
           >
             <a
-              aria-current={null}
+              aria-current="page"
+              className="active"
               href="/payments/undefined/all"
               onClick={[Function]}
+              style={Object {}}
             >
               All
             </a>
@@ -285,7 +291,7 @@ Array [
             </a>
           </div>
           <div
-            className="sc-dIvrsQ gJrOoh"
+            className="sc-lmgQwP ebgxJy"
           >
             <a
               className="add-btn"
@@ -299,6 +305,17 @@ Array [
             </a>
           </div>
         </div>
+      </div>
+      <div
+        className="undefined undefined"
+      >
+        <img
+          alt="empty file image"
+          src={Object {}}
+        />
+        <p>
+          No payouts have been created yet
+        </p>
       </div>
     </div>
   </div>,

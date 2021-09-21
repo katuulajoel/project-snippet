@@ -16,7 +16,7 @@ const App = (props) => {
   const dispatch = useDispatch();
   const { user, isMakingRequest } = useSelector(({ Auth }) => Auth);
   const history = useHistory();
-  let location = useLocation();
+  const location = useLocation();
   const prevIsMakingReq = usePrevious(isMakingRequest);
 
   useEffect(() => {

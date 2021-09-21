@@ -20,45 +20,41 @@ Array [
       >
         <li>
           <div
-            className="sc-eCApnc keDeAe"
+            className="input-group sc-jSFjdj hTzrBi input-search"
           >
-            <div
-              className="input-group sc-jSFjdj hTzrBi input-search"
+            <span
+              className="input-group-prepend"
             >
               <span
-                className="input-group-prepend"
+                className="input-group-text"
               >
-                <span
-                  className="input-group-text"
-                >
-                  <i
-                    className="tg-ic-search1  "
-                  />
-                </span>
-              </span>
-              <div
-                className="sc-gtsrHT jGBtBH"
-                data-testid="input"
-              >
-                <input
-                  autoComplete="off"
-                  className="form-control"
-                  data-testid=""
-                  id=""
-                  label="Label"
-                  name="search"
-                  onChange={[Function]}
-                  placeholder="Search...."
-                  type="input"
-                  value=""
+                <i
+                  className="tg-ic-search1  "
                 />
-              </div>
-              <span
-                className="input-group-prepend"
+              </span>
+            </span>
+            <div
+              className="sc-gtsrHT jGBtBH"
+              data-testid="input"
+            >
+              <input
+                autoComplete="off"
+                className="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="search"
+                onChange={[Function]}
+                placeholder="Search...."
+                type="input"
+                value=""
               />
             </div>
-            
+            <span
+              className="input-group-prepend"
+            />
           </div>
+          
         </li>
       </ul>
     </div>
@@ -198,7 +194,7 @@ Array [
         className="col-sm-8"
       >
         <div
-          className="undefined undefined"
+          className="sc-bqGGPW dtAQkC dashboard-card"
         >
           <div
             className="sc-bdnxRM eNsiXn avatar-initials"
@@ -210,19 +206,27 @@ Array [
               KJ
             </div>
           </div>
-          <div>
+          <div
+            className="profile"
+          >
             <h3>
               Hi 
               Katuula Joel
                👋🏻
             </h3>
-            <span>
+            <span
+              className="sub-text"
+            >
               Welcome Back.
             </span>
           </div>
-          <div>
-            <span>
-              Tue, 7th Sep 2021
+          <div
+            className="date"
+          >
+            <span
+              className="sub-text"
+            >
+              Tue, 21st Sep 2021
             </span>
           </div>
         </div>

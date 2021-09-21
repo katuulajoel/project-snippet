@@ -13,14 +13,11 @@ import Icon from "./Icon";
 const proptypes = {
   pages: PropTypes.number,
   page: PropTypes.number,
-  PageButtonComponent: PropTypes.any,
   onPageChange: PropTypes.func,
-  previousText: PropTypes.string,
   nextPage: PropTypes.func,
   previousPage: PropTypes.func,
   canPreviousPage: PropTypes.bool,
   canNextPage: PropTypes.bool,
-  loadMore: PropTypes.func,
 };
 
 const PaginationWrapper = ({
@@ -31,7 +28,6 @@ const PaginationWrapper = ({
   nextPage,
   canPreviousPage,
   canNextPage,
-  loadMore,
 }) => {
   const [visiblePages, setVisiblePages] = useState([]);
 
@@ -51,13 +47,11 @@ const PaginationWrapper = ({
 
   useEffect(() => {
     setVisiblePages(getVisiblePages(null, pages));
-    changePage(page + 1);
   }, [pages]);
 
   useEffect(() => {
     const visiblePages = getVisiblePages(page, pages);
     setVisiblePages(filterPages(visiblePages, pages));
-    loadMore(page);
   }, [page]);
 
   const filterPages = (visiblePages, totalPages) => {
@@ -66,7 +60,6 @@ const PaginationWrapper = ({
 
   const changePage = (selectedPage) => {
     const activePage = page + 1;
-
     if (selectedPage === activePage) {
       return;
     }
@@ -112,6 +105,7 @@ const PaginationWrapper = ({
         })}
       </div>
       <StyledPaginationItem
+        className="next"
         onClick={() => {
           nextPage();
         }}
@@ -134,4 +128,4 @@ const StyledPaginationItem = styled(PaginationItem)`
 
 PaginationWrapper.propTypes = proptypes;
 
-export default PaginationWrapper;
+export default React.memo(PaginationWrapper);

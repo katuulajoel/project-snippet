@@ -9,10 +9,6 @@ const BulkActions = ({ checked }) => {
     (invoice) => !invoice.finalized && !invoice.last_sent_at && !invoice.paid
   ).length;
 
-  /* const checkedItems = checked.map((invoice) => {
-    return invoice?.id;
-  }); */
-
   const checkIfFinalised = () => {
     if (checked.filter((e) => e.finalized).length > 0) {
       return true;
@@ -29,33 +25,10 @@ const BulkActions = ({ checked }) => {
     }
   };
 
-  const confirmAction = () => {
-    return;
-  };
   return (
     <ActionSlate className="d-flex mb-3">
       {canMarkAsPaid() && (
-        <button
-          className="btn btn-light"
-          onClick={() =>
-            confirmAction(
-              "Mark as Paid",
-              () => {
-                /*checked.map((invoice) =>
-                  props.InvoiceActions.updateInvoice(
-                    invoice.id,
-                    {
-                      paid: true,
-                      successMsg: "Invoice marked as paid",
-                    },
-                    props.selectionKey
-                  )
-                );*/
-              },
-              "Are you sure you want to mark all selected as paid?"
-            )
-          }
-        >
+        <button className="btn btn-light">
           Mark as Paid ({checked.length})
         </button>
       )}
@@ -63,20 +36,6 @@ const BulkActions = ({ checked }) => {
       {!checkIfFinalised() && canGenerateInvoice > 0 && (
         <button
           className="btn btn-light ml-2"
-          onClick={() =>
-            confirmAction(
-              "Generate invoice",
-              () => {
-                /*checked.map((invoice) =>
-                  props.InvoiceActions.generateInvoice(
-                    invoice.id,
-                    props.selectionKey
-                  )
-                );*/
-              },
-              "Are you sure you want to generate invoices for all selected?"
-            )
-          }
           disabled={canGenerateInvoice === 0}
         >
           Generate Invoice ({canGenerateInvoice})
@@ -84,42 +43,12 @@ const BulkActions = ({ checked }) => {
       )}
 
       {status !== "archived" && (
-        <button
-          className="btn btn-light ml-2"
-          onClick={() =>
-            confirmAction(
-              "Archive",
-              () => {
-                /*props.InvoiceActions.bulkAction(
-                  checkedItems,
-                  "archive",
-                  props.selectionKey
-                );*/
-              },
-              "Are you sure you want to archive all selected?"
-            )
-          }
-        >
+        <button className="btn btn-light ml-2">
           Archive ({checked.length})
         </button>
       )}
       {!checkIfFinalised() && (
-        <button
-          className="btn btn-light ml-2"
-          onClick={() =>
-            confirmAction(
-              "Delete",
-              () => {
-                /*props.InvoiceActions.bulkAction(
-                  checkedItems,
-                  "delete",
-                  props.selectionKey
-                );*/
-              },
-              "Are you sure you want to delete all selected?"
-            )
-          }
-        >
+        <button className="btn btn-light ml-2">
           Delete ({checked.length})
         </button>
       )}

@@ -9,17 +9,16 @@ import styled from "styled-components";
 
 import PaginationWrapper from "./Pagination";
 
-export const PAGINNATION_COUNT = 20;
+export const PAGINNATION_COUNT = 2;
 
 const ReactTable = (props) => {
   const {
     tableData,
     tableColumns,
-    lastPageIndex,
+    initialPage,
     count,
     getTableDisplayValue,
-    onLoadMore,
-    getTablePageIndex,
+    loadPage,
   } = props;
 
   const data = useMemo(() => tableData, []);
@@ -31,17 +30,13 @@ const ReactTable = (props) => {
       columns,
       data,
       initialState: {
-        pageIndex: lastPageIndex,
+        pageIndex: initialPage,
       },
       manualPagination: true,
       pageCount: Math.ceil(count / PAGINNATION_COUNT),
     },
     usePagination
   );
-
-  useEffect(() => {
-    getTablePageIndex(tableInstance.state.pageIndex);
-  }, []);
 
   const {
     getTableProps,
@@ -57,6 +52,10 @@ const ReactTable = (props) => {
     previousPage,
     state: { pageIndex },
   } = tableInstance;
+
+  useEffect(() => {
+    loadPage(pageIndex);
+  }, [pageIndex]);
 
   return (
     <StyledTable {...getTableProps()}>
@@ -84,7 +83,7 @@ const ReactTable = (props) => {
         })}
 
         <TableFooter>
-          <td colSpan="6">
+          <td colSpan="8">
             <div>
               <span>
                 Showing <b>{tableData.length}</b> out of <b>{count}</b> items
@@ -96,10 +95,8 @@ const ReactTable = (props) => {
                 canNextPage={canNextPage}
                 nextPage={nextPage}
                 previousPage={previousPage}
-                pageIndex={pageIndex}
                 pages={pageCount}
                 page={pageIndex}
-                loadMore={onLoadMore}
               />
             </div>
           </td>

@@ -39,6 +39,7 @@ const RecentNotifications = () => {
       !(profile.cleared || []).includes("payoneer");
 
   const renderNotification = ({
+    key,
     text,
     type,
     id,
@@ -53,7 +54,7 @@ const RecentNotifications = () => {
       classname = "avatar-initials";
     }
     return (
-      <div className="list-layout">
+      <div key={key} className="list-layout">
         <Avatar
           className={classname}
           image={avatar}
@@ -133,6 +134,7 @@ const RecentNotifications = () => {
         <div className="content">
           {shouldUpdateProfile &&
             renderNotification({
+              key: "profile-card",
               text: (
                 <>
                   <span>
@@ -154,6 +156,7 @@ const RecentNotifications = () => {
 
           {shouldConnectPayoneer &&
             renderNotification({
+              key: "payoneer-card",
               text: (
                 <>
                   Please connect your account with Payoneer to receive

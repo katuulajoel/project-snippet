@@ -1,22 +1,19 @@
-/* eslint-disable no-unused-vars */
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
 import PropTypes from "prop-types";
 import React, { useRef, useState, useEffect } from "react";
 import { Provider } from "react-redux";
-import { LOCATION_CHANGE } from "react-router-redux";
 import { confirmable } from "react-confirm";
 import { Modal, ModalBody, ModalFooter } from "reactstrap";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
 
 /* -------------------------- Internel Dependencies ------------------------- */
 import Button from "./Button";
 import store from "../store";
+import ModalHeader from "./ModalHeader";
 
-/* const GenericModal = (props) => {
-  const dispatch = useDispatch();
+const GenericModal = (props) => {
   const [response, setResponse] = useState(null);
   const wrapperRef = useRef(null);
 
@@ -25,7 +22,6 @@ import store from "../store";
   let safe_options = options || {};
 
   useEffect(() => {
-    dispatch({ type: LOCATION_CHANGE });
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -169,4 +165,4 @@ GenericModal.defaultProps = {
   modalHeader: null,
 };
 
-export default confirmable(GenericModal); */
+export default confirmable(GenericModal);

@@ -1,3 +1,8 @@
+/**
+ * Create data source to be use in react table
+ * @param {array} data Array of invoice objects
+ * @returns array of objects
+ */
 export const tableData = (data) => [
   ...data?.map((invoice) => {
     let row = {

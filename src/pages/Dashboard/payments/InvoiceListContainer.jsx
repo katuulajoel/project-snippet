@@ -14,24 +14,25 @@ import {
   listMoreInvoices,
 } from "../../../actions/InvoiceActions";
 import usePrevious from "../../../hooks/usePrevious";
-import { getPaymentsFilters } from "../../../components/utils/payments";
+import {
+  INVOICE_TYPE_SALE,
+  INVOICE_TYPE_CREDIT_NOTE,
+  INVOICE_TYPE_PURCHASE,
+} from "../../../actions/utils/api";
+import { getPaymentsFilters } from "./utils/utils";
 
-const InvoiceListContainer = (props) => {
-  const {
-    children,
-    match: {
-      params: { filter },
-    },
-    types,
-    type,
-  } = props;
+const InvoiceListContainer = ({
+  children,
+  match: {
+    params: { filter },
+  },
+  type, // invoice type
+}) => {
   const { isMakingRequest, list } = useSelector(({ Invoice }) => Invoice);
   const dispatch = useDispatch();
 
   const [filters, setFilters] = useState({});
-  const [currentPage, setCurrentPage] = useState(0);
-  const [lastPageIndex, setLastPageIndex] = useState(0);
-  const [useDefaultPageIndex, setuseDefaultPageIndex] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0); // react table pagination page
   const prevIsMakingRequest = usePrevious(isMakingRequest);
   const prevFilter = usePrevious(filter);
 
@@ -42,53 +43,53 @@ const InvoiceListContainer = (props) => {
   const getList = (prevFilters = {}) => {
     let filters_ = {
       ...getPaymentsFilters(filter),
-      ...(types ? { types } : { type }),
+      ...(type === "in"
+        ? { types: [INVOICE_TYPE_SALE, INVOICE_TYPE_CREDIT_NOTE].join(",") }
+        : { type: INVOICE_TYPE_PURCHASE }),
       ...prevFilters,
     };
-    console.log(filters_);
     setFilters(filters_); // memoization of filters
     listInvoices(filters_)(dispatch);
   };
 
   useEffect(() => {
     if (prevFilter && prevFilter != filter) {
+      console.log("changed props");
+      setCurrentPage(0);
       getList();
     }
 
-    if (!(Object.keys(isMakingRequest).length === 0 || isMakingRequest?.list)) {
+    if (
+      prevIsMakingRequest &&
+      Object.keys(prevIsMakingRequest).length > 0 &&
+      !prevIsMakingRequest.list
+    ) {
       getList(filters);
-    }
-
-    if (prevFilter != filter && lastPageIndex !== 0) {
-      setuseDefaultPageIndex(true);
     }
   }, [filter, prevIsMakingRequest]);
 
   const renderChildren = () => {
     return addPropsToChildren(children, {
       ...list,
-      onLoadMore: (page) => {
-        // this is begin used by payments cause of pagination
-        let updatedFilters = { ...filters, page: page + 1 };
-        if (page !== currentPage) {
-          setCurrentPage(page);
-          getList(updatedFilters);
-        }
-      },
-      fetchMoreInvoices: (url) => {
-        // this is begin used by payouts cause it has no pagination
-        if (url && url !== list.next) {
-          listMoreInvoices(url);
-        }
-      },
-      hasMore: !!list.next, // TODO: i dont think this is need
-      trackPagination: (index) => {
-        setLastPageIndex(useDefaultPageIndex ? 0 : index);
-        if (useDefaultPageIndex) {
-          setuseDefaultPageIndex(false);
-        }
-      },
-      lastPageIndex: lastPageIndex,
+      filter: filter,
+      ...(type === "in"
+        ? {
+            onLoadMore: (page) => {
+              let updatedFilters = { ...filters, page: page + 1 };
+              if (page !== currentPage) {
+                setCurrentPage(page);
+                getList(updatedFilters);
+              }
+            },
+            currentPage: currentPage,
+          }
+        : {
+            onLoadMore: (url) => {
+              if (url && url !== list.next) {
+                listMoreInvoices(url)(dispatch);
+              }
+            },
+          }),
     });
   };
 

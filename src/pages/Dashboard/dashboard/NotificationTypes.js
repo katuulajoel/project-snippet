@@ -24,8 +24,9 @@ const notificationDetails = (item, user) => ({
 
 export const participation = (renderNotification, item) => {
   return renderNotification({
+    key: `${item.key}-participation`,
     text: (
-      <span key={`${item.key}-participation`}>
+      <span>
         {getUser().id === item.activity.user?.id ? (
           "You have"
         ) : (
@@ -51,8 +52,9 @@ export const participation = (renderNotification, item) => {
 
 export const document = (renderNotification, item) => {
   return renderNotification({
+    key: `${item.key}-document`,
     text: (
-      <span key={`${item.key}-document`}>
+      <span>
         {getUser().id === item.activity.created_by.id ? (
           "You"
         ) : (
@@ -86,8 +88,9 @@ export const invoice = (renderNotification, item) => {
   }
 
   return renderNotification({
+    key: `${item.key}-invoice`,
     text: (
-      <span key={`${item.key}-invoice`}>
+      <span>
         {getUser().id === item.activity.created_by.id ? (
           "You"
         ) : (
@@ -118,8 +121,9 @@ export const fieldChangeLog = (renderNotification, item) => {
   };
 
   return renderNotification({
+    key: `${item.key}-field-change-log`,
     text: (
-      <span key={`${item.key}-field-change-log`}>
+      <span>
         {getUser().id === item.activity.created_by.id ? (
           "You"
         ) : (

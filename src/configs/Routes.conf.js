@@ -1,13 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { lazy } from "react";
-import CreateLayout from "../layouts/CreateLayout";
-import Account from "../pages/Dashboard/settings/Account";
-import CompanyDetails from "../pages/Dashboard/settings/CompanyDetails";
-import CompanyProfile from "../pages/Dashboard/settings/CompanyProfile";
-import Experience from "../pages/Dashboard/settings/Experience";
-import Payment from "../pages/Dashboard/settings/Payment";
-import Privacy from "../pages/Dashboard/settings/Privacy";
-import Profile from "../pages/Dashboard/settings/Profile";
 import Payments from "../pages/Dashboard/payments";
 import Projects from "../pages/Dashboard/projects";
 import Tests from "../pages/Dashboard/tests";
@@ -78,12 +70,6 @@ export const childRoutes = [
     exact: false,
     name: "Community Guide",
   },
-  /* {
-    path: "/projects/new",
-    component: CreateLayout,
-    exact: true,
-    name: "projects",
-  }, */
   {
     path: "/settings",
     component: Settings,
@@ -91,57 +77,11 @@ export const childRoutes = [
     name: "settings",
   },
   {
-    path: "/payments/:type/:status",
+    path: "/payments/:type",
     component: Payments,
     exact: false,
     name: "payments",
   },
-  /* {
-    path: "/payments",
-    redirect: "/payments/in/all",
-  }, */
-  /* {
-    path: "/settings/account",
-    component: Account,
-    exact: false,
-    name: "settings",
-  },
-  {
-    path: "/settings/company-details",
-    component: CompanyDetails,
-    exact: false,
-    name: "settings",
-  },
-  {
-    path: "/settings/company-profile",
-    component: CompanyProfile,
-    exact: false,
-    name: "settings",
-  },
-  {
-    path: "/settings/experience",
-    component: Experience,
-    exact: false,
-    name: "settings",
-  },
-  {
-    path: "/settings/payment",
-    component: Payment,
-    exact: false,
-    name: "settings",
-  },
-  {
-    path: "/settings/privacy",
-    component: Privacy,
-    exact: false,
-    name: "settings",
-  },
-  {
-    path: "/settings/profile",
-    component: Profile,
-    exact: false,
-    name: "settings",
-  }, */
 ];
 
 export default childRoutes;

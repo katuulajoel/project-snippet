@@ -39,9 +39,6 @@ import {
   GENERATE_INVOICE_FAILED,
   BULK_ACTION_START,
   BULK_ACTION_FAILED,
-  PAY_INVOICE_START,
-  PAY_INVOICE_SUCCESS,
-  PAY_INVOICE_FAILED,
   INVOICE_SUMMARY_START,
   INVOICE_SUMMARY_SUCCESS,
   INVOICE_SUMMARY_FAILED,
@@ -55,7 +52,7 @@ import {
  * @param {*} action
  * @returns
  */
-function csv(state = {}, action) {
+function csv(state = null, action) {
   switch (action.type) {
     case DOWNLOAD_INVOICE_CSV_SUCCESS:
       return action.data;
@@ -117,7 +114,7 @@ function list(state = { data: [], count: 0, next: "", previous: "" }, action) {
     case CREATE_INVOICE_SUCCESS:
       return { ...state, data: [action.data, ...state.data] };
     case CREATE_INVOICE_BATCH_SUCCESS:
-      return { ...state, data: [...action.data, ...state.data] };
+      return { ...state, data: [action.data, ...state.data] };
     case LIST_INVOICES_SUCCESS:
       return {
         data: action.data.results,
@@ -136,7 +133,6 @@ function list(state = { data: [], count: 0, next: "", previous: "" }, action) {
       const newData = state.data.filter((value) => value.id !== action.data.id);
       return { ...state, data: [...newData] };
     }
-    case PAY_INVOICE_SUCCESS:
     case GENERATE_INVOICE_SUCCESS:
     case ARCHIVE_INVOICE_SUCCESS:
     case UPDATE_INVOICE_SUCCESS: {
@@ -190,8 +186,6 @@ function isMakingRequest(_, action) {
       return { generate: true };
     case BULK_ACTION_START:
       return { bulk: true };
-    case PAY_INVOICE_START:
-      return { pay: true };
     case INVOICE_SUMMARY_START:
       return { summary: true };
     default:
@@ -227,8 +221,6 @@ function errors(state = {}, action) {
       return { generate: action.error };
     case BULK_ACTION_FAILED:
       return { bulk: action.error };
-    case PAY_INVOICE_FAILED:
-      return { pay: action.error };
     case INVOICE_SUMMARY_FAILED:
       return { summary: action.error };
     default:

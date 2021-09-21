@@ -31,12 +31,16 @@ import {
   GENERATE_INVOICE_FAILED,
   BULK_ACTION_START,
   BULK_ACTION_FAILED,
-  PAY_INVOICE_START,
-  PAY_INVOICE_SUCCESS,
-  PAY_INVOICE_FAILED,
   INVOICE_SUMMARY_START,
   INVOICE_SUMMARY_SUCCESS,
   INVOICE_SUMMARY_FAILED,
+  SEARCH_INVOICES_FAILED,
+  SEARCH_MORE_INVOICES_FAILED,
+  SEARCH_INVOICES_START,
+  SEARCH_MORE_INVOICES_START,
+  SEARCH_INVOICES_SUCCESS,
+  SEARCH_MORE_INVOICES_SUCCESS,
+  CREATE_INVOICE_BATCH_SUCCESS,
 } from "../../actions/utils/ActionTypes";
 
 const initialState = {
@@ -46,12 +50,31 @@ const initialState = {
   search: { data: [], count: 0, next: "", previous: "" },
   list: { data: [], count: 0, next: "", previous: "" },
   invoice: {},
-  csv: {},
+  csv: null,
 };
 
 describe("Auth reducers tests", () => {
   it("returns the initial state", () => {
     expect(reducer(undefined, {})).toEqual(initialState);
+  });
+
+  it("handles successful search", () => {
+    expect(
+      reducer(initialState, {
+        type: SEARCH_INVOICES_SUCCESS,
+        data: { results: [], count: 0, next: "", previous: "" },
+      })
+    ).toEqual({
+      ...initialState,
+    });
+    expect(
+      reducer(initialState, {
+        type: SEARCH_MORE_INVOICES_SUCCESS,
+        data: { results: [], count: 0, next: "", previous: "" },
+      })
+    ).toEqual({
+      ...initialState,
+    });
   });
 
   it("handles successfull dispatches", () => {
@@ -84,24 +107,13 @@ describe("Auth reducers tests", () => {
       reducer(
         {
           ...initialState,
-          list: { ...initialState.list, data: [{ id: 123 }] },
+          list: { ...initialState.list, data: [{ id: 123, updated: false }] },
         },
-        { type: DELETE_INVOICE_SUCCESS, data: { id: 123 } }
+        { type: UPDATE_INVOICE_SUCCESS, data: { id: 123, updated: true } }
       )
     ).toEqual({
       ...initialState,
-    });
-    expect(
-      reducer(
-        {
-          ...initialState,
-          list: { ...initialState.list, data: [{ id: 123, paid: false }] },
-        },
-        { type: PAY_INVOICE_SUCCESS, data: { id: 123, paid: true } }
-      )
-    ).toEqual({
-      ...initialState,
-      list: { ...initialState.list, data: [{ id: 123, paid: true }] },
+      list: { ...initialState.list, data: [{ id: 123, updated: true }] },
     });
     expect(
       reducer(
@@ -128,16 +140,36 @@ describe("Auth reducers tests", () => {
       list: { ...initialState.list, data: [{ id: 123, archived: true }] },
     });
     expect(
+      reducer(initialState, { type: CREATE_INVOICE_BATCH_SUCCESS, data: {} })
+    ).toEqual({
+      ...initialState,
+      list: {
+        ...initialState.list,
+        data: [{}],
+      },
+    });
+    expect(
       reducer(
         {
           ...initialState,
           list: { ...initialState.list, data: [{ id: 123, updated: false }] },
         },
-        { type: UPDATE_INVOICE_SUCCESS, data: { id: 123, updated: true } }
+        { type: UPDATE_INVOICE_SUCCESS, data: { id: 124, updated: true } }
       )
     ).toEqual({
       ...initialState,
-      list: { ...initialState.list, data: [{ id: 123, updated: true }] },
+      list: { ...initialState.list, data: [{ id: 123, updated: false }] },
+    });
+    expect(
+      reducer(
+        {
+          ...initialState,
+          list: { ...initialState.list, data: [{ id: 123 }] },
+        },
+        { type: DELETE_INVOICE_SUCCESS, data: { id: 123 } }
+      )
+    ).toEqual({
+      ...initialState,
     });
   });
 
@@ -228,19 +260,27 @@ describe("Auth reducers tests", () => {
     });
     expect(
       reducer(initialState, {
-        type: PAY_INVOICE_START,
-      })
-    ).toEqual({
-      ...initialState,
-      isMakingRequest: { pay: true },
-    });
-    expect(
-      reducer(initialState, {
         type: INVOICE_SUMMARY_START,
       })
     ).toEqual({
       ...initialState,
       isMakingRequest: { summary: true },
+    });
+    expect(
+      reducer(initialState, {
+        type: SEARCH_INVOICES_START,
+      })
+    ).toEqual({
+      ...initialState,
+      isMakingRequest: { search: true },
+    });
+    expect(
+      reducer(initialState, {
+        type: SEARCH_MORE_INVOICES_START,
+      })
+    ).toEqual({
+      ...initialState,
+      isMakingRequest: { searchMore: true },
     });
   });
 
@@ -346,21 +386,30 @@ describe("Auth reducers tests", () => {
     });
     expect(
       reducer(initialState, {
-        type: PAY_INVOICE_FAILED,
-        error: "!error",
-      })
-    ).toEqual({
-      ...initialState,
-      errors: { pay: "!error" },
-    });
-    expect(
-      reducer(initialState, {
         type: INVOICE_SUMMARY_FAILED,
         error: "!error",
       })
     ).toEqual({
       ...initialState,
       errors: { summary: "!error" },
+    });
+    expect(
+      reducer(initialState, {
+        type: SEARCH_INVOICES_FAILED,
+        error: "!error",
+      })
+    ).toEqual({
+      ...initialState,
+      errors: { search: "!error" },
+    });
+    expect(
+      reducer(initialState, {
+        type: SEARCH_MORE_INVOICES_FAILED,
+        error: "!error",
+      })
+    ).toEqual({
+      ...initialState,
+      errors: { searchMore: "!error" },
     });
   });
 

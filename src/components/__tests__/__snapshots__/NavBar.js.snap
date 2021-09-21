@@ -19,45 +19,41 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
     >
       <li>
         <div
-          className="sc-hKFxyN eOLOZR"
+          className="input-group sc-eCApnc kyswBz input-search"
         >
-          <div
-            className="input-group sc-eCApnc kyswBz input-search"
+          <span
+            className="input-group-prepend"
           >
             <span
-              className="input-group-prepend"
+              className="input-group-text"
             >
-              <span
-                className="input-group-text"
-              >
-                <i
-                  className="tg-ic-search1  "
-                />
-              </span>
-            </span>
-            <div
-              className="sc-bdnxRM lboORq"
-              data-testid="input"
-            >
-              <input
-                autoComplete="off"
-                className="form-control"
-                data-testid=""
-                id=""
-                label="Label"
-                name="search"
-                onChange={[Function]}
-                placeholder="Search...."
-                type="input"
-                value=""
+              <i
+                className="tg-ic-search1  "
               />
-            </div>
-            <span
-              className="input-group-prepend"
+            </span>
+          </span>
+          <div
+            className="sc-bdnxRM lboORq"
+            data-testid="input"
+          >
+            <input
+              autoComplete="off"
+              className="form-control"
+              data-testid=""
+              id=""
+              label="Label"
+              name="search"
+              onChange={[Function]}
+              placeholder="Search...."
+              type="input"
+              value=""
             />
           </div>
-          
+          <span
+            className="input-group-prepend"
+          />
         </div>
+        
       </li>
     </ul>
   </div>
