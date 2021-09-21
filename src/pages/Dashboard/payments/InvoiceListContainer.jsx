@@ -54,7 +54,6 @@ const InvoiceListContainer = ({
 
   useEffect(() => {
     if (prevFilter && prevFilter != filter) {
-      console.log("changed props");
       setCurrentPage(0);
       getList();
     }
