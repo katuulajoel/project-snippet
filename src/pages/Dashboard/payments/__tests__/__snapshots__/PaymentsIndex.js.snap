@@ -196,11 +196,31 @@ Array [
     className="sc-kEqXSa gCTtLP"
   >
     <div
-      className="sc-iJCRrE fCIMUZ"
+      className="sc-lmgQwP cIkCmU"
     >
       <div
         className="sc-cxNHIi kQaffx"
       >
+        <div
+          className="sc-fFSPTT bZCfzt"
+          style={
+            Object {
+              "float": "right",
+            }
+          }
+        >
+          <a
+            href="#"
+            onClick={[Function]}
+          >
+            <i
+              className="tg-ic-filter-variant tunga-ic-sz-sm "
+            />
+             Filter Total
+             
+            Payouts
+          </a>
+        </div>
         <ul>
           <li>
             <span>
@@ -291,7 +311,7 @@ Array [
             </a>
           </div>
           <div
-            className="sc-lmgQwP ebgxJy"
+            className="sc-fFSPTT bZCfzt"
           >
             <a
               className="add-btn"

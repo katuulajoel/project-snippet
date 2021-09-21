@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
+import moment from "moment";
 import {
   archiveInvoice,
   generateInvoice as generateInvoiceAction,
   updateInvoice,
   downloadInoicesCsv,
+  getInvoiceSummary,
 } from "../../../../actions/InvoiceActions";
 import DateRangeForm from "../../../../components/DateRangeForm";
 import ModalHeader from "../../../../components/ModalHeader";
@@ -117,6 +119,55 @@ export function downloadCsv(filter, type) {
           end: data.end,
           type: type === "Payments" ? "sale" : "purchase",
           ...params,
+        })
+      );
+    }
+  });
+}
+
+export function filterPayment({ start, end }, type, setSummariesRange) {
+  openModal(
+    <DateRangeForm
+      id={`fiter-payment`}
+      defaultStart={start}
+      defaultEnd={end}
+      maxdate={new Date()}
+      message={"Select date range for filter"}
+    />,
+    "",
+    true,
+    {
+      className: "modal-payments",
+      ok: `Submit`,
+      form: {
+        type: "submit",
+        form: `fiter-payment`,
+      },
+    },
+    <ModalHeader
+      style={{ paddingBottom: "8px" }}
+      options={{
+        title: `Filter Total ${type === "Payments" ? "Payments" : "Payouts"}`,
+      }}
+    />,
+    false
+  ).then((data) => {
+    if (data) {
+      const START = `${moment(data.start).format(
+        moment.HTML5_FMT.DATE
+      )}T00:00:00`;
+      const END = `${moment(data.end).format(moment.HTML5_FMT.DATE)}T23:59:59`;
+
+      setSummariesRange({
+        start: START,
+        end: END,
+      });
+
+      store.dispatch(
+        getInvoiceSummary({
+          min_date: START,
+          max_date: END,
+          type: type === "Payments" ? "sale" : "purchase",
         })
       );
     }
