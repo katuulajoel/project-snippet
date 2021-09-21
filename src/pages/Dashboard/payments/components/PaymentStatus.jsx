@@ -6,12 +6,7 @@ import React from "react";
 
 export const BatchStatus = (props) => {
   const { batch } = props;
-  if (
-    (new Date(`${batch.due_at}`) < new Date() &&
-      batch.status === "approved" &&
-      !batch.paid) ||
-    (!batch.paid && batch.status === "approved")
-  ) {
+  if (batch.status === "approved" && !batch.paid) {
     return <span className="pending">Processing</span>;
   }
   if (new Date(`${batch.due_at}`) < new Date() && !batch.paid) {
