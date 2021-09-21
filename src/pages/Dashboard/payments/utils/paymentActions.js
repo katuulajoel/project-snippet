@@ -70,7 +70,6 @@ export function approvePayout(invoices) {
 }
 
 export function downloadCsv(filter, type) {
-  console.log(filter);
   openModal(
     <DateRangeForm id={`export-form`} />,
     "",
@@ -89,35 +88,36 @@ export function downloadCsv(filter, type) {
     if (data) {
       let params = {};
 
-      if (filter === "archived") {
-        params["archived"] = "True";
-        params["paid"] = "False";
-      } else if (filter === "all") {
-        params["archived"] = "False";
-      } else if (filter === "pending") {
-        params["archived"] = "False";
-        params["paid"] = "False";
-        params["overdue"] = "False";
-      } else if (filter === "overdue") {
-        params["archived"] = "False";
-        params["paid"] = "False";
-        params["overdue"] = "True";
-      } else if (filter === "paid") {
-        params["archived"] = "False";
-        params["paid"] = "True";
+      switch (filter) {
+        case "archived":
+          params["archived"] = "True";
+          params["paid"] = "False";
+          break;
+        case "all":
+          params["archived"] = "False";
+          break;
+        case "pending":
+          params["archived"] = "False";
+          params["paid"] = "False";
+          params["overdue"] = "False";
+          break;
+        case "overdue":
+          params["archived"] = "False";
+          params["paid"] = "False";
+          params["overdue"] = "True";
+          break;
+        case "paid":
+          params["archived"] = "False";
+          params["paid"] = "True";
       }
 
       store.dispatch(
-        downloadInoicesCsv(
-          {
-            start: data.start,
-            end: data.end,
-            type: type === "Payments" ? "sale" : "purchase",
-            ...params,
-          },
-          type,
-          filter
-        )
+        downloadInoicesCsv({
+          start: data.start,
+          end: data.end,
+          type: type === "Payments" ? "sale" : "purchase",
+          ...params,
+        })
       );
     }
   });

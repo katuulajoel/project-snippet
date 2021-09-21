@@ -9,7 +9,7 @@ describe("Auth layout test", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it.only("should open date modal", () => {
+  it("should open date modal", () => {
     const wrapper = mount(
       <DateTimePicker proceed={() => {}} time={true} calendar={false} />
     );

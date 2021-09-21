@@ -4,8 +4,7 @@ import SearchBox from "../SearchBox";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import mount from "enzyme/build/mount";
-import * as actions from "../../actions/InvoiceActions";
+import { render, fireEvent } from "@testing-library/react";
 
 const middlewares = [thunk];
 
@@ -32,18 +31,18 @@ describe("Auth layout test", () => {
   });
 
   it("should clear search input", () => {
-    jest.spyOn(actions, "listInvoices").mockReturnValue();
-    const wrapper = mount(
+    // jest.spyOn(actions, "listInvoices").mockReturnValue();
+    jest.mock("../SearchBox/Results", () => {
+      const Results = () => <div>Katuula joel</div>;
+      return Results;
+    });
+    const utils = render(
       <Provider store={mockAppStore()}>
         <SearchBox />
       </Provider>
     );
-
-    //console.log(wrapper.debug());
-
-    const searchInput = wrapper.find("input");
-    console.log(searchInput.debug());
-
-    // searchInput.simulate("change", { target: { value: "Hello" } });
+    // eslint-disable-next-line no-unused-vars
+    const searchInput = utils.getByPlaceholderText("Search....");
+    // fireEvent.change(searchInput, { target: { value: "Hello" } });
   });
 });

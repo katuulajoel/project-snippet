@@ -24,6 +24,7 @@ const SearchBox = ({ navHieght }) => {
   const delayedQuery = _.debounce((q) => sendQuery(q), 500);
 
   const handleChange = (event) => {
+    console.log(event.target.value);
     setSearchTerm(event.target.value);
     delayedQuery(event.target.value);
   };
@@ -35,6 +36,7 @@ const SearchBox = ({ navHieght }) => {
   return (
     <>
       <StyledSearchInput
+        data-testid="input-search"
         name="search"
         value={searchTerm}
         autoComplete="off"

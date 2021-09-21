@@ -5,6 +5,7 @@ import {
   markAsPaid,
   markAsArchived,
   approvePayout,
+  downloadCsv,
 } from "../paymentActions";
 import store from "../../../../../store";
 
@@ -59,5 +60,77 @@ describe("Payments actions", () => {
 
     expect(updateInvoiceStub).toHaveBeenCalled();
     expect(updateInvoiceStub).toBeCalledWith(123, { status: "approved" });
+  });
+
+  it("should trigger download csv action", async () => {
+    jest
+      .spyOn(modalActions, "openModal")
+      .mockReturnValue(Promise.resolve({ start: "start", end: "end" }));
+    const downloadInoicesCsvStub = jest.spyOn(
+      invoiceAction,
+      "downloadInoicesCsv"
+    );
+    store.dispatch.mockReturnValue(downloadInoicesCsvStub);
+
+    await downloadCsv("all", "Payments");
+    expect(downloadInoicesCsvStub).toHaveBeenCalled();
+    expect(downloadInoicesCsvStub).toBeCalledWith({
+      start: "start",
+      end: "end",
+      type: "sale",
+      archived: "False",
+    });
+
+    await downloadCsv("paid", "Payments");
+    expect(downloadInoicesCsvStub).toBeCalledWith({
+      start: "start",
+      end: "end",
+      type: "sale",
+      archived: "False",
+      paid: "True",
+    });
+
+    await downloadCsv("overdue", "Payments");
+    expect(downloadInoicesCsvStub).toBeCalledWith({
+      start: "start",
+      end: "end",
+      type: "sale",
+      archived: "False",
+      paid: "False",
+      overdue: "True",
+    });
+
+    await downloadCsv("pending", "Payments");
+    expect(downloadInoicesCsvStub).toBeCalledWith({
+      start: "start",
+      end: "end",
+      type: "sale",
+      archived: "False",
+      paid: "False",
+      overdue: "False",
+    });
+
+    await downloadCsv("archived", "Payments");
+    expect(downloadInoicesCsvStub).toBeCalledWith({
+      start: "start",
+      end: "end",
+      type: "sale",
+      archived: "True",
+      paid: "False",
+    });
+  });
+
+  it("should not trigger download csv action", async () => {
+    jest.clearAllMocks();
+    jest
+      .spyOn(modalActions, "openModal")
+      .mockReturnValue(Promise.resolve(null));
+    const downloadInoicesCsvStub = jest.spyOn(
+      invoiceAction,
+      "downloadInoicesCsv"
+    );
+    store.dispatch.mockReturnValue(downloadInoicesCsvStub);
+    await downloadCsv("archived", "Payments");
+    expect(downloadInoicesCsvStub).not.toHaveBeenCalled();
   });
 });
