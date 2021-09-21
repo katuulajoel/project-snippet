@@ -4,6 +4,7 @@ import SearchBox from "../SearchBox";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
+// eslint-disable-next-line no-unused-vars
 import { render, fireEvent } from "@testing-library/react";
 
 const middlewares = [thunk];
