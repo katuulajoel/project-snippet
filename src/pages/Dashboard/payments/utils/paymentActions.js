@@ -7,14 +7,19 @@ import {
   updateInvoice,
   downloadInoicesCsv,
   getInvoiceSummary,
+  bulkAction,
 } from "../../../../actions/InvoiceActions";
 import DateRangeForm from "../../../../components/DateRangeForm";
 import ModalHeader from "../../../../components/ModalHeader";
 import { openConfirm, openModal } from "../../../../components/utils/modals";
 import store from "../../../../store";
 
-const Header = ({ title }) => (
-  <ModalHeader style={{ paddingBottom: "8px" }} options={title} />
+const Header = (props) => (
+  <ModalHeader
+    {...props}
+    style={{ paddingBottom: "8px" }}
+    options={props.title}
+  />
 );
 
 Header.propTypes = {
@@ -171,5 +176,57 @@ export function filterPayment({ start, end }, type, setSummariesRange) {
         })
       );
     }
+  });
+}
+
+export function bulkMarkAsPaid(invoices) {
+  openConfirm(
+    <div>Are you sure you want to mark all selected as paid?</div>,
+    null,
+    true,
+    { ok: "Yes", cancel: "Cancel" },
+    <Header title="Bulk mark as Paid" />
+  ).then(() => {
+    invoices.forEach((invoice) => {
+      store.dispatch(updateInvoice(invoice.id, { paid: true }));
+    });
+  });
+}
+
+export function bulkGenerateInvoice(invoices) {
+  openConfirm(
+    <div>Are you sure you want to generate invoices for all selected?</div>,
+    null,
+    true,
+    { ok: "Yes", cancel: "Cancel" },
+    <Header title="Bulk generate invoices" />
+  ).then(() => {
+    invoices.forEach((invoice) => {
+      store.dispatch(generateInvoice(invoice.id, { paid: true }));
+    });
+  });
+}
+
+export function bulkDeleteInvoice(invoices) {
+  openConfirm(
+    <div>Are you sure you want to delete all selected?</div>,
+    null,
+    true,
+    { ok: "Yes", cancel: "Cancel" },
+    <Header title="Bulk delete invoices" />
+  ).then(() => {
+    store.dispatch(bulkAction(invoices, "archive"));
+  });
+}
+
+export function bulkArchiveInvoice(invoices) {
+  openConfirm(
+    <div>Are you sure you want to archive all selected?</div>,
+    null,
+    true,
+    { ok: "Yes", cancel: "Cancel" },
+    <Header title="Bulk archive invoices" />
+  ).then(() => {
+    store.dispatch(bulkAction(invoices, "delete"));
   });
 }

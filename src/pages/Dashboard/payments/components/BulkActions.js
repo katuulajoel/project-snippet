@@ -2,6 +2,12 @@ import PropTypes from "prop-types";
 import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import {
+  bulkDeleteInvoice,
+  bulkGenerateInvoice,
+  bulkMarkAsPaid,
+  bulkArchiveInvoice,
+} from "../utils/paymentActions";
 
 const BulkActions = ({ checked }) => {
   let { status } = useParams();
@@ -28,7 +34,10 @@ const BulkActions = ({ checked }) => {
   return (
     <ActionSlate className="d-flex mb-3">
       {canMarkAsPaid() && (
-        <button className="btn btn-light">
+        <button
+          className="btn btn-light"
+          onClick={() => bulkMarkAsPaid(checked)}
+        >
           Mark as Paid ({checked.length})
         </button>
       )}
@@ -37,18 +46,25 @@ const BulkActions = ({ checked }) => {
         <button
           className="btn btn-light ml-2"
           disabled={canGenerateInvoice === 0}
+          onClick={() => bulkGenerateInvoice(checked)}
         >
           Generate Invoice ({canGenerateInvoice})
         </button>
       )}
 
       {status !== "archived" && (
-        <button className="btn btn-light ml-2">
+        <button
+          className="btn btn-light ml-2"
+          onClick={() => bulkArchiveInvoice(checked)}
+        >
           Archive ({checked.length})
         </button>
       )}
       {!checkIfFinalised() && (
-        <button className="btn btn-light ml-2">
+        <button
+          className="btn btn-light ml-2"
+          onClick={() => bulkDeleteInvoice(checked)}
+        >
           Delete ({checked.length})
         </button>
       )}
@@ -61,6 +77,9 @@ BulkActions.propTypes = {
 };
 
 export const ActionSlate = styled.div`
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
   button {
     box-shadow: none;
     font-weight: 800;
