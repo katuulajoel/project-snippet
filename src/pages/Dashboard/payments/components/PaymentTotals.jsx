@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 import { getInvoiceSummary } from "../../../../actions/InvoiceActions";
 import { numberWithCommas } from "../../../../components/utils/stringUtils";
-import { filterPayment } from "../utils/paymentActions";
+import { filterPaymentSummaries } from "../utils/paymentActions";
 import Icon from "../../../../components/Icon";
 import { NavActions } from "../styles";
 
@@ -34,7 +34,9 @@ const PaymentTotals = () => {
       <NavActions style={{ float: "right" }}>
         <a
           href="#"
-          onClick={() => filterPayment(summariesRange, type, setSummariesRange)}
+          onClick={() =>
+            filterPaymentSummaries(summariesRange, type, setSummariesRange)
+          }
         >
           <Icon name="filter-variant" size="sm" /> Filter Total{" "}
           {type === "in" ? "Payments" : "Payouts"}

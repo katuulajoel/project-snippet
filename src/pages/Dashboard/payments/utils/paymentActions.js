@@ -27,49 +27,38 @@ Header.propTypes = {
 };
 
 export function generateInvoice(invoiceId) {
-  openConfirm(
-    <div>Are you sure you want to generate an invoice for this payment?</div>,
-    null,
-    true,
-    { ok: "Yes" },
-    <Header title="Generate Invoice" />
-  ).then(() => {
+  openConfirm({
+    message: "Are you sure you want to generate an invoice for this payment?",
+    header: <Header title="Generate Invoice" />,
+  }).then(() => {
     store.dispatch(generateInvoiceAction(invoiceId));
   });
 }
 
 export function markAsPaid(invoiceId) {
-  openConfirm(
-    <div>Are you sure you want to mark this invoice as paid?</div>,
-    null,
-    true,
-    { ok: "Yes" },
-    <Header title="Mark as Paid" />
-  ).then(() => {
+  openConfirm({
+    message: "Are you sure you want to mark this invoice as paid?",
+    header: <Header title="Mark as Paid" />,
+  }).then(() => {
     store.dispatch(updateInvoice(invoiceId, { paid: true }));
   });
 }
 
 export function markAsArchived(invoiceId) {
-  openConfirm(
-    <div>Are you sure you want to archive this invoice?</div>,
-    null,
-    true,
-    { ok: "Yes" },
-    <Header title="Archive invoice" />
-  ).then(() => {
+  openConfirm({
+    message: "Are you sure you want to archive this invoice?",
+    header: <Header title="Archive invoice" />,
+  }).then(() => {
     store.dispatch(archiveInvoice(invoiceId));
   });
 }
 
 export function approvePayout(invoices) {
-  openConfirm(
-    <div>Are you sure you want to approve this payout?</div>,
-    null,
-    true,
-    { ok: "Approve", cancel: "Cancel" },
-    <Header title="Approve payout" />
-  ).then(() => {
+  openConfirm({
+    message: "Are you sure you want to approve this payout?",
+    options: { ok: "Approve", cancel: "Cancel" },
+    header: <Header title="Approve payout" />,
+  }).then(() => {
     invoices.forEach((invoice) => {
       store.dispatch(updateInvoice(invoice.id, { status: "approved" }));
     });
@@ -77,11 +66,9 @@ export function approvePayout(invoices) {
 }
 
 export function downloadCsv(filter, type) {
-  openModal(
-    <DateRangeForm id={`export-form`} />,
-    "",
-    true,
-    {
+  openModal({
+    body: <DateRangeForm id={`export-form`} />,
+    options: {
       className: "modal-payments",
       ok: `Download CSV`,
       form: {
@@ -89,9 +76,8 @@ export function downloadCsv(filter, type) {
         form: `export-form`,
       },
     },
-    <Header title={`Export ${type}`} />,
-    false
-  ).then((data) => {
+    header: <Header title={`Export ${type}`} />,
+  }).then((data) => {
     if (data) {
       let params = {};
 
@@ -130,18 +116,22 @@ export function downloadCsv(filter, type) {
   });
 }
 
-export function filterPayment({ start, end }, type, setSummariesRange) {
-  openModal(
-    <DateRangeForm
-      id={`fiter-payment`}
-      defaultStart={start}
-      defaultEnd={end}
-      maxdate={new Date()}
-      message={"Select date range for filter"}
-    />,
-    "",
-    true,
-    {
+export function filterPaymentSummaries(
+  { start, end },
+  type,
+  setSummariesRange
+) {
+  openModal({
+    body: (
+      <DateRangeForm
+        id={`fiter-payment`}
+        defaultStart={start}
+        defaultEnd={end}
+        maxdate={new Date()}
+        message={"Select date range for filter"}
+      />
+    ),
+    options: {
       className: "modal-payments",
       ok: `Submit`,
       form: {
@@ -149,14 +139,12 @@ export function filterPayment({ start, end }, type, setSummariesRange) {
         form: `fiter-payment`,
       },
     },
-    <ModalHeader
-      style={{ paddingBottom: "8px" }}
-      options={{
-        title: `Filter Total ${type === "Payments" ? "Payments" : "Payouts"}`,
-      }}
-    />,
-    false
-  ).then((data) => {
+    header: (
+      <Header
+        title={`Filter Total ${type === "Payments" ? "Payments" : "Payouts"}`}
+      />
+    ),
+  }).then((data) => {
     if (data) {
       const START = `${moment(data.start).format(
         moment.HTML5_FMT.DATE
@@ -180,13 +168,10 @@ export function filterPayment({ start, end }, type, setSummariesRange) {
 }
 
 export function bulkMarkAsPaid(invoices) {
-  openConfirm(
-    <div>Are you sure you want to mark all selected as paid?</div>,
-    null,
-    true,
-    { ok: "Yes", cancel: "Cancel" },
-    <Header title="Bulk mark as Paid" />
-  ).then(() => {
+  openConfirm({
+    message: "Are you sure you want to mark all selected as paid?",
+    header: <Header title="Bulk mark as Paid" />,
+  }).then(() => {
     invoices.forEach((invoice) => {
       store.dispatch(updateInvoice(invoice.id, { paid: true }));
     });
@@ -194,39 +179,30 @@ export function bulkMarkAsPaid(invoices) {
 }
 
 export function bulkGenerateInvoice(invoices) {
-  openConfirm(
-    <div>Are you sure you want to generate invoices for all selected?</div>,
-    null,
-    true,
-    { ok: "Yes", cancel: "Cancel" },
-    <Header title="Bulk generate invoices" />
-  ).then(() => {
+  openConfirm({
+    message: "Are you sure you want to generate invoices for all selected?",
+    header: <Header title="Bulk generate invoices" />,
+  }).then(() => {
     invoices.forEach((invoice) => {
-      store.dispatch(generateInvoice(invoice.id, { paid: true }));
+      store.dispatch(generateInvoiceAction(invoice.id));
     });
   });
 }
 
 export function bulkDeleteInvoice(invoices) {
-  openConfirm(
-    <div>Are you sure you want to delete all selected?</div>,
-    null,
-    true,
-    { ok: "Yes", cancel: "Cancel" },
-    <Header title="Bulk delete invoices" />
-  ).then(() => {
-    store.dispatch(bulkAction(invoices, "archive"));
+  openConfirm({
+    message: "Are you sure you want to delete all selected?",
+    header: <Header title="Bulk delete invoices" />,
+  }).then(() => {
+    store.dispatch(bulkAction(invoices, "delete"));
   });
 }
 
 export function bulkArchiveInvoice(invoices) {
-  openConfirm(
-    <div>Are you sure you want to archive all selected?</div>,
-    null,
-    true,
-    { ok: "Yes", cancel: "Cancel" },
-    <Header title="Bulk archive invoices" />
-  ).then(() => {
-    store.dispatch(bulkAction(invoices, "delete"));
+  openConfirm({
+    message: "Are you sure you want to archive all selected?",
+    header: <Header title="Bulk archive invoices" />,
+  }).then(() => {
+    store.dispatch(bulkAction(invoices, "archive"));
   });
 }

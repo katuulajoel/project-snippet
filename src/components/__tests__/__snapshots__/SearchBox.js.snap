@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Auth layout test Snapshot test for NavBar component 1`] = `
+exports[`Search Box test Snapshot test for Searchbox index component 1`] = `
 Array [
   <div
-    className="input-group sc-eCApnc kyswBz input-search"
+    className="input-group sc-hKFxyN iTzOqL input-search"
   >
     <span
       className="input-group-prepend"
@@ -37,6 +37,16 @@ Array [
       className="input-group-prepend"
     />
   </div>,
-  "",
+  <mocked
+    clearSearch={[Function]}
+    originalComponent="Results"
+    searchTerm=""
+  >
+    <button
+      onClick={[Function]}
+    >
+      clear search
+    </button>
+  </mocked>,
 ]
 `;

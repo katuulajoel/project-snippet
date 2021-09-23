@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBox Results test Snapshot test for search results component 1`] = `
+<div
+  className="sc-bdnxRM igYzrV"
+>
+  <div
+    className="results"
+  >
+    <span
+      className="counter"
+      data-testid="counter"
+    >
+      Showing 
+      <strong>
+        1
+      </strong>
+       results for
+       
+      <strong>
+        "
+        Hello
+        "
+      </strong>
+    </span>
+    <div
+      className="section"
+    >
+      <div
+        className="title"
+      >
+        Payments
+      </div>
+      <a
+        className="result-item"
+        href="/projects/1/pay"
+        onClick={[Function]}
+      >
+        <b />
+        : 
+      </a>
+      <div
+        className="text-link"
+      >
+        <button
+          className="btn btn-outline-primary   btn-sm"
+          form={null}
+          onClick={[Function]}
+          type="button"
+        >
+          View More
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
