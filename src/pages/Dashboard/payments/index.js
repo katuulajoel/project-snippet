@@ -18,11 +18,13 @@ import { NavActions } from "./styles";
 
 export default function PaymentsPage() {
   let { type } = useParams();
+  // eslint-disable-next-line no-unused-vars
   const [filter, setFilter] = useState("");
 
   const { csv } = useSelector(({ Invoice }) => Invoice);
 
   useEffect(() => {
+    console.log(csv);
     if (csv) {
       var fileDownload = require("js-file-download");
       fileDownload(
@@ -84,7 +86,7 @@ export default function PaymentsPage() {
             path={`/payments/${type}/:filter`}
             render={(props) => {
               // eslint-disable-next-line react/prop-types
-              setFilter(props.match.params.filter);
+              // setFilter(props.match.params.filter);
               return (
                 <InvoiceListContainer {...props} type={type}>
                   {type === "in" ? (

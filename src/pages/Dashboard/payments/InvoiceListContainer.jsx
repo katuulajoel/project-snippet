@@ -63,7 +63,7 @@ const InvoiceListContainer = ({
       Object.keys(prevIsMakingRequest).length > 0 &&
       !prevIsMakingRequest.list
     ) {
-      getList(filters);
+      // getList(filters);
     }
   }, [filter, prevIsMakingRequest]);
 
@@ -83,10 +83,12 @@ const InvoiceListContainer = ({
             currentPage: currentPage,
           }
         : {
-            onLoadMore: (url) => {
-              if (url && url !== list.next) {
+            onLoadMore: async (url) => {
+              console.log(url, list.next);
+              if (url !== list.next) {
                 listMoreInvoices(url)(dispatch);
               }
+              // listMoreInvoices(url)(dispatch);
             },
           }),
     });

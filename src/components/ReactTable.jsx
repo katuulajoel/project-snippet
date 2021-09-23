@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 import PaginationWrapper from "./Pagination";
 
-export const PAGINNATION_COUNT = 2;
+export const PAGINNATION_COUNT = 20; // TODO: move this to environment variables
 
 const ReactTable = (props) => {
   const {

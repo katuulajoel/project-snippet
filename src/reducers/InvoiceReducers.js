@@ -158,38 +158,54 @@ function list(state = { data: [], count: 0, next: "", previous: "" }, action) {
  * @param {*} action
  * @returns
  */
-function isMakingRequest(_, action) {
+function isMakingRequest(state = {}, action) {
   switch (action.type) {
     case CREATE_INVOICE_START:
-      return { create: true };
+      return { ...state, create: true };
     case CREATE_INVOICE_BATCH_START:
-      return { createBatch: true };
+      return { ...state, createBatch: true };
     case DOWNLOAD_INVOICE_CSV_STARTED:
-      return { download: true };
+      return { ...state, download: true };
     case LIST_INVOICES_START:
-      return { list: true };
+      return { ...state, list: true };
     case SEARCH_INVOICES_START:
-      return { search: true };
+      return { ...state, search: true };
     case RETRIEVE_INVOICE_START:
-      return { fetch: true };
+      return { ...state, fetch: true };
     case UPDATE_INVOICE_START:
-      return { update: true };
+      return { ...state, update: true };
     case LIST_MORE_INVOICES_START:
-      return { more: true };
+      return { ...state, more: true };
     case SEARCH_MORE_INVOICES_START:
-      return { searchMore: true };
+      return { ...state, searchMore: true };
     case DELETE_INVOICE_START:
-      return { delete: true };
+      return { ...state, delete: true };
     case ARCHIVE_INVOICE_START:
-      return { archive: true };
+      return { ...state, archive: true };
     case GENERATE_INVOICE_START:
-      return { generate: true };
+      return { ...state, generate: true };
     case BULK_ACTION_START:
-      return { bulk: true };
+      return { ...state, bulk: true };
     case INVOICE_SUMMARY_START:
-      return { summary: true };
-    default:
-      return {};
+      return { ...state, summary: true };
+    default: {
+      let newState = state;
+      if (action.type === INVOICE_SUMMARY_SUCCESS) {
+        delete newState.summary;
+      } else if (action.type === LIST_MORE_INVOICES_SUCCESS) {
+        delete newState.more;
+      } else if (action.type === LIST_INVOICES_SUCCESS) {
+        delete newState.list;
+      } else {
+        const stateKeys = Object.keys(state);
+        stateKeys.forEach((elem) => {
+          if (!["summary", "more", "list"].includes(elem)) {
+            delete newState[elem];
+          }
+        });
+      }
+      return newState;
+    }
   }
 }
 
