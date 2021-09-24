@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import _ from "lodash";
+import { debounce } from "lodash";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
@@ -21,10 +21,9 @@ const SearchBox = ({ navHieght }) => {
     dispatch(listInvoices({ search: query, page_size: 3 }, true));
   };
 
-  const delayedQuery = _.debounce((q) => sendQuery(q), 500);
+  const delayedQuery = debounce((q) => sendQuery(q), 500);
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     setSearchTerm(event.target.value);
     delayedQuery(event.target.value);
   };

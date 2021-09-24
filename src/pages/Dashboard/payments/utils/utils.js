@@ -80,6 +80,7 @@ export const showAction = (action, invoice) => {
         (invoice.finalized || invoice.last_sent_at)
       );
     case actions.APPROVE_BATCH_ACTION:
+      return isPayAdmin() && invoice.status !== "approved";
     case actions.ARCHIVE_ACTION:
       return isPayAdmin() && !invoice.paid;
     case actions.EDIT_ACTION_BATCH:

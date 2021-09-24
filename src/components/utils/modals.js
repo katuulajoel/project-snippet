@@ -17,15 +17,15 @@ function safeClassNameOptions(className, options) {
   return safeOptions;
 }
 
-export function openConfirm(
-  body,
-  title = null,
-  canClose = false,
-  options = null,
-  header
-) {
+export function openConfirm({
+  message = "",
+  title = "",
+  canClose = true,
+  options = { ok: "Yes", cancel: "Cancel" },
+  header = null,
+} = {}) {
   return openGenericModal(
-    body,
+    message,
     {
       mustRespond: !canClose,
       title,
@@ -35,14 +35,14 @@ export function openConfirm(
   );
 }
 
-export function openModal(
-  body,
-  title = null,
+export function openModal({
+  body = null,
+  title = "",
   canClose = true,
   options = null,
   header = null,
-  hideActions = true
-) {
+  hideActions = false,
+} = {}) {
   return openGenericModal(
     body,
     {

@@ -1,27 +1,47 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { getInvoiceSummary } from "../../../../actions/InvoiceActions";
 import { numberWithCommas } from "../../../../components/utils/stringUtils";
+import { filterPaymentSummaries } from "../utils/paymentActions";
+import Icon from "../../../../components/Icon";
+import { NavActions } from "../styles";
 
 const PaymentTotals = () => {
   const dispatch = useDispatch();
+  let { type } = useParams();
   const { summary } = useSelector(({ Invoice }) => Invoice);
+  var date = new Date();
+  var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+  const [summariesRange, setSummariesRange] = useState({
+    start: `${moment(firstDay).format(moment.HTML5_FMT.DATE)}T00:00:00`,
+    end: `${moment(new Date()).format(moment.HTML5_FMT.DATE)}T23:59:59`,
+  });
 
   useEffect(() => {
-    var date = new Date();
-    var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
     getInvoiceSummary({
-      min_date: `${moment(firstDay).format(moment.HTML5_FMT.DATE)}T00:00:00`,
-      max_date: `${moment(new Date()).format(moment.HTML5_FMT.DATE)}T23:59:59`,
+      min_date: summariesRange.start,
+      max_date: summariesRange.end,
       type: "sale",
     })(dispatch);
   }, []);
 
   return (
     <Wrapper>
+      <NavActions style={{ float: "right" }}>
+        <a
+          href="#"
+          onClick={() =>
+            filterPaymentSummaries(summariesRange, type, setSummariesRange)
+          }
+        >
+          <Icon name="filter-variant" size="sm" /> Filter Total{" "}
+          {type === "in" ? "Payments" : "Payouts"}
+        </a>
+      </NavActions>
       <ul>
         <li>
           <span>Total Payments</span>

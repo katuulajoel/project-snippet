@@ -14,9 +14,11 @@ import Payments from "./Payments";
 import Payouts from "./Payouts";
 import { downloadCsv } from "./utils/paymentActions";
 import PaymentTotals from "./components/PaymentTotals";
+import { NavActions } from "./styles";
 
 export default function PaymentsPage() {
   let { type } = useParams();
+  // eslint-disable-next-line no-unused-vars
   const [filter, setFilter] = useState("");
 
   const { csv } = useSelector(({ Invoice }) => Invoice);
@@ -83,7 +85,7 @@ export default function PaymentsPage() {
             path={`/payments/${type}/:filter`}
             render={(props) => {
               // eslint-disable-next-line react/prop-types
-              setFilter(props.match.params.filter);
+              // setFilter(props.match.params.filter);
               return (
                 <InvoiceListContainer {...props} type={type}>
                   {type === "in" ? (
@@ -101,30 +103,6 @@ export default function PaymentsPage() {
     </DashboardLayout>
   );
 }
-
-const NavActions = styled.div`
-  display: inline;
-  float: right;
-
-  a {
-    color: #8f9bb3;
-    font-weight: 500;
-    font-size: 14px;
-    text-decoration: none;
-    margin-left: 25px;
-
-    i {
-      vertical-align: baseline;
-      margin-right: 5px;
-    }
-  }
-
-  .add-btn {
-    color: #062e64;
-    font-weight: 500;
-    font-size: 16px;
-  }
-`;
 
 const Wrapper = styled.div`
   padding-top: 30px; /* TODO: moving this couldnt work cause navbar doesnt record right hieght on page reload */

@@ -6,6 +6,11 @@ import {
   markAsArchived,
   approvePayout,
   downloadCsv,
+  bulkArchiveInvoice,
+  bulkDeleteInvoice,
+  bulkGenerateInvoice,
+  bulkMarkAsPaid,
+  filterPaymentSummaries,
 } from "../paymentActions";
 import store from "../../../../../store";
 
@@ -133,4 +138,88 @@ describe("Payments actions", () => {
     await downloadCsv("archived", "Payments");
     expect(downloadInoicesCsvStub).not.toHaveBeenCalled();
   });
+
+  it("should archive bulk invoices", async () => {
+    const bulkActionStub = jest.spyOn(invoiceAction, "bulkAction");
+    store.dispatch.mockReturnValue(bulkActionStub);
+
+    await bulkArchiveInvoice([{ id: 123 }]);
+
+    expect(bulkActionStub).toHaveBeenCalled();
+    expect(bulkActionStub).toBeCalledWith([{ id: 123 }], "archive");
+  });
+
+  it("should delete bulk invoices", async () => {
+    const bulkActionStub = jest.spyOn(invoiceAction, "bulkAction");
+    store.dispatch.mockReturnValue(bulkActionStub);
+
+    await bulkDeleteInvoice([{ id: 123 }]);
+
+    expect(bulkActionStub).toHaveBeenCalled();
+    expect(bulkActionStub).toBeCalledWith([{ id: 123 }], "delete");
+  });
+
+  it("should delete bulk invoices", async () => {
+    const generateInvoiceStub = jest.spyOn(invoiceAction, "generateInvoice");
+    store.dispatch.mockReturnValue(generateInvoiceStub);
+
+    await bulkGenerateInvoice([{ id: 123 }, { id: 124 }, { id: 125 }]);
+
+    expect(generateInvoiceStub).toBeCalledTimes(3);
+    expect(generateInvoiceStub).toBeCalledWith(123);
+    expect(generateInvoiceStub).toBeCalledWith(124);
+    expect(generateInvoiceStub).toBeCalledWith(125);
+  });
+
+  it("should mark as paid bulk invoices", async () => {
+    const updateInvoiceStub = jest.spyOn(invoiceAction, "updateInvoice");
+    store.dispatch.mockReturnValue(updateInvoiceStub);
+
+    await bulkMarkAsPaid([{ id: 123 }, { id: 124 }, { id: 125 }]);
+
+    expect(updateInvoiceStub).toBeCalledTimes(3);
+    expect(updateInvoiceStub).toBeCalledWith(123, { paid: true });
+    expect(updateInvoiceStub).toBeCalledWith(124, { paid: true });
+    expect(updateInvoiceStub).toBeCalledWith(125, { paid: true });
+  });
+
+  it("should filter payment summaries", async () => {
+    jest.spyOn(modalActions, "openModal").mockReturnValue(
+      Promise.resolve({
+        start: convertToDateString(new Date(1630539350000)), // Wednesday, 1 September 2021 23:35:50
+        end: convertToDateString(new Date(1632353750000)), // Wednesday, 22 September 2021 23:35:50
+      })
+    );
+    const getInvoiceSummaryStub = jest.spyOn(
+      invoiceAction,
+      "getInvoiceSummary"
+    );
+    store.dispatch.mockReturnValue(getInvoiceSummaryStub);
+    const setSummariesRangeStub = jest.fn();
+    const mockDate = new Date(1633131350000); // Friday, 1 October 2021 23:35:50
+    const spy = jest.spyOn(global, "Date").mockImplementation(() => mockDate);
+
+    await filterPaymentSummaries(
+      { start: null, end: null },
+      "Payments",
+      setSummariesRangeStub
+    );
+
+    expect(setSummariesRangeStub).toHaveBeenCalled();
+    expect(getInvoiceSummaryStub).toHaveBeenCalled();
+
+    /* expect(getInvoiceSummaryStub).toBeCalledWith({
+      min_date: "2021-09-01T00:00:00",
+      max_date: "2021-09-22T23:59:59",
+      type: "sale",
+    }); */
+
+    spy.mockRestore();
+  });
 });
+
+function convertToDateString(date) {
+  return `${date.getFullYear()}-${("0" + (date.getUTCMonth() + 1)).slice(
+    -2
+  )}-${("0" + date.getUTCDate()).slice(-2)}`;
+}

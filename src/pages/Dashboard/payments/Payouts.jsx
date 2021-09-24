@@ -73,7 +73,7 @@ const Payouts = (props) => {
     <InfiniteScroll
       dataLength={invoices.length}
       next={onLoadMore(next)}
-      hasMore={!!next}
+      hasMore={next !== null}
       loader={<Progress />}
       scrollableTarget="main-content"
     >

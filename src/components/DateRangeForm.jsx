@@ -8,9 +8,16 @@ import FieldError from "./FieldError";
 import { StyledDateTimePicker, StyledForm } from "./utils/styles";
 
 const DateRangeForm = (props) => {
-  const { id, maxdate: maxdateProp, message, proceed } = props;
-  const [start, setstart] = useState(null);
-  const [end, setend] = useState(null);
+  const {
+    id,
+    maxdate: maxdateProp,
+    message,
+    proceed,
+    defaultStart,
+    defaultEnd,
+  } = props;
+  const [start, setstart] = useState(defaultStart || null);
+  const [end, setend] = useState(defaultEnd || null);
   const [startError, setstartError] = useState(null);
   const [endError, setendError] = useState(null);
   const maxdate = maxdateProp || new Date(2099, 11, 31);
@@ -112,6 +119,8 @@ DateRangeForm.propTypes = {
   id: PropTypes.string,
   message: PropTypes.string,
   maxdate: PropTypes.any,
+  defaultStart: PropTypes.string,
+  defaultEnd: PropTypes.string,
 };
 
 DateRangeForm.defaultProps = {

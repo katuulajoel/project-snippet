@@ -54,7 +54,6 @@ const InvoiceListContainer = ({
 
   useEffect(() => {
     if (prevFilter && prevFilter != filter) {
-      console.log("changed props");
       setCurrentPage(0);
       getList();
     }
@@ -64,7 +63,7 @@ const InvoiceListContainer = ({
       Object.keys(prevIsMakingRequest).length > 0 &&
       !prevIsMakingRequest.list
     ) {
-      getList(filters);
+      // getList(filters);
     }
   }, [filter, prevIsMakingRequest]);
 
@@ -84,10 +83,11 @@ const InvoiceListContainer = ({
             currentPage: currentPage,
           }
         : {
-            onLoadMore: (url) => {
-              if (url && url !== list.next) {
+            onLoadMore: async (url) => {
+              if (url !== list.next) {
                 listMoreInvoices(url)(dispatch);
               }
+              // listMoreInvoices(url)(dispatch);
             },
           }),
     });
