@@ -24,7 +24,6 @@ export default function PaymentsPage() {
   const { csv } = useSelector(({ Invoice }) => Invoice);
 
   useEffect(() => {
-    console.log(csv);
     if (csv) {
       var fileDownload = require("js-file-download");
       fileDownload(

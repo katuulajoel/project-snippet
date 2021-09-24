@@ -39,7 +39,7 @@ describe("SearchBox Results test", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it.only("should show list of results from search", () => {
+  it("should show list of results from search", () => {
     const listMoreInvoicesStub = jest.spyOn(actions, "listMoreInvoices");
     const wrapper = mount(
       <Provider store={mockAppStore()}>

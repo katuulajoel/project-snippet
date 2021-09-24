@@ -84,7 +84,6 @@ const InvoiceListContainer = ({
           }
         : {
             onLoadMore: async (url) => {
-              console.log(url, list.next);
               if (url !== list.next) {
                 listMoreInvoices(url)(dispatch);
               }
