@@ -56,6 +56,8 @@ function csv(state = null, action) {
   switch (action.type) {
     case DOWNLOAD_INVOICE_CSV_SUCCESS:
       return action.data;
+    case "CLEAR_CSV":
+      return null;
     default:
       return state;
   }

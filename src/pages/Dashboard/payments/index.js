@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Icon from "../../../components/Icon";
 import SectionNav from "../../../components/SectionNav";
@@ -18,10 +18,10 @@ import { NavActions } from "./styles";
 
 export default function PaymentsPage() {
   let { type } = useParams();
-  // eslint-disable-next-line no-unused-vars
-  const [filter, setFilter] = useState("");
-
+  let { pathname } = useLocation();
+  const dispatch = useDispatch();
   const { csv } = useSelector(({ Invoice }) => Invoice);
+  let filter = pathname.split("/")[3];
 
   useEffect(() => {
     if (csv) {
@@ -30,6 +30,7 @@ export default function PaymentsPage() {
         csv,
         `${filter?.toUpperCase()} ${type === "in" ? "Payments" : "Payouts"}.csv`
       );
+      dispatch({ type: "CLEAR_CSV" });
     }
   }, [csv]);
 
@@ -84,8 +85,6 @@ export default function PaymentsPage() {
           <Route
             path={`/payments/${type}/:filter`}
             render={(props) => {
-              // eslint-disable-next-line react/prop-types
-              // setFilter(props.match.params.filter);
               return (
                 <InvoiceListContainer {...props} type={type}>
                   {type === "in" ? (
