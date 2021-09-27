@@ -25,7 +25,7 @@ const PaymentTotals = () => {
     getInvoiceSummary({
       min_date: summariesRange.start,
       max_date: summariesRange.end,
-      type: "sale",
+      type: type == "in" ? "sale" : "purchase",
     })(dispatch);
   }, []);
 

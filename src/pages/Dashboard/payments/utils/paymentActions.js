@@ -160,7 +160,7 @@ export function filterPaymentSummaries(
         getInvoiceSummary({
           min_date: START,
           max_date: END,
-          type: type === "Payments" ? "sale" : "purchase",
+          type: type === "in" ? "sale" : "purchase",
         })
       );
     }
