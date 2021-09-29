@@ -82,7 +82,7 @@ const Login = () => {
                 </label>
                 <Input
                   label=""
-                  type="email"
+                  type="text"
                   className="form-control"
                   name="username"
                   id="email"
