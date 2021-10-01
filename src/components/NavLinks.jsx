@@ -20,12 +20,25 @@ const proptypes = {
 };
 
 const NavLinks = () => {
+  let getUrl = (section) => {
+    return (match) => {
+      return `/projects/${match.params.projectId}/${section}`;
+    };
+  };
+
   let projectsSections = [
       ["/projects/dedicated", "Dedicated Developers"],
       ["/projects/managed", "Managed Projects"],
       ...(isClient() ? [] : [["/projects/opportunity", "Opportunities"]]),
       ["/projects/archived", "Archive"],
       ...(isPM() ? [[null, <TitleBarSwitch key={`title-bar-switch`} />]] : []),
+    ],
+    projectDetailSections = [
+      [getUrl("plan"), "Planning"],
+      [getUrl("reports"), "Reports"],
+      [getUrl("docs"), "Documents"],
+      [getUrl("pay"), "Payments"],
+      [getUrl("settings"), "Settings"],
     ],
     paymentSections = [
       ...(isAdminOrPM()
@@ -63,6 +76,7 @@ const NavLinks = () => {
     <Wrapper>
       <Switch>
         {[
+          ["/projects/:projectId/:section", [...projectDetailSections]],
           ["/projects", projectsSections],
           ["/payments", paymentSections],
           ["/settings", settingsSections],

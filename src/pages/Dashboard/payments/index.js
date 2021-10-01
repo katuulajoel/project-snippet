@@ -34,10 +34,6 @@ export default function PaymentsPage() {
     }
   }, [csv]);
 
-  const exportCsv = () => {
-    downloadCsv(filter, type === "in" ? "Payments" : "Payouts");
-  };
-
   return (
     <DashboardLayout>
       <Wrapper>
@@ -74,7 +70,13 @@ export default function PaymentsPage() {
           rightActions={
             !isDev() && (
               <NavActions>
-                <a href="#" className="add-btn" onClick={() => exportCsv()}>
+                <a
+                  href="#"
+                  className="add-btn"
+                  onClick={() =>
+                    downloadCsv(filter, type === "in" ? "Payments" : "Payouts")
+                  }
+                >
                   <Icon name="file-upload-outline" size="sm" /> Export
                 </a>
               </NavActions>

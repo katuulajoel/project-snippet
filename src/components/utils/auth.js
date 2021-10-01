@@ -70,3 +70,20 @@ export function isProjectClient(project) {
   }
   return false;
 }
+
+export function hasProjectAccess(project) {
+  let allowedUserIds = [];
+  ["user", "owner", "pm"].forEach((key) => {
+    if (project[key]) {
+      allowedUserIds.push(project[key].id);
+    }
+  });
+  if (project.participation) {
+    project.participation.forEach((item) => {
+      if (item.status === "accepted" && item.user) {
+        allowedUserIds.push(item.user.id);
+      }
+    });
+  }
+  return isAdmin() || allowedUserIds.includes(getUser().id);
+}

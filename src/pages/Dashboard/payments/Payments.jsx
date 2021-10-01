@@ -55,6 +55,7 @@ const Payments = (props) => {
     count,
     onLoadMore,
     currentPage,
+    project,
   } = props;
 
   const [open, setopen] = useState(null);
@@ -100,15 +101,18 @@ const Payments = (props) => {
           </td>
         );
       }
-      case "title":
-        return (
-          <td key={key}>
-            {cell.value.project.owner
+      case "title": {
+        let title = "";
+        if (project === null) {
+          title =
+            (cell.value.project.owner
               ? cell.value.project.owner.display_name
-              : "N/A"}{" "}
-            / {cell.value.project.title} / {cell.value.title}
-          </td>
-        );
+              : "N/A ") + `/ ${cell.value.project.title} / ${cell.value.title}`;
+        } else {
+          title = cell.value.title;
+        }
+        return <td key={key}>{title}</td>;
+      }
       case "invoice": {
         return (
           <td key={key} className="nowrap">
@@ -244,7 +248,7 @@ const Payments = (props) => {
           <div className="table-responsive">
             <ReactTable
               tableData={tableData(invoices)}
-              tableColumns={getTableColumns(filter)}
+              tableColumns={getTableColumns(filter, project)}
               initialPage={currentPage}
               count={count}
               getTableDisplayValue={getTableDisplayValue}
@@ -258,5 +262,8 @@ const Payments = (props) => {
 };
 
 Payments.propTypes = proptypes;
+Payments.defaultProps = {
+  project: null,
+};
 
 export default Payments;
