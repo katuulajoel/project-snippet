@@ -2,7 +2,7 @@
 
 //TODO: check if use is pay admin to active batch actions, add ...isPayAdmin() && on line 6
 
-export const getTableColumns = (filter) => [
+export const getTableColumns = (filter, project = null) => [
   ...(!(filter === "archived" || filter === "paid")
     ? [
         {
@@ -16,7 +16,7 @@ export const getTableColumns = (filter) => [
     accessor: "created_at",
   },
   {
-    Header: "Client / Project / Payment Title",
+    Header: `${!project ? "Client / Project / Payment " : ""}Title`,
     accessor: "title",
   },
   {

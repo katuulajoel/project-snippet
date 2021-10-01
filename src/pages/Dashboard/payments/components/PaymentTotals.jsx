@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
@@ -10,7 +11,7 @@ import { filterPaymentSummaries } from "../utils/paymentActions";
 import Icon from "../../../../components/Icon";
 import { NavActions } from "../styles";
 
-const PaymentTotals = () => {
+const PaymentTotals = ({ project }) => {
   const dispatch = useDispatch();
   let { type } = useParams();
   const { summary } = useSelector(({ Invoice }) => Invoice);
@@ -26,22 +27,25 @@ const PaymentTotals = () => {
       min_date: summariesRange.start,
       max_date: summariesRange.end,
       type: type == "in" ? "sale" : "purchase",
+      ...(project ? project : {}),
     })(dispatch);
   }, []);
 
   return (
     <Wrapper>
-      <NavActions style={{ float: "right" }}>
-        <a
-          href="#"
-          onClick={() =>
-            filterPaymentSummaries(summariesRange, type, setSummariesRange)
-          }
-        >
-          <Icon name="filter-variant" size="sm" /> Filter Total{" "}
-          {type === "in" ? "Payments" : "Payouts"}
-        </a>
-      </NavActions>
+      {!project && (
+        <NavActions style={{ float: "right" }}>
+          <a
+            href="#"
+            onClick={() =>
+              filterPaymentSummaries(summariesRange, type, setSummariesRange)
+            }
+          >
+            <Icon name="filter-variant" size="sm" /> Filter Total{" "}
+            {type === "in" ? "Payments" : "Payouts"}
+          </a>
+        </NavActions>
+      )}
       <ul>
         <li>
           <span>Total Payments</span>
@@ -67,6 +71,14 @@ const PaymentTotals = () => {
       </ul>
     </Wrapper>
   );
+};
+
+PaymentTotals.propTypes = {
+  project: PropTypes.number,
+};
+
+PaymentTotals.defaultProps = {
+  project: null,
 };
 
 const Wrapper = styled.div`
