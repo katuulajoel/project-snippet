@@ -271,7 +271,12 @@ const Results = ({
       case "user":
         return (
           <div>
-            <Avatar image={user.avatar_url} initials={generateUserIntials(user)} size="dash" />
+            <Avatar
+              image={user?.avatar_url}
+              initials={generateUserIntials(user)}
+              size="dash"
+              className={`avatar-dash ${user?.avatar_url ? "avatar-icon" : "avatar-initials"}`}
+            />
             {user.display_name}
             <div className="edit-action">
               <IconButton
