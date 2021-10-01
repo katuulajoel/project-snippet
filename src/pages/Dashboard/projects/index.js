@@ -17,12 +17,14 @@ const ProjectPage = ({ match }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!project) {
+    console.log(project);
+    if (project === null) {
       dispatch(fetchProject(21)); // TODO: project Id should gotten by selecting from list
     }
   }, []);
 
-  if (isMakingRequest.fetch || !project) {
+  if (isMakingRequest.fetch || project === null) {
+    // TODO: if project is null show appropriate error
     return <Progress style={{ textAlign: "center" }} />;
   }
 
