@@ -42,9 +42,7 @@ export default function Dashboard() {
               <span className="sub-text">{user.welcomeMessage}</span>
             </div>
             <div className="date">
-              <span className="sub-text">
-                {moment().format("ddd, Do MMM YYYY")}
-              </span>
+              <span className="sub-text">{moment().format("ddd, Do MMM YYYY")}</span>
             </div>
           </ProfileCard>
           <RecentNotifications />

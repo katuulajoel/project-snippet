@@ -7,9 +7,7 @@ import { filterButtonProps } from "./utils/forms";
 const Icon = (props) => {
   return (
     <i
-      className={`tg-ic-${props.name || ""} ${
-        props.size ? `tunga-ic-sz-${props.size}` : ""
-      } ${props.className || ""}`}
+      className={`tg-ic-${props.name || ""} ${props.size ? `tunga-ic-sz-${props.size}` : ""} ${props.className || ""}`}
       {...filterButtonProps(props)}
       {...addEventListeners(BUTTON_EVENTS, props)}
     />
