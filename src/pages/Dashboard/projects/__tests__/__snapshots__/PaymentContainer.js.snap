@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard test Should match snapshot test 1`] = `
+Array [
+  <div
+    className="sc-crzoAE cbYyvs"
+  >
+    <ul>
+      <li>
+        <span>
+          Total Payments
+        </span>
+        <p>
+          €
+          0.00
+        </p>
+      </li>
+      <li>
+        <span>
+          Paid
+        </span>
+        <p>
+          €
+          0.00
+        </p>
+      </li>
+      <li>
+        <span>
+          Unpaid
+        </span>
+        <p>
+          €
+          0.00
+        </p>
+      </li>
+      <li>
+        <span>
+          Credit Notes
+        </span>
+        <p>
+          -€
+          0.00
+        </p>
+      </li>
+    </ul>
+  </div>,
+  <div>
+    <div
+      className="sc-bdnxRM dNpxFo"
+      style={
+        Object {
+          "marginTop": "40px",
+        }
+      }
+    >
+      <div
+        className="filter-links"
+      >
+        <a
+          aria-current={null}
+          href="/projects/123/pay/undefined/all"
+          onClick={[Function]}
+        >
+          All
+        </a>
+        <a
+          aria-current={null}
+          href="/projects/123/pay/undefined/overdue"
+          onClick={[Function]}
+        >
+          Overdue
+        </a>
+        <a
+          aria-current={null}
+          href="/projects/123/pay/undefined/pending"
+          onClick={[Function]}
+        >
+          Pending
+        </a>
+        <a
+          aria-current={null}
+          href="/projects/123/pay/undefined/paid"
+          onClick={[Function]}
+        >
+          Paid
+        </a>
+        <a
+          aria-current={null}
+          href="/projects/123/pay/undefined/archived"
+          onClick={[Function]}
+        >
+          Archived
+        </a>
+      </div>
+      <div
+        className="sc-pNWdM laRlaK"
+      >
+        <a
+          className="add-btn"
+          href="#"
+          onClick={[Function]}
+        >
+          <i
+            className="tg-ic-file-upload-outline tunga-ic-sz-sm "
+          />
+           Export
+        </a>
+      </div>
+    </div>
+  </div>,
+]
+`;

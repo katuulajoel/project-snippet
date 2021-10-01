@@ -85,6 +85,7 @@ describe("App.js", () => {
           store={mockAppStore({
             Auth: { user: {}, isMakingRequest: {} },
             Invoice: { search: {} },
+            Projects: { project: {}, isMakingRequest: {} },
           })}
         >
           <App />

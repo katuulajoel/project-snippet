@@ -27,6 +27,7 @@ const InvoiceListContainer = ({
     params: { filter },
   },
   type, // invoice type
+  project, // selected project id
 }) => {
   const { isMakingRequest, list } = useSelector(({ Invoice }) => Invoice);
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ const InvoiceListContainer = ({
       ...(type === "in"
         ? { types: [INVOICE_TYPE_SALE, INVOICE_TYPE_CREDIT_NOTE].join(",") }
         : { type: INVOICE_TYPE_PURCHASE }),
+      ...(project !== null ? { project: project } : {}),
       ...prevFilters,
     };
     setFilters(filters_); // memoization of filters
@@ -71,6 +73,7 @@ const InvoiceListContainer = ({
     return addPropsToChildren(children, {
       ...list,
       filter: filter,
+      project,
       ...(type === "in"
         ? {
             onLoadMore: (page) => {
@@ -104,6 +107,7 @@ InvoiceListContainer.propTypes = {
   type: PropTypes.string,
   types: PropTypes.any,
   match: PropTypes.object,
+  project: PropTypes.number,
   children: PropTypes.oneOfType([PropTypes.elementType, PropTypes.object]),
 };
 
