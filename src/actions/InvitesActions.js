@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ENDPOINT_INVITE } from "./utils/api";
-import * as actions from "./utils/ActionTypes";
+import * as actionTypes from "./utils/ActionTypes";
 
 export function getPendingInvites(selection) {
   return function (dispatch) {
@@ -23,7 +23,7 @@ export function getPendingInvites(selection) {
 
 export function getPendingInvitesStart(selection) {
   return {
-    type: actions.GET_PENDING_INVITES_START,
+    type: actionTypes.GET_PENDING_INVITES_START,
     selection,
   };
 }
@@ -31,14 +31,14 @@ export function getPendingInvitesStart(selection) {
 export function getPendingInvitesSuccess(data) {
   console.log(data);
   return {
-    type: actions.GET_PENDING_INVITES_SUCCESS,
+    type: actionTypes.GET_PENDING_INVITES_SUCCESS,
     payload: data,
   };
 }
 
 export function getPendingInvitesFailed(error, selection) {
   return {
-    type: actions.GET_PENDING_INVITES_FAILED,
+    type: actionTypes.GET_PENDING_INVITES_FAILED,
     error,
     selection,
   };
@@ -65,7 +65,7 @@ export function getMorePendingInvites(selection, url) {
 
 export function getMorePendingInvitesStart(url, selection) {
   return {
-    type: actions.GET_MORE_PENDING_INVITES_START,
+    type: actionTypes.GET_MORE_PENDING_INVITES_START,
     url,
     selection,
   };
@@ -73,7 +73,7 @@ export function getMorePendingInvitesStart(url, selection) {
 
 export function getMorePendingInvitesSuccess(response, selection) {
   return {
-    type: actions.GET_MORE_PENDING_INVITES_SUCCESS,
+    type: actionTypes.GET_MORE_PENDING_INVITES_SUCCESS,
     items: response.results,
     previous: response.previous,
     next: response.next,
@@ -84,7 +84,7 @@ export function getMorePendingInvitesSuccess(response, selection) {
 
 export function getMorePendingInvitesFailed(error) {
   return {
-    type: actions.GET_MORE_PENDING_INVITES_FAILED,
+    type: actionTypes.GET_MORE_PENDING_INVITES_FAILED,
     error,
   };
 }
@@ -134,7 +134,7 @@ export function invite(data, selectionKey, type = null) {
 
 export function inviteStart(details, selectionKey) {
   return {
-    type: actions.INVITE_START,
+    type: actionTypes.INVITE_START,
     details,
     selectionKey,
   };
@@ -143,11 +143,11 @@ export function inviteStart(details, selectionKey) {
 // export function inviteSuccess(invite, selectionKey) {
 //   sendGAEvent(
 //     GA_EVENT_CATEGORIES.AUTH,
-//     GA_EVENT_ACTIONS.DEV_INVITE,
+//     GA_EVENT_actionTypes.DEV_INVITE,
 //     getGAUserType(getUser())
 //   );
 //   return {
-//     type: actions.INVITE_SUCCESS,
+//     type: actionTypes.INVITE_SUCCESS,
 //     invite,
 //     selectionKey,
 //   };
@@ -155,7 +155,7 @@ export function inviteStart(details, selectionKey) {
 
 export function inviteFailed(error, selectionKey) {
   return {
-    type: actions.INVITE_FAILED,
+    type: actionTypes.INVITE_FAILED,
     error,
     selectionKey,
   };
@@ -163,21 +163,21 @@ export function inviteFailed(error, selectionKey) {
 
 export function deleteInviteStart(id) {
   return {
-    type: actions.DELETE_INVITE_START,
+    type: actionTypes.DELETE_INVITE_START,
     id,
   };
 }
 
 export function deleteInviteSuccess(id) {
   return {
-    type: actions.DELETE_INVITE_SUCCESS,
+    type: actionTypes.DELETE_INVITE_SUCCESS,
     id,
   };
 }
 
 export function deleteInviteFailed(error) {
   return {
-    type: actions.DELETE_INVITE_FAILED,
+    type: actionTypes.DELETE_INVITE_FAILED,
     error,
   };
 }
