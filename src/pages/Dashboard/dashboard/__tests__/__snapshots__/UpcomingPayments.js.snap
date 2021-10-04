@@ -54,7 +54,11 @@ exports[`Latest reports test Should match snapshot test 1`] = `
           className="sc-bdnxRM EmtJF"
         >
           Overdue by 
+<<<<<<< HEAD
           377
+=======
+          376
+>>>>>>> 0701490 (Updated snapshots)
            
           days
         </span>
