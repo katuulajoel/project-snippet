@@ -32,18 +32,7 @@ const propTypes = {
   limit: PropTypes.number,
 };
 
-const Results = ({
-  testResults: { results },
-  count,
-  trackPagination,
-  lastPageIndex,
-  onLoadMore,
-  // updateResult,
-  // selectionKey,
-  // deleteResult,
-  setlimit,
-  limit,
-}) => {
+const Results = ({ testResults: { results }, count, trackPagination, lastPageIndex, onLoadMore, setlimit, limit }) => {
   const calculateStatus = (type, value) => {
     switch (type) {
       case "numeric":

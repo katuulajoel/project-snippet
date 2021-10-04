@@ -1,0 +1,376 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard test - Test Results Should match snapshot test 1`] = `
+Array [
+  <div
+    className="table-responsive"
+  >
+    <table
+      className="sc-jSFjdj sc-fujyAs hGmqhA tDkRa table"
+      role="table"
+    >
+      <thead>
+        <tr
+          role="row"
+        >
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              User
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": undefined,
+              }
+            }
+          >
+            <div>
+              Coding Tests
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              Comms Check
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              MBTI Profile
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              IQ Tests
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              SA Tests
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              C. Of Conduct
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        role="rowgroup"
+      >
+        <tr
+          role="row"
+        >
+          <th
+            role="cell"
+          >
+            <div>
+              <div
+                className="sc-gtsrHT jVqPsi avatar-dash avatar-initials"
+              >
+                <div
+                  className="avatar avatar-dash avatar-initials"
+                  style={Object {}}
+                >
+                  WD
+                </div>
+              </div>
+              Wd Dw
+              <div
+                className="edit-action"
+              >
+                <button
+                  className="btn btn-icon sc-iCoGMd fsPrSF btn-edit  "
+                  form={null}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="tg-ic-circle-edit-outline tunga-ic-sz-main "
+                  />
+                </button>
+              </div>
+            </div>
+          </th>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                react
+                 - 
+                100
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                Very good
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="none"
+                style={
+                  Object {
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                entj
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="failed"
+              >
+                100
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                100
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                100
+              </span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>,
+  <div
+    className="sc-pNWdM rLYbH"
+  >
+    <span>
+      Showing
+    </span>
+    <div
+      className="sc-jrsJWt hiCMwO"
+    >
+      <select
+        className="form-control form-control "
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          value=""
+        >
+          -- Select --
+        </option>
+        <option
+          value="20"
+        >
+          20
+        </option>
+        <option
+          value="50"
+        >
+          50
+        </option>
+        <option
+          value="100"
+        >
+          100
+        </option>
+      </select>
+      <i
+        className="tg-ic-rounded-keyboard-arrow-down tunga-ic-sz-sm "
+      />
+    </div>
+    <span
+      style={
+        Object {
+          "marginLeft": "16px",
+        }
+      }
+    >
+      of 
+      1
+    </span>
+    <nav
+      aria-label="Page navigation example"
+      className=""
+    >
+      <ul
+        className="pagination"
+      >
+        <li
+          className="sc-bdnxRM fERAOk page-item"
+          onClick={[Function]}
+        >
+          <a
+            className="page-link"
+            href="#"
+          >
+            <i
+              className="tg-ic-arrow-left tunga-ic-sz-sm "
+            />
+          </a>
+        </li>
+        <div
+          className="Table__visiblePagesWrapper"
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
+        />
+        <li
+          className="sc-bdnxRM fERAOk next page-item"
+          onClick={[Function]}
+        >
+          <a
+            className="page-link"
+            href="#"
+          >
+            <i
+              className="tg-ic-arrow-right tunga-ic-sz-sm "
+            />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>,
+]
+`;

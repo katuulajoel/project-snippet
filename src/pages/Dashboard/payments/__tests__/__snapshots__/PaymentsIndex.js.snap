@@ -3,7 +3,7 @@
 exports[`Dashboard test Should match snapshot test 1`] = `
 Array [
   <nav
-    className="sc-pNWdM ixJkbw navbar "
+    className="sc-crzoAE cXMmws navbar "
   >
     <div
       className="title-bar"
@@ -20,7 +20,7 @@ Array [
       >
         <li>
           <div
-            className="input-group sc-jSFjdj hTzrBi input-search"
+            className="input-group sc-pNWdM exjMWV input-search"
           >
             <span
               className="input-group-prepend"
@@ -34,7 +34,7 @@ Array [
               </span>
             </span>
             <div
-              className="sc-gtsrHT jGBtBH"
+              className="sc-gKAaRy ekysbq"
               data-testid="input"
             >
               <input
@@ -59,10 +59,10 @@ Array [
       </ul>
     </div>
     <div
-      className="sc-fujyAs cKNmWV"
+      className="sc-iqAclL gvUfsV"
     >
       <div
-        className="sc-iCoGMd hobTSF"
+        className="sc-kEqXSa hdTlKb"
       >
         <div
           className="title-filters"
@@ -71,7 +71,7 @@ Array [
     </div>
   </nav>,
   <div
-    className="sc-jrsJWt ilZZuz sidebar"
+    className="sc-dIsUp grcmpu sidebar"
     id="sidebar"
   >
     <img
@@ -193,16 +193,16 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-kEqXSa gCTtLP"
+    className="sc-bqGGPW fFXajO"
   >
     <div
-      className="sc-lmgQwP cIkCmU"
+      className="sc-iJCRrE fCIMUZ"
     >
       <div
-        className="sc-cxNHIi kQaffx"
+        className="sc-lmgQwP bihCmw"
       >
         <div
-          className="sc-fFSPTT bZCfzt"
+          className="sc-bkbkJK cloizH"
           style={
             Object {
               "float": "right",
@@ -311,7 +311,7 @@ Array [
             </a>
           </div>
           <div
-            className="sc-fFSPTT bZCfzt"
+            className="sc-bkbkJK cloizH"
           >
             <a
               className="add-btn"
