@@ -40,13 +40,10 @@ const PaymentContainer = ({ project }) => {
             createAction &&
             createAction.visibility && (
               <NavActions>
-                {(createAction.add && Array.isArray(createAction.add)
-                  ? createAction.add
-                  : []
-                ).map((item, idx) => {
+                {(createAction.add ? createAction.add : []).map((item, idx) => {
                   return (
                     <>
-                      {idx > 0 ? <span className="divider">/</span> : null}
+                      {idx > 0 ? <span className="divider"> /</span> : null}
                       <a
                         key={idx}
                         href="#"
@@ -136,9 +133,9 @@ const PaymentContainer = ({ project }) => {
                 project={project.id}
               >
                 {type === "payments" ? (
-                  <Payments {...props} />
+                  <Payments {...props} setcreateAction={setcreateAction} />
                 ) : (
-                  <Payouts {...props} />
+                  <Payouts {...props} setcreateAction={setcreateAction} />
                 )}
               </InvoiceListContainer>
             );
@@ -146,20 +143,20 @@ const PaymentContainer = ({ project }) => {
         />
         <Redirect
           exact
-          from={`projects/${project.id}/pay/`}
-          to={`projects/${project.id}/pay/${
+          from={`/projects/${project.id}/pay/`}
+          to={`/projects/${project.id}/pay/${
             isDev() ? "payouts" : "payments"
           }/all`}
         />
         <Redirect
           exact
-          from={`projects/${project.id}/pay/payments`}
-          to={`projects/${project.id}/pay/payments/all`}
+          from={`/projects/${project.id}/pay/payments`}
+          to={`/projects/${project.id}/pay/payments/all`}
         />
         <Redirect
           exact
-          from={`projects/${project.id}/pay/payouts`}
-          to={`projects/${project.id}/pay/payouts/all`}
+          from={`/projects/${project.id}/pay/payouts`}
+          to={`/projects/${project.id}/pay/payouts/all`}
         />
       </Switch>
     </>

@@ -89,4 +89,24 @@ describe("Dashboard test", () => {
     checkbox.simulate("click");
     expect(wrapper.find("BulkActions").exists()).toBeFalsy();
   });
+
+  it("should create actions for adding invoices", () => {
+    const createActionStub = jest.fn();
+    mount(
+      <BrowserRouter>
+        <Provider store={mockAppStore(mockAppState)}>
+          <Payouts
+            data={[invoice]}
+            onLoadMore={() => {}}
+            filter="in"
+            setcreateAction={createActionStub}
+            project={{ user: { id: 123 } }}
+          />
+        </Provider>
+      </BrowserRouter>
+    );
+
+    expect(createActionStub).toHaveBeenCalled();
+    // TODO: (@katuula) test parameters passed to function when its called
+  });
 });

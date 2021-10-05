@@ -19,7 +19,7 @@ const ProjectPage = ({ match }) => {
   useEffect(() => {
     console.log(project);
     if (project === null) {
-      dispatch(fetchProject(138)); // TODO: project Id should gotten by selecting from list
+      dispatch(fetchProject(138)); // TODO: project Id should gotten by selecting from list (138)
     }
   }, []);
 
