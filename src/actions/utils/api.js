@@ -67,6 +67,7 @@ export const STATUS_INITIAL = "initial";
 export const STATUS_INTERESTED = "interested";
 export const STATUS_UNINTERESTED = "uninterested";
 
+export const INVOICE_TYPE_FINAL = "final";
 export const INVOICE_TYPE_SALE = "sale";
 export const INVOICE_TYPE_PURCHASE = "purchase";
 export const INVOICE_TYPE_CREDIT_NOTE = "credit_nota";

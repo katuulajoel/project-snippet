@@ -3,8 +3,6 @@ export const STATUS_PENDING = "pending";
 
 export const DOC_TYPE_OTHER = "other";
 
-export const INVOICE_TYPE_SALE = "sale";
-
 // Dashboard action types
 export const FETCH_NOTIFICATIONS_START = "FETCH_NOTIFICATIONS_START";
 export const FETCH_NOTIFICATIONS_SUCCESS = "FETCH_NOTIFICATIONS_SUCCESS";

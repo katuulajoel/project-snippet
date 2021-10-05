@@ -7,11 +7,9 @@ import {
   isAdmin,
 } from "../../../components/utils/auth";
 import { generateUserIntials } from "../../../components/utils/stringUtils";
-import {
-  DOC_TYPE_OTHER,
-  INVOICE_TYPE_SALE,
-} from "../../../actions/utils/ActionTypes";
+import { DOC_TYPE_OTHER } from "../../../actions/utils/ActionTypes";
 import moment from "moment";
+import { INVOICE_TYPE_SALE } from "../../../actions/utils/api";
 
 const notificationDetails = (item, user) => ({
   type: "activity",
