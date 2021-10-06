@@ -1,0 +1,523 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard test Should match snapshot test 1`] = `
+Array [
+  <nav
+    className="sc-iqAclL gtKZeq navbar "
+  >
+    <div
+      className="title-bar"
+    >
+      <a
+        className="navbar-brand"
+        href="/dashboard"
+        onClick={[Function]}
+      >
+        Dashboard
+      </a>
+      <ul
+        className="navbar-nav ml-auto"
+      >
+        <li>
+          <div
+            className="input-group sc-eCApnc kyswBz input-search"
+          >
+            <span
+              className="input-group-prepend"
+            >
+              <span
+                className="input-group-text"
+              >
+                <i
+                  className="tg-ic-search1  "
+                />
+              </span>
+            </span>
+            <div
+              className="sc-bdnxRM lboORq"
+              data-testid="input"
+            >
+              <input
+                autoComplete="off"
+                className="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="search"
+                onChange={[Function]}
+                placeholder="Search...."
+                type="input"
+                value=""
+              />
+            </div>
+            <span
+              className="input-group-prepend"
+            />
+          </div>
+          
+        </li>
+      </ul>
+    </div>
+    <div
+      className="sc-kEqXSa jNvWHu"
+    />
+  </nav>,
+  <div
+    className="sc-crzoAE icJVcd sidebar"
+    id="sidebar"
+  >
+    <img
+      alt="company-logo"
+      src={Object {}}
+    />
+    <ul
+      className="nav"
+    >
+      <li>
+        <a
+          aria-current={null}
+          href="/dashboard"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-outline-dashboard tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Dashboard
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/projects"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-baseline-folder-open tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Projects
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/payments/in/all"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-round-payment tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Payments
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/settings"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-outline-settings tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Settings
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/community"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-baseline-folder-open tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Community
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          data-testid="signout"
+          href="/logout"
+          onClick={[Function]}
+        >
+          <span
+            className="menu-icon"
+          >
+            <i
+              className="tg-ic-log-out tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Log Out
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>,
+  <div
+    className="sc-dIsUp gRRkph"
+  >
+    <div>
+      <div>
+        <div
+          className="sc-bqGGPW fCJdLD"
+        >
+          <div
+            className="filter-links"
+          />
+          <h3>
+            Results
+          </h3>
+          <div
+            className="sc-kLojOw lbiQzc"
+            style={
+              Object {
+                "float": "right",
+              }
+            }
+          >
+            <a
+              href="#"
+              onClick={[Function]}
+            >
+              <i
+                className="tg-ic-filter-variant tunga-ic-sz-sm "
+              />
+               Filter
+               
+            </a>
+            <div
+              className="input-group sc-eCApnc kyswBz input-search"
+            >
+              <span
+                className="input-group-prepend"
+              >
+                <span
+                  className="input-group-text"
+                >
+                  <i
+                    className="tg-ic-search1  "
+                  />
+                </span>
+              </span>
+              <div
+                className="sc-bdnxRM lboORq"
+                data-testid="input"
+              >
+                <input
+                  autoComplete="off"
+                  className="form-control"
+                  data-testid=""
+                  id=""
+                  label="Label"
+                  name="search"
+                  onChange={[Function]}
+                  placeholder="Search...."
+                  type="input"
+                  value=""
+                />
+              </div>
+              <span
+                className="input-group-prepend"
+              />
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div
+        className="table-responsive"
+      >
+        <table
+          className="sc-iemWCZ sc-iJCRrE irWgno eDglSR table"
+          role="table"
+        >
+          <thead>
+            <tr
+              role="row"
+            >
+              <th
+                colSpan={1}
+                onClick={[Function]}
+                role="columnheader"
+                style={
+                  Object {
+                    "cursor": "pointer",
+                  }
+                }
+                title="Toggle SortBy"
+              >
+                <div>
+                  User
+                  <div
+                    className="caret-group"
+                  >
+                    
+                  </div>
+                </div>
+              </th>
+              <th
+                colSpan={1}
+                role="columnheader"
+                style={
+                  Object {
+                    "cursor": undefined,
+                  }
+                }
+              >
+                <div>
+                  Coding Tests
+                  <div
+                    className="caret-group"
+                  >
+                    
+                  </div>
+                </div>
+              </th>
+              <th
+                colSpan={1}
+                onClick={[Function]}
+                role="columnheader"
+                style={
+                  Object {
+                    "cursor": "pointer",
+                  }
+                }
+                title="Toggle SortBy"
+              >
+                <div>
+                  Comms Check
+                  <div
+                    className="caret-group"
+                  >
+                    
+                  </div>
+                </div>
+              </th>
+              <th
+                colSpan={1}
+                onClick={[Function]}
+                role="columnheader"
+                style={
+                  Object {
+                    "cursor": "pointer",
+                  }
+                }
+                title="Toggle SortBy"
+              >
+                <div>
+                  MBTI Profile
+                  <div
+                    className="caret-group"
+                  >
+                    
+                  </div>
+                </div>
+              </th>
+              <th
+                colSpan={1}
+                onClick={[Function]}
+                role="columnheader"
+                style={
+                  Object {
+                    "cursor": "pointer",
+                  }
+                }
+                title="Toggle SortBy"
+              >
+                <div>
+                  IQ Tests
+                  <div
+                    className="caret-group"
+                  >
+                    
+                  </div>
+                </div>
+              </th>
+              <th
+                colSpan={1}
+                onClick={[Function]}
+                role="columnheader"
+                style={
+                  Object {
+                    "cursor": "pointer",
+                  }
+                }
+                title="Toggle SortBy"
+              >
+                <div>
+                  SA Tests
+                  <div
+                    className="caret-group"
+                  >
+                    
+                  </div>
+                </div>
+              </th>
+              <th
+                colSpan={1}
+                onClick={[Function]}
+                role="columnheader"
+                style={
+                  Object {
+                    "cursor": "pointer",
+                  }
+                }
+                title="Toggle SortBy"
+              >
+                <div>
+                  C. Of Conduct
+                  <div
+                    className="caret-group"
+                  >
+                    
+                  </div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            role="rowgroup"
+          >
+            <tr>
+              <th
+                colSpan="7"
+              >
+                <div
+                  className="undefined undefined"
+                >
+                  <p>
+                    No results found
+                  </p>
+                </div>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        className="sc-giAqHp lpaxfF"
+      >
+        <span>
+          Showing
+        </span>
+        <div
+          className="sc-ezzafa VoQZf"
+        >
+          <select
+            className="form-control form-control "
+            onChange={[Function]}
+            value={20}
+          >
+            <option
+              value=""
+            >
+              -- Select --
+            </option>
+            <option
+              value="20"
+            >
+              20
+            </option>
+            <option
+              value="50"
+            >
+              50
+            </option>
+            <option
+              value="100"
+            >
+              100
+            </option>
+          </select>
+          <i
+            className="tg-ic-rounded-keyboard-arrow-down tunga-ic-sz-sm "
+          />
+        </div>
+        <span
+          style={
+            Object {
+              "marginLeft": "16px",
+            }
+          }
+        >
+          of 
+        </span>
+        <nav
+          aria-label="Page navigation example"
+          className=""
+        >
+          <ul
+            className="pagination"
+          >
+            <li
+              className="sc-ksluID ccZosH page-item"
+              onClick={[Function]}
+            >
+              <a
+                className="page-link"
+                href="#"
+              >
+                <i
+                  className="tg-ic-arrow-left tunga-ic-sz-sm "
+                />
+              </a>
+            </li>
+            <div
+              className="Table__visiblePagesWrapper"
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+            />
+            <li
+              className="sc-ksluID ccZosH next page-item"
+              onClick={[Function]}
+            >
+              <a
+                className="page-link"
+                href="#"
+              >
+                <i
+                  className="tg-ic-arrow-right tunga-ic-sz-sm "
+                />
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>,
+]
+`;
