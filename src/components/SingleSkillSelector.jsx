@@ -45,7 +45,7 @@ class SingleSkillSelector extends React.Component {
 
     this.state = {
       selected: props.skill,
-      selectionKey: props.selectionKey || generateRandomString.generate(),
+      selectionKey: props.selectionKey || generateRandomString(),
       prevKey: null,
       showSuggestions: false,
       search: props.type === "single" && props.skill ? props.skill.name : "",

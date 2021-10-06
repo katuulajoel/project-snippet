@@ -2,15 +2,16 @@ import React, { useMemo, useEffect } from "react";
 import { useTable, usePagination, useSortBy } from "react-table";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 
 import PaginationWrapper from "../../../components/Pagination";
 import Avatar from "../../../components/Avatar";
 import { StyledTable as Table } from "../styles";
 import { generateUserIntials } from "../../../components/utils/stringUtils";
 import IconButton from "../../../components/IconButton";
-// import { openModal, openConfirm } from "../../../components/utils/modals";
-// import TestForm from "./TestForm";
-// import ModalHeader from "../../../components/ModalHeader";
+import { openModal, openConfirm } from "../../../components/utils/modals";
+import TestForm from "./TestForm";
+import ModalHeader from "../../../components/ModalHeader";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
 
 import CaretUp from "../../../assets/images/caret-arrow-up.png";
@@ -32,7 +33,20 @@ const propTypes = {
   limit: PropTypes.number,
 };
 
-const Results = ({ testResults: { results }, count, trackPagination, lastPageIndex, onLoadMore, setlimit, limit }) => {
+const Results = ({
+  testResults: { results },
+  count,
+  trackPagination,
+  lastPageIndex,
+  onLoadMore,
+  setlimit,
+  limit,
+  updateResult,
+  deleteResult,
+  selectionKey,
+}) => {
+  const dispatch = useDispatch();
+
   const calculateStatus = (type, value) => {
     switch (type) {
       case "numeric":
@@ -65,56 +79,52 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
   };
 
   const editTest = (result) => {
-    console.log(result);
-    // openModal(
-    //   <TestForm id="test-form" result={result} />,
-    //   `Edit Result`,
-    //   true,
-    //   {
-    //     className: "modal-tests",
-    //     ok: `Update`,
-    //     cancel: "Delete",
-    //     form: {
-    //       type: "submit",
-    //       form: `test-form`,
-    //     },
-    //     style: { maxWidth: "768px" },
-    //   },
-    //   null,
-    //   false
-    // ).then(
-    //   (data) => {
-    //     let result = data;
-    //     Object.keys(data).forEach((key) => {
-    //       if (!data[key]) {
-    //         delete result[key];
-    //       }
-    //     });
-    //     updateResult(result.id, result, selectionKey);
-    //   },
-    //   () => {
-    //     deleteTest(result.id);
-    //   }
-    // );
+    openModal({
+      body: <TestForm id="test-form" result={result} />,
+      title: "Edit Result",
+      options: {
+        className: "modal-tests",
+        ok: `Update`,
+        cancel: "Delete",
+        form: {
+          type: "submit",
+          form: `test-form`,
+        },
+        style: { maxWidth: "768px" },
+      },
+    }).then(
+      (data) => {
+        let result = data;
+        Object.keys(data).forEach((key) => {
+          if (!data[key]) {
+            delete result[key];
+          }
+        });
+        updateResult(result.id, result, selectionKey)(dispatch);
+      },
+      () => {
+        deleteTest(result.id);
+      }
+    );
   };
 
-  // const deleteTest = (result) => {
-  //   openConfirm(
-  //     <div>
-  //       Are you sure you want to delete this result? This action is permanent and the results will be removed from the
-  //       platform at once.
-  //     </div>,
-  //     "",
-  //     true,
-  //     {
-  //       ok: "Yes, delete",
-  //       cancel: "No, go back",
-  //     },
-  //     <ModalHeader style={{ paddingBottom: "8px" }} options={{ title: "Delete result" }} />
-  //   ).then(() => {
-  //     deleteResult(result);
-  //   });
-  // };
+  const deleteTest = (result) => {
+    openConfirm({
+      message: (
+        <div>
+          Are you sure you want to delete this result? This action is permanent and the results will be removed from the
+          platform at once.
+        </div>
+      ),
+      options: {
+        ok: "Yes, delete",
+        cancel: "No, go back",
+      },
+      header: <ModalHeader style={{ paddingBottom: "8px" }} options={{ title: "Delete result" }} />,
+    }).then(() => {
+      deleteResult(result)(dispatch);
+    });
+  };
 
   const data = useMemo(
     () => [

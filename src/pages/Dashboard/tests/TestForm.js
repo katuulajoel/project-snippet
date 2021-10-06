@@ -12,7 +12,7 @@ import SingleSkillSelector from "../../../components/SingleSkillSelector";
 import FieldError from "../../../components/FieldError";
 
 const propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   proceed: PropTypes.func,
   result: PropTypes.object,
 };

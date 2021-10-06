@@ -51,7 +51,7 @@ class UserSelector extends React.Component {
     super(props);
     this.state = {
       selected: props.selected || props.value || [],
-      selectionKey: props.selectionKey || generateRandomString.generate(),
+      selectionKey: props.selectionKey || generateRandomString(),
       prevKey: null,
       showSuggestions: false,
       search: "",
@@ -126,7 +126,13 @@ class UserSelector extends React.Component {
           {this.state.selected.map((user) => {
             return (
               <div className={`item ${!this.props.label && "nolabel"}`} key={`user-${user.id}`}>
-                <Avatar image={user.avatar_url} initials={generateUserIntials(user)} size="dash" />
+                {/* <Avatar image={user.avatar_url} initials={generateUserIntials(user)} size="dash" /> */}
+                <Avatar
+                  image={user?.avatar_url}
+                  initials={generateUserIntials(user)}
+                  size="dash"
+                  className={`avatar-dash ${user?.avatar_url ? "avatar-icon" : "avatar-initials"}`}
+                />
                 <span>{user.display_name}</span>
 
                 {!this.props.disabled && (

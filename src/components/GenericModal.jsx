@@ -17,9 +17,10 @@ const GenericModal = (props) => {
   const [response, setResponse] = useState(null);
   const wrapperRef = useRef(null);
 
-  const { show, proceed, dismiss, cancel, options, modalContent, modalHeader } =
-    props;
+  const { show, proceed, dismiss, cancel, options, modalContent, modalHeader } = props;
   let safe_options = options || {};
+
+  console.log(modalContent);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -59,16 +60,8 @@ const GenericModal = (props) => {
         style={safe_options.style}
         isOpen={show}
         toggle={dismiss}
-        className={`${safe_options.size ? `modal-${safe_options.size}` : ""} ${
-          safe_options.className || ""
-        }`}
-        backdrop={
-          safe_options.hideBackdrop
-            ? false
-            : safe_options.mustRespond
-            ? "static"
-            : true
-        }
+        className={`${safe_options.size ? `modal-${safe_options.size}` : ""} ${safe_options.className || ""}`}
+        backdrop={safe_options.hideBackdrop ? false : safe_options.mustRespond ? "static" : true}
         keyboard={!safe_options.mustRespond}
       >
         <div ref={wrapperRef}>
@@ -84,11 +77,7 @@ const GenericModal = (props) => {
           {!safe_options.hideActions && (
             <StyledModalFooter>
               {!safe_options.hideCancel && (
-                <Button
-                  className="cancel"
-                  onClick={() => cancel()}
-                  variant="secondary"
-                >
+                <Button className="cancel" onClick={() => cancel()} variant="secondary">
                   {safe_options.cancel || "Cancel"}
                 </Button>
               )}
@@ -154,11 +143,7 @@ GenericModal.propTypes = {
   dismiss: PropTypes.func,
   modalContent: PropTypes.any,
   options: PropTypes.object,
-  modalHeader: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.elementType,
-    PropTypes.object,
-  ]),
+  modalHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType, PropTypes.object]),
 };
 
 GenericModal.defaultProps = {
