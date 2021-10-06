@@ -6,7 +6,7 @@ Array [
     className="table-responsive"
   >
     <table
-      className="sc-kEqXSa sc-crzoAE bukXYq eTSFPk table"
+      className="sc-kEqXSa sc-kfYoZR bukXYq cWyMWD table"
       role="table"
     >
       <thead>
@@ -280,13 +280,13 @@ Array [
     </table>
   </div>,
   <div
-    className="sc-dIsUp xUNzk"
+    className="sc-fKgJPI bBDNta"
   >
     <span>
       Showing
     </span>
     <div
-      className="sc-bqGGPW bZBMeg"
+      className="sc-bCwfaz fPySMr"
     >
       <select
         className="form-control form-control "
@@ -373,4 +373,91 @@ Array [
     </nav>
   </div>,
 ]
+`;
+
+exports[`Test list container Should match snapshot test 1`] = `
+<div>
+  <div>
+    <div
+      className="sc-bdnxRM dNpxFo"
+    >
+      <div
+        className="filter-links"
+      />
+      <h3>
+        Results
+      </h3>
+      <div
+        className="sc-cxNHIi kqKfJf"
+        style={
+          Object {
+            "float": "right",
+          }
+        }
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+        >
+          <i
+            className="tg-ic-filter-variant tunga-ic-sz-sm "
+          />
+           Filter
+           
+        </a>
+        <div
+          className="input-group sc-jSFjdj hTzrBi input-search"
+        >
+          <span
+            className="input-group-prepend"
+          >
+            <span
+              className="input-group-text"
+            >
+              <i
+                className="tg-ic-search1  "
+              />
+            </span>
+          </span>
+          <div
+            className="sc-gtsrHT jGBtBH"
+            data-testid="input"
+          >
+            <input
+              autoComplete="off"
+              className="form-control"
+              data-testid=""
+              id=""
+              label="Label"
+              name="search"
+              onChange={[Function]}
+              placeholder="Search...."
+              type="input"
+              value=""
+            />
+          </div>
+          <span
+            className="input-group-prepend"
+          />
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div
+    className="loading"
+    data-testid="loading"
+  >
+    <img
+      src={Object {}}
+      style={
+        Object {
+          "width": "20px",
+        }
+      }
+    />
+     
+    
+  </div>
+</div>
 `;

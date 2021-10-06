@@ -4,6 +4,7 @@ import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { ThemeProvider } from "styled-components";
+import renderer from "react-test-renderer";
 
 import TestContainer from "../TestContainer";
 import { mount } from "enzyme/build";
@@ -53,6 +54,30 @@ const mockAppStore = (state) => {
 };
 
 describe("Test list container", () => {
+  it("Should match snapshot test", () => {
+    const store = mockAppStore();
+    const tree = renderer
+      .create(
+        <BrowserRouter>
+          <Provider store={store}>
+            <ThemeProvider theme={theme}>
+              <TestContainer
+                selectionKey={"6LMlpGnA"}
+                match={{ params: { filter: "in" } }}
+                TestResultsActions={actions}
+                collapseRightNav={toggleRightNav}
+                TestResults={mockAppState.TestResults}
+              >
+                <></>
+              </TestContainer>
+            </ThemeProvider>
+          </Provider>
+        </BrowserRouter>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it("should render children", async () => {
     const store = mockAppStore();
     mount(
