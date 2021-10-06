@@ -2,6 +2,31 @@
 
 exports[`PendingInvites test PendingInvites component snapshot 1`] = `
 <DocumentFragment>
+  <div>
+    <div
+      class="sc-eCApnc hGEZDR"
+    >
+      <div
+        class="filter-links"
+      >
+        <a
+          href="/settings/invite"
+        >
+          INVITE USERS
+        </a>
+        <a
+          href="/settings/invite/create"
+        >
+          CREATE CLIENT
+        </a>
+        <a
+          href="/settings/invite/pending"
+        >
+          View pending invites
+        </a>
+      </div>
+    </div>
+  </div>
   <div
     class="infinite-scroll-component__outerdiv"
   >
@@ -10,23 +35,8 @@ exports[`PendingInvites test PendingInvites component snapshot 1`] = `
       style="height: auto; overflow: auto;"
     >
       <div
-        class="sc-bdnxRM sc-eCApnc a-dNNI iiubgt"
+        class="sc-hKFxyN sc-jSFjdj eHYxOi gBkOUI"
       >
-        <div
-          class="pending__header"
-        >
-          <button
-            class="pending-invite"
-          >
-            <i
-              class="tg-ic-arrow-left  "
-            />
-             Back
-          </button>
-          <h2>
-            Pending Invites
-          </h2>
-        </div>
         <div
           class="undefined undefined"
         >

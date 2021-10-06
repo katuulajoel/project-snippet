@@ -2,21 +2,21 @@ import React from "react";
 import { Provider } from "react-redux";
 import { cleanup, render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import PendingInvites from "../Invite/PendingInvites";
+import CreateUser from "../Invite/CreateUser";
 import store from "../../../../store";
 
 afterEach(cleanup);
 
-describe("PendingInvites test", () => {
-  it("PendingInvites component snapshot", () => {
+describe("CreateUser comp test", () => {
+  it("CreateUser component snapshot", () => {
     const { asFragment } = render(
       <Provider store={store}>
         <Router>
-          <PendingInvites />
+          <CreateUser />
         </Router>
       </Provider>
     );
 
-    expect(asFragment(<PendingInvites />)).toMatchSnapshot();
+    expect(asFragment(<CreateUser />)).toMatchSnapshot();
   });
 });
