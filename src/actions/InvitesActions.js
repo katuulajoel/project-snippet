@@ -2,113 +2,69 @@ import axios from "axios";
 import { ENDPOINT_INVITE } from "./utils/api";
 import * as actionTypes from "./utils/ActionTypes";
 
-export function getPendingInvites(selection) {
+export function getPendingInvites() {
   return function (dispatch) {
-    dispatch(getPendingInvitesStart(selection));
     axios
       .get(ENDPOINT_INVITE, { params: { used: "False" } })
       .then(function (response) {
-        dispatch(getPendingInvitesSuccess(response.data, selection));
+        dispatch(setPendingInvites(response.data));
       })
-      .catch(function (error) {
-        dispatch(
-          getPendingInvitesFailed(
-            error.response ? error.response.data : null,
-            selection
-          )
-        );
+      .catch(function (err) {
+        console.log(err);
       });
   };
 }
 
-export function getPendingInvitesStart(selection) {
-  return {
-    type: actionTypes.GET_PENDING_INVITES_START,
-    selection,
-  };
+export function setPendingInvites(data, append = false) {
+  if (append) {
+    return {
+      type: actionTypes.SET_MORE_PENDING_INVITES,
+      payload: data,
+    };
+  } else {
+    return {
+      type: actionTypes.SET_PENDING_INVITES,
+      payload: data,
+    };
+  }
 }
 
-export function getPendingInvitesSuccess(data) {
-  console.log(data);
-  return {
-    type: actionTypes.GET_PENDING_INVITES_SUCCESS,
-    payload: data,
-  };
-}
-
-export function getPendingInvitesFailed(error, selection) {
-  return {
-    type: actionTypes.GET_PENDING_INVITES_FAILED,
-    error,
-    selection,
-  };
-}
-
-export function getMorePendingInvites(selection, url) {
+export function getMorePendingInvites(url) {
   return (dispatch) => {
-    dispatch(getMorePendingInvitesStart(url, selection));
     axios
       .get(url)
       .then(function (response) {
-        dispatch(getMorePendingInvitesSuccess(response.data, selection));
+        dispatch(setPendingInvites(response.data, true));
       })
-      .catch(function (error) {
-        dispatch(
-          getMorePendingInvitesFailed(
-            error.response ? error.response.data : null,
-            selection
-          )
-        );
+      .catch(function (err) {
+        console.log(err);
       });
   };
 }
 
-export function getMorePendingInvitesStart(url, selection) {
-  return {
-    type: actionTypes.GET_MORE_PENDING_INVITES_START,
-    url,
-    selection,
-  };
-}
-
-export function getMorePendingInvitesSuccess(response, selection) {
-  return {
-    type: actionTypes.GET_MORE_PENDING_INVITES_SUCCESS,
-    items: response.results,
-    previous: response.previous,
-    next: response.next,
-    count: response.count,
-    selection,
-  };
-}
-
-export function getMorePendingInvitesFailed(error) {
-  return {
-    type: actionTypes.GET_MORE_PENDING_INVITES_FAILED,
-    error,
-  };
-}
-
-export function deleteInvite(id, selectionKey) {
+export function deleteInvite(id) {
   return (dispatch) => {
-    dispatch(deleteInviteStart(id));
+    dispatch(removeInvite(id));
     axios
       .delete(`${ENDPOINT_INVITE}${id}/`, {})
       .then(function () {
-        dispatch(getPendingInvites(selectionKey));
-        dispatch(deleteInviteSuccess(id));
+        dispatch(getPendingInvites());
       })
-      .catch(function (error) {
-        dispatch(
-          deleteInviteFailed(error.response ? error.response.data : null)
-        );
+      .catch(function (err) {
+        console.log(err);
       });
+  };
+}
+
+export function removeInvite(id) {
+  return {
+    type: actionTypes.DELETE_PENDING_INVITE,
+    id,
   };
 }
 
 export function invite(data, selectionKey, type = null) {
-  return (dispatch) => {
-    dispatch(inviteStart(data, selectionKey));
+  return () => {
     let request_method = type ? "patch" : "post";
     axios
       .request({
@@ -118,66 +74,11 @@ export function invite(data, selectionKey, type = null) {
         method: request_method,
         data,
       })
-      .then(function () {
-        // dispatch(inviteSuccess(response.data, selectionKey));
+      .then(function (response) {
+        console.log(response.data, selectionKey);
       })
-      .catch(function (error) {
-        dispatch(
-          inviteFailed(
-            error.response ? error.response.data : null,
-            selectionKey
-          )
-        );
+      .catch(function (err) {
+        console.log(err);
       });
-  };
-}
-
-export function inviteStart(details, selectionKey) {
-  return {
-    type: actionTypes.INVITE_START,
-    details,
-    selectionKey,
-  };
-}
-
-// export function inviteSuccess(invite, selectionKey) {
-//   sendGAEvent(
-//     GA_EVENT_CATEGORIES.AUTH,
-//     GA_EVENT_actionTypes.DEV_INVITE,
-//     getGAUserType(getUser())
-//   );
-//   return {
-//     type: actionTypes.INVITE_SUCCESS,
-//     invite,
-//     selectionKey,
-//   };
-// }
-
-export function inviteFailed(error, selectionKey) {
-  return {
-    type: actionTypes.INVITE_FAILED,
-    error,
-    selectionKey,
-  };
-}
-
-export function deleteInviteStart(id) {
-  return {
-    type: actionTypes.DELETE_INVITE_START,
-    id,
-  };
-}
-
-export function deleteInviteSuccess(id) {
-  return {
-    type: actionTypes.DELETE_INVITE_SUCCESS,
-    id,
-  };
-}
-
-export function deleteInviteFailed(error) {
-  return {
-    type: actionTypes.DELETE_INVITE_FAILED,
-    error,
   };
 }
