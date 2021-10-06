@@ -3,7 +3,7 @@
 exports[`Dashboard test Should match snapshot test 1`] = `
 Array [
   <div
-    className="sc-crzoAE cbYyvs"
+    className="sc-bqGGPW lkZMzU"
   >
     <ul>
       <li>
@@ -93,7 +93,7 @@ Array [
         </a>
       </div>
       <div
-        className="sc-pNWdM laRlaK"
+        className="sc-kEqXSa gFzwRf"
       >
         <a
           className="add-btn"
