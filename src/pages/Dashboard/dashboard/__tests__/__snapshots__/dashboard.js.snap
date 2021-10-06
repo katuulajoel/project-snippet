@@ -226,7 +226,11 @@ Array [
             <span
               className="sub-text"
             >
+<<<<<<< HEAD
               Tue, 5th Oct 2021
+=======
+              Wed, 6th Oct 2021
+>>>>>>> 0c1b986 (Updated snapshot for components)
             </span>
           </div>
         </div>
