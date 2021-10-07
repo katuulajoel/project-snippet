@@ -5,9 +5,14 @@ import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 
 import SearchBox from "./SearchBox";
 import NavLinks from "./NavLinks";
+import Button from "../components/Button";
+import Icon from "../components/Icon";
+import { openModal } from "./utils/modals";
+import TestForm from "../pages/Dashboard/tests/TestForm";
 
 function getMainPath(str) {
   const regex = /^\/([^?\\/]+)/;
@@ -17,6 +22,7 @@ function getMainPath(str) {
 const NavBar = (props, ref) => {
   const { className } = props;
   let history = useHistory();
+  const dispatch = useDispatch();
 
   const getNavTitle = () => {
     let title = "Dashboard";
@@ -44,17 +50,49 @@ const NavBar = (props, ref) => {
     }
     return title;
   };
+  const addNewTest = () => {
+    openModal({
+      body: <TestForm id="test-form" />,
+      title: `Add New Result`,
+      options: {
+        className: "modal-tests",
+        ok: `Save`,
+        cancel: "Close",
+        form: {
+          type: "submit",
+          form: `test-form`,
+        },
+        style: { maxWidth: "768px" },
+      },
+    }).then(
+      (data) => {
+        this.props.saveTestResult(data)(dispatch);
+      },
+      () => {}
+    );
+  };
+
+  const viewTitle = getNavTitle();
 
   return (
     <Wrapper ref={ref} className={`navbar ${className || ""}`}>
       <div className="title-bar">
         <Link to={`/dashboard`} className="navbar-brand">
-          {getNavTitle()}
+          {viewTitle}
         </Link>
         <ul className="navbar-nav ml-auto">
-          <li>
-            <SearchBox navHieght={ref} variant="search" clear={true} />
-          </li>
+          {viewTitle === "Tests" ? (
+            <li>
+              <StyledButton variant={"primary"} onClick={() => addNewTest()}>
+                <Icon name="round-add" />
+                &nbsp;&nbsp;&nbsp;Add New Result
+              </StyledButton>
+            </li>
+          ) : (
+            <li>
+              <SearchBox navHieght={ref} variant="search" clear={true} />
+            </li>
+          )}
         </ul>
       </div>
 
@@ -99,6 +137,10 @@ const Wrapper = styled.nav`
       }
     }
   }
+`;
+
+const StyledButton = styled(Button)`
+  box-shadow: none;
 `;
 
 NavBar.propTypes = {
