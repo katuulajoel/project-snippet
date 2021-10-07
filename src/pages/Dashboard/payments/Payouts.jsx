@@ -2,7 +2,7 @@
 /* -------------------------------------------------------------------------- */
 /*                            External dependencies                           */
 /* -------------------------------------------------------------------------- */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import styled from "styled-components";
@@ -19,7 +19,11 @@ import Progress from "../../../components/Progress";
 import { StyledButtonDropdown, StyledTable } from "./styles";
 import Avatar from "../../../components/Avatar";
 import BulkActions from "./components/BulkActions";
-import { isDev } from "../../../components/utils/auth";
+import {
+  isDev,
+  isPayAdmin,
+  isPMAndHasProjectAcess,
+} from "../../../components/utils/auth";
 import { ENDPOINT_INVOICES } from "../../../actions/utils/api";
 import { batchInvoices, showAction } from "./utils/utils";
 import {
@@ -39,15 +43,42 @@ const proptypes = {
   filter: PropTypes.string,
   onLoadMore: PropTypes.func,
   next: PropTypes.string,
+  project: PropTypes.object,
+  setcreateAction: PropTypes.func,
 };
 
 const Payouts = (props) => {
-  const { data: invoices, filter, onLoadMore, next } = props;
+  const {
+    data: invoices,
+    filter,
+    onLoadMore,
+    next,
+    project,
+    setcreateAction,
+  } = props;
 
   let batchPayouts = batchInvoices(invoices);
 
   const [open, setopen] = useState(null);
   const [checked, setChecked] = useState([]);
+
+  useEffect(() => {
+    if (setcreateAction)
+      setcreateAction({
+        ...((isPayAdmin() || isPMAndHasProjectAcess(props.project)) &&
+        !project.archived
+          ? {
+              visibility: true,
+              add: [
+                {
+                  title: "Payout",
+                  action: () => {}, // TODO: (@katuula) onCreateInvoice(INVOICE_TYPE_PURCHASE, props)
+                },
+              ],
+            }
+          : { visibility: false }),
+      });
+  }, []);
 
   const toggleAction = (invoiceId) => {
     setopen(open === invoiceId ? null : invoiceId);

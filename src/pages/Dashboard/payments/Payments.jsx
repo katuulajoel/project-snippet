@@ -2,7 +2,7 @@
 /* -------------------------------------------------------------------------- */
 /*                            External dependencies                           */
 /* -------------------------------------------------------------------------- */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { DropdownToggle, DropdownMenu } from "reactstrap";
@@ -13,6 +13,7 @@ import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPl
 import {
   ENDPOINT_INVOICES,
   INVOICE_TYPE_CREDIT_NOTE,
+  INVOICE_TYPE_FINAL,
 } from "../../../actions/utils/api";
 import { getTableColumns } from "./utils/columns";
 import { tableData } from "./utils/row";
@@ -33,6 +34,10 @@ import { StyledButtonDropdown } from "./styles";
 import DropdownActionItem from "./components/DropdownActionItem";
 import ReactTable from "../../../components/ReactTable";
 import BulkActions from "./components/BulkActions";
+import {
+  isPayAdmin,
+  isPMAndHasProjectAcess,
+} from "../../../components/utils/auth";
 
 /* --------------------------- Component proptypes -------------------------- */
 const proptypes = {
@@ -45,6 +50,7 @@ const proptypes = {
   onLoadMore: PropTypes.func,
   trackPagination: PropTypes.func,
   currentPage: PropTypes.number,
+  setcreateAction: PropTypes.func,
 };
 
 const Payments = (props) => {
@@ -56,6 +62,7 @@ const Payments = (props) => {
     onLoadMore,
     currentPage,
     project,
+    setcreateAction,
   } = props;
 
   const [open, setopen] = useState(null);
@@ -75,6 +82,44 @@ const Payments = (props) => {
   const toggleAction = (invoiceId) => {
     setopen(open === invoiceId ? null : invoiceId);
   };
+
+  const hasFinalInvoice = (invoices || []).filter(
+    (i) => i.type === INVOICE_TYPE_FINAL // TODO: (@katuula) get logic to fetch final invoices
+  ).length;
+
+  useEffect(() => {
+    if (setcreateAction)
+      setcreateAction({
+        ...((isPayAdmin() || isPMAndHasProjectAcess(props.project)) &&
+        !project.archived
+          ? {
+              visibility: true,
+              add: [
+                {
+                  title: "Add New Payment",
+                  action: () => {}, // TODO: (@katuula) onCreateInvoice(INVOICE_TYPE_SALE, props)
+                },
+                {
+                  title: "Add Credit Note",
+                  action: () => {}, // TODO: (@katuula) onCreateInvoice(INVOICE_TYPE_CREDIT_NOTE, props)
+                },
+                ...(hasFinalInvoice
+                  ? []
+                  : [
+                      {
+                        title: "Add Commitment Payment",
+                        action: () => {}, // TODO: (@katuula) onCreateInvoice(INVOICE_TYPE_COMMITMENT, props)
+                      },
+                      {
+                        title: "Add Final Invoice",
+                        action: () => {}, // TODO: (@katuula) onCreateInvoice(INVOICE_TYPE_FINAL, props)
+                      },
+                    ]),
+              ],
+            }
+          : { visibility: false }),
+      });
+  }, [hasFinalInvoice]);
 
   const getTableDisplayValue = (cell) => {
     let invoice = cell.value;

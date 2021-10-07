@@ -91,6 +91,26 @@ describe("Dashboard test", () => {
     expect(wrapper.find("BulkActions").exists()).toBeFalsy();
   });
 
+  it("should create actions for adding invoices", () => {
+    const createActionStub = jest.fn();
+    mount(
+      <BrowserRouter>
+        <Provider store={mockAppStore(mockAppState)}>
+          <Payments
+            data={[dummyInvoice]}
+            onLoadMore={() => {}}
+            filter="in"
+            setcreateAction={createActionStub}
+            project={{ user: { id: 123 } }}
+          />
+        </Provider>
+      </BrowserRouter>
+    );
+
+    expect(createActionStub).toHaveBeenCalled();
+    // TODO: (@katuula) test parameters passed to function when its called
+  });
+
   it("should open dropdown actions", async () => {
     jest.spyOn(utils, "showAction").mockReturnValueOnce(true);
 

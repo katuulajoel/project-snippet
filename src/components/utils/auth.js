@@ -59,6 +59,10 @@ export function isDevOrPM() {
   return isDev() || isPM();
 }
 
+export function isPMAndHasProjectAcess(project) {
+  return hasProjectAccess(project) && isPM();
+}
+
 export function isProjectClient(project) {
   const userId = getUser().id;
   if (project.owner && project.owner.id === userId) {

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PendingInvites test PendingInvites component snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="sc-eCApnc hGEZDR"
+    >
+      <div
+        class="filter-links"
+      >
+        <a
+          href="/settings/invite"
+        >
+          INVITE USERS
+        </a>
+        <a
+          href="/settings/invite/create"
+        >
+          CREATE CLIENT
+        </a>
+        <a
+          href="/settings/invite/pending"
+        >
+          View pending invites
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="infinite-scroll-component__outerdiv"
+  >
+    <div
+      class="infinite-scroll-component "
+      style="height: auto; overflow: auto;"
+    >
+      <div
+        class="sc-hKFxyN sc-jSFjdj eHYxOi gBkOUI"
+      >
+        <div
+          class="undefined undefined"
+        >
+          <img
+            alt="empty file image"
+            src="[object Object]"
+          />
+          <p>
+            No Pending invites have been created yet
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

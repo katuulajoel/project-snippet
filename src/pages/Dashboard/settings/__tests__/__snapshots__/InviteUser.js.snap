@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InviteUser comp test InviteUser component snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="sc-bdnxRM dNpxFo"
+    >
+      <div
+        class="filter-links"
+      >
+        <a
+          href="/settings/invite"
+        >
+          INVITE USERS
+        </a>
+        <a
+          href="/settings/invite/create"
+        >
+          CREATE CLIENT
+        </a>
+        <a
+          href="/settings/invite/pending"
+        >
+          View pending invites
+        </a>
+      </div>
+    </div>
+  </div>
+  <h2>
+    Invite user
+  </h2>
+</DocumentFragment>
+`;
