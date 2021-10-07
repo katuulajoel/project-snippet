@@ -109,6 +109,7 @@ export const fetchResults = (selection, filter) => {
     axios
       .get(ENDPOINT_TEST_RESULTS, { params: filter })
       .then((response) => {
+        console.log(response);
         dispatch(fetchResultsSuccess(response.data, selection));
       })
       .catch((error) => {
