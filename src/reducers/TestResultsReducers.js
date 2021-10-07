@@ -1,19 +1,34 @@
 import { combineReducers } from "redux";
 import { LOCATION_CHANGE } from "react-router-redux";
-
-import * as TestResultsActions from "../actions/TestResultsActions";
+import {
+  CREATE_RESULT_START,
+  CREATE_RESULT_SUCCESS,
+  CREATE_RESULT_FAILED,
+  FETCH_RESULT_START,
+  FETCH_RESULT_SUCCESS,
+  FETCH_RESULT_FAILED,
+  UPDATE_RESULT_START,
+  UPDATE_RESULT_SUCCESS,
+  UPDATE_RESULT_FAILED,
+  LIST_MORE_RESULTS_SUCCESS,
+  LIST_MORE_RESULTS_FAILED,
+  DELETE_RESULT_START,
+  DELETE_RESULT_SUCCESS,
+  DELETE_RESULT_FAILED,
+  SET_FILTERS,
+} from "../actions/utils/ActionTypes";
 
 const results = (state = [], action) => {
   let results = state || [];
   switch (action.type) {
-    case TestResultsActions.FETCH_RESULT_SUCCESS:
+    case FETCH_RESULT_SUCCESS:
       return [...action.items];
-    case TestResultsActions.LIST_MORE_RESULTS_SUCCESS:
+    case LIST_MORE_RESULTS_SUCCESS:
       action.items.forEach((result) => {
         results.push(result);
       });
       return { ...state, ...results };
-    case TestResultsActions.DELETE_RESULT_SUCCESS: {
+    case DELETE_RESULT_SUCCESS: {
       const newResults = state.filter((item) => item.id !== action.id);
       return { ...newResults };
     }
@@ -26,13 +41,13 @@ const isSaved = (state = {}, action) => {
   let selectionKey = action.selection || "default";
   let newState = {};
   switch (action.type) {
-    case TestResultsActions.CREATE_RESULT_START:
+    case CREATE_RESULT_START:
       newState[selectionKey] = false;
       return { ...state, ...newState };
-    case TestResultsActions.CREATE_RESULT_SUCCESS:
+    case CREATE_RESULT_SUCCESS:
       newState[selectionKey] = true;
       return { ...state, ...newState };
-    case TestResultsActions.CREATE_RESULT_FAILED:
+    case CREATE_RESULT_FAILED:
       newState[selectionKey] = true;
       return { ...state, ...newState };
     default:
@@ -44,31 +59,31 @@ const isSaving = (state = {}, action) => {
   let selectionKey = action.selection || "default";
   let newState = {};
   switch (action.type) {
-    case TestResultsActions.CREATE_RESULT_START:
+    case CREATE_RESULT_START:
       newState[selectionKey] = true;
       return { ...state, ...newState };
-    case TestResultsActions.CREATE_RESULT_SUCCESS:
+    case CREATE_RESULT_SUCCESS:
       newState[selectionKey] = false;
       return { ...state, ...newState };
-    case TestResultsActions.CREATE_RESULT_FAILED:
+    case CREATE_RESULT_FAILED:
       newState[selectionKey] = false;
       return { ...state, ...newState };
-    case TestResultsActions.UPDATE_RESULT_START:
+    case UPDATE_RESULT_START:
       newState[selectionKey] = true;
       return { ...state, ...newState };
-    case TestResultsActions.UPDATE_RESULT_SUCCESS:
+    case UPDATE_RESULT_SUCCESS:
       newState[selectionKey] = false;
       return { ...state, ...newState };
-    case TestResultsActions.UPDATE_RESULT_FAILED:
+    case UPDATE_RESULT_FAILED:
       newState[selectionKey] = false;
       return { ...state, ...newState };
-    case TestResultsActions.DELETE_RESULT_START:
+    case DELETE_RESULT_START:
       newState[selectionKey] = true;
       return { ...state, ...newState };
-    case TestResultsActions.DELETE_RESULT_SUCCESS:
+    case DELETE_RESULT_SUCCESS:
       newState[selectionKey] = false;
       return { ...state, ...newState };
-    case TestResultsActions.DELETE_RESULT_FAILED:
+    case DELETE_RESULT_FAILED:
       newState[selectionKey] = false;
       return { ...state, ...newState };
     default:
@@ -80,13 +95,13 @@ const isFetching = (state = {}, action) => {
   let selectionKey = action.selection || "default";
   let newState = {};
   switch (action.type) {
-    case TestResultsActions.FETCH_RESULT_START:
+    case FETCH_RESULT_START:
       newState[selectionKey] = true;
       return { ...state, ...newState };
-    case TestResultsActions.FETCH_RESULT_SUCCESS:
+    case FETCH_RESULT_SUCCESS:
       newState[selectionKey] = false;
       return { ...state, ...newState };
-    case TestResultsActions.FETCH_RESULT_FAILED:
+    case FETCH_RESULT_FAILED:
       newState[selectionKey] = false;
       return { ...state, ...newState };
     default:
@@ -98,7 +113,7 @@ const next = (state = {}, action) => {
   let selectionKey = action.selection || "default";
   let newState = {};
   switch (action.type) {
-    case TestResultsActions.LIST_MORE_RESULTS_SUCCESS:
+    case LIST_MORE_RESULTS_SUCCESS:
       newState[selectionKey] = action.next;
       return { ...state, ...newState };
     default:
@@ -110,7 +125,7 @@ const previous = (state = {}, action) => {
   let selectionKey = action.selection || "default";
   let newState = {};
   switch (action.type) {
-    case TestResultsActions.LIST_MORE_RESULTS_SUCCESS:
+    case LIST_MORE_RESULTS_SUCCESS:
       newState[selectionKey] = action.previous;
       return { ...state, ...newState };
     default:
@@ -122,10 +137,10 @@ const count = (state = {}, action) => {
   let selectionKey = action.selection || "default";
   let newState = {};
   switch (action.type) {
-    case TestResultsActions.FETCH_RESULT_SUCCESS:
+    case FETCH_RESULT_SUCCESS:
       newState[selectionKey] = action.count;
       return { ...state, ...newState };
-    case TestResultsActions.LIST_MORE_RESULTS_FAILED:
+    case LIST_MORE_RESULTS_FAILED:
       newState[selectionKey] = 0;
       return { ...state, ...newState };
     default:
@@ -135,13 +150,13 @@ const count = (state = {}, action) => {
 
 const errors = (state = {}, action) => {
   switch (action.type) {
-    case TestResultsActions.CREATE_RESULT_FAILED:
+    case CREATE_RESULT_FAILED:
       return { ...state, create: action.error };
-    case TestResultsActions.UPDATE_RESULT_FAILED:
+    case UPDATE_RESULT_FAILED:
       return { ...state, update: action.error };
-    case TestResultsActions.FETCH_RESULT_FAILED:
+    case FETCH_RESULT_FAILED:
       return { ...state, fetch: action.error };
-    case TestResultsActions.DELETE_RESULT_FAILED:
+    case DELETE_RESULT_FAILED:
       return { ...state, delete: action.error };
     case LOCATION_CHANGE:
       return {};
@@ -152,7 +167,7 @@ const errors = (state = {}, action) => {
 
 const selectedFilters = (state = [], action) => {
   switch (action.type) {
-    case TestResultsActions.SET_FILTERS:
+    case SET_FILTERS:
       return action.filters;
     default:
       return state;

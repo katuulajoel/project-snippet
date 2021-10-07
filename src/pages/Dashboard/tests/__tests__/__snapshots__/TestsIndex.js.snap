@@ -3,7 +3,7 @@
 exports[`Dashboard test Should match snapshot test 1`] = `
 Array [
   <nav
-    className="sc-iqAclL gtKZeq navbar "
+    className="sc-fujyAs kVdmRC navbar "
   >
     <div
       className="title-bar"
@@ -59,11 +59,11 @@ Array [
       </ul>
     </div>
     <div
-      className="sc-kEqXSa jNvWHu"
+      className="sc-iCoGMd liNCSM"
     />
   </nav>,
   <div
-    className="sc-crzoAE icJVcd sidebar"
+    className="sc-pNWdM ibuYVp sidebar"
     id="sidebar"
   >
     <img
@@ -185,12 +185,12 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-dIsUp gRRkph"
+    className="sc-jrsJWt bYFtGA"
   >
     <div>
       <div>
         <div
-          className="sc-bqGGPW fCJdLD"
+          className="sc-kEqXSa cMBdJe"
         >
           <div
             className="filter-links"
@@ -199,7 +199,7 @@ Array [
             Results
           </h3>
           <div
-            className="sc-kLojOw lbiQzc"
+            className="sc-bYwzuL dDVZLp"
             style={
               Object {
                 "float": "right",
@@ -259,7 +259,7 @@ Array [
         className="table-responsive"
       >
         <table
-          className="sc-iemWCZ sc-iJCRrE irWgno eDglSR table"
+          className="sc-hBMUJo sc-lmgQwP kuQKgY ieChaU table"
           role="table"
         >
           <thead>
@@ -426,13 +426,13 @@ Array [
         </table>
       </div>
       <div
-        className="sc-giAqHp lpaxfF"
+        className="sc-iJCRrE bnPNbm"
       >
         <span>
           Showing
         </span>
         <div
-          className="sc-ezzafa VoQZf"
+          className="sc-giAqHp kFkeRi"
         >
           <select
             className="form-control form-control "
@@ -481,7 +481,7 @@ Array [
             className="pagination"
           >
             <li
-              className="sc-ksluID ccZosH page-item"
+              className="sc-iqAclL bIORFd page-item"
               onClick={[Function]}
             >
               <a
@@ -502,7 +502,7 @@ Array [
               }
             />
             <li
-              className="sc-ksluID ccZosH next page-item"
+              className="sc-iqAclL bIORFd next page-item"
               onClick={[Function]}
             >
               <a

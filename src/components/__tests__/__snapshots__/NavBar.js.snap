@@ -2,7 +2,7 @@
 
 exports[`Auth layout test Snapshot test for NavBar component 1`] = `
 <nav
-  className="sc-iqAclL gtKZeq navbar "
+  className="sc-fujyAs kVdmRC navbar "
 >
   <div
     className="title-bar"
@@ -58,7 +58,7 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
     </ul>
   </div>
   <div
-    className="sc-kEqXSa jNvWHu"
+    className="sc-iCoGMd liNCSM"
   />
 </nav>
 `;

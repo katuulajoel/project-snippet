@@ -3,7 +3,7 @@
 exports[`Dashboard test Should match snapshot test 1`] = `
 Array [
   <nav
-    className="sc-crzoAE cXMmws navbar "
+    className="sc-pNWdM ixJkbw navbar "
   >
     <div
       className="title-bar"
@@ -20,7 +20,7 @@ Array [
       >
         <li>
           <div
-            className="input-group sc-pNWdM exjMWV input-search"
+            className="input-group sc-jSFjdj hTzrBi input-search"
           >
             <span
               className="input-group-prepend"
@@ -34,7 +34,7 @@ Array [
               </span>
             </span>
             <div
-              className="sc-gKAaRy ekysbq"
+              className="sc-gtsrHT jGBtBH"
               data-testid="input"
             >
               <input
@@ -59,10 +59,10 @@ Array [
       </ul>
     </div>
     <div
-      className="sc-iqAclL gvUfsV"
+      className="sc-fujyAs cKNmWV"
     >
       <div
-        className="sc-kEqXSa hdTlKb"
+        className="sc-iCoGMd hobTSF"
       >
         <div
           className="title-filters"
@@ -71,7 +71,7 @@ Array [
     </div>
   </nav>,
   <div
-    className="sc-dIsUp grcmpu sidebar"
+    className="sc-jrsJWt ilZZuz sidebar"
     id="sidebar"
   >
     <img
@@ -193,7 +193,7 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-bqGGPW fFXajO"
+    className="sc-kEqXSa gCTtLP"
   >
     <div
       className="sc-giAqHp bDTeOO"

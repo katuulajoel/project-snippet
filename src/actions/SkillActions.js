@@ -1,10 +1,6 @@
 import axios from "axios";
 import { ENDPOINT_SKILLS } from "./utils/api";
-
-export const GET_SKILLS_START = "GET_SKILLS_START";
-export const GET_SKILLS_SUCCESS = "GET_SKILLS_SUCCESS";
-export const GET_SKILLS_FAILED = "GET_SKILL_SUGGESTIONS_FAILED";
-export const INVALIDATE_SKILLS = "INVALIDATE_SKILLS";
+import { GET_SKILLS_START, GET_SKILLS_SUCCESS, GET_SKILLS_FAILED, INVALIDATE_SKILLS } from "./utils/ActionTypes";
 
 export const getSkills = (filter, selection, prev_selection) => {
   return (dispatch) => {
