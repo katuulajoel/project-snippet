@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlertDialogue test Snapshot test for AlertDialogue component 1`] = `
+<div
+  className="sc-gtsrHT dlxaZd"
+>
+  <span>
+    <i
+      className="tg-ic-check tunga-ic-sz-sm "
+    />
+     
+    Invoice archived
+  </span>
+  <span>
+    <button
+      className="btn btn-icon sc-bdnxRM gIqEUJ  "
+      form={null}
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="tg-ic-close tunga-ic-sz-sm "
+      />
+    </button>
+  </span>
+</div>
+`;
