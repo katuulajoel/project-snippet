@@ -6,6 +6,7 @@ import Dashboard from "./DashboardReducer";
 import Projects from "./ProjectsReducer";
 import TestResults from "./TestResultsReducers";
 import User from "./UserReducers";
+import Skill from "./SkillReducers";
 
 const appReducer = combineReducers({
   Auth,
@@ -15,6 +16,7 @@ const appReducer = combineReducers({
   Dashboard,
   Projects,
   TestResults,
+  Skill,
 });
 
 export default appReducer;

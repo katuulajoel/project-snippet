@@ -33,11 +33,12 @@ class SingleSkillSelector extends React.Component {
     score: PropTypes.number,
     allowDelete: PropTypes.bool,
     position: PropTypes.number,
-    skill: PropTypes.string,
+    skill: PropTypes.object,
     excludeSkills: PropTypes.array,
     type: PropTypes.string,
     SkillActions: PropTypes.object,
     Skill: PropTypes.object,
+    getSkills: PropTypes.func,
   };
 
   constructor(props) {
@@ -87,8 +88,7 @@ class SingleSkillSelector extends React.Component {
   }
 
   getSkills(filter) {
-    const { SkillActions } = this.props;
-    SkillActions.getSkills(filter, this.searchKey(), this.state.prevKey);
+    this.props.getSkills(filter, this.searchKey(), this.state.prevKey);
   }
 
   onKeyPress = (e) => {

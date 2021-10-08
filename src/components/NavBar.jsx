@@ -66,6 +66,7 @@ const NavBar = (props, ref) => {
       },
     }).then(
       (data) => {
+        console.log(data);
         this.props.saveTestResult(data)(dispatch);
       },
       () => {}

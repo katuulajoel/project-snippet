@@ -13,6 +13,7 @@ import UserSelector from "../../../components/UserSelector";
 import SingleSkillSelector from "../../../components/SingleSkillSelector";
 import FieldError from "../../../components/FieldError";
 import { listUsers } from "../../../actions/UserActions";
+import { getSkills } from "../../../actions/SkillActions";
 
 const propTypes = {
   id: PropTypes.string,
@@ -37,6 +38,7 @@ const TestForm = ({ id, proceed, result }) => {
   );
   const [errors, setErrors] = useState(null);
   const User = useSelector((state) => state.User);
+  const Skill = useSelector((state) => state.Skill);
   const dispatch = useDispatch();
 
   const [codingResults, setCodingResults] = useState(
@@ -137,7 +139,8 @@ const TestForm = ({ id, proceed, result }) => {
           score: item.score,
         };
       });
-
+    console.log(proceed);
+    console.log(data);
     if (proceed) {
       proceed(data);
     }
@@ -276,6 +279,9 @@ const TestForm = ({ id, proceed, result }) => {
   const getUsers = (filter, searchKey, prevKey) => {
     listUsers(filter, searchKey, prevKey)(dispatch);
   };
+  const fetchSkills = (filter, searchKey, prevKey) => {
+    getSkills(filter, searchKey, prevKey)(dispatch);
+  };
 
   return (
     <StyledForm id={id} onSubmit={(e) => onSave(e)}>
@@ -348,6 +354,8 @@ const TestForm = ({ id, proceed, result }) => {
                   score={result.score}
                   excludeSkills={codingResults.filter((item) => item.skill).map((item) => item.skill.id)}
                   type="multiple"
+                  Skill={Skill}
+                  getSkills={fetchSkills}
                 />
               </div>
             </CodingTestWrapper>
