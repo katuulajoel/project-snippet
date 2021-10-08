@@ -13,6 +13,7 @@ import Button from "../components/Button";
 import Icon from "../components/Icon";
 import { openModal } from "./utils/modals";
 import TestForm from "../pages/Dashboard/tests/TestForm";
+import { createResult } from "../actions/TestResultsActions";
 
 function getMainPath(str) {
   const regex = /^\/([^?\\/]+)/;
@@ -66,8 +67,7 @@ const NavBar = (props, ref) => {
       },
     }).then(
       (data) => {
-        console.log(data);
-        this.props.saveTestResult(data)(dispatch);
+        createResult(data)(dispatch);
       },
       () => {}
     );

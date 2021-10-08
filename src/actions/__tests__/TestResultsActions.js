@@ -14,7 +14,7 @@ import {
   FETCH_RESULT_FAILED,
   DELETE_RESULT_START,
   DELETE_RESULT_SUCCESS,
-  // DELETE_RESULT_FAILED,
+  DELETE_RESULT_FAILED,
   // LIST_MORE_RESULTS_START,
   // LIST_MORE_RESULTS_SUCCESS,
   // LIST_MORE_RESULTS_FAILED,
@@ -194,22 +194,21 @@ describe("test actions tests", () => {
     expect(storeActions).toEqual(expectedActions);
   });
 
-  // it("should dispatch DELETE_RESULT_FAILED", async () => {
-  //   const error = {
-  //     message: "Error!",
-  //   };
-  //   axios.patch.mockRejectedValue(error);
-  //   const expectedActions = [
-  //     { type: DELETE_RESULT_START },
-  //     {
-  //       id: undefined,
-  //       error: null,
-  //       type: DELETE_RESULT_FAILED,
-  //     },
-  //   ];
+  it("should dispatch DELETE_RESULT_FAILED", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.delete.mockRejectedValue(error);
+    const expectedActions = [
+      { type: DELETE_RESULT_START, id: null },
+      {
+        error: null,
+        type: DELETE_RESULT_FAILED,
+      },
+    ];
 
-  //   await store.dispatch(actions.deleteResult(null));
-  //   const storeActions = await store.getActions();
-  //   expect(storeActions).toEqual(expectedActions);
-  // });
+    await store.dispatch(actions.deleteResult(null));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
 });

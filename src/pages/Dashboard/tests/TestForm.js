@@ -139,8 +139,6 @@ const TestForm = ({ id, proceed, result }) => {
           score: item.score,
         };
       });
-    console.log(proceed);
-    console.log(data);
     if (proceed) {
       proceed(data);
     }
