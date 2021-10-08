@@ -7,11 +7,12 @@ import { isDev } from "../../../components/utils/auth";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
 import ProjectCard from "./components/ProjectCard";
 import OpportunityCard from "./components/OpportunityCard";
+import LoadMore from "../../../components/LoadMore";
 
 const ProjectList = (props) => {
   const { stage, archived } = props;
 
-  const { projects } = useSelector(({ Projects }) => Projects);
+  const { projects, isMakingRequest } = useSelector(({ Projects }) => Projects);
 
   const getStageName = (stage) => {
     switch (stage) {
@@ -44,11 +45,11 @@ const ProjectList = (props) => {
         })}
       </Row>
 
-      {/* <LoadMore
+      <LoadMore
         hasMore={projects.next}
         isLoadingMore={isMakingRequest.listMore}
         onLoadMore={isMakingRequest.list}
-      /> */}
+      />
     </div>
   ) : (
     <SummaryPlaceholder
