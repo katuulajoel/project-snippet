@@ -27,8 +27,180 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
       </div>
     </div>
   </div>
-  <h2>
-    Invite user
-  </h2>
+  <div
+    class="sc-eCApnc lwnPK"
+  >
+    <form>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="Email Address"
+              class="control-label"
+            >
+              Email Address
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <div
+              class="sc-jSFjdj dqrEkW"
+              data-testid="input"
+            >
+              <input
+                class="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="email"
+                placeholder="eg. bart@tunga.io"
+                required=""
+                type="input"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="First Name"
+              class="control-label"
+            >
+              First Name
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <div
+              class="sc-jSFjdj dqrEkW"
+              data-testid="input"
+            >
+              <input
+                class="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="first_name"
+                placeholder="Enter first name"
+                required=""
+                type="input"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="Last Name"
+              class="control-label"
+            >
+              Last Name
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <div
+              class="sc-jSFjdj dqrEkW"
+              data-testid="input"
+            >
+              <input
+                class="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="last_name"
+                placeholder="Enter last name"
+                required=""
+                type="input"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="User type"
+              class="control-label"
+            >
+              User type
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <select
+              class="form-control"
+              name="type"
+              required=""
+            >
+              <option
+                value=""
+              >
+                Select type of user
+              </option>
+              <option
+                value="1"
+              >
+                Developer
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12"
+      >
+        <button
+          class="btn btn-primary save"
+        >
+          Send Invite
+        </button>
+      </div>
+    </form>
+  </div>
 </DocumentFragment>
 `;
