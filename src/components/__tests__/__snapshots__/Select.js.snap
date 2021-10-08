@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select component test Snapshot test for Select component 1`] = `
+<select
+  className="form-control  "
+  onChange={[Function]}
+  value=""
+>
+  <option
+    value=""
+  >
+    -- Select --
+  </option>
+</select>
+`;
