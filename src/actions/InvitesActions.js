@@ -63,7 +63,7 @@ export function removeInvite(id) {
   };
 }
 
-export function invite(data, selectionKey, type = null) {
+export function invite(data, type = null) {
   return () => {
     let request_method = type ? "patch" : "post";
     axios
@@ -75,7 +75,7 @@ export function invite(data, selectionKey, type = null) {
         data,
       })
       .then(function (response) {
-        console.log(response.data, selectionKey);
+        console.log(response.data);
       })
       .catch(function (err) {
         console.log(err);
