@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { FormGroup } from "reactstrap";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { StyledForm } from "../styles";
 import Input from "../../../components/Input";
@@ -10,7 +12,7 @@ import Icon from "../../../components/Icon";
 import UserSelector from "../../../components/UserSelector";
 import SingleSkillSelector from "../../../components/SingleSkillSelector";
 import FieldError from "../../../components/FieldError";
-import { useSelector } from "react-redux";
+import { listUsers } from "../../../actions/UserActions";
 
 const propTypes = {
   id: PropTypes.string,
@@ -34,8 +36,8 @@ const TestForm = ({ id, proceed, result }) => {
       : {}
   );
   const [errors, setErrors] = useState(null);
-  const users = useSelector((state) => state.User);
-  console.log(users);
+  const User = useSelector((state) => state.User);
+  const dispatch = useDispatch();
 
   const [codingResults, setCodingResults] = useState(
     result
@@ -56,7 +58,7 @@ const TestForm = ({ id, proceed, result }) => {
   }, [codingResults]);
 
   const onChangeValue = (key, value) => {
-    let newState = {};
+    const newState = {};
     newState[key] = value;
     settestResults({ ...testResults, ...newState });
   };
@@ -68,7 +70,7 @@ const TestForm = ({ id, proceed, result }) => {
   const onSave = (e) => {
     e.preventDefault();
 
-    let error = {};
+    const error = {};
     let noCodingTest = true;
 
     codingResults.forEach((item) => {
@@ -120,7 +122,7 @@ const TestForm = ({ id, proceed, result }) => {
       return;
     }
 
-    let data = testResults;
+    const data = testResults;
     data["coding_tests"] = codingResults
       .filter((item) => {
         if (!item.skill && item.score === "") {
@@ -143,7 +145,7 @@ const TestForm = ({ id, proceed, result }) => {
 
   const addMoreCodingQns = () => {
     if (codingResults.length === 1 && !codingResults[0].canDelete) {
-      let newCodingResults = [...codingResults];
+      const newCodingResults = [...codingResults];
       newCodingResults[0] = {
         skill: newCodingResults[0].skill,
         score: newCodingResults[0].score,
@@ -156,7 +158,7 @@ const TestForm = ({ id, proceed, result }) => {
   };
 
   const removeCodingResult = (index) => {
-    let newCodeResultsState = [...codingResults];
+    const newCodeResultsState = [...codingResults];
     newCodeResultsState.splice(index, 1);
     setCodingResults([...newCodeResultsState]);
   };
@@ -164,7 +166,7 @@ const TestForm = ({ id, proceed, result }) => {
   const selectedUser = (user) => {
     if (user) {
       if (errors && errors.user) {
-        let _errors = errors;
+        const _errors = errors;
         delete _errors.user;
         setErrors(_errors);
       }
@@ -183,14 +185,14 @@ const TestForm = ({ id, proceed, result }) => {
 
   const setScore = (idx, skill, score) => {
     let canDeleteCondition = false;
-    let newCodingResults = [...codingResults];
+    const newCodingResults = [...codingResults];
 
     if (skill || score !== "") {
       canDeleteCondition = true;
     }
 
     if (errors && errors.coding) {
-      let _errors = errors;
+      const _errors = errors;
       delete _errors.coding;
       setErrors(_errors);
     }
@@ -271,6 +273,10 @@ const TestForm = ({ id, proceed, result }) => {
     },
   ];
 
+  const getUsers = (filter, searchKey, prevKey) => {
+    listUsers(filter, searchKey, prevKey)(dispatch);
+  };
+
   return (
     <StyledForm id={id} onSubmit={(e) => onSave(e)}>
       <div className="row">
@@ -294,6 +300,8 @@ const TestForm = ({ id, proceed, result }) => {
               userRemoved={(user) => userRemoved(user)}
               userType="developer"
               disabled={result ? true : false}
+              User={User}
+              listUsers={getUsers}
             />
           </FormGroup>
         </div>

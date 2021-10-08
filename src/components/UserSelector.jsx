@@ -42,9 +42,10 @@ class UserSelector extends React.Component {
     userType: PropTypes.string,
     disabled: PropTypes.bool,
     value: PropTypes.any,
-    UserActions: PropTypes.object,
+    // UserActions: PropTypes.object,
     User: PropTypes.object,
     users: PropTypes.any,
+    listUsers: PropTypes.func,
   };
 
   constructor(props) {
@@ -62,7 +63,6 @@ class UserSelector extends React.Component {
     if (!_.isEqual(this.state.selected, prevState.selected) && this.props.onChange) {
       this.props.onChange(this.state.selected);
     }
-
     if (!_.isEqual(this.state.search, prevState.search)) {
       this.getUsers({
         search: this.state.search,
@@ -76,12 +76,11 @@ class UserSelector extends React.Component {
   }
 
   getUsers(filter) {
-    const { UserActions } = this.props;
-    UserActions.listUsers(filter, this.searchKey(), this.state.prevKey);
+    this.props.listUsers(filter, this.searchKey(), this.state.prevKey);
   }
 
   onChange(e) {
-    let username = e.target.value;
+    const username = e.target.value;
     this.setState({ search: username, showSuggestions: !!username });
   }
 
@@ -102,7 +101,7 @@ class UserSelector extends React.Component {
 
   onRemoveUser(user, e) {
     e.preventDefault();
-    let idx = this.state.selected
+    const idx = this.state.selected
       .map((user) => {
         return user.id;
       })
@@ -126,7 +125,6 @@ class UserSelector extends React.Component {
           {this.state.selected.map((user) => {
             return (
               <div className={`item ${!this.props.label && "nolabel"}`} key={`user-${user.id}`}>
-                {/* <Avatar image={user.avatar_url} initials={generateUserIntials(user)} size="dash" /> */}
                 <Avatar
                   image={user?.avatar_url}
                   initials={generateUserIntials(user)}
@@ -151,7 +149,6 @@ class UserSelector extends React.Component {
 
   render() {
     const { max, label, type, disabled } = this.props;
-    console.log(this.props);
 
     return (
       <Wrapper className="tag-input" label={label}>
@@ -182,7 +179,7 @@ class UserSelector extends React.Component {
           {this.state.showSuggestions ? (
             <div className="list-group suggestions">
               {(this.props.User.ids[this.searchKey()] || []).map((id) => {
-                let user = this.props.User.users[id] || {};
+                const user = this.props.User.users[id] || {};
                 if (
                   this.state.selected.indexOf(id) > -1 ||
                   (this.props.filter && !this.props.users.includes(user.id))
@@ -196,7 +193,12 @@ class UserSelector extends React.Component {
                 }
                 return (
                   <div className="item-selected" key={`user-${user.id}`} onClick={this.onSelectUser.bind(this, user)}>
-                    <Avatar image={user.avatar_url} initials={generateUserIntials(user)} size="dash" />
+                    <Avatar
+                      image={user?.avatar_url}
+                      initials={generateUserIntials(user)}
+                      size="dash"
+                      className={`avatar-dash ${user?.avatar_url ? "avatar-icon" : "avatar-initials"}`}
+                    />
                     <span>{user.display_name}</span>
                   </div>
                 );

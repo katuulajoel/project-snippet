@@ -272,11 +272,13 @@ export const retrieveInviteFailed = (error) => {
 };
 
 export const listUsers = (filter, selection, prev_selection) => {
+  console.log(filter, selection);
   return (dispatch) => {
     dispatch(listUsersStart(filter, selection, prev_selection));
     axios
       .get(ENDPOINT_USERS, { params: filter })
       .then((response) => {
+        console.log(response);
         dispatch(listUsersSuccess(response.data, filter, selection));
       })
       .catch((error) => {
