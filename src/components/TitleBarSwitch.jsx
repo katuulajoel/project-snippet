@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+import { useSelector, useDispatch } from "react-redux";
+import { TOGGLE_PROJECT_FILTER } from "../actions/utils/ActionTypes";
+
 /* --------------------------- Component proptypes -------------------------- */
 const proptypes = {
   toggleProjectFilters: PropTypes.func,
@@ -9,13 +12,26 @@ const proptypes = {
 };
 
 const TitleBarSwitch = () => {
+  const dispatch = useDispatch();
+  const { projectPMFilter } = useSelector(({ Projects }) => Projects);
+
+  const onChangeValue = (value) => {
+    dispatch({ type: TOGGLE_PROJECT_FILTER, data: value });
+  };
+
   return (
     <Wrapper>
       <div className="switch">
         <label htmlFor="toggle" style={{ margin: 0 }}>
           Show all projects
         </label>
-        <input type="checkbox" className="toggle-switch" id="toggle" />
+        <input
+          type="checkbox"
+          className="toggle-switch"
+          id="toggle"
+          checked={projectPMFilter}
+          onChange={(e) => onChangeValue(e.target.checked)}
+        />
       </div>
     </Wrapper>
   );
@@ -28,7 +44,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5em;
-    margin-bottom: 1em;
+    margin-bottom: 0.6em;
   }
 
   .toggle-switch {
