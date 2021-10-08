@@ -151,6 +151,7 @@ class UserSelector extends React.Component {
 
   render() {
     const { max, label, type, disabled } = this.props;
+    console.log(this.props);
 
     return (
       <Wrapper className="tag-input" label={label}>

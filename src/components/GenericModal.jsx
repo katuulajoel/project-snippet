@@ -20,8 +20,6 @@ const GenericModal = (props) => {
   const { show, proceed, dismiss, cancel, options, modalContent, modalHeader } = props;
   let safe_options = options || {};
 
-  console.log(modalContent);
-
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {

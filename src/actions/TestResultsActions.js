@@ -24,14 +24,17 @@ import {
 } from "./utils/ActionTypes";
 
 export const createResult = (data, selectionKey) => {
+  console.log(data);
   return (dispatch) => {
     dispatch(createResultStart(data, selectionKey));
     axios
       .post(ENDPOINT_TEST_RESULTS, data)
       .then((response) => {
+        console.log(response);
         dispatch(createResultSuccess(response.data, selectionKey));
       })
       .catch((error) => {
+        console.log(error);
         dispatch(createResultFailed(error.response ? error.response.data : null, selectionKey));
       });
   };

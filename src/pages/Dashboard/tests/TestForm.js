@@ -10,6 +10,7 @@ import Icon from "../../../components/Icon";
 import UserSelector from "../../../components/UserSelector";
 import SingleSkillSelector from "../../../components/SingleSkillSelector";
 import FieldError from "../../../components/FieldError";
+import { useSelector } from "react-redux";
 
 const propTypes = {
   id: PropTypes.string,
@@ -33,6 +34,8 @@ const TestForm = ({ id, proceed, result }) => {
       : {}
   );
   const [errors, setErrors] = useState(null);
+  const users = useSelector((state) => state.User);
+  console.log(users);
 
   const [codingResults, setCodingResults] = useState(
     result
