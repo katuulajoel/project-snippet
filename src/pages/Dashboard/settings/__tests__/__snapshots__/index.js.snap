@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings index comp test Settings index component snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="sc-fujyAs kVdmRC navbar "
+  >
+    <div
+      class="title-bar"
+    >
+      <a
+        class="navbar-brand"
+        href="/dashboard"
+      >
+        Dashboard
+      </a>
+      <ul
+        class="navbar-nav ml-auto"
+      >
+        <li>
+          <div
+            class="input-group sc-eCApnc kyswBz input-search"
+          >
+            <span
+              class="input-group-prepend"
+            >
+              <span
+                class="input-group-text"
+              >
+                <i
+                  class="tg-ic-search1  "
+                />
+              </span>
+            </span>
+            <div
+              class="sc-bdnxRM lboORq"
+              data-testid="input"
+            >
+              <input
+                autocomplete="off"
+                class="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="search"
+                placeholder="Search...."
+                type="input"
+                value=""
+              />
+            </div>
+            <span
+              class="input-group-prepend"
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="sc-iCoGMd liNCSM"
+    />
+  </nav>
+  <div
+    class="sc-pNWdM ibuYVp sidebar"
+    id="sidebar"
+  >
+    <img
+      alt="company-logo"
+      src="[object Object]"
+    />
+    <ul
+      class="nav"
+    >
+      <li>
+        <a
+          href="/dashboard"
+        >
+          <span
+            class="menu-icon"
+          >
+            <i
+              class="tg-ic-outline-dashboard tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Dashboard
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/projects"
+        >
+          <span
+            class="menu-icon"
+          >
+            <i
+              class="tg-ic-baseline-folder-open tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Projects
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/payments/in/all"
+        >
+          <span
+            class="menu-icon"
+          >
+            <i
+              class="tg-ic-round-payment tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Payments
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/settings"
+        >
+          <span
+            class="menu-icon"
+          >
+            <i
+              class="tg-ic-outline-settings tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Settings
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/community"
+        >
+          <span
+            class="menu-icon"
+          >
+            <i
+              class="tg-ic-baseline-folder-open tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Community
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          data-testid="signout"
+          href="/logout"
+        >
+          <span
+            class="menu-icon"
+          >
+            <i
+              class="tg-ic-log-out tunga-ic-sz-sidebar "
+            />
+          </span>
+          <span>
+            Log Out
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="sc-jrsJWt itdHgX"
+  >
+    <div
+      class="content-card settings-card settings-container clearfix"
+    />
+  </div>
+</DocumentFragment>
+`;
