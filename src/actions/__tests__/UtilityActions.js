@@ -22,7 +22,7 @@ jest.mock("axios", () => {
   };
 });
 
-describe("skill actions tests", () => {
+describe("Utility actions tests", () => {
   beforeEach(() => {
     axios.post.mockClear();
     jest.clearAllMocks();

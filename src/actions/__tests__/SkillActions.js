@@ -72,22 +72,7 @@ describe("skill actions tests", () => {
       {
         type: GET_SKILLS_SUCCESS,
         count: 2,
-        items: [
-          {
-            id: 5,
-            name: "css",
-            primary: true,
-            slug: "css",
-            type: "language",
-          },
-          {
-            id: 4,
-            name: "tailwindcss",
-            primary: true,
-            slug: "tailwindcss",
-            type: "language",
-          },
-        ],
+        items: dummySkills,
         next: null,
         prev_selection: null,
         previous: null,
