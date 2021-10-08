@@ -19,4 +19,28 @@ describe("InviteUser comp test", () => {
 
     expect(asFragment(<InviteUser />)).toMatchSnapshot();
   });
+
+  it("Check 4 Labels render correctly on initial mount", () => {
+    const { getAllByLabelText } = render(
+      <Provider store={store}>
+        <Router>
+          <InviteUser />
+        </Router>
+      </Provider>
+    );
+
+    expect(getAllByLabelText("label")).toHaveLength(4);
+  });
+
+  it("Check User category Label does not render on initial mount", () => {
+    const { queryByText } = render(
+      <Provider store={store}>
+        <Router>
+          <InviteUser />
+        </Router>
+      </Provider>
+    );
+
+    expect(queryByText("User category")).toBeFalsy();
+  });
 });
