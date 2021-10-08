@@ -19,10 +19,12 @@ const InviteUser = () => {
   const onChangeField = (e) => {
     e.preventDefault();
 
+    const { name, value } = e.target;
+
     setUser((prev) => {
       return {
         ...prev,
-        [e.target.name]: e.target.value,
+        [name]: value,
       };
     });
   };
@@ -43,6 +45,7 @@ const InviteUser = () => {
               onChange={onChangeField}
               name="email"
               defaultValue={user.email}
+              aria-label="email-input"
               required
             />
           </Label>
@@ -52,6 +55,7 @@ const InviteUser = () => {
               onChange={onChangeField}
               name="first_name"
               value={user.first_name}
+              aria-label="first_name-input"
               required
             />
           </Label>
@@ -61,6 +65,7 @@ const InviteUser = () => {
               name="last_name"
               onChange={onChangeField}
               value={user.last_name}
+              aria-label="last_name-input"
               required
             />
           </Label>
@@ -70,6 +75,7 @@ const InviteUser = () => {
               onChange={onChangeField}
               name="type"
               value={user.type}
+              aria-label="type-input"
               required
             >
               <option value="">Select type of user</option>
