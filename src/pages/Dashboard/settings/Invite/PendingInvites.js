@@ -35,7 +35,6 @@ const PendingInvite = () => {
   };
 
   const deleteInvite = (id) => {
-    console.log("deleting", id);
     inviteActions.deleteInvite(id, "")(dispatch);
   };
 
