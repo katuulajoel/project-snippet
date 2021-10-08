@@ -6,6 +6,9 @@ import {
   FETCH_PROJECT_START,
   FETCH_PROJECT_SUCCESS,
   FETCH_PROJECT_FAILED,
+  FETCH_PROJECTS_START,
+  FETCH_PROJECTS_SUCCESS,
+  FETCH_PROJECTS_FAILED,
 } from "../utils/ActionTypes";
 
 const middlewares = [thunk];
@@ -38,7 +41,7 @@ describe("Invoice actions tests", () => {
     jest.clearAllMocks();
   });
 
-  it("should fetch projects", async () => {
+  it("should fetch project", async () => {
     axios.get.mockReturnValue(Promise.resolve({ data: { id: 1234 } }));
     const expectedActions = [
       { type: FETCH_PROJECT_START },
@@ -68,6 +71,40 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.fetchProject(123));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should fetch projects", async () => {
+    axios.get.mockReturnValue(Promise.resolve({ data: [{ id: 1234 }] }));
+    const expectedActions = [
+      { type: FETCH_PROJECTS_START },
+      {
+        type: FETCH_PROJECTS_SUCCESS,
+        data: [{ id: 1234 }],
+      },
+    ];
+
+    await store.dispatch(actions.fetchProjects({}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch FETCH_PROJECTS_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.get.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: FETCH_PROJECTS_START },
+      {
+        type: FETCH_PROJECTS_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.fetchProjects({}));
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { getInvoiceSummary } from "../../../../actions/InvoiceActions";
@@ -11,9 +10,8 @@ import { filterPaymentSummaries } from "../utils/paymentActions";
 import Icon from "../../../../components/Icon";
 import { NavActions } from "../styles";
 
-const PaymentTotals = ({ project }) => {
+const PaymentTotals = ({ type, project }) => {
   const dispatch = useDispatch();
-  let { type } = useParams();
   const { summary } = useSelector(({ Invoice }) => Invoice);
   var date = new Date();
   var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -48,7 +46,7 @@ const PaymentTotals = ({ project }) => {
       )}
       <ul>
         <li>
-          <span>Total Payments</span>
+          <span>Total {type === "in" ? "Payments" : "Payouts"}</span>
           <p>€{numberWithCommas(summary.total)}</p>
         </li>
         <li>
@@ -59,15 +57,17 @@ const PaymentTotals = ({ project }) => {
           <span>Unpaid</span>
           <p>€{numberWithCommas(summary.unpaid)}</p>
         </li>
-        <li>
-          <span>Credit Notes</span>
-          <p>
-            -€
-            {summary.credit_notes
-              ? numberWithCommas(summary.credit_notes.total)
-              : "0.00"}
-          </p>
-        </li>
+        {type === "in" && (
+          <li>
+            <span>Credit Notes</span>
+            <p>
+              -€
+              {summary.credit_notes
+                ? numberWithCommas(summary.credit_notes.total)
+                : "0.00"}
+            </p>
+          </li>
+        )}
       </ul>
     </Wrapper>
   );
@@ -75,6 +75,7 @@ const PaymentTotals = ({ project }) => {
 
 PaymentTotals.propTypes = {
   project: PropTypes.number,
+  type: PropTypes.string.isRequired,
 };
 
 PaymentTotals.defaultProps = {

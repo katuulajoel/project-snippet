@@ -24,7 +24,7 @@ const TitleBarContent = ({ match, sectionLinks }) => {
             return url ? (
               <NavLink
                 key={`title-filters-link--${i}`}
-                exact={url === "/projects" || url === "/network" ? true : false}
+                exact={url === "/projects" ? true : false}
                 to={typeof url === "function" ? url(match) : url}
                 activeClassName="active"
               >

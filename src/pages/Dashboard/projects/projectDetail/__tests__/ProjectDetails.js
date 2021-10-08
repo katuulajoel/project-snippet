@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */ // TODO:
 import React from "react";
 import renderer from "react-test-renderer";
-import ProjectPage from "../index";
+import ProjectPage from "..";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { ThemeProvider } from "styled-components";
-import theme from "../../../../theme";
-import * as actions from "../../../../actions/ProjectActions";
-import * as access from "../../../../components/utils/auth";
+import theme from "../../../../../theme";
+import * as actions from "../../../../../actions/ProjectActions";
+import * as access from "../../../../../components/utils/auth";
 
 const middlewares = [thunk];
 
@@ -24,7 +24,7 @@ const mockAppState = {
   },
   Projects: {
     isMakingRequest: {},
-    project: { project: { id: 124 } },
+    project: { id: 124 },
   },
 };
 
@@ -49,7 +49,7 @@ describe("Dashboard test", () => {
         <BrowserRouter>
           <Provider store={mockAppStore(mockAppState)}>
             <ThemeProvider theme={theme}>
-              <ProjectPage match={{ path: "/projects" }} />
+              <ProjectPage match={{ path: "/projects", params: { id: 123 } }} />
             </ThemeProvider>
           </Provider>
         </BrowserRouter>

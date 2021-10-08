@@ -19,6 +19,9 @@ const mockAppState = {
     invoice: {},
     csv: {},
   },
+  Projects: {
+    isMakingRequest: {},
+  },
 };
 
 const mockAppStore = (state) => {

@@ -224,7 +224,8 @@ Array [
         <ul>
           <li>
             <span>
-              Total Payments
+              Total 
+              Payouts
             </span>
             <p>
               €
@@ -246,15 +247,6 @@ Array [
             </span>
             <p>
               €
-              0.00
-            </p>
-          </li>
-          <li>
-            <span>
-              Credit Notes
-            </span>
-            <p>
-              -€
               0.00
             </p>
           </li>

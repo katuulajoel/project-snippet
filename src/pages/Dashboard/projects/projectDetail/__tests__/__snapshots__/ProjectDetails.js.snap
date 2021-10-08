@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard test Should match snapshot test 1`] = `null`;
+
+exports[`Dashboard test should show loading indicator when no project or requesting project 1`] = `
+<div
+  className="loading"
+  data-testid="loading"
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
+>
+  <img
+    src={Object {}}
+    style={
+      Object {
+        "width": "20px",
+      }
+    }
+  />
+   
+  
+</div>
+`;
