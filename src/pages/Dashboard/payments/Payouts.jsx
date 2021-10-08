@@ -71,7 +71,7 @@ const Payouts = (props) => {
               visibility: true,
               add: [
                 {
-                  title: "Payout",
+                  title: "Add New Payout ",
                   action: () => {}, // TODO: (@katuula) onCreateInvoice(INVOICE_TYPE_PURCHASE, props)
                 },
               ],

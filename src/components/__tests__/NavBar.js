@@ -15,6 +15,7 @@ const mockAppState = {
   Invoice: {
     search: {},
   },
+  Projects: { isMakingRequest: {} },
 };
 
 const mockAppStore = (state) => {
@@ -58,18 +59,6 @@ describe("Auth layout test", () => {
     );
     const title = container.querySelector(".navbar-brand");
     expect(title.innerHTML).toEqual("Projects");
-  });
-
-  it("should render network title", async () => {
-    const { container } = render(
-      <Provider store={mockAppStore()}>
-        <MemoryRouter initialEntries={["/network"]}>
-          <NavBar ref={{ current: "" }} />
-        </MemoryRouter>
-      </Provider>
-    );
-    const title = container.querySelector(".navbar-brand");
-    expect(title.innerHTML).toEqual("Network");
   });
 
   it("should render payments title", async () => {

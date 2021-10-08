@@ -12,7 +12,8 @@ const initialState = {
   isMakingRequest: {},
   errors: {},
   project: null,
-  projects: [],
+  projects: { results: [], next: null },
+  projectPMFilter: false,
 };
 
 describe("Auth reducers tests", () => {

@@ -5,9 +5,11 @@ import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 import SearchBox from "./SearchBox";
 import NavLinks from "./NavLinks";
+import Progress from "./Progress";
 
 function getMainPath(str) {
   const regex = /^\/([^?\\/]+)/;
@@ -17,15 +19,17 @@ function getMainPath(str) {
 const NavBar = (props, ref) => {
   const { className } = props;
   let history = useHistory();
+  const { isMakingRequest, project } = useSelector(({ Projects }) => Projects);
 
   const getNavTitle = () => {
     let title = "Dashboard";
     switch (getMainPath(history.location.pathname)) {
       case "projects":
-        title = "Projects";
-        break;
-      case "network":
-        title = "Network";
+        title = isMakingRequest.fetch ? (
+          <Progress />
+        ) : (
+          project?.title || "Projects"
+        );
         break;
       case "payments":
         title = "Payments";

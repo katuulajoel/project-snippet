@@ -76,6 +76,7 @@ const NavLinks = () => {
     <Wrapper>
       <Switch>
         {[
+          ["/projects/archived/:section", [...projectsSections]],
           ["/projects/:projectId/:section", [...projectDetailSections]],
           ["/projects", projectsSections],
           ["/payments", paymentSections],
