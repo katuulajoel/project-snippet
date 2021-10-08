@@ -1,5 +1,4 @@
 import React from "react";
-// import renderer from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
@@ -38,10 +37,6 @@ describe("GenericModal component test", () => {
     useDispatch.mockClear();
   });
 
-  it("Test GenericModal component", () => {
-    const one = 1;
-    expect(one).toEqual(1);
-  });
   it("Snapshot test for GenericModal component", () => {
     const options = {
       hideActions: false,
