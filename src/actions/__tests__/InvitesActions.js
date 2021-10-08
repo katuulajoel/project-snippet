@@ -19,6 +19,7 @@ jest.mock("axios", () => {
     get: jest.fn(),
     patch: jest.fn(),
     delete: jest.fn(),
+    request: jest.fn(),
   };
 });
 
@@ -44,6 +45,47 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.getPendingInvites());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should fetch more invites", async () => {
+    axios.get.mockReturnValue(Promise.resolve({ data: [] }));
+    const expectedActions = [
+      {
+        type: actionTypes.SET_MORE_PENDING_INVITES,
+        payload: [],
+      },
+    ];
+
+    await store.dispatch(actions.getMorePendingInvites());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should delete invite", async () => {
+    axios.delete.mockReturnValue(Promise.resolve({ data: [] }));
+    const expectedActions = [
+      {
+        type: actionTypes.DELETE_PENDING_INVITE,
+        id: 1,
+      },
+      {
+        type: actionTypes.SET_PENDING_INVITES,
+        payload: [],
+      },
+    ];
+
+    await store.dispatch(actions.deleteInvite(1));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should invite", async () => {
+    axios.request.mockReturnValue(Promise.resolve({ data: [] }));
+    const expectedActions = [];
+
+    await store.dispatch(actions.invite());
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
