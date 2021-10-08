@@ -2,12 +2,7 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import axios from "axios";
 import * as actions from "../SkillActions";
-import {
-  GET_SKILLS_START,
-  GET_SKILLS_SUCCESS,
-  GET_SKILLS_FAILED,
-  // INVALIDATE_SKILLS
-} from "../utils/ActionTypes";
+import { GET_SKILLS_START, GET_SKILLS_SUCCESS, GET_SKILLS_FAILED, INVALIDATE_SKILLS } from "../utils/ActionTypes";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -27,6 +22,23 @@ jest.mock("axios", () => {
   };
 });
 
+export const dummySkills = [
+  {
+    id: 5,
+    name: "css",
+    primary: true,
+    slug: "css",
+    type: "language",
+  },
+  {
+    id: 4,
+    name: "tailwindcss",
+    primary: true,
+    slug: "tailwindcss",
+    type: "language",
+  },
+];
+
 describe("skill actions tests", () => {
   beforeEach(() => {
     axios.post.mockClear();
@@ -39,22 +51,51 @@ describe("skill actions tests", () => {
     jest.clearAllMocks();
   });
 
-  it("should fetch skills", async () => {
-    axios.get.mockReturnValue(Promise.resolve({ data: { id: 1234 } }));
+  it("should dispatch GET_SKILLS_SUCCESS", async () => {
+    axios.get.mockReturnValue(
+      Promise.resolve({
+        data: {
+          count: 2,
+          next: null,
+          previous: null,
+          results: dummySkills,
+        },
+      })
+    );
     const expectedActions = [
-      { type: GET_SKILLS_START, filter: "react", prev_selection: "", selection: "" },
+      {
+        type: GET_SKILLS_START,
+        filter: { search: "css", type: undefined },
+        prev_selection: null,
+        selection: "6LMlpGnA",
+      },
       {
         type: GET_SKILLS_SUCCESS,
-        count: undefined,
-        items: undefined,
-        next: undefined,
-        prev_selection: "",
-        previous: undefined,
-        selection: "",
+        count: 2,
+        items: [
+          {
+            id: 5,
+            name: "css",
+            primary: true,
+            slug: "css",
+            type: "language",
+          },
+          {
+            id: 4,
+            name: "tailwindcss",
+            primary: true,
+            slug: "tailwindcss",
+            type: "language",
+          },
+        ],
+        next: null,
+        prev_selection: null,
+        previous: null,
+        selection: "6LMlpGnA",
       },
     ];
 
-    await store.dispatch(actions.getSkills("react", "", ""));
+    await store.dispatch(actions.getSkills({ search: "css", type: undefined }, "6LMlpGnA", null));
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
@@ -67,10 +108,9 @@ describe("skill actions tests", () => {
 
     const expectedActions = [
       {
-        filter: "",
+        type: GET_SKILLS_START,
         prev_selection: undefined,
         selection: undefined,
-        type: GET_SKILLS_START,
       },
       {
         error: null,
@@ -80,7 +120,19 @@ describe("skill actions tests", () => {
       },
     ];
 
-    await store.dispatch(actions.getSkills(""));
+    await store.dispatch(actions.getSkills());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch INVALIDATE_SKILLS", async () => {
+    const expectedActions = [
+      {
+        type: INVALIDATE_SKILLS,
+      },
+    ];
+
+    await store.dispatch(actions.invalidateSkills());
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

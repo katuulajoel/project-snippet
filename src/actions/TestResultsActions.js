@@ -32,7 +32,6 @@ export const createResult = (data, selectionKey) => {
         dispatch(createResultSuccess(response.data, selectionKey));
       })
       .catch((error) => {
-        console.log(error);
         dispatch(createResultFailed(error.response ? error.response.data : null, selectionKey));
       });
   };

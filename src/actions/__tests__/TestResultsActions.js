@@ -18,7 +18,7 @@ import {
   // LIST_MORE_RESULTS_START,
   // LIST_MORE_RESULTS_SUCCESS,
   // LIST_MORE_RESULTS_FAILED,
-  // SET_FILTERS,
+  SET_FILTERS,
 } from "../utils/ActionTypes";
 import { dummyResult } from "../../pages/Dashboard/tests/__tests__/TestForm";
 import { dummyResults } from "../../pages/Dashboard/tests/__tests__/Results";
@@ -136,6 +136,7 @@ describe("test actions tests", () => {
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
+
   it("should dispatch UPDATE_RESULT_SUCCESS", async () => {
     axios.patch.mockReturnValue(Promise.resolve({ data: dummyResult }));
     const expectedActions = [
@@ -173,6 +174,7 @@ describe("test actions tests", () => {
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
+
   it("should dispatch DELETE_RESULT_SUCCESS", async () => {
     axios.delete.mockReturnValue(
       Promise.resolve({
@@ -208,6 +210,21 @@ describe("test actions tests", () => {
     ];
 
     await store.dispatch(actions.deleteResult(null));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch SET_FILTERS", async () => {
+    const expectedActions = [
+      {
+        type: SET_FILTERS,
+        filters: {
+          page_size: 20,
+        },
+      },
+    ];
+
+    await store.dispatch(actions.setSelectedFilters({ page_size: 20 }));
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
