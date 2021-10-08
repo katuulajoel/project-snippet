@@ -57,6 +57,7 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
               data-testid="input"
             >
               <input
+                aria-label="email-input"
                 class="form-control"
                 data-testid=""
                 id=""
@@ -97,6 +98,7 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
               data-testid="input"
             >
               <input
+                aria-label="first_name-input"
                 class="form-control"
                 data-testid=""
                 id=""
@@ -137,6 +139,7 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
               data-testid="input"
             >
               <input
+                aria-label="last_name-input"
                 class="form-control"
                 data-testid=""
                 id=""
@@ -173,6 +176,7 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
               </span>
             </label>
             <select
+              aria-label="type-input"
               class="form-control"
               name="type"
               required=""
