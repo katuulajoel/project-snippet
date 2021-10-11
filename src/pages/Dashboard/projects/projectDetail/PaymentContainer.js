@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import Icon from "../../../../components/Icon";
 import SectionNav from "../../../../components/SectionNav";
 import { isAdminOrPM, isDev } from "../../../../components/utils/auth";
@@ -13,10 +14,24 @@ import { downloadCsv } from "../../payments/utils/paymentActions";
 
 const PaymentContainer = ({ project }) => {
   let { pathname } = useLocation();
+  const dispatch = useDispatch();
 
   const [createAction, setcreateAction] = useState(null);
   let filter = pathname.split("/")[5];
   let type = pathname.split("/")[4];
+
+  const { csv } = useSelector(({ Invoice }) => Invoice);
+
+  useEffect(() => {
+    if (csv) {
+      var fileDownload = require("js-file-download");
+      fileDownload(
+        csv,
+        `${filter?.toUpperCase()} ${type === "in" ? "Payments" : "Payouts"}.csv`
+      );
+      dispatch({ type: "CLEAR_CSV" });
+    }
+  }, [csv]);
 
   return (
     <>
@@ -112,7 +127,11 @@ const PaymentContainer = ({ project }) => {
                 href="#"
                 className="add-btn"
                 onClick={() =>
-                  downloadCsv(filter, type === "in" ? "Payments" : "Payouts")
+                  downloadCsv(
+                    filter,
+                    type === "payments" ? "Payments" : "Payouts",
+                    project.id
+                  )
                 }
               >
                 <Icon name="file-upload-outline" size="sm" /> Export
