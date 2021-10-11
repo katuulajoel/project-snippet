@@ -3,7 +3,10 @@ import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { addPropsToChildren } from "../../../components/utils/children";
 import Progress from "../../../components/Progress";
-import { fetchProjects } from "../../../actions/ProjectActions";
+import {
+  fetchProjects,
+  fetchMoreProjects,
+} from "../../../actions/ProjectActions";
 import SectionNav from "../../../components/SectionNav";
 import { isPM } from "../../../components/utils/auth";
 
@@ -16,9 +19,10 @@ const ProjectListContainer = (props) => {
     },
   } = props;
   const dispatch = useDispatch();
-  const { isMakingRequest, projectPMFilter } = useSelector(
+  const { isMakingRequest, projectPMFilter, projects } = useSelector(
     ({ Projects }) => Projects
   );
+  const { user } = useSelector(({ Auth }) => Auth);
 
   const getProjectFilters = (filter) => {
     switch (filter) {
@@ -42,8 +46,10 @@ const ProjectListContainer = (props) => {
   };
 
   useEffect(() => {
-    getList();
-  }, [projectPMFilter, filter, type]);
+    if (user.id) {
+      getList();
+    }
+  }, [projectPMFilter, filter, type, user]);
 
   const getList = () => {
     dispatch(
@@ -56,7 +62,9 @@ const ProjectListContainer = (props) => {
 
   const renderChildren = () => {
     return addPropsToChildren(children, {
-      onLoadMore: () => {}, // TODO: @(katuula) Load more projects
+      onLoadMore: () => {
+        dispatch(fetchMoreProjects(projects.next));
+      },
       ...getProjectFilters(filter),
     });
   };
