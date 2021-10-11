@@ -46,7 +46,7 @@ export function openModal({
   return openGenericModal(
     body,
     {
-      hideActions: hideActions,
+      hideActions,
       mustRespond: !canClose,
       title,
       ...(options || {}),

@@ -18,7 +18,7 @@ const Header = (props) => (
   <ModalHeader
     {...props}
     style={{ paddingBottom: "8px" }}
-    options={props.title}
+    options={{ title: props.title }}
   />
 );
 
@@ -65,7 +65,7 @@ export function approvePayout(invoices) {
   });
 }
 
-export function downloadCsv(filter, type) {
+export function downloadCsv(filter, type, project = null) {
   openModal({
     body: <DateRangeForm id={`export-form`} />,
     options: {
@@ -80,6 +80,9 @@ export function downloadCsv(filter, type) {
   }).then((data) => {
     if (data) {
       let params = {};
+      if (project) {
+        params["project"] = project;
+      }
 
       switch (filter) {
         case "archived":

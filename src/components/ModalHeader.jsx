@@ -32,6 +32,7 @@ export const HeaderActions = styled.div`
   margin: 0 0 0 auto;
   button {
     height: fit-content;
+    padding: 16px;
 
     i {
       color: #8f9bb3;
