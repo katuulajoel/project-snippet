@@ -7,13 +7,15 @@
     "__SERVER__": true,
     "__BACKEND_ROOT_URL__": true,
     "__PRERELEASE__": true
-},
-  "setupFilesAfterEnv": ["<rootDir>/jest_config/setupTests.js"],
+  },
+  "setupFilesAfterEnv": [
+    "<rootDir>/jest_config/setupTests.js"
+  ],
   "collectCoverageFrom": [
-    "src/**/*.js", 
+    "src/**/*.js",
     "src/**/*.jsx",
-    "!src/store.js", 
-    "!src/middleware/logger.js", 
+    "!src/store.js",
+    "!src/middleware/logger.js",
     "!src/enhancers/monitorReducer.js"
   ],
   "coverageThreshold": {
@@ -24,7 +26,10 @@
       "statements": 60
     }
   },
-  "moduleDirectories": ["node_modules", "src"],
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ],
   "transform": {
     "^.+\\.(js|jsx)$": "babel-jest"
   },

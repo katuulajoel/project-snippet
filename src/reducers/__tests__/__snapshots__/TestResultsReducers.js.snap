@@ -6,7 +6,7 @@ Array [
     className="table-responsive"
   >
     <table
-      className="sc-hKFxyN sc-iemWCZ vVjoV hXktGr table"
+      className="sc-hKFxyN sc-dIvrsQ vVjoV iZHfHH table"
       role="table"
     >
       <thead>
@@ -280,13 +280,13 @@ Array [
     </table>
   </div>,
   <div
-    className="sc-dIvrsQ boblIg"
+    className="sc-hHEiqL hRqEZi"
   >
     <span>
       Showing
     </span>
     <div
-      className="sc-hHEiqL fEdfPV"
+      className="sc-dlMDgC gDbdeh"
     >
       <select
         className="form-control form-control "

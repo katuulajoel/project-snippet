@@ -6,7 +6,7 @@ Array [
     className="table-responsive"
   >
     <table
-      className="sc-kEqXSa sc-dlMDgC bukXYq dQprQt table"
+      className="sc-jrsJWt sc-kfYoZR jcioRd cWyMWD table"
       role="table"
     >
       <thead>
@@ -164,7 +164,7 @@ Array [
           >
             <div>
               <div
-                className="sc-iCoGMd daNtNP avatar-dash avatar-initials"
+                className="sc-iqAclL jcGUvW avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -280,13 +280,13 @@ Array [
     </table>
   </div>,
   <div
-    className="sc-kfYoZR dALDvY"
+    className="sc-fKgJPI bBDNta"
   >
     <span>
       Showing
     </span>
     <div
-      className="sc-fKgJPI htuhKB"
+      className="sc-bCwfaz fPySMr"
     >
       <select
         className="form-control form-control "
@@ -388,7 +388,7 @@ exports[`Test list container Should match snapshot test 1`] = `
         Results
       </h3>
       <div
-        className="sc-iwajpm fJdaXq"
+        className="sc-cxNHIi kqKfJf"
         style={
           Object {
             "float": "right",

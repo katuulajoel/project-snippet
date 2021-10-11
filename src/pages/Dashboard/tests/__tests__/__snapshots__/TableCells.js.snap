@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard test Should match snapshot test 1`] = `
+<div
+  className="result"
+>
+  <span
+    className="failed"
+  >
+    100
+  </span>
+</div>
+`;
