@@ -1,25 +1,37 @@
-/* eslint-disable no-unused-vars */
 import PropTypes from "prop-types";
-import React, { useState } from "react";
-// eslint-disable-next-line no-unused-vars
+import React, { useState, useEffect } from "react";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
-import Icon from "../../../components/Icon";
-import SectionNav from "../../../components/SectionNav";
-import { isAdminOrPM, isDev } from "../../../components/utils/auth";
-import PaymentTotals from "../payments/components/PaymentTotals";
-import InvoiceListContainer from "../payments/InvoiceListContainer";
-import Payments from "../payments/Payments";
-import Payouts from "../payments/Payouts";
-import { NavActions } from "../payments/styles";
-import { downloadCsv } from "../payments/utils/paymentActions";
+import { useSelector, useDispatch } from "react-redux";
+import Icon from "../../../../components/Icon";
+import SectionNav from "../../../../components/SectionNav";
+import { isAdminOrPM, isDev } from "../../../../components/utils/auth";
+import PaymentTotals from "../../payments/components/PaymentTotals";
+import InvoiceListContainer from "../../payments/InvoiceListContainer";
+import Payments from "../../payments/Payments";
+import Payouts from "../../payments/Payouts";
+import { NavActions } from "../../payments/styles";
+import { downloadCsv } from "../../payments/utils/paymentActions";
 
 const PaymentContainer = ({ project }) => {
   let { pathname } = useLocation();
+  const dispatch = useDispatch();
 
-  // eslint-disable-next-line no-unused-vars
   const [createAction, setcreateAction] = useState(null);
   let filter = pathname.split("/")[5];
   let type = pathname.split("/")[4];
+
+  const { csv } = useSelector(({ Invoice }) => Invoice);
+
+  useEffect(() => {
+    if (csv) {
+      var fileDownload = require("js-file-download");
+      fileDownload(
+        csv,
+        `${filter?.toUpperCase()} ${type === "in" ? "Payments" : "Payouts"}.csv`
+      );
+      dispatch({ type: "CLEAR_CSV" });
+    }
+  }, [csv]);
 
   return (
     <>
@@ -42,7 +54,7 @@ const PaymentContainer = ({ project }) => {
               <NavActions>
                 {(createAction.add ? createAction.add : []).map((item, idx) => {
                   return (
-                    <>
+                    <span key={idx}>
                       {idx > 0 ? <span className="divider"> /</span> : null}
                       <a
                         key={idx}
@@ -53,7 +65,7 @@ const PaymentContainer = ({ project }) => {
                         {idx === 0 ? <Icon name="round-add" size="sm" /> : null}{" "}
                         {item.title}
                       </a>
-                    </>
+                    </span>
                   );
                 })}
               </NavActions>
@@ -62,7 +74,10 @@ const PaymentContainer = ({ project }) => {
         />
       )}
 
-      <PaymentTotals project={project.id} />
+      <PaymentTotals
+        type={type === "payments" ? "in" : "out"}
+        project={project.id}
+      />
 
       <SectionNav
         links={[
@@ -112,7 +127,11 @@ const PaymentContainer = ({ project }) => {
                 href="#"
                 className="add-btn"
                 onClick={() =>
-                  downloadCsv(filter, type === "in" ? "Payments" : "Payouts")
+                  downloadCsv(
+                    filter,
+                    type === "payments" ? "Payments" : "Payouts",
+                    project.id
+                  )
                 }
               >
                 <Icon name="file-upload-outline" size="sm" /> Export
@@ -130,7 +149,7 @@ const PaymentContainer = ({ project }) => {
               <InvoiceListContainer
                 {...props}
                 type={type === "payments" ? "in" : "out"}
-                project={project.id}
+                project={project}
               >
                 {type === "payments" ? (
                   <Payments {...props} setcreateAction={setcreateAction} />

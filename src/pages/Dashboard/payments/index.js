@@ -37,7 +37,7 @@ export default function PaymentsPage() {
   return (
     <DashboardLayout>
       <Wrapper>
-        <PaymentTotals />
+        <PaymentTotals type={type} />
         <SectionNav
           links={[
             ...(isDev()

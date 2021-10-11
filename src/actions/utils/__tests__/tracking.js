@@ -108,6 +108,6 @@ describe('Tracking utils tests', () => {
     expect(getScopeUrl('2w')).toEqual('task');
     expect(getScopeUrl('6m')).toEqual('project');
     expect(getScopeUrl('permanent')).toEqual('ongoing');
-    expect(getScopeUrl('')).toEqual('null');
+    expect(getScopeUrl('')).toEqual(null);
   });
 });

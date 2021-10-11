@@ -5,7 +5,7 @@ function invites(state = {}, action) {
     case actionTypes.SET_PENDING_INVITES:
       return { ...(action.payload || {}) };
     case actionTypes.SET_MORE_PENDING_INVITES:
-      return { ...state, invites: [...state.invites, ...action.items] };
+      return { ...state, results: [...state.results, ...action.payload] };
     case actionTypes.DELETE_PENDING_INVITE:
       return {
         ...state,

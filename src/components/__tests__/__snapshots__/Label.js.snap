@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label test Snapshot test for Label component 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="label"
+    class="row"
+  >
+    <div
+      class="col-sm-12"
+    >
+      <div
+        class="form-group"
+      >
+        <label
+          class="control-label"
+        >
+          <span
+            class="label-style"
+          >
+            *
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

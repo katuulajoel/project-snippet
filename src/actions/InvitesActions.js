@@ -9,9 +9,7 @@ export function getPendingInvites() {
       .then(function (response) {
         dispatch(setPendingInvites(response.data));
       })
-      .catch(function (err) {
-        console.log(err);
-      });
+      .catch(function () {});
   };
 }
 
@@ -36,9 +34,7 @@ export function getMorePendingInvites(url) {
       .then(function (response) {
         dispatch(setPendingInvites(response.data, true));
       })
-      .catch(function (err) {
-        console.log(err);
-      });
+      .catch(function () {});
   };
 }
 
@@ -50,9 +46,7 @@ export function deleteInvite(id) {
       .then(function () {
         dispatch(getPendingInvites());
       })
-      .catch(function (err) {
-        console.log(err);
-      });
+      .catch(function () {});
   };
 }
 
@@ -63,7 +57,7 @@ export function removeInvite(id) {
   };
 }
 
-export function invite(data, selectionKey, type = null) {
+export function invite(data, type = null) {
   return () => {
     let request_method = type ? "patch" : "post";
     axios
@@ -74,11 +68,7 @@ export function invite(data, selectionKey, type = null) {
         method: request_method,
         data,
       })
-      .then(function (response) {
-        console.log(response.data, selectionKey);
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
+      .then(function () {})
+      .catch(function () {});
   };
 }

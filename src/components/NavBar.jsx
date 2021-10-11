@@ -14,6 +14,8 @@ import Icon from '../components/Icon';
 import { openModal } from './utils/modals';
 import TestForm from '../pages/Dashboard/tests/TestForm';
 import { createResult } from '../actions/TestResultsActions';
+import { useSelector } from 'react-redux';
+import Progress from './Progress';
 
 function getMainPath(str) {
   const regex = /^\/([^?\\/]+)/;
@@ -24,12 +26,13 @@ const NavBar = (props, ref) => {
   const { className } = props;
   let history = useHistory();
   const dispatch = useDispatch();
+  const { isMakingRequest, project } = useSelector(({ Projects }) => Projects);
 
   const getNavTitle = () => {
     let title = 'Dashboard';
     switch (getMainPath(history.location.pathname)) {
       case 'projects':
-        title = 'Projects';
+        title = isMakingRequest.fetch ? <Progress /> : project?.title || 'Projects';
         break;
       case 'network':
         title = 'Network';

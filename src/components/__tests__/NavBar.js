@@ -15,6 +15,7 @@ const mockAppState = {
   Invoice: {
     search: {},
   },
+  Projects: { isMakingRequest: {} },
 };
 
 const mockAppStore = (state) => {

@@ -36,6 +36,7 @@ const MainContent = withTheme(styled.div`
   margin-top: ${(props) => props.navHeight}px;
   height: calc(100vh - ${(props) => props.navHeight * 0.12562814070351758}vh);
   overflow: auto;
+  background-color: #f8f8f8;
   ${(props) => props?.theme?.mixins?.scrollbar}
 `);
 

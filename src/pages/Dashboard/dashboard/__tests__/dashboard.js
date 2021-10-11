@@ -32,6 +32,9 @@ describe("Dashboard test", () => {
               Invoice: {
                 search: {},
               },
+              Projects: {
+                isMakingRequest: {},
+              },
             })}
           >
             <ThemeProvider theme={theme}>
