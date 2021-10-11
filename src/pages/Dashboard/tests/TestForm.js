@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { FormGroup } from "reactstrap";
-import styled from "styled-components";
-import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { FormGroup } from 'reactstrap';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { StyledForm } from "../styles";
-import Input from "../../../components/Input";
-import Select from "../../../components/Select";
-import Icon from "../../../components/Icon";
-import UserSelector from "../../../components/UserSelector";
-import SingleSkillSelector from "../../../components/SingleSkillSelector";
-import FieldError from "../../../components/FieldError";
-import { listUsers } from "../../../actions/UserActions";
-import { getSkills } from "../../../actions/SkillActions";
+import { StyledForm } from '../styles';
+import Input from '../../../components/Input';
+import Select from '../../../components/Select';
+import Icon from '../../../components/Icon';
+import UserSelector from '../../../components/UserSelector';
+import SingleSkillSelector from '../../../components/SingleSkillSelector';
+import FieldError from '../../../components/FieldError';
+import { listUsers } from '../../../actions/UserActions';
+import { getSkills } from '../../../actions/SkillActions';
 
 const propTypes = {
   id: PropTypes.string,
@@ -50,7 +50,7 @@ const TestForm = ({ id, proceed, result }) => {
             canDelete: true,
           };
         })
-      : [{ skill: null, score: "", canDelete: false }]
+      : [{ skill: null, score: '', canDelete: false }]
   );
 
   useEffect(() => {
@@ -76,47 +76,47 @@ const TestForm = ({ id, proceed, result }) => {
     let noCodingTest = true;
 
     codingResults.forEach((item) => {
-      if (!(!item.skill && item.score === "")) {
+      if (!(!item.skill && item.score === '')) {
         if (!item.skill) {
-          error["coding"] = "You need to select Skill";
+          error['coding'] = 'You need to select Skill';
         }
 
-        if (item.score === "") {
-          error["coding"] = "You need to add Score";
+        if (item.score === '') {
+          error['coding'] = 'You need to add Score';
         }
       }
 
-      if (!error.coding && (item.skill || item.score !== "")) {
+      if (!error.coding && (item.skill || item.score !== '')) {
         noCodingTest = false;
       }
     });
 
     if (!error.coding && noCodingTest) {
-      error["coding"] = "Add atleast one test";
+      error['coding'] = 'Add atleast one test';
     }
 
     if (!testResults.user) {
-      error["user"] = "This field is required";
+      error['user'] = 'This field is required';
     }
 
     if (!testResults.code_of_conduct) {
-      error["code_of_conduct"] = "This field is required";
+      error['code_of_conduct'] = 'This field is required';
     }
 
     if (!testResults.mbti_profile) {
-      error["mbti_profile"] = "This field is required";
+      error['mbti_profile'] = 'This field is required';
     }
 
     if (!testResults.iq_test) {
-      error["iq_test"] = "This field is required";
+      error['iq_test'] = 'This field is required';
     }
 
     if (!testResults.comms_check) {
-      error["comms_check"] = "This field is required";
+      error['comms_check'] = 'This field is required';
     }
 
     if (!testResults.sa_test) {
-      error["sa_test"] = "This field is required";
+      error['sa_test'] = 'This field is required';
     }
 
     if (Object.keys(error).length > 0) {
@@ -125,9 +125,9 @@ const TestForm = ({ id, proceed, result }) => {
     }
 
     const data = testResults;
-    data["coding_tests"] = codingResults
+    data['coding_tests'] = codingResults
       .filter((item) => {
-        if (!item.skill && item.score === "") {
+        if (!item.skill && item.score === '') {
           return false;
         } else {
           return true;
@@ -152,9 +152,9 @@ const TestForm = ({ id, proceed, result }) => {
         score: newCodingResults[0].score,
         canDelete: true,
       };
-      setCodingResults([...newCodingResults, { skill: null, score: "", canDelete: codingResults.length >= 1 }]);
+      setCodingResults([...newCodingResults, { skill: null, score: '', canDelete: codingResults.length >= 1 }]);
     } else {
-      setCodingResults([...codingResults, { skill: null, score: "", canDelete: codingResults.length >= 1 }]);
+      setCodingResults([...codingResults, { skill: null, score: '', canDelete: codingResults.length >= 1 }]);
     }
   };
 
@@ -181,14 +181,14 @@ const TestForm = ({ id, proceed, result }) => {
   };
 
   const userRemoved = () => {
-    settestResults({ ...testResults, email: "" });
+    settestResults({ ...testResults, email: '' });
   };
 
   const setScore = (idx, skill, score) => {
     let canDeleteCondition = false;
     const newCodingResults = [...codingResults];
 
-    if (skill || score !== "") {
+    if (skill || score !== '') {
       canDeleteCondition = true;
     }
 
@@ -209,68 +209,68 @@ const TestForm = ({ id, proceed, result }) => {
 
   const mbti_profiles = [
     {
-      display_name: "ESTJ",
-      value: "estj",
+      display_name: 'ESTJ',
+      value: 'estj',
     },
     {
-      display_name: "ISTJ",
-      value: "istj",
+      display_name: 'ISTJ',
+      value: 'istj',
     },
     {
-      display_name: "ENTJ",
-      value: "entj",
+      display_name: 'ENTJ',
+      value: 'entj',
     },
     {
-      display_name: "INTJ",
-      value: "intj",
+      display_name: 'INTJ',
+      value: 'intj',
     },
     {
-      display_name: "ESTP",
-      value: "estp",
+      display_name: 'ESTP',
+      value: 'estp',
     },
     {
-      display_name: "ISTP",
-      value: "istp",
+      display_name: 'ISTP',
+      value: 'istp',
     },
     {
-      display_name: "ENTP",
-      value: "entp",
+      display_name: 'ENTP',
+      value: 'entp',
     },
     {
-      display_name: "INTP",
-      value: "intp",
+      display_name: 'INTP',
+      value: 'intp',
     },
     {
-      display_name: "ESFJ",
-      value: "esfj",
+      display_name: 'ESFJ',
+      value: 'esfj',
     },
     {
-      display_name: "ISFJ",
-      value: "isfj",
+      display_name: 'ISFJ',
+      value: 'isfj',
     },
     {
-      display_name: "ENFJ",
-      value: "enfj",
+      display_name: 'ENFJ',
+      value: 'enfj',
     },
     {
-      display_name: "INFJ",
-      value: "infj",
+      display_name: 'INFJ',
+      value: 'infj',
     },
     {
-      display_name: "ESFP",
-      value: "esfp",
+      display_name: 'ESFP',
+      value: 'esfp',
     },
     {
-      display_name: "ISFP",
-      value: "isfp",
+      display_name: 'ISFP',
+      value: 'isfp',
     },
     {
-      display_name: "ENFP",
-      value: "enfp",
+      display_name: 'ENFP',
+      value: 'enfp',
     },
     {
-      display_name: "INFP",
-      value: "infp",
+      display_name: 'INFP',
+      value: 'infp',
     },
   ];
 
@@ -378,7 +378,7 @@ const TestForm = ({ id, proceed, result }) => {
               <Select
                 placeholder="Comms Check"
                 selected={testResults.comms_check}
-                onChange={(value) => onChangeValue("comms_check", value)}
+                onChange={(value) => onChangeValue('comms_check', value)}
               >
                 <option value="very_good">Very good</option>
                 <option value="good">Good</option>
@@ -402,7 +402,7 @@ const TestForm = ({ id, proceed, result }) => {
               <Select
                 placeholder="Profiles"
                 selected={testResults.mbti_profile}
-                onChange={(value) => onChangeValue("mbti_profile", value)}
+                onChange={(value) => onChangeValue('mbti_profile', value)}
               >
                 {mbti_profiles.map((item, index) => (
                   <option value={item.value} key={index}>
@@ -429,7 +429,7 @@ const TestForm = ({ id, proceed, result }) => {
               type="number"
               min="0"
               value={testResults.iq_test}
-              onChange={(e) => onChangeField("iq_test", e)}
+              onChange={(e) => onChangeField('iq_test', e)}
               placeholder="Enter score"
               step={1}
             />
@@ -449,7 +449,7 @@ const TestForm = ({ id, proceed, result }) => {
               min="0"
               max="100"
               value={testResults.sa_test}
-              onChange={(e) => onChangeField("sa_test", e)}
+              onChange={(e) => onChangeField('sa_test', e)}
               placeholder="SA test"
               step={1}
             />
@@ -471,7 +471,7 @@ const TestForm = ({ id, proceed, result }) => {
               min="0"
               max="100"
               value={testResults.code_of_conduct}
-              onChange={(e) => onChangeField("code_of_conduct", e)}
+              onChange={(e) => onChangeField('code_of_conduct', e)}
               placeholder="Enter score"
               step={1}
             />
