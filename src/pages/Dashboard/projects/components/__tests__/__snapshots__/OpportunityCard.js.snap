@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout test Snapshot test for Login component 1`] = `
+<div
+  className="sc-dlnjwi sc-hKFxyN jPrFkD fZrocc"
+>
+  <a
+    className="project-card inactive"
+    href="/projects/1"
+    onClick={[Function]}
+  >
+    <h4>
+      Test Project (updated)
+    </h4>
+    <div>
+      <p
+        className="time"
+      >
+        <i
+          className="tg-ic-clock-outline tunga-ic-sz-sm "
+        />
+        11 Oct 2021
+      </p>
+      <div
+        className="d-flex project__card-about"
+      >
+        <div>
+          <p>
+            Sent
+          </p>
+          <h4
+            className="text-left"
+          >
+            1
+          </h4>
+        </div>
+        <div>
+          <p>
+            Interested
+          </p>
+          <h4
+            className="text-right"
+          >
+            0
+          </h4>
+        </div>
+      </div>
+    </div>
+  </a>
+   
+</div>
+`;

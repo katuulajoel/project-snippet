@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth layout test Snapshot test for Login component 1`] = `
+<div>
+  <div
+    className="card-list row"
+  >
+    <div
+      className="col-sm-3"
+    >
+      <div
+        className="sc-dlnjwi jPrFkD"
+      >
+        <a
+          className="project-card inactive"
+          href="/projects/1"
+          onClick={[Function]}
+        >
+          <div
+            className="card-title"
+          >
+            Test Project (updated)
+          </div>
+          <div
+            className="next-deadline"
+          >
+            <span>
+              <i
+                className="tg-ic-clock-outline tunga-ic-sz-sm "
+              />
+               Next deadline
+            </span>
+            <p>
+              28th Mar 2020
+               - Project Deadline
+            </p>
+          </div>
+          <div
+            className="group-avatars-container"
+          >
+            <div
+              className="sc-bdnxRM eNsiXn initial_group_avatar active-project avatar-initials"
+            >
+              <div
+                className="avatar initial_group_avatar active-project avatar-initials"
+                style={Object {}}
+              >
+                Tu
+              </div>
+            </div>
+            <button
+              className="btn btn-icon sc-gtsrHT fvXHXw group_avatars-cta  "
+              form={null}
+              type="button"
+            >
+              <i
+                className="tg-ic-dots-horizontal tunga-ic-sz-sm "
+              />
+            </button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
