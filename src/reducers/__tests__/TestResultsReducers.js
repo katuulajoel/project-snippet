@@ -1,4 +1,4 @@
-import reducer from "../TestResultsReducers";
+import reducer from '../TestResultsReducers';
 import {
   CREATE_RESULT_START,
   CREATE_RESULT_SUCCESS,
@@ -15,9 +15,9 @@ import {
   DELETE_RESULT_SUCCESS,
   DELETE_RESULT_FAILED,
   SET_FILTERS,
-} from "../../actions/utils/ActionTypes";
-import { dummyResult } from "../../pages/Dashboard/tests/__tests__/TestForm";
-import { dummyResults } from "../../pages/Dashboard/tests/__tests__/Results";
+} from '../../actions/utils/ActionTypes';
+import { dummyResult } from '../../pages/Dashboard/tests/__tests__/TestForm';
+import { dummyResults } from '../../pages/Dashboard/tests/__tests__/Results';
 
 const initialState = {
   isFetching: {},
@@ -31,12 +31,12 @@ const initialState = {
   selectedFilters: [],
 };
 
-describe("Skill reducers tests", () => {
-  it("returns the initial state", () => {
+describe('Skill reducers tests', () => {
+  it('returns the initial state', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
 
-  it("handles CREATE_RESULT_START requests", () => {
+  it('handles CREATE_RESULT_START requests', () => {
     expect(reducer(initialState, { type: CREATE_RESULT_START })).toEqual({
       ...initialState,
       isSaved: {
@@ -48,7 +48,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles CREATE_RESULT_SUCCESS dispatches", () => {
+  it('handles CREATE_RESULT_SUCCESS dispatches', () => {
     expect(reducer(initialState, { type: CREATE_RESULT_SUCCESS, data: dummyResult })).toEqual({
       ...initialState,
       isSaved: {
@@ -63,7 +63,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles CREATE_RESULT_FAILED dispatches", () => {
+  it('handles CREATE_RESULT_FAILED dispatches', () => {
     expect(reducer(initialState, { type: CREATE_RESULT_FAILED, data: {} })).toEqual({
       ...initialState,
       isSaved: {
@@ -75,7 +75,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles FETCH_RESULT_START dispatches", () => {
+  it('handles FETCH_RESULT_START dispatches', () => {
     expect(reducer(initialState, { type: FETCH_RESULT_START })).toEqual({
       ...initialState,
       isFetching: {
@@ -84,7 +84,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles FETCH_RESULT_SUCCESS dispatches", () => {
+  it('handles FETCH_RESULT_SUCCESS dispatches', () => {
     expect(reducer(initialState, { type: FETCH_RESULT_SUCCESS, items: dummyResults })).toEqual({
       ...initialState,
       isFetching: {
@@ -97,7 +97,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles FETCH_RESULT_FAILED dispatches", () => {
+  it('handles FETCH_RESULT_FAILED dispatches', () => {
     expect(reducer(initialState, { type: FETCH_RESULT_FAILED })).toEqual({
       ...initialState,
       isFetching: {
@@ -109,7 +109,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles UPDATE_RESULT_START dispatches", () => {
+  it('handles UPDATE_RESULT_START dispatches', () => {
     expect(reducer(initialState, { type: UPDATE_RESULT_START })).toEqual({
       ...initialState,
       isSaving: {
@@ -118,7 +118,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles UPDATE_RESULT_SUCCESS dispatches", () => {
+  it('handles UPDATE_RESULT_SUCCESS dispatches', () => {
     expect(reducer(initialState, { type: UPDATE_RESULT_SUCCESS, data: dummyResult })).toEqual({
       ...initialState,
       isSaving: {
@@ -127,7 +127,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles UPDATE_RESULT_FAILED dispatches", () => {
+  it('handles UPDATE_RESULT_FAILED dispatches', () => {
     expect(reducer(initialState, { type: UPDATE_RESULT_FAILED })).toEqual({
       ...initialState,
       errors: {
@@ -139,7 +139,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles LIST_MORE_RESULTS_SUCCESS dispatches", () => {
+  it('handles LIST_MORE_RESULTS_SUCCESS dispatches', () => {
     expect(reducer(initialState, { type: LIST_MORE_RESULTS_SUCCESS, items: dummyResults })).toEqual({
       ...initialState,
       previous: {
@@ -154,7 +154,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles LIST_MORE_RESULTS_FAILED dispatches", () => {
+  it('handles LIST_MORE_RESULTS_FAILED dispatches', () => {
     expect(reducer(initialState, { type: LIST_MORE_RESULTS_FAILED })).toEqual({
       ...initialState,
       count: {
@@ -163,7 +163,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles DELETE_RESULT_START dispatches", () => {
+  it('handles DELETE_RESULT_START dispatches', () => {
     expect(reducer(initialState, { type: DELETE_RESULT_START, data: { id: 123 } })).toEqual({
       ...initialState,
       isSaving: {
@@ -172,7 +172,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles DELETE_RESULT_SUCCESS dispatches", () => {
+  it('handles DELETE_RESULT_SUCCESS dispatches', () => {
     expect(reducer(initialState, { type: DELETE_RESULT_SUCCESS, data: { id: 123 } })).toEqual({
       ...initialState,
       isSaving: {
@@ -184,7 +184,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles DELETE_RESULT_FAILED dispatches", () => {
+  it('handles DELETE_RESULT_FAILED dispatches', () => {
     expect(reducer(initialState, { type: DELETE_RESULT_FAILED })).toEqual({
       ...initialState,
       errors: {
@@ -196,11 +196,11 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles SET_FILTERS dispatches", () => {
-    expect(reducer(initialState, { type: SET_FILTERS, filters: { search: "" } })).toEqual({
+  it('handles SET_FILTERS dispatches', () => {
+    expect(reducer(initialState, { type: SET_FILTERS, filters: { search: '' } })).toEqual({
       ...initialState,
       selectedFilters: {
-        search: "",
+        search: '',
       },
     });
   });

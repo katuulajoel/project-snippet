@@ -1,23 +1,23 @@
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
-import PropTypes from "prop-types";
-import React, { forwardRef } from "react";
-import { Link, useHistory } from "react-router-dom";
-import styled from "styled-components";
-import { useDispatch } from "react-redux";
+import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 
-import SearchBox from "./SearchBox";
-import NavLinks from "./NavLinks";
-import Button from "../components/Button";
-import Icon from "../components/Icon";
-import { openModal } from "./utils/modals";
-import TestForm from "../pages/Dashboard/tests/TestForm";
-import { createResult } from "../actions/TestResultsActions";
+import SearchBox from './SearchBox';
+import NavLinks from './NavLinks';
+import Button from '../components/Button';
+import Icon from '../components/Icon';
+import { openModal } from './utils/modals';
+import TestForm from '../pages/Dashboard/tests/TestForm';
+import { createResult } from '../actions/TestResultsActions';
 
 function getMainPath(str) {
   const regex = /^\/([^?\\/]+)/;
-  return str.match(regex) ? str.match(regex)[1] : "";
+  return str.match(regex) ? str.match(regex)[1] : '';
 }
 
 const NavBar = (props, ref) => {
@@ -26,44 +26,45 @@ const NavBar = (props, ref) => {
   const dispatch = useDispatch();
 
   const getNavTitle = () => {
-    let title = "Dashboard";
+    let title = 'Dashboard';
     switch (getMainPath(history.location.pathname)) {
-      case "projects":
-        title = "Projects";
+      case 'projects':
+        title = 'Projects';
         break;
-      case "network":
-        title = "Network";
+      case 'network':
+        title = 'Network';
         break;
-      case "payments":
-        title = "Payments";
+      case 'payments':
+        title = 'Payments';
         break;
-      case "settings":
-        title = "Settings";
+      case 'settings':
+        title = 'Settings';
         break;
-      case "tests":
-        title = "Tests";
+      case 'tests':
+        title = 'Tests';
         break;
-      case "community":
-        title = "Community Guide";
+      case 'community':
+        title = 'Community Guide';
         break;
       default:
         break;
     }
     return title;
   };
+
   const addNewTest = () => {
     openModal({
       body: <TestForm id="test-form" />,
       title: `Add New Result`,
       options: {
-        className: "modal-tests",
+        className: 'modal-tests',
         ok: `Save`,
-        cancel: "Close",
+        cancel: 'Close',
         form: {
-          type: "submit",
+          type: 'submit',
           form: `test-form`,
         },
-        style: { maxWidth: "768px" },
+        style: { maxWidth: '768px' },
       },
     }).then(
       (data) => {
@@ -76,15 +77,15 @@ const NavBar = (props, ref) => {
   const viewTitle = getNavTitle();
 
   return (
-    <Wrapper ref={ref} className={`navbar ${className || ""}`}>
+    <Wrapper ref={ref} className={`navbar ${className || ''}`}>
       <div className="title-bar">
         <Link to={`/dashboard`} className="navbar-brand">
           {viewTitle}
         </Link>
         <ul className="navbar-nav ml-auto">
-          {viewTitle === "Tests" ? (
+          {viewTitle === 'Tests' ? (
             <li>
-              <StyledButton variant={"primary"} onClick={() => addNewTest()}>
+              <StyledButton variant={'primary'} onClick={() => addNewTest()}>
                 <Icon name="round-add" />
                 &nbsp;&nbsp;&nbsp;Add New Result
               </StyledButton>
