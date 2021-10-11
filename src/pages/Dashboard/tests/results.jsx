@@ -10,7 +10,7 @@ import CaretUp from '../../../assets/images/caret-arrow-up.png';
 import CaretDown from '../../../assets/images/caret-down.png';
 import Select from '../../../components/Select';
 import Icon from '../../../components/Icon';
-import TableRows from '../../../components/TableRows';
+import TableCells from './TableCells';
 
 const propTypes = {
   testResults: PropTypes.object,
@@ -240,13 +240,13 @@ const Results = ({
                     if (cell.column.id === 'user') {
                       return (
                         <th {...cell.getCellProps()}>
-                          <TableRows {...cell} row={row} selectionKey={selectionKey} />
+                          <TableCells {...cell} row={row} selectionKey={selectionKey} />
                         </th>
                       );
                     } else {
                       return (
                         <td {...cell.getCellProps()}>
-                          <TableRows {...cell} row={row} selectionKey={selectionKey} />
+                          <TableCells {...cell} row={row} selectionKey={selectionKey} />
                         </td>
                       );
                     }

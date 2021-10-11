@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Avatar from './Avatar';
-import { generateUserIntials } from './utils/stringUtils';
-import IconButton from './IconButton';
-import { openConfirm, openModal } from './utils/modals';
-import TestForm from '../pages/Dashboard/tests/TestForm';
-import { deleteResult, updateResult } from '../actions/TestResultsActions';
-import ModalHeader from './ModalHeader';
+import Avatar from '../../../components/Avatar';
+import { generateUserIntials } from '../../../components/utils/stringUtils';
+import IconButton from '../../../components/IconButton';
+import { openConfirm, openModal } from '../../../components/utils/modals';
+import TestForm from './TestForm';
+import { deleteResult, updateResult } from '../../../actions/TestResultsActions';
+import ModalHeader from '../../../components/ModalHeader';
 import { useDispatch } from 'react-redux';
 
 const propTypes = {
   value: PropTypes.object,
   column: PropTypes.object,
 };
-const TableRows = (cell) => {
+const TableCells = (cell) => {
   const cellValues = cell.value;
   const user = cellValues.user_obj;
   const selectionKey = cell.selectionKey;
@@ -137,6 +137,6 @@ const TableRows = (cell) => {
   }
 };
 
-TableRows.propTypes = propTypes;
+TableCells.propTypes = propTypes;
 
-export default TableRows;
+export default TableCells;
