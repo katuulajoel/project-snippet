@@ -8,6 +8,9 @@ import {
   FETCH_PROJECTS_SUCCESS,
   FETCH_PROJECTS_FAILED,
   TOGGLE_PROJECT_FILTER,
+  FETCH_MORE_PROJECTS_START,
+  FETCH_MORE_PROJECTS_SUCCESS,
+  FETCH_MORE_PROJECTS_FAILED,
 } from "../actions/utils/ActionTypes";
 
 function projectPMFilter(state = false, action) {
@@ -32,6 +35,11 @@ function projects(state = { results: [], next: null }, action) {
   switch (action.type) {
     case FETCH_PROJECTS_SUCCESS:
       return action.data;
+    case FETCH_MORE_PROJECTS_SUCCESS:
+      return {
+        ...action.data,
+        results: [...state.results, ...action.data.results],
+      };
     default:
       return state;
   }
@@ -43,6 +51,8 @@ function isMakingRequest(_, action) {
       return { fetch: true };
     case FETCH_PROJECTS_START:
       return { list: true };
+    case FETCH_MORE_PROJECTS_START:
+      return { fetchMore: true };
     default:
       return {};
   }
@@ -54,6 +64,8 @@ function errors(state = {}, action) {
       return { fetch: action.error };
     case FETCH_PROJECTS_FAILED:
       return { list: action.error };
+    case FETCH_MORE_PROJECTS_FAILED:
+      return { fetchMore: action.error };
     default:
       return state;
   }

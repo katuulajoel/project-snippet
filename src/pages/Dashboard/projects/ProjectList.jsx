@@ -48,7 +48,7 @@ const ProjectList = (props) => {
       <LoadMore
         hasMore={projects.next}
         isLoadingMore={isMakingRequest.listMore}
-        onLoadMore={isMakingRequest.list}
+        onLoadMore={props.onLoadMore}
       />
     </div>
   ) : (
@@ -66,6 +66,7 @@ const ProjectList = (props) => {
 ProjectList.propTypes = {
   archived: PropTypes.string,
   stage: PropTypes.string,
+  onLoadMore: PropTypes.func,
 };
 
 export default ProjectList;
