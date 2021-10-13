@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
-import renderer from "react-test-renderer";
-import RecentNotifications from "../RecentNotifications";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import configureStore from "redux-mock-store";
-import thunk from "redux-thunk";
-import { ThemeProvider } from "styled-components";
-import theme from "../../../../theme";
-import * as actions from "../../../../components/utils/auth";
-import { mount } from "enzyme/build";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import RecentNotifications from '../RecentNotifications';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { ThemeProvider } from 'styled-components';
+import theme from '../../../../theme';
+import * as actions from '../../../../components/utils/auth';
+import { mount } from 'enzyme/build';
 
 const middlewares = [thunk];
 
@@ -24,28 +24,28 @@ const state = {
       profile: {
         required: [{}],
         optional: [],
-        cleared: ["complete", "payoneer"],
+        cleared: ['complete', 'payoneer'],
       },
       activities: [
         {
-          action: "create",
-          activity_type: "participation",
+          action: 'create',
+          activity_type: 'participation',
           description: null,
           id: 573,
           activity: {
             created_by: {
-              display_name: "Admin Tunga",
+              display_name: 'Admin Tunga',
             },
           },
         },
         {
-          action: "create",
-          activity_type: "document",
+          action: 'create',
+          activity_type: 'document',
           description: null,
           id: 534,
           activity: {
             created_by: {
-              display_name: "Admin Tunga",
+              display_name: 'Admin Tunga',
             },
           },
         },
@@ -58,12 +58,10 @@ const state = {
   },
 };
 
-describe("Dashboard test", () => {
+describe('Dashboard test', () => {
   beforeEach(() => {
-    jest.spyOn(actions, "isDev").mockReturnValueOnce(true);
-    jest
-      .spyOn(actions, "getUser")
-      .mockReturnValueOnce({ payoneer_status: "approved" });
+    jest.spyOn(actions, 'isDev').mockReturnValueOnce(true);
+    jest.spyOn(actions, 'getUser').mockReturnValueOnce({ payoneer_status: 'approved' });
   });
 
   /* it("Should match snapshot test", () => {
@@ -85,7 +83,7 @@ describe("Dashboard test", () => {
     spy.mockRestore();
   });
  */
-  it("should clear all notifications", () => {
+  it('should clear all notifications', () => {
     const store = mockAppStore(state);
     const wrapper = mount(
       <BrowserRouter>
@@ -95,19 +93,19 @@ describe("Dashboard test", () => {
       </BrowserRouter>
     );
 
-    var clearAllBtn = wrapper.find(".title small");
-    clearAllBtn.simulate("click");
+    var clearAllBtn = wrapper.find('.title small');
+    clearAllBtn.simulate('click');
 
     const expectedActions = [
       {
-        type: "DELETE_NOTIFICATIONS_START",
+        type: 'DELETE_NOTIFICATIONS_START',
       },
     ];
 
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it("should clear notification", () => {
+  it('should clear notification', () => {
     const store = mockAppStore(state);
     const wrapper = mount(
       <BrowserRouter>
@@ -117,12 +115,12 @@ describe("Dashboard test", () => {
       </BrowserRouter>
     );
 
-    var clearBtn = wrapper.find(".list-layout .btn-icon").at(0);
-    clearBtn.simulate("click");
+    var clearBtn = wrapper.find('.list-layout .btn-icon').at(0);
+    clearBtn.simulate('click');
 
     const expectedActions = [
       {
-        type: "CREATE_NOTIFICATION_LOG_START",
+        type: 'CREATE_NOTIFICATION_LOG_START',
       },
     ];
 

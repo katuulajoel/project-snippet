@@ -2,20 +2,38 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
+import thunk from 'redux-thunk';
 import NavBar from '../NavBar';
 
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
 
 const middlewares = [thunk];
 
 const mockAppState = {
-  Auth: {},
   Invoice: {
-    search: {},
+    isMakingRequest: {},
+    errors: {},
+    summary: {},
+    list: { data: [], count: 0, next: '', previous: '' },
+    invoice: {},
+    csv: {},
   },
-  Projects: { isMakingRequest: {} },
+  Projects: {
+    isMakingRequest: {},
+    project: {},
+  },
+  TestResults: {
+    count: {},
+    errors: { fetch: null },
+    isFetching: { '6LMlpGnA': true, default: false, selectionKey: '6LMlpGnA' },
+    isSaved: {},
+    isSaving: {},
+    next: {},
+    previous: {},
+    results: [],
+    selectedFilters: [],
+  },
 };
 
 const mockAppStore = (state) => {
@@ -121,7 +139,7 @@ describe('Auth layout test', () => {
     expect(title.innerHTML).toEqual('Community Guide');
   });
 
-  it('should show add new result for test and trigger create Result when add New Result is clicked', async () => {
+  it('should show add new result for test.', async () => {
     const { container } = render(
       <Provider store={mockAppStore()}>
         <MemoryRouter initialEntries={['/tests']}>
@@ -131,10 +149,20 @@ describe('Auth layout test', () => {
     );
     const title = container.querySelector('.btn-primary');
     expect(title.innerHTML).toMatch(/Add New Result/i);
-    // const FakeFun = jest.spyOn(NavBar.prototype, 'addNewTest');
-    // // const component = shallow(<NavBar />);
-    // container.find('button.btn-primary').simulate('click');
-    // container.update();
-    // expect(FakeFun).toHaveBeenCalled();
   });
+
+  // it('should trigger create Result when add New Result is clicked.', async () => {
+  //   const openModalMock = jest.fn();
+  //   const wrapper = mount(
+  //     <BrowserRouter>
+  //       <Provider store={mockAppStore()}>
+  //         <MemoryRouter initialEntries={['/tests']}>
+  //           <NavBar ref={{ current: '' }} />
+  //         </MemoryRouter>
+  //       </Provider>
+  //     </BrowserRouter>
+  //   );
+  //   wrapper.find('#createResult').first().simulate('click');
+  //   expect(openModalMock).toHaveBeenCalledTimes(1);
+  // });
 });

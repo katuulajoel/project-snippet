@@ -1,13 +1,13 @@
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 /* -------------------------- Internel Dependencies ------------------------- */
-import Icon from "./Icon";
-import IconButton from "./IconButton";
+import Icon from './Icon';
+import IconButton from './IconButton';
 
 const propTypes = {
   dismiss: PropTypes.func,
@@ -19,12 +19,12 @@ const propTypes = {
 const AlertDialogue = ({ dismiss, msg }) => {
   return (
     <Wrapper>
-      <span>
+      <span id="msg">
         <Icon name="check" size="sm" /> {msg}
       </span>
 
       <span>
-        <IconButton name="close" size="sm" onClick={() => dismiss()} />
+        <IconButton name="close" size="sm" onClick={dismiss} />
       </span>
     </Wrapper>
   );
@@ -63,7 +63,7 @@ const Wrapper = styled.div`
 `;
 
 AlertDialogue.defaultProps = {
-  msg: "Invoice archived",
+  msg: 'Invoice archived',
 };
 
 AlertDialogue.propTypes = propTypes;

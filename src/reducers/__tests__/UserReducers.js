@@ -1,4 +1,4 @@
-import reducer from "../UserReducers";
+import reducer from '../UserReducers';
 import {
   LIST_USERS_START,
   LIST_USERS_SUCCESS,
@@ -6,10 +6,8 @@ import {
   RETRIEVE_USER_START,
   RETRIEVE_USER_SUCCESS,
   RETRIEVE_USER_FAILED,
-  UPDATE_USER_SUCCESS,
-  // LIST_MORE_USERS_SUCCESS,
-} from "../../actions/utils/ActionTypes";
-import { dummyUsers } from "../../actions/__tests__/UserActions";
+} from '../../actions/utils/ActionTypes';
+import { dummyUsers } from '../../actions/__tests__/UserActions';
 
 const initialState = {
   ids: {},
@@ -17,18 +15,18 @@ const initialState = {
   isRetrieving: {},
 };
 
-describe("Skill reducers tests", () => {
-  it("returns the initial state", () => {
+describe('Skill reducers tests', () => {
+  it('returns the initial state', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
 
-  it("handles LIST_USERS_START dispatch", () => {
+  it('handles LIST_USERS_START dispatch', () => {
     expect(reducer(initialState, { type: LIST_USERS_START })).toEqual({
       ...initialState,
     });
   });
 
-  it("handles LIST_USERS_SUCCESS dispatches", () => {
+  it('handles LIST_USERS_SUCCESS dispatches', () => {
     expect(reducer(initialState, { type: LIST_USERS_SUCCESS, items: dummyUsers })).toEqual({
       ...initialState,
       ids: {
@@ -40,18 +38,18 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles LIST_USERS_FAILED dispatches", () => {
+  it('handles LIST_USERS_FAILED dispatches', () => {
     expect(
       reducer(initialState, {
         type: LIST_USERS_FAILED,
-        error: "!error",
+        error: '!error',
       })
     ).toEqual({
       ...initialState,
     });
   });
 
-  it("handles RETRIEVE_USER_START dispatches", () => {
+  it('handles RETRIEVE_USER_START dispatches', () => {
     expect(reducer(initialState, { type: RETRIEVE_USER_START })).toEqual({
       ...initialState,
       isRetrieving: {
@@ -60,7 +58,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles RETRIEVE_USER_SUCCESS dispatches", () => {
+  it('handles RETRIEVE_USER_SUCCESS dispatches', () => {
     expect(reducer(initialState, { type: RETRIEVE_USER_SUCCESS, user: dummyUsers[0] })).toEqual({
       ...initialState,
       isRetrieving: {
@@ -72,7 +70,7 @@ describe("Skill reducers tests", () => {
     });
   });
 
-  it("handles RETRIEVE_USER_FAILED dispatches", () => {
+  it('handles RETRIEVE_USER_FAILED dispatches', () => {
     expect(reducer(initialState, { type: RETRIEVE_USER_FAILED, user: dummyUsers[0] })).toEqual({
       ...initialState,
       isRetrieving: {
@@ -80,39 +78,4 @@ describe("Skill reducers tests", () => {
       },
     });
   });
-
-  // it("handles UPDATE_RESULT_START dispatches", () => {
-  //   expect(reducer(initialState, { type: UPDATE_RESULT_START })).toEqual({
-  //     ...initialState,
-  //     isSaving: {
-  //       default: true,
-  //     },
-  //   });
-  // });
-
-  it("handles UPDATE_USER_SUCCESS dispatches", () => {
-    expect(reducer(initialState, { type: UPDATE_USER_SUCCESS, user: dummyUsers[0] })).toEqual({
-      ...initialState,
-      users: {
-        16: dummyUsers[0],
-      },
-    });
-  });
-
-  // it("handles LIST_MORE_USERS_SUCCESS dispatches", () => {
-  //   expect(
-  //     reducer(initialState, { type: LIST_MORE_USERS_SUCCESS, items: dummyUsers, selection_key: ["6LMlpGnA"] })
-  //   ).toEqual({
-  //     ...initialState,
-  //     previous: {
-  //       default: undefined,
-  //     },
-  //     next: {
-  //       default: undefined,
-  //     },
-  //     results: {
-  //       0: dummyUsers,
-  //     },
-  //   });
-  // });
 });

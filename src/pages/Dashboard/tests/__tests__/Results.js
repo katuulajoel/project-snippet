@@ -1,10 +1,11 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import Results from "../results";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import configureStore from "redux-mock-store";
-import thunk from "redux-thunk";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Results from '../results';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+// import { mount } from 'enzyme';
 // import { mount } from "enzyme/build";
 // import * as utils from "../utils/utils";
 
@@ -21,7 +22,7 @@ const mockAppState = {
     isMakingRequest: {},
     errors: {},
     summary: {},
-    list: { data: [], count: 0, next: "", previous: "" },
+    list: { data: [], count: 0, next: '', previous: '' },
     invoice: {},
     csv: {},
   },
@@ -35,8 +36,8 @@ const mockAppStore = (state) => {
 export const dummyResults = [
   {
     id: 10,
-    comms_check: "very_good",
-    mbti_profile: "entj",
+    comms_check: 'very_good',
+    mbti_profile: 'entj',
     iq_test: 100,
     sa_test: 100,
     code_of_conduct: 100,
@@ -45,17 +46,17 @@ export const dummyResults = [
         skill: 1,
         score: 100,
         id: 12,
-        skill_name: "react",
+        skill_name: 'react',
       },
     ],
     user_obj: {
       id: 16,
-      username: "wd",
-      email: "wd@tunga.io",
-      first_name: "wd",
-      last_name: "dw",
-      display_name: "Wd Dw",
-      short_name: "Wd",
+      username: 'wd',
+      email: 'wd@tunga.io',
+      first_name: 'wd',
+      last_name: 'dw',
+      display_name: 'Wd Dw',
+      short_name: 'Wd',
       type: 1,
       image: null,
       is_developer: true,
@@ -68,15 +69,15 @@ export const dummyResults = [
       company: null,
       avatar_url: null,
       can_contribute: false,
-      date_joined: "2021-06-22T22:48:41.243936",
+      date_joined: '2021-06-22T22:48:41.243936',
       agree_version: 1.2,
-      agreed_at: "2021-06-22T22:48:54",
+      agreed_at: '2021-06-22T22:48:54',
       disagree_version: 0,
       disagreed_at: null,
-      payoneer_signup_url: "",
-      payoneer_status: "initial",
-      exact_code: "000000000000000016",
-      tax_location: "world",
+      payoneer_signup_url: '',
+      payoneer_status: 'initial',
+      exact_code: '000000000000000016',
+      tax_location: 'world',
     },
   },
 ];
@@ -87,8 +88,8 @@ const props = {
   count,
 };
 
-describe("Dashboard test - Test Results", () => {
-  it("Should match snapshot test", () => {
+describe('Dashboard test - Test Results', () => {
+  it('Should match snapshot test', () => {
     const tree = renderer
       .create(
         <BrowserRouter>
@@ -101,21 +102,33 @@ describe("Dashboard test - Test Results", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  // it("checks the table rows successfuly", async () => {
+  // it('should show add new result for test.', async () => {
+  //   const { container } = render(
+  //     <Provider store={mockAppStore()}>
+  //       <Provider store={mockAppStore(mockAppState)}>
+  //         <Results {...props} />
+  //       </Provider>
+  //     </Provider>
+  //   );
+  //   const title = container.querySelector('.btn-primary');
+  //   expect(title.innerHTML).toMatch(/Add New Result/i);
+  // });
+
+  // it('checks the table rows successfuly', async () => {
   //   const wrapper = mount(
   //     <BrowserRouter>
   //       <Provider store={mockAppStore(mockAppState)}>
-  //         <Results {...props} onLoadMore={() => {}} filter="in" />
+  //         <Results {...props} onLoadMore={() => {}} filter="" />
   //       </Provider>
   //     </BrowserRouter>
   //   );
 
-  //   var checkbox = wrapper.find(".btn-edit");
-  //   expect(wrapper.find("BulkActions").exists()).toBeFalsy();
-  //   checkbox.simulate("click");
-  //   expect(wrapper.find("BulkActions").exists()).toBeTruthy();
-  //   checkbox.simulate("click");
-  //   expect(wrapper.find("BulkActions").exists()).toBeFalsy();
+  //   // const editBtn = wrapper.find('.btn-edit');
+  //   expect(wrapper.find('StyledTable').exists()).toBeFalsy();
+  //   // editBtn.simulate('click');
+  //   expect(wrapper.find('TableFooter').exists()).toBeTruthy();
+  //   // editBtn.simulate('click');
+  //   // expect(wrapper.find('BulkActions').exists()).toBeFalsy();
   // });
 
   // it("should open dropdown actions", async () => {

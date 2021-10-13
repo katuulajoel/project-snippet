@@ -88,7 +88,7 @@ const NavBar = (props, ref) => {
         <ul className="navbar-nav ml-auto">
           {viewTitle === 'Tests' ? (
             <li>
-              <StyledButton variant={'primary'} onClick={() => addNewTest()}>
+              <StyledButton id="createResult" variant={'primary'} onClick={() => addNewTest()}>
                 <Icon name="round-add" />
                 &nbsp;&nbsp;&nbsp;Add New Result
               </StyledButton>

@@ -2,6 +2,7 @@ import React, { useMemo, useEffect } from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
 import PaginationWrapper from '../../../components/Pagination';
 import { StyledTable as Table } from '../styles';
@@ -11,6 +12,10 @@ import CaretDown from '../../../assets/images/caret-down.png';
 import Select from '../../../components/Select';
 import Icon from '../../../components/Icon';
 import TableCells from './TableCells';
+import { openConfirm, openModal } from '../../../components/utils/modals';
+import TestForm from './TestForm';
+import { deleteResult, updateResult } from '../../../actions/TestResultsActions';
+import ModalHeader from '../../../components/ModalHeader';
 
 const propTypes = {
   testResults: PropTypes.object,
@@ -19,9 +24,6 @@ const propTypes = {
   trackPagination: PropTypes.func,
   lastPageIndex: PropTypes.number,
   count: PropTypes.number,
-  updateResult: PropTypes.func,
-  selectionKey: PropTypes.string,
-  deleteResult: PropTypes.func,
   setlimit: PropTypes.func,
   limit: PropTypes.number,
 };
@@ -34,8 +36,9 @@ const Results = ({
   onLoadMore,
   setlimit,
   limit,
-  selectionKey,
 }) => {
+  const dispatch = useDispatch();
+
   const calculateStatus = (type, value) => {
     switch (type) {
       case 'numeric':
@@ -183,6 +186,52 @@ const Results = ({
     usePagination
   );
 
+  const deleteTest = (result) => {
+    openConfirm({
+      message: `
+          Are you sure you want to delete this result? This action is permanent and the results will be removed from the
+          platform at once.
+      `,
+      options: {
+        ok: 'Yes, delete',
+        cancel: 'No, go back',
+      },
+      header: <ModalHeader style={{ paddingBottom: '8px' }} options={{ title: 'Delete result' }} />,
+    }).then(() => {
+      deleteResult(result)(dispatch);
+    });
+  };
+
+  const editTest = (result) => {
+    openModal({
+      body: <TestForm id="test-form" result={result} />,
+      title: 'Edit Result',
+      options: {
+        className: 'modal-tests',
+        ok: `Update`,
+        cancel: 'Delete',
+        form: {
+          type: 'submit',
+          form: `test-form`,
+        },
+        style: { maxWidth: '768px' },
+      },
+    }).then(
+      (data) => {
+        let result = data;
+        Object.keys(data).forEach((key) => {
+          if (!data[key]) {
+            delete result[key];
+          }
+        });
+        updateResult(result.id, result)(dispatch);
+      },
+      () => {
+        deleteTest(result.id);
+      }
+    );
+  };
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -240,13 +289,13 @@ const Results = ({
                     if (cell.column.id === 'user') {
                       return (
                         <th {...cell.getCellProps()}>
-                          <TableCells {...cell} row={row} selectionKey={selectionKey} />
+                          <TableCells {...cell} row={row} editTest={editTest} />
                         </th>
                       );
                     } else {
                       return (
                         <td {...cell.getCellProps()}>
-                          <TableCells {...cell} row={row} selectionKey={selectionKey} />
+                          <TableCells {...cell} row={row} editTest={editTest} />
                         </td>
                       );
                     }

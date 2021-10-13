@@ -4,7 +4,9 @@ exports[`AlertDialogue test Snapshot test for AlertDialogue component 1`] = `
 <div
   className="sc-gtsrHT dlxaZd"
 >
-  <span>
+  <span
+    id="msg"
+  >
     <i
       className="tg-ic-check tunga-ic-sz-sm "
     />
@@ -15,7 +17,6 @@ exports[`AlertDialogue test Snapshot test for AlertDialogue component 1`] = `
     <button
       className="btn btn-icon sc-bdnxRM gIqEUJ  "
       form={null}
-      onClick={[Function]}
       type="button"
     >
       <i

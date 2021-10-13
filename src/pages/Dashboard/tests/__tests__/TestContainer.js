@@ -1,38 +1,38 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import configureStore from "redux-mock-store";
-import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import { ThemeProvider } from "styled-components";
-import renderer from "react-test-renderer";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { ThemeProvider } from 'styled-components';
+import renderer from 'react-test-renderer';
 
-import TestContainer from "../TestContainer";
-import { mount } from "enzyme/build";
+import TestContainer from '../TestContainer';
+import { mount } from 'enzyme/build';
 // import Payments from "../Payments";
-import Results, { dummyResults } from "./Results";
-import * as actions from "../../../../actions/TestResultsActions";
-import { toggleRightNav } from "../../../../actions/UtilityActions";
-import theme from "../../../../theme";
+import Results, { dummyResults } from './Results';
+import * as actions from '../../../../actions/TestResultsActions';
+import { toggleRightNav } from '../../../../actions/UtilityActions';
+import theme from '../../../../theme';
 
 const middlewares = [thunk];
 
 const mockAppState = {
   Auth: {
-    user: { uid: 123, email: "test@gmail.com" },
+    user: { uid: 123, email: 'test@gmail.com' },
     isMakingRequest: {},
   },
   Invoice: {
     isMakingRequest: {},
     errors: {},
     summary: {},
-    list: { data: [], count: 0, next: "", previous: "" },
+    list: { data: [], count: 0, next: '', previous: '' },
     invoice: {},
     csv: {},
   },
   TestResults: {
     count: {},
-    errors: { fetch: null },
-    isFetching: { "6LMlpGnA": true, default: false, selectionKey: "6LMlpGnA" },
+    errors: {},
+    isFetching: { default: true },
     isSaved: {},
     isSaving: {},
     next: {},
@@ -53,21 +53,15 @@ const mockAppStore = (state) => {
   return mockStore(state || mockAppState);
 };
 
-describe("Test list container", () => {
-  it("Should match snapshot test", () => {
+describe('Test list container', () => {
+  it('Should match snapshot test', () => {
     const store = mockAppStore();
     const tree = renderer
       .create(
         <BrowserRouter>
           <Provider store={store}>
             <ThemeProvider theme={theme}>
-              <TestContainer
-                selectionKey={"6LMlpGnA"}
-                match={{ params: { filter: "in" } }}
-                TestResultsActions={actions}
-                collapseRightNav={toggleRightNav}
-                TestResults={mockAppState.TestResults}
-              >
+              <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults}>
                 <></>
               </TestContainer>
             </ThemeProvider>
@@ -78,19 +72,13 @@ describe("Test list container", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should render children", async () => {
+  it('should render children', async () => {
     const store = mockAppStore();
     mount(
       <BrowserRouter>
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <TestContainer
-              selectionKey={"6LMlpGnA"}
-              match={{ params: { filter: "in" } }}
-              TestResultsActions={actions}
-              collapseRightNav={toggleRightNav}
-              TestResults={mockAppState.TestResults}
-            >
+            <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults}>
               <></>
             </TestContainer>
           </ThemeProvider>
@@ -98,44 +86,17 @@ describe("Test list container", () => {
       </BrowserRouter>
     );
 
-    const expectedActions = [
-      { selection: "6LMlpGnA", type: "FETCH_RESULT_START" },
-      { selection: "6LMlpGnA", type: "FETCH_RESULT_START" },
-    ];
+    const expectedActions = [{ type: 'FETCH_RESULT_START' }];
 
     expect(store.getActions()).toMatchObject(expectedActions);
   });
 
-  it("should show progress component", async () => {
-    const store = mockAppStore({
-      ...mockAppState,
-      Auth: {
-        user: {},
-        isMakingRequest: {},
-      },
-      TestResults: {
-        count: {},
-        errors: { fetch: null },
-        isFetching: { "6LMlpGnA": true, default: false, selectionKey: "6LMlpGnA" },
-        isSaved: {},
-        isSaving: {},
-        next: {},
-        previous: {},
-        results: [],
-        selectedFilters: [],
-      },
-    });
+  it('should show progress component', async () => {
     const wrapper = mount(
       <BrowserRouter>
-        <Provider store={store}>
+        <Provider store={mockAppStore()}>
           <ThemeProvider theme={theme}>
-            <TestContainer
-              selectionKey={"6LMlpGnA"}
-              match={{ params: { filter: "in" } }}
-              TestResultsActions={actions}
-              collapseRightNav={toggleRightNav}
-              TestResults={mockAppState.TestResults}
-            >
+            <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults}>
               <></>
             </TestContainer>
           </ThemeProvider>
@@ -143,11 +104,11 @@ describe("Test list container", () => {
       </BrowserRouter>
     );
 
-    expect(wrapper.find("Progress").exists()).toBeTruthy();
+    expect(wrapper.find('Progress').exists()).toBeTruthy();
   });
 
-  it("should load data on page change", async () => {
-    const testResultsActions = jest.spyOn(actions, "fetchResults");
+  it('should load data on page change', async () => {
+    const testResultsActions = jest.spyOn(actions, 'fetchResults');
     const store = mockAppStore({
       ...mockAppState,
       Invoice: {
@@ -160,7 +121,7 @@ describe("Test list container", () => {
       TestResults: {
         count: {},
         errors: { fetch: null },
-        isFetching: { "6LMlpGnA": true, default: false, selectionKey: "6LMlpGnA" },
+        isFetching: { default: false },
         isSaved: {},
         isSaving: {},
         next: {},
@@ -174,13 +135,7 @@ describe("Test list container", () => {
       <BrowserRouter>
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <TestContainer
-              selectionKey={"6LMlpGnA"}
-              match={{ params: { filter: "in" } }}
-              TestResultsActions={actions}
-              collapseRightNav={toggleRightNav}
-              TestResults={mockAppState.TestResults}
-            >
+            <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults}>
               <></>
             </TestContainer>
           </ThemeProvider>
@@ -198,9 +153,9 @@ describe("Test list container", () => {
     // });
   });
 
-  it("load new results on change to new status page", () => {
+  it('load new results on change to new status page', () => {
     // eslint-disable-next-line no-unused-vars
-    const testResultsActions = jest.spyOn(actions, "fetchResults");
+    const testResultsActions = jest.spyOn(actions, 'fetchResults');
 
     const store = mockAppStore({
       Invoice: {
@@ -216,13 +171,7 @@ describe("Test list container", () => {
       <BrowserRouter>
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <TestContainer
-              selectionKey={"6LMlpGnA"}
-              match={{ params: { filter: "all" } }}
-              TestResultsActions={actions}
-              collapseRightNav={toggleRightNav}
-              TestResults={mockAppState.TestResults}
-            >
+            <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults}>
               <Results {...props} />
             </TestContainer>
           </ThemeProvider>

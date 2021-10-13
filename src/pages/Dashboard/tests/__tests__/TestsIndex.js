@@ -26,7 +26,7 @@ const mockAppState = {
   TestResults: {
     count: {},
     errors: { fetch: null },
-    isFetching: { '6LMlpGnA': true, default: false, selectionKey: '6LMlpGnA' },
+    isFetching: { default: false },
     isSaved: {},
     isSaving: {},
     next: {},

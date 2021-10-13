@@ -1,9 +1,9 @@
-import React from "react";
-import axios from "axios";
-import { ENDPOINT_TEST_RESULTS } from "./utils/api";
+import React from 'react';
+import axios from 'axios';
+import { ENDPOINT_TEST_RESULTS } from './utils/api';
 
-import AlertDialogue from "../components/AlertDialogue";
-import { openAlert } from "../components/utils/modals";
+import AlertDialogue from '../components/AlertDialogue';
+import { openAlert } from '../components/utils/modals';
 import {
   CREATE_RESULT_START,
   CREATE_RESULT_SUCCESS,
@@ -21,42 +21,40 @@ import {
   // LIST_MORE_RESULTS_SUCCESS,
   // LIST_MORE_RESULTS_FAILED,
   SET_FILTERS,
-} from "./utils/ActionTypes";
+} from './utils/ActionTypes';
 
-export const createResult = (data, selectionKey) => {
+export const createResult = (data) => {
   return (dispatch) => {
-    dispatch(createResultStart(data, selectionKey));
+    dispatch(createResultStart(data));
     axios
       .post(ENDPOINT_TEST_RESULTS, data)
       .then((response) => {
-        dispatch(createResultSuccess(response.data, selectionKey));
+        dispatch(createResultSuccess(response.data));
       })
       .catch((error) => {
-        dispatch(createResultFailed(error.response ? error.response.data : null, selectionKey));
+        dispatch(createResultFailed(error.response ? error.response.data : null));
       });
   };
 };
 
-export const createResultStart = (data, selectionKey) => {
+export const createResultStart = (data) => {
   return {
     type: CREATE_RESULT_START,
     data,
-    selectionKey,
   };
 };
 
-export const createResultSuccess = (result, selectionKey) => {
+export const createResultSuccess = (result) => {
   return {
     type: CREATE_RESULT_SUCCESS,
     result,
-    selectionKey,
   };
 };
 
-export const createResultFailed = (error, selectionKey) => {
+export const createResultFailed = (error) => {
   if (error) {
     openAlert(<AlertDialogue msg={error.message} />, false, {
-      className: "error-dailogue",
+      className: 'error-dailogue',
       hideActions: true,
       hideBackdrop: true,
     });
@@ -64,7 +62,6 @@ export const createResultFailed = (error, selectionKey) => {
   return {
     type: CREATE_RESULT_FAILED,
     error,
-    selectionKey,
   };
 };
 
@@ -103,13 +100,13 @@ export const deleteResultFailed = (error) => {
   };
 };
 
-export const fetchResults = (selection, filter) => {
+export const fetchResults = (filter) => {
   return (dispatch) => {
-    dispatch(fetchResultsStart(selection));
+    dispatch(fetchResultsStart());
     axios
       .get(ENDPOINT_TEST_RESULTS, { params: filter })
       .then((response) => {
-        dispatch(fetchResultsSuccess(response.data, selection));
+        dispatch(fetchResultsSuccess(response.data));
       })
       .catch((error) => {
         dispatch(fetchResultsFailed(error.response ? error.response.data : null));
@@ -117,75 +114,69 @@ export const fetchResults = (selection, filter) => {
   };
 };
 
-export const fetchResultsStart = (selection) => {
+export const fetchResultsStart = () => {
   return {
     type: FETCH_RESULT_START,
-    selection,
   };
 };
 
-export const fetchResultsSuccess = (response, selection) => {
+export const fetchResultsSuccess = (response) => {
   return {
     type: FETCH_RESULT_SUCCESS,
     items: response.results,
     previous: response.previous,
     next: response.next,
     count: response.count,
-    selection,
   };
 };
 
-export const fetchResultsFailed = (error, selection) => {
+export const fetchResultsFailed = (error) => {
   return {
     type: FETCH_RESULT_FAILED,
     error,
-    selection,
   };
 };
 
-export const updateResult = (id, result, selectionKey) => {
+export const updateResult = (id, result) => {
   return (dispatch) => {
-    dispatch(updateResultStart(id, result, selectionKey));
+    dispatch(updateResultStart(id, result));
     let headers = {};
 
     axios
-      .patch(ENDPOINT_TEST_RESULTS + id + "/", result, {
+      .patch(ENDPOINT_TEST_RESULTS + id + '/', result, {
         headers: { ...headers },
       })
       .then((response) => {
-        dispatch(updateResultSuccess(response.data, id, selectionKey));
+        dispatch(updateResultSuccess(response.data, id));
       })
       .catch((error) => {
-        dispatch(updateResultFailed(error.response ? error.response.data : null, id, result, selectionKey));
+        dispatch(updateResultFailed(error.response ? error.response.data : null, id, result));
       });
   };
 };
 
-export const updateResultStart = (id, result, selectionKey) => {
+export const updateResultStart = (id, result) => {
   return {
     type: UPDATE_RESULT_START,
     id,
     result,
-    selectionKey,
   };
 };
 
-export const updateResultSuccess = (result, id, selectionKey) => {
+export const updateResultSuccess = (result, id) => {
   return {
     type: UPDATE_RESULT_SUCCESS,
     result,
     id,
-    selectionKey,
   };
 };
 
-export const updateResultFailed = (error, id, result, selectionKey) => {
+export const updateResultFailed = (error, id, result) => {
   return {
     type: UPDATE_RESULT_FAILED,
     error,
     result,
     id,
-    selectionKey,
   };
 };
 

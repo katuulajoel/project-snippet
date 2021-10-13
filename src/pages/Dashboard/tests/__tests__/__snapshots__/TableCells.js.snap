@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard test Should match snapshot test 1`] = `
+exports[`TableCells Component test Should match snapshot test 1`] = `
 <div
   className="result"
 >

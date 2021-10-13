@@ -13,14 +13,12 @@ import SectionNav from '../../../components/SectionNav';
 import Icon from '../../../components/Icon';
 import SearchBox from '../../../components/SearchBox';
 import Results from './results';
-import { generateRandomString } from '../../../components/utils/stringUtils';
 
 import Progress from '../../../components/Progress';
 import usePrevious from '../../../hooks/usePrevious';
 import { fetchResults } from '../../../actions/TestResultsActions';
 
 const propTypes = {
-  selectionKey: PropTypes.any,
   collapseRightNav: PropTypes.func,
   match: PropTypes.object,
   TestResults: PropTypes.object,
@@ -29,8 +27,6 @@ const propTypes = {
 const TestsContainer = (props) => {
   const { collapseRightNav, match, TestResults } = props;
   const dispatch = useDispatch();
-
-  const [selectionKey] = useState(props.selectionKey ? props.selectionKey : generateRandomString());
 
   const [filters] = useState({});
   const [currentPage, setcurrentPage] = useState(0);
@@ -56,7 +52,7 @@ const TestsContainer = (props) => {
   useEffect(() => {
     //TODO: fetchResults being called twice
     if (TestResults.selectedFilters.length > 0) {
-      fetchResults(selectionKey, {
+      fetchResults({
         page_size: limit,
         ...getFilterParams(),
       })(dispatch);
@@ -67,21 +63,14 @@ const TestsContainer = (props) => {
         page_size: limit,
         ...(prevLimit !== limit ? {} : { page: currentPage + 1 }),
       };
-      fetchResults(selectionKey, updatedFilters)(dispatch);
+      fetchResults(updatedFilters)(dispatch);
     } else {
-      fetchResults(selectionKey, {
+      fetchResults({
         page_size: limit,
         ...(searchTerm !== '' ? { search: searchTerm } : {}),
       })(dispatch);
     }
-  }, [selectionKey, TestResults.isSaving, limit]);
-
-  useEffect(() => {
-    fetchResults(selectionKey, {
-      page_size: limit,
-      ...getFilterParams(),
-    })(dispatch);
-  }, [TestResults.selectedFilters]);
+  }, [TestResults.isSaving, TestResults.selectedFilters, limit]);
 
   const onLoadMore = (page) => {
     let updatedFilters = {
@@ -93,7 +82,7 @@ const TestsContainer = (props) => {
 
     if (page !== currentPage) {
       setcurrentPage(page);
-      fetchResults(selectionKey, { ...(updatedFilters || {}) });
+      fetchResults({ ...(updatedFilters || {}) });
     }
   };
 
@@ -107,7 +96,7 @@ const TestsContainer = (props) => {
   const delayedQuery = useCallback(
     _.debounce(
       (q) =>
-        fetchResults(selectionKey, {
+        fetchResults({
           search: q.value,
           page_size: q.limit,
         }),
@@ -143,7 +132,7 @@ const TestsContainer = (props) => {
         }
       />
 
-      {TestResults.isFetching[selectionKey] ? (
+      {TestResults.isFetching?.default ? (
         <Progress />
       ) : (
         <Results
@@ -151,8 +140,7 @@ const TestsContainer = (props) => {
           onLoadMore={onLoadMore}
           trackPagination={trackPagination}
           lastPageIndex={lastPageIndex}
-          count={TestResults.count[selectionKey]}
-          selectionKey={selectionKey}
+          count={TestResults.count?.default}
           setlimit={setlimit}
           limit={limit}
         />

@@ -56,10 +56,9 @@ describe('test actions tests', () => {
   it('should dispatch CREATE_RESULT_SUCCESS', async () => {
     axios.post.mockReturnValue(Promise.resolve({ data: dummyResult }));
     const expectedActions = [
-      { type: CREATE_RESULT_START, data: dummyResult, selectionKey: '6LMlpGnA' },
+      { type: CREATE_RESULT_START, data: dummyResult },
       {
         result: dummyResult,
-        selectionKey: '6LMlpGnA',
         type: CREATE_RESULT_SUCCESS,
       },
     ];
@@ -76,10 +75,9 @@ describe('test actions tests', () => {
     axios.post.mockRejectedValue(error);
 
     const expectedActions = [
-      { type: CREATE_RESULT_START, data: null, selectionKey: '6LMlpGnA' },
+      { type: CREATE_RESULT_START, data: null },
       {
         error: null,
-        selectionKey: '6LMlpGnA',
         type: CREATE_RESULT_FAILED,
       },
     ];
@@ -101,13 +99,12 @@ describe('test actions tests', () => {
       })
     );
     const expectedActions = [
-      { type: FETCH_RESULT_START, selection: '6LMlpGnA' },
+      { type: FETCH_RESULT_START },
       {
         count: 2,
         items: dummyResults,
         next: null,
         previous: null,
-        selection: '6LMlpGnA',
         type: FETCH_RESULT_SUCCESS,
       },
     ];
@@ -124,10 +121,9 @@ describe('test actions tests', () => {
     axios.get.mockRejectedValue(error);
 
     const expectedActions = [
-      { type: FETCH_RESULT_START, selection: null },
+      { type: FETCH_RESULT_START },
       {
         error: null,
-        selection: undefined,
         type: FETCH_RESULT_FAILED,
       },
     ];
@@ -140,11 +136,10 @@ describe('test actions tests', () => {
   it('should dispatch UPDATE_RESULT_SUCCESS', async () => {
     axios.patch.mockReturnValue(Promise.resolve({ data: dummyResult }));
     const expectedActions = [
-      { type: UPDATE_RESULT_START, id: 10, result: dummyResult, selectionKey: '6LMlpGnA' },
+      { type: UPDATE_RESULT_START, id: 10, result: dummyResult },
       {
         id: dummyResult.id,
         result: dummyResult,
-        selectionKey: '6LMlpGnA',
         type: UPDATE_RESULT_SUCCESS,
       },
     ];
@@ -160,12 +155,11 @@ describe('test actions tests', () => {
     };
     axios.patch.mockRejectedValue(error);
     const expectedActions = [
-      { type: UPDATE_RESULT_START, id: 10, result: null, selectionKey: '6LMlpGnA' },
+      { type: UPDATE_RESULT_START, id: 10, result: null },
       {
         id: dummyResult.id,
         error: null,
         result: null,
-        selectionKey: '6LMlpGnA',
         type: UPDATE_RESULT_FAILED,
       },
     ];

@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { ThemeProvider } from 'styled-components';
 import TableCells from '../TableCells';
 import theme from '../../../../theme';
+// import { mount } from 'enzyme';
 
 const middlewares = [thunk];
 
@@ -22,7 +23,7 @@ const mockAppState = {
   TestResults: {
     count: {},
     errors: { fetch: null },
-    isFetching: { '6LMlpGnA': true, default: false, selectionKey: '6LMlpGnA' },
+    isFetching: { default: false },
     isSaved: {},
     isSaving: {},
     next: {},
@@ -84,11 +85,10 @@ const mockAppStore = (state) => {
   return mockStore(state);
 };
 
-describe('Dashboard test', () => {
+describe('TableCells Component test', () => {
   it('Should match snapshot test', () => {
     global.URL.createObjectURL = jest.fn(() => 'details');
     const cell = {
-      selectionKey: '6LMlpGnA',
       value: {
         result: 100,
         status: 'failed',
@@ -102,7 +102,7 @@ describe('Dashboard test', () => {
         <BrowserRouter>
           <Provider store={mockAppStore(mockAppState)}>
             <ThemeProvider theme={theme}>
-              <TableCells id="test-form" {...cell} />
+              <TableCells {...cell} />
             </ThemeProvider>
           </Provider>
         </BrowserRouter>
@@ -110,4 +110,30 @@ describe('Dashboard test', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  // it('Should trigger edit on click', () => {
+  //   const onButtonClickMock = jest.fn();
+  //   const cell = {
+  //     selectionKey: '6LMlpGnA',
+  //     value: {
+  //       result: 100,
+  //       status: 'failed',
+  //     },
+  //     column: {
+  //       id: 'code-of-conduct',
+  //     },
+  //   };
+  //   const wrapper = mount(
+  //     <BrowserRouter>
+  //       <Provider store={mockAppStore(mockAppState)}>
+  //         <ThemeProvider theme={theme}>
+  //           <TableCells {...cell} editTest={onButtonClickMock} />
+  //         </ThemeProvider>
+  //       </Provider>
+  //     </BrowserRouter>
+  //   );
+  //   const btn = wrapper.find('button.btn-edit');
+  //   btn.simulate('click');
+  //   expect(onButtonClickMock).toHaveBeenCalled();
+  // });
 });

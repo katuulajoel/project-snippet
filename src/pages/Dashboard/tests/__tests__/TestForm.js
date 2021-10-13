@@ -1,12 +1,16 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import configureStore from "redux-mock-store";
-import thunk from "redux-thunk";
-import { ThemeProvider } from "styled-components";
-import TestForm from "../TestForm";
-import theme from "../../../../theme";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { ThemeProvider } from 'styled-components';
+import TestForm from '../TestForm';
+import theme from '../../../../theme';
+import {
+  // mount,
+  shallow,
+} from 'enzyme';
+// import { render } from '@testing-library/react';
 
 const middlewares = [thunk];
 
@@ -15,14 +19,14 @@ const mockAppState = {
     isMakingRequest: {},
     errors: {},
     summary: {},
-    list: { data: [], count: 0, next: "", previous: "" },
+    list: { data: [], count: 0, next: '', previous: '' },
     invoice: {},
     csv: {},
   },
   TestResults: {
     count: {},
     errors: { fetch: null },
-    isFetching: { "6LMlpGnA": true, default: false, selectionKey: "6LMlpGnA" },
+    isFetching: { default: false },
     isSaved: {},
     isSaving: {},
     next: {},
@@ -34,8 +38,8 @@ const mockAppState = {
 
 export const dummyResult = {
   id: 10,
-  comms_check: "very_good",
-  mbti_profile: "entj",
+  comms_check: 'very_good',
+  mbti_profile: 'entj',
   iq_test: 100,
   sa_test: 100,
   code_of_conduct: 100,
@@ -44,17 +48,17 @@ export const dummyResult = {
       skill: 1,
       score: 100,
       id: 12,
-      skill_name: "react",
+      skill_name: 'react',
     },
   ],
   user_obj: {
     id: 16,
-    username: "wd",
-    email: "wd@tunga.io",
-    first_name: "wd",
-    last_name: "dw",
-    display_name: "Wd Dw",
-    short_name: "Wd",
+    username: 'wd',
+    email: 'wd@tunga.io',
+    first_name: 'wd',
+    last_name: 'dw',
+    display_name: 'Wd Dw',
+    short_name: 'Wd',
     type: 1,
     image: null,
     is_developer: true,
@@ -67,15 +71,15 @@ export const dummyResult = {
     company: null,
     avatar_url: null,
     can_contribute: false,
-    date_joined: "2021-06-22T22:48:41.243936",
+    date_joined: '2021-06-22T22:48:41.243936',
     agree_version: 1.2,
-    agreed_at: "2021-06-22T22:48:54",
+    agreed_at: '2021-06-22T22:48:54',
     disagree_version: 0,
     disagreed_at: null,
-    payoneer_signup_url: "",
-    payoneer_status: "initial",
-    exact_code: "000000000000000016",
-    tax_location: "world",
+    payoneer_signup_url: '',
+    payoneer_status: 'initial',
+    exact_code: '000000000000000016',
+    tax_location: 'world',
   },
 };
 
@@ -84,20 +88,50 @@ const mockAppStore = (state) => {
   return mockStore(state);
 };
 
-describe("Dashboard test", () => {
-  it("Should match snapshot test", () => {
-    global.URL.createObjectURL = jest.fn(() => "details");
-    const tree = renderer
-      .create(
-        <BrowserRouter>
-          <Provider store={mockAppStore(mockAppState)}>
-            <ThemeProvider theme={theme}>
-              <TestForm id="test-form" result={dummyResult} />
-            </ThemeProvider>
-          </Provider>
-        </BrowserRouter>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+describe('Testform tests', () => {
+  it('Should match snapshot test', () => {
+    const wrapper = shallow(
+      <BrowserRouter>
+        <Provider store={mockAppStore(mockAppState)}>
+          <ThemeProvider theme={theme}>
+            <TestForm id="test-form" result={dummyResult} />
+          </ThemeProvider>
+        </Provider>
+      </BrowserRouter>
+    );
+    expect(wrapper).toMatchSnapshot();
   });
+
+  // it('Should show the label for buttons', () => {
+  //   const { container } = render(
+  //     <BrowserRouter>
+  //       <Provider store={mockAppStore(mockAppState)}>
+  //         <ThemeProvider theme={theme}>
+  //           <TestForm id="test-form" result={dummyResult} />
+  //         </ThemeProvider>
+  //       </Provider>
+  //     </BrowserRouter>
+  //   );
+  //   const update = container.querySelector('button.btn-icon');
+  //   expect(update.innerHTML).toEqual('');
+  //   // expect(update[1].value).toEqual(/Update/i);
+  //   // expect(update.values).toMatch(/Update/i);
+  // });
+
+  // it('Should trigger dismiss on click', () => {
+  //   const onProceedClickMock = jest.fn();
+  //   const wrapper = mount(
+  //     <BrowserRouter>
+  //       <Provider store={mockAppStore(mockAppState)}>
+  //         <ThemeProvider theme={theme}>
+  //           <TestForm id="test-form" result={dummyResult} proceed={onProceedClickMock} />
+  //         </ThemeProvider>
+  //       </Provider>
+  //     </BrowserRouter>
+  //   );
+  //   const btn = wrapper.find('button.okay');
+  //   expect(btn.innerHTML).toMatch(/Update/i);
+  //   btn.simulate('click');
+  //   expect(onProceedClickMock).toHaveBeenCalled();
+  // });
 });
