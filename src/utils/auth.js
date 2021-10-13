@@ -32,7 +32,7 @@ export function isClient() {
 }
 
 export function isPM() {
-  return getUser().is_project_manager && !getUser().is_admin;
+  return getUser().is_client_manager && !getUser().is_admin;
 }
 
 export function isAdminOrClient() {
