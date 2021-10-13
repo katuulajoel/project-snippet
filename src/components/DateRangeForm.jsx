@@ -5,7 +5,7 @@ import moment from "moment";
 import styled from "styled-components";
 
 import FieldError from "./FieldError";
-import { StyledDateTimePicker, StyledForm } from "./utils/styles";
+import { StyledDateTimePicker, StyledForm } from "../utils/styles";
 
 const DateRangeForm = (props) => {
   const {

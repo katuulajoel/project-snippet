@@ -5,8 +5,8 @@ import styled from "styled-components";
 import Button from "./Button";
 import Icon from "./Icon";
 
-import { addEventListeners, BUTTON_EVENTS } from "./utils/events";
-import { filterButtonProps } from "./utils/forms";
+import { addEventListeners, BUTTON_EVENTS } from "../utils/events";
+import { filterButtonProps } from "../utils/forms";
 
 const IconButton = (props) => {
   return (

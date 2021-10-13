@@ -8,9 +8,9 @@ import { useDispatch } from "react-redux";
 
 /* -------------------------- Internal Dependencies ------------------------- */
 import Icon from "./Icon";
-import { logout } from "../actions/AuthActions";
+import { logout } from "../redux/actions/AuthActions";
 import logo from "../assets/images/logo_round.png";
-import { isPayAdminOrPM } from "./utils/auth";
+import { isPayAdminOrPM } from "../utils/auth";
 
 const SideBar = () => {
   const dispatch = useDispatch();

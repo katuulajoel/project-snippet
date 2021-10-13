@@ -12,25 +12,21 @@ import InfiniteScroll from "react-infinite-scroll-component";
 /* -------------------------- Internal dependencies ------------------------- */
 import Icon from "../../../components/Icon";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
-import { generateUserIntials } from "../../../components/utils/stringUtils";
+import { generateUserIntials } from "../../../utils/stringUtils";
 import Progress from "../../../components/Progress";
 
 /* --------------------------- Styles dependencies -------------------------- */
 import { StyledButtonDropdown, StyledTable } from "./styles";
 import Avatar from "../../../components/Avatar";
 import BulkActions from "./components/BulkActions";
-import {
-  isDev,
-  isPayAdmin,
-  isPMAndHasProjectAcess,
-} from "../../../components/utils/auth";
-import { ENDPOINT_INVOICES } from "../../../actions/utils/api";
-import { batchInvoices, showAction } from "./utils/utils";
+import { isDev, isPayAdmin, isPMAndHasProjectAcess } from "../../../utils/auth";
+import { ENDPOINT_INVOICES } from "../../../utils/api";
+import { batchInvoices, showAction } from "../../../utils/invoiceUtils";
 import {
   APPROVE_BATCH_ACTION,
   EDIT_ACTION_BATCH,
   DELETE_ACTION_BATCH,
-} from "./utils/constant";
+} from "../../../configs/constants/invoiceConstants";
 import { BatchStatus } from "./components/PaymentStatus";
 import ActionItem from "./components/ActionItem";
 import DropdownActionItem from "./components/DropdownActionItem";

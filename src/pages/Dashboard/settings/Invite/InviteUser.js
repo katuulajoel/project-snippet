@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import TabBar from "./tabBar";
-import { ContentSection } from "../../../../components/utils/styles";
+import { ContentSection } from "../../../../utils/styles";
 import Input from "../../../../components/Input";
-import { isAdmin } from "../../../../components/utils/auth";
-import * as InviteActions from "../../../../actions/InvitesActions";
+import { isAdmin } from "../../../../utils/auth";
+import * as InviteActions from "../../../../redux/actions/InvitesActions";
 import Label from "../../../../components/Label";
 
 const InviteUser = () => {

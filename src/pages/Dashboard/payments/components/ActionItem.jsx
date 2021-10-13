@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
 import PropTypes from "prop-types";
 import React from "react";
-import { showAction, performAction } from "../utils/utils";
+import { showAction, performAction } from "../../../../utils/invoiceUtils";
 
 const ActionItem = (props) => {
   const { action, invoice, children } = props;

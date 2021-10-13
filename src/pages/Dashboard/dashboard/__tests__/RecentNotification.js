@@ -6,9 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import { ThemeProvider } from "styled-components";
-import theme from "../../../../theme";
-import * as actions from "../../../../components/utils/auth";
+import * as actions from "../../../../utils/auth";
 import { mount } from "enzyme/build";
 
 const middlewares = [thunk];

@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
 import { Link } from "react-router-dom";
-import { getdateFormated, getDays } from "../../../components/utils/dateUtil";
+import { getdateFormated, getDays } from "../../../utils/dateUtil";
 import Icon from "../../../components/Icon";
-import { isDev } from "../../../components/utils/auth";
+import { isDev } from "../../../utils/auth";
 import styled from "styled-components";
 
 const UpcomingPayments = () => {

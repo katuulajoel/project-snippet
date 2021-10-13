@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { authenticate } from "../../actions/AuthActions";
+import { authenticate } from "../../redux/actions/AuthActions";
 import Progress from "../../components/Progress";
 import Error from "../../components/Error";
 import MetaTags from "../../components/MetaTags";

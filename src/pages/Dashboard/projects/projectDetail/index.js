@@ -4,11 +4,11 @@ import { Redirect, Route, Switch } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
 import SummaryPlaceholder from "../../../../components/SummaryPlaceholder/SummaryPlaceholder";
-import { hasProjectAccess, isPM } from "../../../../components/utils/auth";
-import { fetchProject } from "../../../../actions/ProjectActions";
+import { hasProjectAccess, isPM } from "../../../../utils/auth";
+import { fetchProject } from "../../../../redux/actions/ProjectActions";
 import Progress from "../../../../components/Progress";
 import PaymentContainer from "./PaymentContainer";
-import { FETCH_PROJECT_SUCCESS } from "../../../../actions/utils/ActionTypes";
+import { FETCH_PROJECT_SUCCESS } from "../../../../configs/constants/ActionTypes";
 
 const ProjectDetail = ({ match }) => {
   const { isMakingRequest, project } = useSelector(({ Projects }) => Projects);

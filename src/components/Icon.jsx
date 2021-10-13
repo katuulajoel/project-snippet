@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { addEventListeners, BUTTON_EVENTS } from "./utils/events";
-import { filterButtonProps } from "./utils/forms";
+import { addEventListeners, BUTTON_EVENTS } from "../utils/events";
+import { filterButtonProps } from "../utils/forms";
 
 const Icon = (props) => {
   return (

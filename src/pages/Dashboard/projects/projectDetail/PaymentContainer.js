@@ -4,13 +4,13 @@ import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Icon from "../../../../components/Icon";
 import SectionNav from "../../../../components/SectionNav";
-import { isAdminOrPM, isDev } from "../../../../components/utils/auth";
+import { isAdminOrPM, isDev } from "../../../../utils/auth";
 import PaymentTotals from "../../payments/components/PaymentTotals";
 import InvoiceListContainer from "../../payments/InvoiceListContainer";
 import Payments from "../../payments/Payments";
 import Payouts from "../../payments/Payouts";
 import { NavActions } from "../../payments/styles";
-import { downloadCsv } from "../../payments/utils/paymentActions";
+import { downloadCsv } from "../../../../utils/invoiceUtils";
 
 const PaymentContainer = ({ project }) => {
   let { pathname } = useLocation();
@@ -27,7 +27,9 @@ const PaymentContainer = ({ project }) => {
       var fileDownload = require("js-file-download");
       fileDownload(
         csv,
-        `${filter?.toUpperCase()} ${type === "in" ? "Payments" : "Payouts"}.csv`
+        `${filter?.toUpperCase()} ${
+          type === "payments" ? "Payments" : "Payouts"
+        }.csv`
       );
       dispatch({ type: "CLEAR_CSV" });
     }

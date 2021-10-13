@@ -6,7 +6,7 @@ import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import { mount } from "enzyme/build";
-import * as actions from "../../actions/InvoiceActions";
+import * as actions from "../../redux/actions/InvoiceActions";
 
 const middlewares = [thunk];
 
