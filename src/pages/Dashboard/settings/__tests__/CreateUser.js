@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { cleanup, render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import CreateUser from "../Invite/CreateUser";
-import store from "../../../../store";
+import store from "../../../../redux/store";
 
 afterEach(cleanup);
 

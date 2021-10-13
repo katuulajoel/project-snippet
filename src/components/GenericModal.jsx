@@ -10,7 +10,7 @@ import styled from "styled-components";
 
 /* -------------------------- Internel Dependencies ------------------------- */
 import Button from "./Button";
-import store from "../store";
+import store from "../redux/store";
 import ModalHeader from "./ModalHeader";
 
 const GenericModal = (props) => {

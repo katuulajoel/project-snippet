@@ -2,12 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
 import { Link } from "react-router-dom";
-import { getdateFormated } from "../../../components/utils/dateUtil";
-import { isAdminOrPM } from "../../../components/utils/auth";
+import { getdateFormated } from "../../../utils/dateUtil";
+import { isAdminOrPM } from "../../../utils/auth";
 import Icon from "../../../components/Icon";
 import styled from "styled-components";
 import Avatar from "../../../components/Avatar";
-import { generateUserIntials } from "../../../components/utils/stringUtils";
+import { generateUserIntials } from "../../../utils/stringUtils";
 
 const ActiveProjects = () => {
   const {

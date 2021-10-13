@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { DropdownItem } from "reactstrap";
 
-import { showAction, performAction } from "../utils/utils";
+import { showAction, performAction } from "../../../../utils/invoiceUtils";
 
 const DropdownActionItem = (props) => {
   const { action, invoice, children } = props;

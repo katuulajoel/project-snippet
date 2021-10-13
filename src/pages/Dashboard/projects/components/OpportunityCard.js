@@ -8,11 +8,7 @@ import moment from "moment";
 import _ from "lodash";
 
 /* -------------------------- Internal Dependencies ------------------------- */
-import {
-  isDev,
-  isPMAndHasProjectAcess,
-  isAdmin,
-} from "../../../../components/utils/auth";
+import { isDev, isPMAndHasProjectAcess, isAdmin } from "../../../../utils/auth";
 import styled from "styled-components";
 import { ProjectCardStyle } from "./ProjectCard";
 

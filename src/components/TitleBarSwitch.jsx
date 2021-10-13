@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import { useSelector, useDispatch } from "react-redux";
-import { TOGGLE_PROJECT_FILTER } from "../actions/utils/ActionTypes";
+import { TOGGLE_PROJECT_FILTER } from "../configs/constants/ActionTypes";
 
 /* --------------------------- Component proptypes -------------------------- */
 const proptypes = {

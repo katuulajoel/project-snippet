@@ -10,12 +10,9 @@ import InfiniteScroll from "react-infinite-scroll-component";
 // /* ------------------------- Component dependencies ------------------------- */
 import Progress from "../../../../components/Progress";
 import moment from "moment";
-import {
-  ContentSection,
-  StyledTable,
-} from "../../../../components/utils/styles";
+import { ContentSection, StyledTable } from "../../../../utils/styles";
 import SummaryPlaceholder from "../../../../components/SummaryPlaceholder/SummaryPlaceholder";
-import * as inviteActions from "../../../../actions/InvitesActions";
+import * as inviteActions from "../../../../redux/actions/InvitesActions";
 import TabBar from "./tabBar";
 
 const PendingInvite = () => {

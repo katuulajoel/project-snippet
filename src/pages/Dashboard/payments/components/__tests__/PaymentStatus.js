@@ -2,7 +2,7 @@
 import React from "react";
 import PaymentStatus, { BatchStatus } from "../PaymentStatus";
 import renderer from "react-test-renderer";
-import * as utils from "../../utils/utils";
+import * as utils from "../../../../../utils/invoiceUtils";
 import mount from "enzyme/build/mount";
 
 const invoice = {

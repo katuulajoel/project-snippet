@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { mount } from "enzyme/build";
-import * as utils from "../utils/utils";
+import * as utils from "../../../../utils/invoiceUtils";
 
 const middlewares = [thunk];
 

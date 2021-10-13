@@ -7,7 +7,7 @@ import InvoiceListContainer from "../InvoiceListContainer";
 import { mount } from "enzyme/build";
 import Payments from "../Payments";
 import { dummyInvoice } from "./Payments";
-import * as actions from "../../../../actions/InvoiceActions";
+import * as actions from "../../../../redux/actions/InvoiceActions";
 
 const middlewares = [thunk];
 

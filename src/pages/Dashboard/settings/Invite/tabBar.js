@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
 import React from "react";
 /* ------------------------- Component dependencies ------------------------- */
 import SectionNav from "../../../../components/SectionNav";
-import { isAdmin } from "../../../../components/utils/auth";
+import { isAdmin } from "../../../../utils/auth";
 
 const TabBar = () => {
   return (

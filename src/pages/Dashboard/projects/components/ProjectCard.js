@@ -8,19 +8,15 @@ import moment from "moment";
 import _ from "lodash";
 
 /* -------------------------- Internal Dependencies ------------------------- */
-import {
-  isDev,
-  isPMAndHasProjectAcess,
-  isAdmin,
-} from "../../../../components/utils/auth";
+import { isDev, isPMAndHasProjectAcess, isAdmin } from "../../../../utils/auth";
 import styled from "styled-components";
 import Avatar from "../../../../components/Avatar";
 import IconButton from "../../../../components/IconButton";
 import Icon from "../../../../components/Icon";
-import { generateUserIntials } from "../../../../components/utils/stringUtils";
+import { generateUserIntials } from "../../../../utils/stringUtils";
 
 const ProjectCard = ({ project }) => {
-  const avatarsToShow = 1; // TODO: make this responsive depending on the viewport
+  const avatarsToShow = 5; // TODO: make this responsive depending on the viewport
 
   const participants = project.participation.map((participant) => ({
     avatar: participant.user.avatar_url,

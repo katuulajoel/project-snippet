@@ -7,7 +7,7 @@ import Cta from "../../components/Cta";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Error from "../../components/Error";
-import { resetPassword } from "../../actions/AuthActions";
+import { resetPassword } from "../../redux/actions/AuthActions";
 import Progress from "../../components/Progress";
 // import Success from "../../components/Success";
 import MetaTags from "../../components/MetaTags";

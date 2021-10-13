@@ -1,15 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  getUser,
-  isClient,
-  isDev,
-  isAdmin,
-} from "../../../components/utils/auth";
-import { generateUserIntials } from "../../../components/utils/stringUtils";
-import { DOC_TYPE_OTHER } from "../../../actions/utils/ActionTypes";
+import { getUser, isClient, isDev, isAdmin } from "../../../utils/auth";
+import { generateUserIntials } from "../../../utils/stringUtils";
+import { DOC_TYPE_OTHER } from "../../../configs/constants/projectConstants";
 import moment from "moment";
-import { INVOICE_TYPE_SALE } from "../../../actions/utils/api";
+import { INVOICE_TYPE_SALE } from "../../../utils/api";
 
 const notificationDetails = (item, user) => ({
   type: "activity",

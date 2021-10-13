@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { addPropsToChildren } from "../../../components/utils/children";
+import { addPropsToChildren } from "../../../utils/children";
 import Progress from "../../../components/Progress";
 import {
   fetchProjects,
   fetchMoreProjects,
-} from "../../../actions/ProjectActions";
+} from "../../../redux/actions/ProjectActions";
 import SectionNav from "../../../components/SectionNav";
-import { isPM } from "../../../components/utils/auth";
+import { isPM } from "../../../utils/auth";
 
 const ProjectListContainer = (props) => {
   const {

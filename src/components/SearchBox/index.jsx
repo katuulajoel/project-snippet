@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import InputGroup from "../InputGroup";
 import Icon from "../Icon";
 import IconButton from "../IconButton";
-import { listInvoices } from "../../actions/InvoiceActions";
+import { listInvoices } from "../../redux/actions/InvoiceActions";
 import Results from "./Results";
 
 const SearchBox = ({ navHieght }) => {

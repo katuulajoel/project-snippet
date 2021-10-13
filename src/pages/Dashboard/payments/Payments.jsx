@@ -14,12 +14,12 @@ import {
   ENDPOINT_INVOICES,
   INVOICE_TYPE_CREDIT_NOTE,
   INVOICE_TYPE_FINAL,
-} from "../../../actions/utils/api";
-import { getTableColumns } from "./utils/columns";
-import { tableData } from "./utils/row";
+} from "../../../utils/api";
+import { getTableColumns } from "../../../utils/invoiceUtils";
+import { tableData } from "../../../utils/invoiceUtils";
 import PaymentStatus from "./components/PaymentStatus";
 import ActionItem from "./components/ActionItem";
-import { showAction } from "./utils/utils";
+import { showAction } from "../../../utils/invoiceUtils";
 import {
   GENERATE_INVOICE_ACTION,
   PAY_ACTION,
@@ -27,17 +27,14 @@ import {
   ARCHIVE_ACTION,
   EDIT_ACTION,
   DELETE_ACTION,
-} from "./utils/constant";
+} from "../../../configs/constants/invoiceConstants";
 
 /* --------------------------- Styles dependencies -------------------------- */
 import { StyledButtonDropdown } from "./styles";
 import DropdownActionItem from "./components/DropdownActionItem";
 import ReactTable from "../../../components/ReactTable";
 import BulkActions from "./components/BulkActions";
-import {
-  isPayAdmin,
-  isPMAndHasProjectAcess,
-} from "../../../components/utils/auth";
+import { isPayAdmin, isPMAndHasProjectAcess } from "../../../utils/auth";
 
 /* --------------------------- Component proptypes -------------------------- */
 const proptypes = {

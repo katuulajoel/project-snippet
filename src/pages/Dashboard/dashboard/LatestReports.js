@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
 import { Link } from "react-router-dom";
-import { getdateFormated } from "../../../components/utils/dateUtil";
+import { getdateFormated } from "../../../utils/dateUtil";
 import Icon from "../../../components/Icon";
 
 const LatestReports = () => {
