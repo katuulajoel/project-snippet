@@ -117,18 +117,20 @@ describe('Testform tests', () => {
     const fullNamePlaceholder = getByText('Full name');
     const emailPlaceholder = getByText('Email address');
     // const skillPlaceholder = getByText('Type to search and select...');
-    // const selectCommsPlaceholder = getByText('Comms Check');
+    const selectCommsPlaceholder = getByText('Communication');
     const selectProfilePlaceholder = getByText('Profiles');
     // const iqScorePlaceholder = getByText('Enter score');
     // const saPlaceholder = getByText('SA test');
+    // const ccPlaceholder = getByText('Code of Conduct score');
 
     expect(fullNamePlaceholder).toBeTruthy();
     expect(emailPlaceholder).toBeTruthy();
     // expect(skillPlaceholder).toBeTruthy();
-    // expect(selectCommsPlaceholder).toBeTruthy();
+    expect(selectCommsPlaceholder).toBeTruthy();
     expect(selectProfilePlaceholder).toBeTruthy();
     // expect(iqScorePlaceholder).toBeTruthy();
     // expect(saPlaceholder).toBeTruthy();
+    // expect(ccPlaceholder).toBeTruthy();
 
     const iqTestInput = queryByLabelText('iq-test-input');
     fireEvent.change(iqTestInput, { target: { value: '98' } });

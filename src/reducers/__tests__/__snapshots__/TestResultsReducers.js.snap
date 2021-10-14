@@ -288,32 +288,36 @@ Array [
     <div
       className="sc-dlMDgC gDbdeh"
     >
-      <select
-        className="form-control form-control "
-        onChange={[Function]}
-        value=""
+      <div
+        data-testid="select-component"
       >
-        <option
+        <select
+          className="form-control form-control "
+          onChange={[Function]}
           value=""
         >
-          -- Select --
-        </option>
-        <option
-          value="20"
-        >
-          20
-        </option>
-        <option
-          value="50"
-        >
-          50
-        </option>
-        <option
-          value="100"
-        >
-          100
-        </option>
-      </select>
+          <option
+            value=""
+          >
+            -- Select --
+          </option>
+          <option
+            value="20"
+          >
+            20
+          </option>
+          <option
+            value="50"
+          >
+            50
+          </option>
+          <option
+            value="100"
+          >
+            100
+          </option>
+        </select>
+      </div>
       <i
         className="tg-ic-rounded-keyboard-arrow-down tunga-ic-sz-sm "
       />
@@ -516,6 +520,7 @@ exports[`Testform tests Should match snapshot test 1`] = `
                 disabled=""
               >
                 <input
+                  aria-label="skill-input"
                   class="form-control"
                   data-testid=""
                   disabled=""
@@ -591,35 +596,43 @@ exports[`Testform tests Should match snapshot test 1`] = `
           <div
             class="sc-iqAclL jJanAN"
           >
-            <select
-              class="form-control  "
+            <div
+              data-testid="select-component"
             >
-              <option
-                value=""
+              <select
+                class="form-control  "
               >
-                Comms Check
-              </option>
-              <option
-                value="very_good"
-              >
-                Very good
-              </option>
-              <option
-                value="good"
-              >
-                Good
-              </option>
-              <option
-                value="pass"
-              >
-                Pass
-              </option>
-              <option
-                value="poor"
-              >
-                Bad
-              </option>
-            </select>
+                <option
+                  value=""
+                >
+                  Communication
+                </option>
+                <option
+                  data-testid="option-very_good"
+                  value="very_good"
+                >
+                  Very good
+                </option>
+                <option
+                  data-testid="option-good"
+                  value="good"
+                >
+                  Good
+                </option>
+                <option
+                  data-testid="option-pass"
+                  value="pass"
+                >
+                  Pass
+                </option>
+                <option
+                  data-testid="option-poor"
+                  value="poor"
+                >
+                  Bad
+                </option>
+              </select>
+            </div>
             <i
               class="tg-ic-rounded-keyboard-arrow-down tunga-ic-sz-sm "
             />
@@ -647,95 +660,115 @@ exports[`Testform tests Should match snapshot test 1`] = `
           <div
             class="sc-iqAclL jJanAN"
           >
-            <select
-              class="form-control  "
+            <div
+              data-testid="select-component"
             >
-              <option
-                value=""
+              <select
+                class="form-control  "
               >
-                Profiles
-              </option>
-              <option
-                value="estj"
-              >
-                ESTJ
-              </option>
-              <option
-                value="istj"
-              >
-                ISTJ
-              </option>
-              <option
-                value="entj"
-              >
-                ENTJ
-              </option>
-              <option
-                value="intj"
-              >
-                INTJ
-              </option>
-              <option
-                value="estp"
-              >
-                ESTP
-              </option>
-              <option
-                value="istp"
-              >
-                ISTP
-              </option>
-              <option
-                value="entp"
-              >
-                ENTP
-              </option>
-              <option
-                value="intp"
-              >
-                INTP
-              </option>
-              <option
-                value="esfj"
-              >
-                ESFJ
-              </option>
-              <option
-                value="isfj"
-              >
-                ISFJ
-              </option>
-              <option
-                value="enfj"
-              >
-                ENFJ
-              </option>
-              <option
-                value="infj"
-              >
-                INFJ
-              </option>
-              <option
-                value="esfp"
-              >
-                ESFP
-              </option>
-              <option
-                value="isfp"
-              >
-                ISFP
-              </option>
-              <option
-                value="enfp"
-              >
-                ENFP
-              </option>
-              <option
-                value="infp"
-              >
-                INFP
-              </option>
-            </select>
+                <option
+                  value=""
+                >
+                  Profiles
+                </option>
+                <option
+                  data-testid="option-estj"
+                  value="estj"
+                >
+                  ESTJ
+                </option>
+                <option
+                  data-testid="option-istj"
+                  value="istj"
+                >
+                  ISTJ
+                </option>
+                <option
+                  data-testid="option-entj"
+                  value="entj"
+                >
+                  ENTJ
+                </option>
+                <option
+                  data-testid="option-intj"
+                  value="intj"
+                >
+                  INTJ
+                </option>
+                <option
+                  data-testid="option-estp"
+                  value="estp"
+                >
+                  ESTP
+                </option>
+                <option
+                  data-testid="option-istp"
+                  value="istp"
+                >
+                  ISTP
+                </option>
+                <option
+                  data-testid="option-entp"
+                  value="entp"
+                >
+                  ENTP
+                </option>
+                <option
+                  data-testid="option-intp"
+                  value="intp"
+                >
+                  INTP
+                </option>
+                <option
+                  data-testid="option-esfj"
+                  value="esfj"
+                >
+                  ESFJ
+                </option>
+                <option
+                  data-testid="option-isfj"
+                  value="isfj"
+                >
+                  ISFJ
+                </option>
+                <option
+                  data-testid="option-enfj"
+                  value="enfj"
+                >
+                  ENFJ
+                </option>
+                <option
+                  data-testid="option-infj"
+                  value="infj"
+                >
+                  INFJ
+                </option>
+                <option
+                  data-testid="option-esfp"
+                  value="esfp"
+                >
+                  ESFP
+                </option>
+                <option
+                  data-testid="option-isfp"
+                  value="isfp"
+                >
+                  ISFP
+                </option>
+                <option
+                  data-testid="option-enfp"
+                  value="enfp"
+                >
+                  ENFP
+                </option>
+                <option
+                  data-testid="option-infp"
+                  value="infp"
+                >
+                  INFP
+                </option>
+              </select>
+            </div>
             <i
               class="tg-ic-rounded-keyboard-arrow-down tunga-ic-sz-sm "
             />
@@ -744,7 +777,7 @@ exports[`Testform tests Should match snapshot test 1`] = `
       </div>
     </div>
     <div
-      class="row"
+      class="row mt-3"
     >
       <div
         class="col-md-6"
@@ -855,7 +888,7 @@ exports[`Testform tests Should match snapshot test 1`] = `
               label="Label"
               max="100"
               min="0"
-              placeholder="Enter score"
+              placeholder="Code of Conduct score"
               step="1"
               type="number"
               value="100"

@@ -394,7 +394,7 @@ const TestForm = ({ id, proceed, result }) => {
             {errors && errors.comms_check && <FieldError message={errors.comms_check} />}
             <CustomSelect>
               <Select
-                placeholder="Comms Check"
+                placeholder="Communication"
                 aria-label="comms-check"
                 selected={testResults.comms_check}
                 options={commsCheck}
@@ -425,7 +425,7 @@ const TestForm = ({ id, proceed, result }) => {
           </FormGroup>
         </div>
       </div>
-      <div className="row">
+      <div className="row mt-3">
         <div className="col-md-6">
           <FormGroup>
             <label>
@@ -485,7 +485,7 @@ const TestForm = ({ id, proceed, result }) => {
               max="100"
               value={testResults.code_of_conduct}
               onChange={(e) => onChangeField('code_of_conduct', e)}
-              placeholder="Enter score"
+              placeholder="Code of Conduct score"
               step={1}
             />
           </FormGroup>

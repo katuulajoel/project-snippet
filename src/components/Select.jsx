@@ -47,7 +47,7 @@ export default class Select extends React.Component {
       const { value, name } = option;
 
       return (
-        <option key={`option-${value}`} value={value}>
+        <option key={`option-${value}`} value={value} data-testid={`option-${value}`}>
           {name}
         </option>
       );
@@ -56,49 +56,28 @@ export default class Select extends React.Component {
 
   render() {
     return (
-      <select
-        className={`form-control ${this.props.className || ''} ${
-          this.props.size ? `form-control-${this.props.size}` : ''
-        }`}
-        {...filterInputProps(this.props)}
-        {...filterEventProps(this.props)}
-        value={this.state.selected || ''}
-        onChange={this.onChange.bind(this)}
-        required={this.props.required}
-      >
-        {this.props.placeholder ? (
-          <option key="option-placeholder" value="">
-            {this.props.placeholder}
-          </option>
-        ) : null}
+      <div data-testid="select-component">
+        <select
+          className={`form-control ${this.props.className || ''} ${
+            this.props.size ? `form-control-${this.props.size}` : ''
+          }`}
+          {...filterInputProps(this.props)}
+          {...filterEventProps(this.props)}
+          value={this.state.selected || ''}
+          onChange={this.onChange.bind(this)}
+          required={this.props.required}
+        >
+          {this.props.placeholder ? (
+            <option key="option-placeholder" value="">
+              {this.props.placeholder}
+            </option>
+          ) : null}
 
-        {this.props.children
-          ? this.props.children
-          : this.props.grouped
-          ? this.props.options.map((group) => {
-              let groupName = group,
-                groupOptions = group;
-
-              if (Array.isArray(group)) {
-                groupName = group[0];
-                groupOptions = group[1];
-              }
-
-              if (Array.isArray(groupOptions)) {
-                return (
-                  <optgroup key={`option-${groupName}`} label={groupName}>
-                    {this.renderOptions(groupOptions)}
-                  </optgroup>
-                );
-              }
-              return (
-                <option key={`option-${groupName}`} value={groupName}>
-                  {groupOptions}
-                </option>
-              );
-            })
-          : this.renderOptions(this.props.options)}
-      </select>
+          {this.props.children
+            ? this.props.children
+            : this.renderOptions(this.props.options)}
+        </select>
+      </div>
     );
   }
 }

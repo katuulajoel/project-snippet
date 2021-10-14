@@ -145,6 +145,7 @@ class SingleSkillSelector extends React.Component {
         {(this.props.type === "single" || !this.state.selected) && (
           <div style={{ position: "relative" }}>
             <InputGroup
+              data-testid="skill-input"
               className={this.props.className}
               placeholder="Search Skill"
               {...filterInputProps(this.props)}
@@ -182,6 +183,7 @@ class SingleSkillSelector extends React.Component {
         {this.props.type !== "single" && this.state.selected ? (
           <Input
             className="selected-item"
+            aria-label="skill-input"
             key={`skill-${this.state.selected.id}`}
             value={this.state.selected.name}
             disabled={this.props.type === "single" ? false : true}

@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+// import { render } from '@testing-library/react';
 // import { mount } from 'enzyme';
 // import { mount } from "enzyme/build";
 // import * as utils from "../utils/utils";
@@ -30,7 +31,7 @@ const mockAppState = {
 
 const mockAppStore = (state) => {
   const mockStore = configureStore(middlewares);
-  return mockStore(state);
+  return mockStore(state || mockAppState);
 };
 
 export const dummyResults = [
@@ -103,15 +104,15 @@ describe('Dashboard test - Test Results', () => {
   });
 
   // it('should show add new result for test.', async () => {
-  //   const { container } = render(
+  //   const { getByText  } = render(
   //     <Provider store={mockAppStore()}>
-  //       <Provider store={mockAppStore(mockAppState)}>
   //         <Results {...props} />
-  //       </Provider>
   //     </Provider>
   //   );
-  //   const title = container.querySelector('.btn-primary');
-  //   expect(title.innerHTML).toMatch(/Add New Result/i);
+  //   // const title = container.querySelector('.btn-primary');
+  //   // expect(title.innerHTML).toMatch(/Add New Result/i);
+  //   const fullNamePlaceholder = getByText('Full name');
+  //   expect(fullNamePlaceholder).toBeTruthy();
   // });
 
   // it('checks the table rows successfuly', async () => {
