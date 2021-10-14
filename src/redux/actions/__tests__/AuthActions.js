@@ -232,4 +232,18 @@ describe("Authencation actions tests", () => {
     const storeActions = store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
+
+  it("should retrieve user profile", async () => {
+    axios.get.mockReturnValue(Promise.resolve({ data: [] }));
+    const expectedActions = [
+      {
+        payload: [],
+        type: "SET_USER_PROFILE",
+      },
+    ];
+
+    await store.dispatch(actions.retrieveProfile());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
 });

@@ -65,4 +65,32 @@ describe("InviteUser comp test", () => {
     fireEvent.change(lastNameInput, { target: { value: "Mensah" } });
     expect(lastNameInput.value).toBe("Mensah");
   });
+
+  it("Check form submit", () => {
+    const { queryByLabelText, getByText } = render(
+      <Provider store={store}>
+        <Router>
+          <InviteUser />
+        </Router>
+      </Provider>
+    );
+
+    const emailInput = queryByLabelText("email-input");
+    fireEvent.change(emailInput, { target: { value: "ms@gm.com" } });
+    expect(emailInput.value).toBe("ms@gm.com");
+
+    const firstNameInput = queryByLabelText("first_name-input");
+    fireEvent.change(firstNameInput, { target: { value: "Kwame" } });
+    expect(firstNameInput.value).toBe("Kwame");
+
+    const lastNameInput = queryByLabelText("last_name-input");
+    fireEvent.change(lastNameInput, { target: { value: "Mensah" } });
+    expect(lastNameInput.value).toBe("Mensah");
+
+    const userTypeInput = queryByLabelText("last_name-input");
+    fireEvent.change(userTypeInput, { target: { value: "1" } });
+    expect(lastNameInput.value).toBe("1");
+
+    fireEvent.click(getByText(/Send Invite/i));
+  });
 });

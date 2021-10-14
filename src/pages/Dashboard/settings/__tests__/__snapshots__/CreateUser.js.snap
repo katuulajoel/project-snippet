@@ -350,6 +350,7 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               </span>
             </label>
             <select
+              aria-label="country-input"
               class="form-control"
               name="country"
               required=""

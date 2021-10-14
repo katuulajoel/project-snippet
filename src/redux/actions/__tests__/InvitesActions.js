@@ -89,4 +89,13 @@ describe("Invoice actions tests", () => {
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
+
+  it("create user", async () => {
+    axios.post.mockReturnValue(Promise.resolve({ data: [] }));
+    const expectedActions = [];
+
+    await store.dispatch(actions.createUser());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
 });
