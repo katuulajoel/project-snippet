@@ -6,6 +6,7 @@ import CreateUser from "./Invite/CreateUser";
 import Invite from "./Invite/InviteUser";
 // import Invite from "./Invite";
 import PendingInvite from "./Invite/PendingInvites";
+import Privacy from "./Privacy";
 // import * as userActions from "../../../actions/UserActions";
 
 export default function Settings() {
@@ -13,6 +14,7 @@ export default function Settings() {
     <DashboardLayout>
       <div className={`content-card settings-card settings-container clearfix`}>
         <Switch>
+          <Route exact path="/settings/privacy" component={Privacy} />
           <Route exact path="/settings/invite" component={Invite} />
           <Route exact path="/settings/invite/create" component={CreateUser} />
           <Route
