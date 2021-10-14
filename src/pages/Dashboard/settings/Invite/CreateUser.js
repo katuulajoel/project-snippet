@@ -166,6 +166,7 @@ const CreateUser = () => {
               name="country"
               onChange={onChangeField}
               dispatch={dispatch}
+              aria-label="country-input"
               required
             />
           </Label>
