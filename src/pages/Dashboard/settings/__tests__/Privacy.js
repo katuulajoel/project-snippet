@@ -1,17 +1,22 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { Provider } from "react-redux";
+import { cleanup, render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Privacy from "../Privacy";
+import store from "../../../../store";
 
-describe("Auth layout test", () => {
-  it("Snapshot test for Login component", () => {
-    const tree = renderer
-      .create(
+afterEach(cleanup);
+
+describe("Privacy layout test", () => {
+  it("Privacy component snapshot", () => {
+    const { asFragment } = render(
+      <Provider store={store}>
         <Router>
           <Privacy />
         </Router>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+      </Provider>
+    );
+
+    expect(asFragment(<Privacy />)).toMatchSnapshot();
   });
 });
