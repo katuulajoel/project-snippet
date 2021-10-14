@@ -6,6 +6,8 @@ function user(state = {}, action) {
     case AuthActions.LOGIN_SUCCESS:
     case AuthActions.VERIFY_SUCCESS:
       return { ...state, ...action.user };
+    case AuthActions.SET_USER_PROFILE:
+      return { ...state, ...action.payload };
     case AuthActions.LOGOUT_SUCCESS:
       return {};
     default:
