@@ -24,7 +24,9 @@ const PendingInvite = () => {
   }, []);
 
   const resendInvite = (data) => {
-    inviteActions.invite({ id: data.id, email: data.email, resend: true });
+    inviteActions.invite({ id: data.id, email: data.email, resend: true })(
+      dispatch
+    );
   };
 
   const fetchMoreData = () => {
