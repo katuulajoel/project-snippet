@@ -4,7 +4,7 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="sc-bdnxRM dNpxFo"
+      class="sc-eCApnc hGEZDR"
     >
       <div
         class="filter-links"
@@ -27,8 +27,348 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
       </div>
     </div>
   </div>
-  <h2>
-    Create user
-  </h2>
+  <div
+    class="sc-hKFxyN eHYxOi"
+  >
+    <form>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="Email Address"
+              class="control-label"
+            >
+              Email Address
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-label="email-input"
+              class="form-control"
+              name="email"
+              placeholder="eg. bart@tunga.io"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="First Name"
+              class="control-label"
+            >
+              First Name
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-label="first_name-input"
+              class="form-control"
+              name="first_name"
+              placeholder="Enter first name"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="Last Name"
+              class="control-label"
+            >
+              Last Name
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-label="last_name-input"
+              class="form-control"
+              name="last_name"
+              placeholder="Enter last name"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="Company name"
+              class="control-label"
+            >
+              Company name
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-label="company-input"
+              class="form-control"
+              name="company"
+              placeholder="Enter name of company"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="VAT Number: "
+              class="control-label"
+            >
+              VAT Number: 
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-label="vat_number-input"
+              class="form-control"
+              name="vat_number"
+              placeholder="VAT Number"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="Street"
+              class="control-label"
+            >
+              Street
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-label="street-input"
+              class="form-control"
+              name="street"
+              placeholder="Enter street name"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="Number/Plot"
+              class="control-label"
+            >
+              Number/Plot
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-label="plot_number-input"
+              class="form-control"
+              name="plot_number"
+              placeholder="Enter no."
+              required=""
+              type="number"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="Zip code"
+              class="control-label"
+            >
+              Zip code
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-label="postal_code-input"
+              class="form-control"
+              name="postal_code"
+              placeholder="Enter ZIP"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="City"
+              class="control-label"
+            >
+              City
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <input
+              aria-label="city-input"
+              class="form-control"
+              name="city"
+              placeholder="Enter city"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="label"
+        class="row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              aria-label="Country"
+              class="control-label"
+            >
+              Country
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <select
+              class="form-control"
+              name="country"
+              required=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12"
+      >
+        <button
+          class="btn btn-primary save"
+          disabled=""
+          type="submit"
+        >
+          Create Client
+        </button>
+      </div>
+    </form>
+  </div>
 </DocumentFragment>
 `;

@@ -61,3 +61,176 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
   </div>
 </div>
 `;
+
+exports[`Privacy layout test Privacy component snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-gKAaRy cfqguH privacy-settings"
+  >
+    <div>
+      <div
+        class="section"
+      >
+        <div
+          class="section-title"
+        >
+          Cookie Settings
+        </div>
+        <div
+          class="row"
+        >
+          <div
+            class="col-md-12"
+          >
+            <p>
+              Learn more about how we use cookies from the "Cookies" section of our 
+              <a
+                href="https://tunga.io/privacy/#cookies"
+              >
+                Privacy Policy.
+              </a>
+            </p>
+          </div>
+          <div
+            class="col-md-12"
+          >
+            <p>
+              You can opt-out of specific cookie categories (except essential website cookies) by clicking on the button below.
+            </p>
+          </div>
+          <div
+            class="col"
+          >
+            <button
+              class="btn btn-default save  "
+              type="button"
+            >
+              Cookie Settings
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="section"
+      >
+        <div
+          class="section-title"
+        >
+          Promotional Email Settings
+        </div>
+        <div
+          class="form-check"
+        >
+          <label
+            class="form-check-label"
+            for="check-NEWSLETTER_EMAIL"
+          >
+            Email newsletters from Tunga
+          </label>
+          <input
+            class="switch form-check-input"
+            id="check-NEWSLETTER_EMAIL"
+            type="checkbox"
+            value="on"
+          />
+        </div>
+        <div
+          class="form-check"
+        >
+          <label
+            class="form-check-label"
+            for="check-EVENT_EMAIL"
+          >
+            Emails about interesting events from Tunga
+          </label>
+          <input
+            class="switch form-check-input"
+            id="check-EVENT_EMAIL"
+            type="checkbox"
+            value="on"
+          />
+        </div>
+      </div>
+      <div
+        class="section"
+      >
+        <div
+          class="section-title"
+        >
+          Transactional Email Settings
+        </div>
+        <div
+          class="form-check"
+        >
+          <label
+            class="form-check-label"
+            for="check-TASK_SURVEY_REMINDER_EMAIL"
+          >
+            Email reminders about client progress surveys.
+          </label>
+          <input
+            class="switch form-check-input"
+            id="check-TASK_SURVEY_REMINDER_EMAIL"
+            type="checkbox"
+            value="on"
+          />
+        </div>
+        <div
+          class="form-check"
+        >
+          <label
+            class="form-check-label"
+            for="check-NEW_TASK_PROGRESS_REPORT_EMAIL"
+          >
+            Email notifications about new developer progress reports.
+          </label>
+          <input
+            class="switch form-check-input"
+            id="check-NEW_TASK_PROGRESS_REPORT_EMAIL"
+            type="checkbox"
+            value="on"
+          />
+        </div>
+      </div>
+      <div
+        class="section agreements"
+      >
+        <div
+          class="section-title"
+        >
+          Agreements and Policies
+        </div>
+        <ul>
+          <li
+            style="margin-bottom: 8px;"
+          >
+            <a
+              href="/privacy"
+            >
+              Privacy Policy
+            </a>
+          </li>
+          <li
+            style="margin-bottom: 8px;"
+          >
+            <a
+              href="/agreement"
+            >
+              User Agreement
+            </a>
+          </li>
+          <li
+            style="margin-bottom: 8px;"
+          >
+            <a
+              href="/code-of-conduct"
+            >
+              Code of Conduct
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
