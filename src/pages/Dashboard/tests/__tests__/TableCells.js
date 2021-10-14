@@ -11,28 +11,6 @@ import theme from '../../../../theme';
 
 const middlewares = [thunk];
 
-const mockAppState = {
-  Invoice: {
-    isMakingRequest: {},
-    errors: {},
-    summary: {},
-    list: { data: [], count: 0, next: '', previous: '' },
-    invoice: {},
-    csv: {},
-  },
-  TestResults: {
-    count: {},
-    errors: { fetch: null },
-    isFetching: { default: false },
-    isSaved: {},
-    isSaving: {},
-    next: {},
-    previous: {},
-    results: [],
-    selectedFilters: [],
-  },
-};
-
 export const dummyResult = {
   id: 10,
   comms_check: 'very_good',
@@ -80,6 +58,28 @@ export const dummyResult = {
   },
 };
 
+const mockAppState = {
+  Invoice: {
+    isMakingRequest: {},
+    errors: {},
+    summary: {},
+    list: { data: [], count: 0, next: '', previous: '' },
+    invoice: {},
+    csv: {},
+  },
+  TestResults: {
+    count: { default: 1 },
+    errors: { fetch: null },
+    isFetching: { default: false },
+    isSaved: {},
+    isSaving: {},
+    next: {},
+    previous: {},
+    results: [dummyResult],
+    selectedFilters: [],
+  },
+};
+
 const mockAppStore = (state) => {
   const mockStore = configureStore(middlewares);
   return mockStore(state);
@@ -114,7 +114,6 @@ describe('TableCells Component test', () => {
   // it('Should trigger edit on click', () => {
   //   const onButtonClickMock = jest.fn();
   //   const cell = {
-  //     selectionKey: '6LMlpGnA',
   //     value: {
   //       result: 100,
   //       status: 'failed',
@@ -125,14 +124,14 @@ describe('TableCells Component test', () => {
   //   };
   //   const wrapper = mount(
   //     <BrowserRouter>
-  //       <Provider store={mockAppStore(mockAppState)}>
+  //       <Provider store={mockAppStore()}>
   //         <ThemeProvider theme={theme}>
   //           <TableCells {...cell} editTest={onButtonClickMock} />
   //         </ThemeProvider>
   //       </Provider>
   //     </BrowserRouter>
   //   );
-  //   const btn = wrapper.find('button.btn-edit');
+  //   const btn = wrapper.find('button');
   //   btn.simulate('click');
   //   expect(onButtonClickMock).toHaveBeenCalled();
   // });

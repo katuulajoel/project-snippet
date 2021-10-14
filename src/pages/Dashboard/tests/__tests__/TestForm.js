@@ -3,14 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { ThemeProvider } from 'styled-components';
+import { render, fireEvent } from '@testing-library/react';
 import TestForm from '../TestForm';
-import theme from '../../../../theme';
-import {
-  // mount,
-  shallow,
-} from 'enzyme';
-// import { render } from '@testing-library/react';
 
 const middlewares = [thunk];
 
@@ -85,21 +79,68 @@ export const dummyResult = {
 
 const mockAppStore = (state) => {
   const mockStore = configureStore(middlewares);
-  return mockStore(state);
+  return mockStore(state || mockAppState);
 };
+
+const store = mockAppStore();
 
 describe('Testform tests', () => {
   it('Should match snapshot test', () => {
-    const wrapper = shallow(
-      <BrowserRouter>
-        <Provider store={mockAppStore(mockAppState)}>
-          <ThemeProvider theme={theme}>
-            <TestForm id="test-form" result={dummyResult} />
-          </ThemeProvider>
-        </Provider>
-      </BrowserRouter>
+    const { asFragment } = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <TestForm id="test-form" result={dummyResult} />
+        </BrowserRouter>
+      </Provider>
     );
-    expect(wrapper).toMatchSnapshot();
+
+    expect(asFragment(<TestForm id="test-form" result={dummyResult} />)).toMatchSnapshot();
+  });
+
+  it('Check inputs value change', () => {
+    const { queryByLabelText, getByText } = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <TestForm id="test-form" result={dummyResult} />
+        </BrowserRouter>
+      </Provider>
+    );
+
+    // const commsSelect = queryByLabelText('comms-check');
+    // fireEvent.select(commsSelect, { target: { value: 'pass' } });
+    // expect(commsSelect.value).toBe('pass');
+    // const mockedOnChange = jest.fn();
+    // const { getByText } = render(<MySelectComponent
+    //     options={mockedOptions}
+    //     onChange={mockedOnChange} />);
+
+    const fullNamePlaceholder = getByText('Full name');
+    const emailPlaceholder = getByText('Email address');
+    // const skillPlaceholder = getByText('Type to search and select...');
+    // const selectCommsPlaceholder = getByText('Comms Check');
+    const selectProfilePlaceholder = getByText('Profiles');
+    // const iqScorePlaceholder = getByText('Enter score');
+    // const saPlaceholder = getByText('SA test');
+
+    expect(fullNamePlaceholder).toBeTruthy();
+    expect(emailPlaceholder).toBeTruthy();
+    // expect(skillPlaceholder).toBeTruthy();
+    // expect(selectCommsPlaceholder).toBeTruthy();
+    expect(selectProfilePlaceholder).toBeTruthy();
+    // expect(iqScorePlaceholder).toBeTruthy();
+    // expect(saPlaceholder).toBeTruthy();
+
+    const iqTestInput = queryByLabelText('iq-test-input');
+    fireEvent.change(iqTestInput, { target: { value: '98' } });
+    expect(iqTestInput.value).toBe('98');
+
+    const saTestInput = queryByLabelText('sa-test-input');
+    fireEvent.change(saTestInput, { target: { value: '76' } });
+    expect(saTestInput.value).toBe('76');
+
+    const ccTestInput = queryByLabelText('cc-test-input');
+    fireEvent.change(ccTestInput, { target: { value: '86' } });
+    expect(ccTestInput.value).toBe('86');
   });
 
   // it('Should show the label for buttons', () => {

@@ -207,69 +207,87 @@ const TestForm = ({ id, proceed, result }) => {
     setCodingResults(newCodingResults);
   };
 
+  const commsCheck = [
+    {
+      name: 'Very good',
+      value: 'very_good',
+    },
+    {
+      name: 'Good',
+      value: 'good',
+    },
+    {
+      name: 'Pass',
+      value: 'pass',
+    },
+    {
+      name: 'Bad',
+      value: 'poor',
+    },
+  ];
   const mbti_profiles = [
     {
-      display_name: 'ESTJ',
+      name: 'ESTJ',
       value: 'estj',
     },
     {
-      display_name: 'ISTJ',
+      name: 'ISTJ',
       value: 'istj',
     },
     {
-      display_name: 'ENTJ',
+      name: 'ENTJ',
       value: 'entj',
     },
     {
-      display_name: 'INTJ',
+      name: 'INTJ',
       value: 'intj',
     },
     {
-      display_name: 'ESTP',
+      name: 'ESTP',
       value: 'estp',
     },
     {
-      display_name: 'ISTP',
+      name: 'ISTP',
       value: 'istp',
     },
     {
-      display_name: 'ENTP',
+      name: 'ENTP',
       value: 'entp',
     },
     {
-      display_name: 'INTP',
+      name: 'INTP',
       value: 'intp',
     },
     {
-      display_name: 'ESFJ',
+      name: 'ESFJ',
       value: 'esfj',
     },
     {
-      display_name: 'ISFJ',
+      name: 'ISFJ',
       value: 'isfj',
     },
     {
-      display_name: 'ENFJ',
+      name: 'ENFJ',
       value: 'enfj',
     },
     {
-      display_name: 'INFJ',
+      name: 'INFJ',
       value: 'infj',
     },
     {
-      display_name: 'ESFP',
+      name: 'ESFP',
       value: 'esfp',
     },
     {
-      display_name: 'ISFP',
+      name: 'ISFP',
       value: 'isfp',
     },
     {
-      display_name: 'ENFP',
+      name: 'ENFP',
       value: 'enfp',
     },
     {
-      display_name: 'INFP',
+      name: 'INFP',
       value: 'infp',
     },
   ];
@@ -377,14 +395,11 @@ const TestForm = ({ id, proceed, result }) => {
             <CustomSelect>
               <Select
                 placeholder="Comms Check"
+                aria-label="comms-check"
                 selected={testResults.comms_check}
+                options={commsCheck}
                 onChange={(value) => onChangeValue('comms_check', value)}
-              >
-                <option value="very_good">Very good</option>
-                <option value="good">Good</option>
-                <option value="pass">Pass</option>
-                <option value="poor">Bad</option>
-              </Select>
+              />
               <Icon name="rounded-keyboard-arrow-down" size="sm" />
             </CustomSelect>
           </FormGroup>
@@ -403,13 +418,8 @@ const TestForm = ({ id, proceed, result }) => {
                 placeholder="Profiles"
                 selected={testResults.mbti_profile}
                 onChange={(value) => onChangeValue('mbti_profile', value)}
-              >
-                {mbti_profiles.map((item, index) => (
-                  <option value={item.value} key={index}>
-                    {item.display_name}
-                  </option>
-                ))}
-              </Select>
+                options={mbti_profiles}
+              />
               <Icon name="rounded-keyboard-arrow-down" size="sm" />
             </CustomSelect>
           </FormGroup>
@@ -426,6 +436,7 @@ const TestForm = ({ id, proceed, result }) => {
             </label>
             {errors && errors.iq_test && <FieldError message={errors.iq_test} />}
             <Input
+              aria-label="iq-test-input"
               type="number"
               min="0"
               value={testResults.iq_test}
@@ -445,6 +456,7 @@ const TestForm = ({ id, proceed, result }) => {
             </label>
             {errors && errors.sa_test && <FieldError message={errors.sa_test} />}
             <Input
+              aria-label="sa-test-input"
               type="number"
               min="0"
               max="100"
@@ -467,6 +479,7 @@ const TestForm = ({ id, proceed, result }) => {
             </label>
             {errors && errors.code_of_conduct && <FieldError message={errors.code_of_conduct} />}
             <Input
+              aria-label="cc-test-input"
               type="number"
               min="0"
               max="100"

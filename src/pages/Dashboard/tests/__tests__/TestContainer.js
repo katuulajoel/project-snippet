@@ -4,11 +4,10 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { ThemeProvider } from 'styled-components';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
 import TestContainer from '../TestContainer';
 import { mount } from 'enzyme/build';
-// import Payments from "../Payments";
 import Results, { dummyResults } from './Results';
 import * as actions from '../../../../actions/TestResultsActions';
 import { toggleRightNav } from '../../../../actions/UtilityActions';
@@ -55,21 +54,18 @@ const mockAppStore = (state) => {
 
 describe('Test list container', () => {
   it('Should match snapshot test', () => {
-    const store = mockAppStore();
-    const tree = renderer
-      .create(
-        <BrowserRouter>
-          <Provider store={store}>
-            <ThemeProvider theme={theme}>
-              <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults}>
-                <></>
-              </TestContainer>
-            </ThemeProvider>
-          </Provider>
-        </BrowserRouter>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const { asFragment } = render(
+      <Provider store={mockAppStore()}>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults} />
+          </BrowserRouter>
+        </ThemeProvider>
+      </Provider>
+    );
+    expect(
+      asFragment(<TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults} />)
+    ).toMatchSnapshot();
   });
 
   it('should render children', async () => {

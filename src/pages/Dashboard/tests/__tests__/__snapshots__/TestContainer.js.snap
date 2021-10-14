@@ -376,88 +376,77 @@ Array [
 `;
 
 exports[`Test list container Should match snapshot test 1`] = `
-<div>
+<DocumentFragment>
   <div>
-    <div
-      className="sc-bdnxRM dNpxFo"
-    >
+    <div>
       <div
-        className="filter-links"
-      />
-      <h3>
-        Results
-      </h3>
-      <div
-        className="sc-cxNHIi kqKfJf"
-        style={
-          Object {
-            "float": "right",
-          }
-        }
+        class="sc-bdnxRM dNpxFo"
       >
-        <a
-          href="#"
-          onClick={[Function]}
-        >
-          <i
-            className="tg-ic-filter-variant tunga-ic-sz-sm "
-          />
-           Filter
-           
-        </a>
         <div
-          className="input-group sc-jSFjdj hTzrBi input-search"
+          class="filter-links"
+        />
+        <h3>
+          Results
+        </h3>
+        <div
+          class="sc-cxNHIi kqKfJf"
+          style="float: right;"
         >
-          <span
-            className="input-group-prepend"
+          <a
+            href="#"
+          >
+            <i
+              class="tg-ic-filter-variant tunga-ic-sz-sm "
+            />
+             Filter 
+          </a>
+          <div
+            class="input-group sc-jSFjdj hTzrBi input-search"
           >
             <span
-              className="input-group-text"
+              class="input-group-prepend"
             >
-              <i
-                className="tg-ic-search1  "
-              />
+              <span
+                class="input-group-text"
+              >
+                <i
+                  class="tg-ic-search1  "
+                />
+              </span>
             </span>
-          </span>
-          <div
-            className="sc-gtsrHT jGBtBH"
-            data-testid="input"
-          >
-            <input
-              autoComplete="off"
-              className="form-control"
-              data-testid=""
-              id=""
-              label="Label"
-              name="search"
-              onChange={[Function]}
-              placeholder="Search...."
-              type="input"
-              value=""
+            <div
+              class="sc-gtsrHT jGBtBH"
+              data-testid="input"
+            >
+              <input
+                autocomplete="off"
+                class="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="search"
+                placeholder="Search...."
+                type="input"
+                value=""
+              />
+            </div>
+            <span
+              class="input-group-prepend"
             />
           </div>
-          <span
-            className="input-group-prepend"
-          />
         </div>
-        
       </div>
     </div>
+    <div
+      class="loading"
+      data-testid="loading"
+    >
+      <img
+        src="[object Object]"
+        style="width: 20px;"
+      />
+       
+    </div>
   </div>
-  <div
-    className="loading"
-    data-testid="loading"
-  >
-    <img
-      src={Object {}}
-      style={
-        Object {
-          "width": "20px",
-        }
-      }
-    />
-     
-    
-  </div>
-</div>
+</DocumentFragment>
 `;

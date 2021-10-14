@@ -375,4 +375,495 @@ Array [
 ]
 `;
 
-exports[`Testform tests Should match snapshot test 1`] = `ShallowWrapper {}`;
+exports[`Testform tests Should match snapshot test 1`] = `
+<DocumentFragment>
+  <form
+    class="sc-pNWdM ganRCK"
+    id="test-form"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-6"
+      >
+        <div
+          class="form-group"
+        >
+          <label>
+            Full name
+            <span
+              class="sc-bkbkJK grgmuu"
+            >
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </span>
+          </label>
+          <div
+            class="sc-crzoAE kyZqTY tag-input"
+          >
+            <div
+              class="form"
+            />
+            <div
+              class="selected"
+            >
+              <div
+                class="item nolabel"
+              >
+                <div
+                  class="sc-iqAclL jcGUvW avatar-dash avatar-initials"
+                >
+                  <div
+                    class="avatar avatar-dash avatar-initials"
+                  >
+                    WD
+                  </div>
+                </div>
+                <span>
+                  Wd Dw
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-6"
+      >
+        <div
+          class="form-group"
+        >
+          <label>
+            Email address
+          </label>
+          <div
+            class="sc-jrsJWt bEdUtf"
+            data-testid="input"
+            disabled=""
+          >
+            <input
+              class="form-control"
+              data-testid=""
+              disabled=""
+              id=""
+              label="Label"
+              placeholder="Email address"
+              required=""
+              type="text"
+              value="wd@tunga.io"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-12"
+      >
+        <div
+          class="sc-fnVZcZ dUojVz"
+        />
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-6"
+      >
+        <label>
+          Coding tests
+          <span
+            class="sc-bkbkJK grgmuu"
+          >
+            <span
+              class="label-style"
+            >
+              *
+            </span>
+          </span>
+        </label>
+      </div>
+      <div
+        class="col-md-6"
+      >
+        <a
+          class="sc-hBMUJo bAHjBP"
+        >
+          <i
+            class="tg-ic-round-add  "
+          />
+           Add more
+        </a>
+      </div>
+      <div
+        class="col-md-6"
+      >
+        <div
+          class="sc-fFSPTT cuOCBF"
+        >
+          <div
+            class="input-row"
+          >
+            <div
+              class="sc-dIsUp dbtNkS"
+            >
+              <div
+                class="sc-jrsJWt bEdUtf"
+                data-testid="input"
+                disabled=""
+              >
+                <input
+                  class="form-control"
+                  data-testid=""
+                  disabled=""
+                  id=""
+                  label="Label"
+                  placeholder="input"
+                  type="input"
+                  value="react"
+                />
+              </div>
+              <div
+                class="sc-jrsJWt bEdUtf"
+                data-testid="input"
+              >
+                <input
+                  class="form-control"
+                  data-testid=""
+                  id=""
+                  label="Label"
+                  max="100"
+                  min="0"
+                  placeholder="Score"
+                  step="1"
+                  type="number"
+                  value="100"
+                />
+              </div>
+              <div
+                class="item-actions"
+              >
+                <button
+                  class="btn btn-icon sc-bdnxRM gIqEUJ  "
+                  type="button"
+                >
+                  <i
+                    class="tg-ic-delete-outline tunga-ic-sz-md "
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-12"
+      >
+        <div
+          class="sc-fnVZcZ dUojVz"
+        />
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-6"
+      >
+        <div
+          class="form-group"
+        >
+          <label>
+            Comms Check
+            <span
+              class="sc-bkbkJK grgmuu"
+            >
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </span>
+          </label>
+          <div
+            class="sc-ksluID eMLJkX"
+          >
+            <select
+              class="form-control  "
+            >
+              <option
+                value=""
+              >
+                Comms Check
+              </option>
+              <option
+                value="very_good"
+              >
+                Very good
+              </option>
+              <option
+                value="good"
+              >
+                Good
+              </option>
+              <option
+                value="pass"
+              >
+                Pass
+              </option>
+              <option
+                value="poor"
+              >
+                Bad
+              </option>
+            </select>
+            <i
+              class="tg-ic-rounded-keyboard-arrow-down tunga-ic-sz-sm "
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-6"
+      >
+        <div
+          class="form-group"
+        >
+          <label>
+            MBTI Profile
+            <span
+              class="sc-bkbkJK grgmuu"
+            >
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </span>
+          </label>
+          <div
+            class="sc-ksluID eMLJkX"
+          >
+            <select
+              class="form-control  "
+            >
+              <option
+                value=""
+              >
+                Profiles
+              </option>
+              <option
+                value="estj"
+              >
+                ESTJ
+              </option>
+              <option
+                value="istj"
+              >
+                ISTJ
+              </option>
+              <option
+                value="entj"
+              >
+                ENTJ
+              </option>
+              <option
+                value="intj"
+              >
+                INTJ
+              </option>
+              <option
+                value="estp"
+              >
+                ESTP
+              </option>
+              <option
+                value="istp"
+              >
+                ISTP
+              </option>
+              <option
+                value="entp"
+              >
+                ENTP
+              </option>
+              <option
+                value="intp"
+              >
+                INTP
+              </option>
+              <option
+                value="esfj"
+              >
+                ESFJ
+              </option>
+              <option
+                value="isfj"
+              >
+                ISFJ
+              </option>
+              <option
+                value="enfj"
+              >
+                ENFJ
+              </option>
+              <option
+                value="infj"
+              >
+                INFJ
+              </option>
+              <option
+                value="esfp"
+              >
+                ESFP
+              </option>
+              <option
+                value="isfp"
+              >
+                ISFP
+              </option>
+              <option
+                value="enfp"
+              >
+                ENFP
+              </option>
+              <option
+                value="infp"
+              >
+                INFP
+              </option>
+            </select>
+            <i
+              class="tg-ic-rounded-keyboard-arrow-down tunga-ic-sz-sm "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-6"
+      >
+        <div
+          class="form-group"
+        >
+          <label>
+            IQ Test
+            <span
+              class="sc-bkbkJK grgmuu"
+            >
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </span>
+          </label>
+          <div
+            class="sc-jrsJWt bEdUtf"
+            data-testid="input"
+          >
+            <input
+              aria-label="iq-test-input"
+              class="form-control"
+              data-testid=""
+              id=""
+              label="Label"
+              min="0"
+              placeholder="Enter score"
+              step="1"
+              type="number"
+              value="100"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-6"
+      >
+        <div
+          class="form-group"
+        >
+          <label>
+            SA Test
+            <span
+              class="sc-bkbkJK grgmuu"
+            >
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </span>
+          </label>
+          <div
+            class="sc-jrsJWt bEdUtf"
+            data-testid="input"
+          >
+            <input
+              aria-label="sa-test-input"
+              class="form-control"
+              data-testid=""
+              id=""
+              label="Label"
+              max="100"
+              min="0"
+              placeholder="SA test"
+              step="1"
+              type="number"
+              value="100"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-6"
+      >
+        <div
+          class="form-group"
+        >
+          <label>
+            Code of Conduct
+            <span
+              class="sc-bkbkJK grgmuu"
+            >
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </span>
+          </label>
+          <div
+            class="sc-jrsJWt bEdUtf"
+            data-testid="input"
+          >
+            <input
+              aria-label="cc-test-input"
+              class="form-control"
+              data-testid=""
+              id=""
+              label="Label"
+              max="100"
+              min="0"
+              placeholder="Enter score"
+              step="1"
+              type="number"
+              value="100"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;

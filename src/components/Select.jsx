@@ -1,14 +1,13 @@
-/* eslint-disable react/prop-types */
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { filterEventProps } from "./utils/events";
-import { filterInputProps } from "./utils/forms";
+import { filterEventProps } from './utils/events';
+import { filterInputProps } from './utils/forms';
 
 export default class Select extends React.Component {
   static defaultProps = {
     options: [],
-    placeholder: "-- Select --",
+    placeholder: '-- Select --',
     grouped: false,
   };
 
@@ -16,6 +15,7 @@ export default class Select extends React.Component {
     className: PropTypes.string,
     options: PropTypes.array,
     selected: PropTypes.any,
+    children: PropTypes.any,
     onChange: PropTypes.func,
     size: PropTypes.string,
     placeholder: PropTypes.string,
@@ -25,7 +25,7 @@ export default class Select extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { selected: props.selected || props.value };
+    this.state = { selected: props.selected };
   }
 
   onChange(e) {
@@ -44,16 +44,11 @@ export default class Select extends React.Component {
 
   renderOptions(options) {
     return options.map((option) => {
-      let optionValue = option,
-        optionName = option;
+      const { value, name } = option;
 
-      if (Array.isArray(option)) {
-        optionValue = option[0];
-        optionName = option[1];
-      }
       return (
-        <option key={`option-${optionValue}`} value={optionValue}>
-          {optionName}
+        <option key={`option-${value}`} value={value}>
+          {name}
         </option>
       );
     });
@@ -62,12 +57,12 @@ export default class Select extends React.Component {
   render() {
     return (
       <select
-        className={`form-control ${this.props.className || ""} ${
-          this.props.size ? `form-control-${this.props.size}` : ""
+        className={`form-control ${this.props.className || ''} ${
+          this.props.size ? `form-control-${this.props.size}` : ''
         }`}
         {...filterInputProps(this.props)}
         {...filterEventProps(this.props)}
-        value={this.state.selected || ""}
+        value={this.state.selected || ''}
         onChange={this.onChange.bind(this)}
         required={this.props.required}
       >
