@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CookieSettingForm layout test CookieSettingForm component snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="cookie-settings"
+  >
+    <div
+      class="form-group"
+    >
+      <div
+        class="sc-jSFjdj hGqAyU disabled"
+      >
+        <span>
+          Essential Website Cookies
+        </span>
+        <input
+          checked=""
+          disabled=""
+          id="consent-essential"
+          type="checkbox"
+        />
+        <label
+          for="consent-essential"
+        />
+      </div>
+      <div
+        style="padding-left: 30px;"
+      >
+        These cookies are strictly necessary to provide you with services available through our website and to use some of its features, such as logging in, filling forms and setting your privacy settings. Because these cookies are strictly necessary to deliver the website, you cannot refuse them without impacting how our website functions.
+      </div>
+    </div>
+    <div
+      class="form-group"
+    >
+      <div
+        class="sc-jSFjdj hGqAyU"
+      >
+        <span>
+          Performance and Functionality Cookies
+        </span>
+        <input
+          checked=""
+          id="consent-perf_func"
+          type="checkbox"
+        />
+        <label
+          for="consent-perf_func"
+        />
+      </div>
+      <div
+        style="padding-left: 30px;"
+      >
+        These cookies are used to enhance the performance and functionality of our websites but are non-essential to their use. However, without these cookies, certain functionality may become unavailable.
+      </div>
+    </div>
+    <div
+      class="form-group"
+    >
+      <div
+        class="sc-jSFjdj hGqAyU"
+      >
+        <span>
+          Analytics and Customization Cookies
+        </span>
+        <input
+          checked=""
+          id="consent-analytics_custom"
+          type="checkbox"
+        />
+        <label
+          for="consent-analytics_custom"
+        />
+      </div>
+      <div
+        style="padding-left: 30px;"
+      >
+        These cookies collect information that is used either in aggregate form to help us understand how our website is being used or how effective our marketing campaigns are, or to help us customize our website for you in order to enhance your experience.
+      </div>
+    </div>
+    <div
+      class="form-group"
+    >
+      <div
+        class="sc-jSFjdj hGqAyU"
+      >
+        <span>
+          Targeting and Advertising Cookies
+        </span>
+        <input
+          checked=""
+          id="consent-target_advert"
+          type="checkbox"
+        />
+        <label
+          for="consent-target_advert"
+        />
+      </div>
+      <div
+        style="padding-left: 30px;"
+      >
+        These cookies are used to make advertising messages more relevant to you and your interests. They also perform functions like preventing the same ad from continuously reappearing, ensuring that ads are properly displayed, and in some cases selecting advertisements that are based on your interests.
+      </div>
+    </div>
+    <div
+      class="form-group"
+    >
+      Learn more from the Cookies section of our 
+      <a
+        href="https://tunga.io/privacy/#cookies"
+        style="color: rgb(21, 26, 48); font-weight: 600; text-decoration: none;"
+      >
+        Privacy Policy.
+      </a>
+    </div>
+  </form>
+</DocumentFragment>
+`;
