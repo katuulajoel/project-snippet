@@ -1,6 +1,15 @@
 import axios from "axios";
-import { ENDPOINT_INVITE } from "../../utils/api";
 import * as actionTypes from "../../configs/constants/ActionTypes";
+import { ENDPOINT_INVITE, ENDPOINT_USERS } from "./utils/api";
+
+export function createUser(data) {
+  return () => {
+    axios
+      .post(ENDPOINT_USERS, data)
+      .then(function () {})
+      .catch(function () {});
+  };
+}
 
 export function getPendingInvites() {
   return function (dispatch) {
