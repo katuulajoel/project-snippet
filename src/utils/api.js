@@ -44,11 +44,15 @@ export const ENDPOINT_RESET_PASSWORD = getEndpointUrl("auth/password/reset/");
 export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl(
   "auth/password/reset/confirm/"
 );
+
+export const ENDPOINT_USER_INFO = getEndpointUrl("me/user/");
+
 export const ENDPOINT_INVOICES_SUMMARY = getEndpointUrl("invoices/summary/");
 export const ENDPOINT_INVOICES = getEndpointUrl("invoices/");
 export const ENDPOINT_PROJECTS = getEndpointUrl("projects/");
 export const ENDPOINT_NOTIFICATIONS = getEndpointUrl("me/notification/");
 export const ENDPOINT_NOTIFICATION_LOG = getEndpointUrl("notification-log/");
+export const ENDPOINT_USERS = getEndpointUrl("users/");
 
 export const USER_TYPE_DEVELOPER = 1;
 export const USER_TYPE_PROJECT_OWNER = 2;
