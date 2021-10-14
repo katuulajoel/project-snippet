@@ -8,7 +8,8 @@ import {
   ENDPOINT_REGISTER,
   ENDPOINT_RESET_PASSWORD,
   ENDPOINT_RESET_PASSWORD_CONFIRM,
-} from "../../utils/api";
+  ENDPOINT_USER_INFO,
+} from "./utils/api";
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -29,6 +30,7 @@ export const RESET_PASSWORD_CONFIRM_START = "RESET_PASSWORD_CONFIRM_START";
 export const RESET_PASSWORD_CONFIRM_SUCCESS = "RESET_PASSWORD_CONFIRM_SUCCESS";
 export const RESET_PASSWORD_CONFIRM_FAILED = "RESET_PASSWORD_CONFIRM_FAILED";
 export const AUTH_REDIRECT = "AUTH_REDIRECT";
+export const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 export function authenticate(credentials) {
   return (dispatch) => {
@@ -238,5 +240,23 @@ export function authRedirect(path) {
   return {
     type: AUTH_REDIRECT,
     path,
+  };
+}
+
+export function retrieveProfile() {
+  return (dispatch) => {
+    axios
+      .get(ENDPOINT_USER_INFO)
+      .then(function (response) {
+        dispatch(setUserProfile(response.data));
+      })
+      .catch(function () {});
+  };
+}
+
+export function setUserProfile(data) {
+  return {
+    type: SET_USER_PROFILE,
+    payload: data,
   };
 }
