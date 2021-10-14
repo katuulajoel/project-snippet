@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { ContentSection } from "../../../../components/utils/styles";
+import { ContentSection } from "../../../../utils/styles";
 import { useDispatch } from "react-redux";
 import TabBar from "./tabBar";
 import Label from "../../../../components/Label";
 import { Input } from "reactstrap";
 import CountrySelector from "../../../../components/CountrySelector";
-import * as inviteActions from "../../../../actions/InvitesActions";
+import * as inviteActions from "../../../../redux/actions/InvitesActions";
 
 const CreateUser = () => {
   const dispatch = useDispatch();

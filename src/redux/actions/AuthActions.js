@@ -9,7 +9,7 @@ import {
   ENDPOINT_RESET_PASSWORD,
   ENDPOINT_RESET_PASSWORD_CONFIRM,
   ENDPOINT_USER_INFO,
-} from "./utils/api";
+} from "../../utils/api";
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";

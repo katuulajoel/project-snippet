@@ -8,7 +8,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 /* -------------------------- Internel Dependencies ------------------------- */
-import { openModal } from "./modals";
+import { openModal } from "../../utils/modals";
 import CookieSettings from "../CookieSettings";
 
 export const COOKIE_OPTIONS = [

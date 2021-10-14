@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as actionTypes from "../../configs/constants/ActionTypes";
-import { ENDPOINT_INVITE, ENDPOINT_USERS } from "./utils/api";
+import { ENDPOINT_INVITE, ENDPOINT_USERS } from "../../utils/api";
 
 export function createUser(data) {
   return () => {

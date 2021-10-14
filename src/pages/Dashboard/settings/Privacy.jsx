@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Button from "../../../components/Button";
 import CookieSettingForm from "./modals/CookieSettingForm";
-import { createModal } from "../../../components/utils/modals";
-import * as actions from "../../../actions/AuthActions";
+import { createModal } from "../../../utils/modals";
+import * as actions from "../../../redux/actions/AuthActions";
 
 export default function Privacy() {
   const { user } = useSelector(({ Auth }) => Auth);

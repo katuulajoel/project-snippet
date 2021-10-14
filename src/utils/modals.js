@@ -1,5 +1,5 @@
 import GenericModal from "../components/GenericModal";
-import ModalContainer from "../ModalContainer";
+import ModalContainer from "../components/ModalContainer";
 import { confirmable, createConfirmation } from "react-confirm";
 
 const confirm = createConfirmation(GenericModal);
