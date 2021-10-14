@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
 import React from "react";
 import moment from "moment";
-import * as Cookies from "js-cookie";
+import Cookies from "js-cookie";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
