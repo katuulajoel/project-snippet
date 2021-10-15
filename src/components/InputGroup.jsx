@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import Input from "./Input";
-import { addPropsToChildren } from "./utils/children";
-import { filterEventProps } from "./utils/events";
-import { filterInputProps } from "./utils/forms";
+import { addPropsToChildren } from "../utils/children";
+import { filterEventProps } from "../utils/events";
+import { filterInputProps } from "../utils/forms";
 
 const InputGroup = (props) => {
   const {

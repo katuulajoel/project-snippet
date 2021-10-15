@@ -7,7 +7,7 @@ import {
   bulkGenerateInvoice,
   bulkMarkAsPaid,
   bulkArchiveInvoice,
-} from "../utils/paymentActions";
+} from "../../../../utils/invoiceUtils";
 
 const BulkActions = ({ checked }) => {
   let { status } = useParams();

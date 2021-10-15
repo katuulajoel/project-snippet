@@ -11,9 +11,9 @@ import SearchBox from './SearchBox';
 import NavLinks from './NavLinks';
 import Button from '../components/Button';
 import Icon from '../components/Icon';
-import { openModal } from './utils/modals';
+import { openModal } from '../utils/modals';
 import TestForm from '../pages/Dashboard/tests/TestForm';
-import { createResult } from '../actions/TestResultsActions';
+import { createResult } from '../redux/actions/TestResultsActions';
 import { useSelector } from 'react-redux';
 import Progress from './Progress';
 

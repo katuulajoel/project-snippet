@@ -3,7 +3,7 @@ import React from "react";
 import { Row, Col } from "reactstrap";
 import { useSelector } from "react-redux";
 
-import { isDev } from "../../../components/utils/auth";
+import { isDev } from "../../../utils/auth";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
 import ProjectCard from "./components/ProjectCard";
 import OpportunityCard from "./components/OpportunityCard";

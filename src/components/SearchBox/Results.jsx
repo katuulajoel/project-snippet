@@ -10,7 +10,7 @@ import styled from "styled-components";
 /* -------------------------- Internel Dependencies ------------------------- */
 import Progress from "../Progress";
 import LoadMore from "../LoadMore";
-import { listMoreInvoices } from "../../actions/InvoiceActions";
+import { listMoreInvoices } from "../../redux/actions/InvoiceActions";
 import SummaryPlaceholder from "../SummaryPlaceholder/SummaryPlaceholder";
 
 const Results = ({ searchTerm, clearSearch, navHieght }) => {

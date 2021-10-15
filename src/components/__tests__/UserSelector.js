@@ -8,7 +8,7 @@ import { mount } from "enzyme/build";
 import { useSelector, useDispatch } from "react-redux";
 import UserSelector from "../UserSelector";
 import { ThemeProvider } from "styled-components";
-import theme from "../../theme";
+import theme from "../../assets/theme";
 
 const mockAppState = {
   Auth: {

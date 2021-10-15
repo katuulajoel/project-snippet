@@ -12,8 +12,8 @@ import Icon from '../../../components/Icon';
 import UserSelector from '../../../components/UserSelector';
 import SingleSkillSelector from '../../../components/SingleSkillSelector';
 import FieldError from '../../../components/FieldError';
-import { listUsers } from '../../../actions/UserActions';
-import { getSkills } from '../../../actions/SkillActions';
+import { listUsers } from '../../../redux/actions/UserActions';
+import { getSkills } from '../../../redux/actions/SkillActions';
 
 const propTypes = {
   id: PropTypes.string,

@@ -1,15 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import renderer from 'react-test-renderer';
-import RecentNotifications from '../RecentNotifications';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { ThemeProvider } from 'styled-components';
-import theme from '../../../../theme';
-import * as actions from '../../../../components/utils/auth';
-import { mount } from 'enzyme/build';
+import React from "react";
+import renderer from "react-test-renderer";
+import RecentNotifications from "../RecentNotifications";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
+import thunk from "redux-thunk";
+import * as actions from "../../../../utils/auth";
+import { mount } from "enzyme/build";
 
 const middlewares = [thunk];
 

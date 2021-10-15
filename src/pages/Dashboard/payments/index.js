@@ -6,13 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Icon from "../../../components/Icon";
 import SectionNav from "../../../components/SectionNav";
-import { isDev } from "../../../components/utils/auth";
+import { isDev } from "../../../utils/auth";
 import DashboardLayout from "../../../layouts/DashboardLayout";
 import InvoiceListContainer from "./InvoiceListContainer";
 import Payments from "./Payments";
 
 import Payouts from "./Payouts";
-import { downloadCsv } from "./utils/paymentActions";
+import { downloadCsv } from "../../../utils/invoiceUtils";
 import PaymentTotals from "./components/PaymentTotals";
 import { NavActions } from "./styles";
 

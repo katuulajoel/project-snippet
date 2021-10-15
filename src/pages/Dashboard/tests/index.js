@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { toggleRightNav } from '../../../actions/UtilityActions';
+import { toggleRightNav } from '../../../redux/actions/UtilityActions';
 import DashboardLayout from '../../../layouts/DashboardLayout';
 import TestsContainer from './TestContainer';
 

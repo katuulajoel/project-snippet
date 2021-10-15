@@ -3,7 +3,7 @@ import React from "react";
 import DropdownActionItem from "../DropdownActionItem";
 import { BrowserRouter } from "react-router-dom";
 import renderer from "react-test-renderer";
-import * as utils from "../../utils/utils";
+import * as utils from "../../../../../utils/invoiceUtils";
 import { mount } from "enzyme/build";
 
 const invoice = {

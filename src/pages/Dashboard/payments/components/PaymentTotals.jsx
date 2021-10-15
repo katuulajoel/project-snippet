@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import styled from "styled-components";
 
-import { getInvoiceSummary } from "../../../../actions/InvoiceActions";
-import { numberWithCommas } from "../../../../components/utils/stringUtils";
-import { filterPaymentSummaries } from "../utils/paymentActions";
+import { getInvoiceSummary } from "../../../../redux/actions/InvoiceActions";
+import { numberWithCommas } from "../../../../utils/stringUtils";
+import { filterPaymentSummaries } from "../../../../utils/invoiceUtils";
 import Icon from "../../../../components/Icon";
 import { NavActions } from "../styles";
 

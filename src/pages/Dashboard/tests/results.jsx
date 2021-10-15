@@ -12,9 +12,9 @@ import CaretDown from '../../../assets/images/caret-down.png';
 import Select from '../../../components/Select';
 import Icon from '../../../components/Icon';
 import TableCells from './TableCells';
-import { openConfirm, openModal } from '../../../components/utils/modals';
+import { openConfirm, openModal } from '../../../utils/modals';
 import TestForm from './TestForm';
-import { deleteResult, updateResult } from '../../../actions/TestResultsActions';
+import { deleteResult, updateResult } from '../../../redux/actions/TestResultsActions';
 import ModalHeader from '../../../components/ModalHeader';
 
 const propTypes = {

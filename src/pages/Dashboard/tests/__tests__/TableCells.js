@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { ThemeProvider } from 'styled-components';
 import TableCells from '../TableCells';
-import theme from '../../../../theme';
+import theme from '../../../../assets/theme';
 // import { mount } from 'enzyme';
 
 const middlewares = [thunk];

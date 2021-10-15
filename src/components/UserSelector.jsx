@@ -3,9 +3,9 @@ import React from "react";
 import _ from "lodash";
 import styled from "styled-components";
 
-import { generateRandomString, generateUserIntials } from "./utils/stringUtils";
-import { filterEventProps } from "./utils/events";
-import { filterInputProps } from "./utils/forms";
+import { generateRandomString, generateUserIntials } from "../utils/stringUtils";
+import { filterEventProps } from "../utils/events";
+import { filterInputProps } from "../utils/forms";
 import Input from "./Input";
 import IconButton from "./IconButton";
 import Avatar from "./Avatar";

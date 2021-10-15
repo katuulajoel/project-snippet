@@ -7,9 +7,9 @@ import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { ThemeProvider } from "styled-components";
-import theme from "../../../../../theme";
-import * as actions from "../../../../../actions/ProjectActions";
-import * as access from "../../../../../components/utils/auth";
+import theme from "../../../../../assets/theme";
+import * as actions from "../../../../../redux/actions/ProjectActions";
+import * as access from "../../../../../utils/auth";
 
 const middlewares = [thunk];
 

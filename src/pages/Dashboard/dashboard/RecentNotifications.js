@@ -5,16 +5,16 @@ import styled from "styled-components";
 import {
   createNotificationLog,
   clearNotification,
-} from "../../../actions/DashboardActions";
+} from "../../../redux/actions/DashboardActions";
 import {
   STATUS_APPROVED,
   STATUS_PENDING,
-} from "../../../actions/utils/ActionTypes";
+} from "../../../configs/constants/projectConstants";
 import Avatar from "../../../components/Avatar";
 import IconButton from "../../../components/IconButton";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
-import { getUser, isDev } from "../../../components/utils/auth";
-import { getdateFormated } from "../../../components/utils/dateUtil";
+import { getUser, isDev } from "../../../utils/auth";
+import { getdateFormated } from "../../../utils/dateUtil";
 import Progress from "../../../components/Progress";
 import {
   invoice,

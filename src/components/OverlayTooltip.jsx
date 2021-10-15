@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Tooltip } from "reactstrap";
-import randomstring from "./utils/stringUtils";
+import randomstring from "../utils/stringUtils";
 
 const OverlayTooltip = (props) => {
   const [open, setOpen] = useState(false);

@@ -16,7 +16,7 @@ import Results from './results';
 
 import Progress from '../../../components/Progress';
 import usePrevious from '../../../hooks/usePrevious';
-import { fetchResults } from '../../../actions/TestResultsActions';
+import { fetchResults } from '../../../redux/actions/TestResultsActions';
 
 const propTypes = {
   collapseRightNav: PropTypes.func,

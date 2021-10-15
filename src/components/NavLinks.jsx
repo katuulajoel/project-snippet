@@ -8,7 +8,7 @@ import styled from "styled-components";
 import TitleBarSwitch from "./TitleBarSwitch";
 
 /* -------------------- Internel Dependencies (Utilites) -------------------- */
-import { isAdmin, isAdminOrPM, isClient, isDev, isPM } from "./utils/auth";
+import { isAdmin, isAdminOrPM, isClient, isDev, isPM } from "../utils/auth";
 
 /* ------------------------- Component dependencies ------------------------- */
 import TitleBarContent from "./TitleBarContent";

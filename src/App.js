@@ -7,9 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 /* -------------------------- Internel Dependencies ------------------------- */
-import { childRoutes } from "./configs/Routes.conf";
+import { childRoutes } from "./configs/routing/Routes.conf";
 import BootLogo from "./components/BootLogo";
-import { verify } from "./actions/AuthActions";
+import { verify } from "./redux/actions/AuthActions";
 import usePrevious from "./hooks/usePrevious";
 
 const App = (props) => {

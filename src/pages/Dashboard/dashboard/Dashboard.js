@@ -4,12 +4,12 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import Avatar from "../../../components/Avatar";
 import DashboardLayout from "../../../layouts/DashboardLayout";
-import { getNotifications } from "../../../actions/DashboardActions";
+import { getNotifications } from "../../../redux/actions/DashboardActions";
 import LatestReports from "./LatestReports";
 import UpcomingPayments from "./UpcomingPayments";
 import ActiveProjects from "./ActiveProjects";
 import RecentNotifications from "./RecentNotifications";
-import { generateUserIntials } from "../../../components/utils/stringUtils";
+import { generateUserIntials } from "../../../utils/stringUtils";
 import styled from "styled-components";
 
 export default function Dashboard() {

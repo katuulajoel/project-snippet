@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Avatar from '../../../components/Avatar';
-import { generateUserIntials } from '../../../components/utils/stringUtils';
+import { generateUserIntials } from '../../../utils/stringUtils';
 import IconButton from '../../../components/IconButton';
 
 const propTypes = {

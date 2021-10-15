@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 import AuthLayout, {
   AuthStylingLayoutChildren,
 } from "../../layouts/AuthLayout";
-import { resetPasswordConfirm } from "../../actions/AuthActions";
+import { resetPasswordConfirm } from "../../redux/actions/AuthActions";
 
 const PasswordResetConfirm = (props) => {
   const dispatch = useDispatch();

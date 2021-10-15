@@ -7,10 +7,10 @@ import _ from "lodash";
 import styled from "styled-components";
 
 /* -------------------------- Internal dependencies ------------------------- */
-import { generateRandomString } from "./utils/stringUtils";
+import { generateRandomString } from "../utils/stringUtils";
 import InputGroup from "./InputGroup";
-import { filterEventProps } from "./utils/events";
-import { filterInputProps } from "./utils/forms";
+import { filterEventProps } from "../utils/events";
+import { filterInputProps } from "../utils/forms";
 import IconButton from "./IconButton";
 import Input from "./Input";
 

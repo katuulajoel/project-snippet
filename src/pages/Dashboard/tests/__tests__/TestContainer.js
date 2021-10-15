@@ -9,9 +9,9 @@ import { render } from '@testing-library/react';
 import TestContainer from '../TestContainer';
 import { mount } from 'enzyme/build';
 import Results, { dummyResults } from './Results';
-import * as actions from '../../../../actions/TestResultsActions';
-import { toggleRightNav } from '../../../../actions/UtilityActions';
-import theme from '../../../../theme';
+import * as actions from '../../../../redux/actions/TestResultsActions';
+import { toggleRightNav } from '../../../../redux/actions/UtilityActions';
+import theme from '../../../../assets/theme';
 
 const middlewares = [thunk];
 

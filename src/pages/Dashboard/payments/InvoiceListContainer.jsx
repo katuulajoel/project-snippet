@@ -8,18 +8,18 @@ import { useSelector, useDispatch } from "react-redux";
 
 /* -------------------------- Internel Dependencies ------------------------- */
 import Progress from "../../../components/Progress";
-import { addPropsToChildren } from "../../../components/utils/children";
+import { addPropsToChildren } from "../../../utils/children";
 import {
   listInvoices,
   listMoreInvoices,
-} from "../../../actions/InvoiceActions";
+} from "../../../redux/actions/InvoiceActions";
 import usePrevious from "../../../hooks/usePrevious";
 import {
   INVOICE_TYPE_SALE,
   INVOICE_TYPE_CREDIT_NOTE,
   INVOICE_TYPE_PURCHASE,
-} from "../../../actions/utils/api";
-import { getPaymentsFilters } from "./utils/utils";
+} from "../../../utils/api";
+import { getPaymentsFilters } from "../../../utils/invoiceUtils";
 
 const InvoiceListContainer = ({
   children,
