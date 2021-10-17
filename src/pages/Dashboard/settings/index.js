@@ -5,7 +5,7 @@ import DashboardLayout from "../../../layouts/DashboardLayout";
 import CreateUser from "./Invite/CreateUser";
 import Invite from "./Invite/InviteUser";
 // import Invite from "./Invite";
-import PendingInvite from "./Invite/PendingInvites";
+import PendingInvite from "./Invite/pendingInvites/PendingInvites";
 import Privacy from "./Privacy";
 // import * as userActions from "../../../actions/UserActions";
 
