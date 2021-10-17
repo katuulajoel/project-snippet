@@ -45,7 +45,7 @@ export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl(
   "auth/password/reset/confirm/"
 );
 
-export const ENDPOINT_USER_INFO = getEndpointUrl("me/user/");
+export const ENDPOINT_USER_INFO = getEndpointUrl("me/settings/");
 
 export const ENDPOINT_INVOICES_SUMMARY = getEndpointUrl("invoices/summary/");
 export const ENDPOINT_INVOICES = getEndpointUrl("invoices/");
