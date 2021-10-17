@@ -352,6 +352,7 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
             <select
               aria-label="country-input"
               class="form-control"
+              data=""
               name="country"
               required=""
             />
@@ -362,6 +363,7 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
         class="col-12"
       >
         <button
+          aria-label="submit"
           class="btn btn-primary save"
           disabled=""
           type="submit"

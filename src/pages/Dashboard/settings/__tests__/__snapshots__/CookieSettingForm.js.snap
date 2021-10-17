@@ -9,14 +9,14 @@ exports[`CookieSettingForm layout test CookieSettingForm component snapshot 1`] 
       class="form-group"
     >
       <div
-        class="sc-jSFjdj hGqAyU disabled"
+        class="sc-bdnxRM gnNksY disabled"
       >
         <span>
           Essential Website Cookies
         </span>
         <input
+          aria-label="check-essential"
           checked=""
-          disabled=""
           id="consent-essential"
           type="checkbox"
         />
@@ -34,12 +34,13 @@ exports[`CookieSettingForm layout test CookieSettingForm component snapshot 1`] 
       class="form-group"
     >
       <div
-        class="sc-jSFjdj hGqAyU"
+        class="sc-bdnxRM gnNksY"
       >
         <span>
           Performance and Functionality Cookies
         </span>
         <input
+          aria-label="check-perf_func"
           checked=""
           id="consent-perf_func"
           type="checkbox"
@@ -58,12 +59,13 @@ exports[`CookieSettingForm layout test CookieSettingForm component snapshot 1`] 
       class="form-group"
     >
       <div
-        class="sc-jSFjdj hGqAyU"
+        class="sc-bdnxRM gnNksY"
       >
         <span>
           Analytics and Customization Cookies
         </span>
         <input
+          aria-label="check-analytics_custom"
           checked=""
           id="consent-analytics_custom"
           type="checkbox"
@@ -82,12 +84,13 @@ exports[`CookieSettingForm layout test CookieSettingForm component snapshot 1`] 
       class="form-group"
     >
       <div
-        class="sc-jSFjdj hGqAyU"
+        class="sc-bdnxRM gnNksY"
       >
         <span>
           Targeting and Advertising Cookies
         </span>
         <input
+          aria-label="check-target_advert"
           checked=""
           id="consent-target_advert"
           type="checkbox"
@@ -113,6 +116,12 @@ exports[`CookieSettingForm layout test CookieSettingForm component snapshot 1`] 
         Privacy Policy.
       </a>
     </div>
+    <button
+      aria-label="save"
+      class="btn btn-primary save"
+    >
+      Save
+    </button>
   </form>
 </DocumentFragment>
 `;

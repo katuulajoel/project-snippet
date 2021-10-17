@@ -3,13 +3,14 @@
 exports[`Privacy layout test Privacy component snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gKAaRy cfqguH privacy-settings"
+    class="sc-dlnjwi HnUbq privacy-settings"
   >
     <div>
       <div
         class="section"
       >
         <div
+          aria-label="cookie-model"
           class="section-title"
         >
           Cookie Settings
@@ -40,8 +41,8 @@ exports[`Privacy layout test Privacy component snapshot 1`] = `
             class="col"
           >
             <button
-              class="btn btn-default save  "
-              type="button"
+              aria-label="submit"
+              class="save"
             >
               Cookie Settings
             </button>
@@ -66,6 +67,7 @@ exports[`Privacy layout test Privacy component snapshot 1`] = `
             Email newsletters from Tunga
           </label>
           <input
+            aria-label="check-NEWSLETTER_EMAIL"
             class="switch form-check-input"
             id="check-NEWSLETTER_EMAIL"
             type="checkbox"
@@ -82,6 +84,7 @@ exports[`Privacy layout test Privacy component snapshot 1`] = `
             Emails about interesting events from Tunga
           </label>
           <input
+            aria-label="check-EVENT_EMAIL"
             class="switch form-check-input"
             id="check-EVENT_EMAIL"
             type="checkbox"
@@ -102,13 +105,14 @@ exports[`Privacy layout test Privacy component snapshot 1`] = `
         >
           <label
             class="form-check-label"
-            for="check-TASK_SURVEY_REMINDER_EMAIL"
+            for="check-TASK_PROGRESS_REPORT_REMINDER_EMAIL"
           >
-            Email reminders about client progress surveys.
+            Email reminders about project progress updates.
           </label>
           <input
+            aria-label="check-TASK_PROGRESS_REPORT_REMINDER_EMAIL"
             class="switch form-check-input"
-            id="check-TASK_SURVEY_REMINDER_EMAIL"
+            id="check-TASK_PROGRESS_REPORT_REMINDER_EMAIL"
             type="checkbox"
             value="on"
           />
@@ -118,13 +122,14 @@ exports[`Privacy layout test Privacy component snapshot 1`] = `
         >
           <label
             class="form-check-label"
-            for="check-NEW_TASK_PROGRESS_REPORT_EMAIL"
+            for="check-TASK_INVITATION_RESPONSE_EMAIL"
           >
-            Email notifications about new developer progress reports.
+            Email notifications about task invitation responses from developers.
           </label>
           <input
+            aria-label="check-TASK_INVITATION_RESPONSE_EMAIL"
             class="switch form-check-input"
-            id="check-NEW_TASK_PROGRESS_REPORT_EMAIL"
+            id="check-TASK_INVITATION_RESPONSE_EMAIL"
             type="checkbox"
             value="on"
           />
