@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Modal } from "react-bootstrap";
 // import { confirmable, createConfirmation } from "react-confirm";
-import Button from "./Button";
+// import Button from "./Button";
 
 const ModalContainer = (props) => {
   const {
@@ -28,13 +28,14 @@ const ModalContainer = (props) => {
         <Modal.Body>{confirmation}</Modal.Body>
         <Modal.Footer>
           {/* <Button onClick={() => proceed(false)}>{cancelLabel}</Button> */}
-          <Button
+          <button
+            aria-label="save-settings"
             className="btn btn-primary save"
-            bsStyle="primary"
+            // bsStyle="primary"
             onClick={() => proceed(true)}
           >
             {proceedLabel}
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
     </div>

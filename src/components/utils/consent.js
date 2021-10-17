@@ -1,15 +1,12 @@
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
-import React from "react";
 import moment from "moment";
 import Cookies from "js-cookie";
-import styled from "styled-components";
-import PropTypes from "prop-types";
 
 /* -------------------------- Internel Dependencies ------------------------- */
-import { openModal } from "../../utils/modals";
-import CookieSettings from "../CookieSettings";
+// import { openModal } from "../../utils/modals";
+// import CookieSettings from "../CookieSettings";
 
 export const COOKIE_OPTIONS = [
   [
@@ -102,9 +99,9 @@ export function getCookieConsent() {
   return Cookies.get("cookieConsent");
 }
 
-export function removeCookieConsent() {
-  Cookies.remove("cookieConsent");
-}
+// export function removeCookieConsent() {
+//   Cookies.remove("cookieConsent");
+// }
 
 export function setCookieConsentCloseAt() {
   Cookies.set("cookieConsentClosedAt", moment.utc().format(), {
@@ -134,54 +131,3 @@ export function parseDefaultConsents() {
   }
   return currentConsents;
 }
-
-export function openCookieConsentPopUp() {
-  openModal(
-    <CookieSettings />,
-    null,
-    true,
-    {
-      className: "consent",
-    },
-    <ModalHeader />
-  );
-}
-
-const ModalHeader = ({ dismiss }) => {
-  return (
-    <StyledHeader>
-      <h3>Cookie Settings</h3>
-      <span onClick={dismiss}>Done</span>
-    </StyledHeader>
-  );
-};
-
-ModalHeader.propTypes = {
-  dismiss: PropTypes.func,
-};
-
-const StyledHeader = styled.div`
-  h3 {
-    font-weight: 700;
-    font-size: 14px;
-  }
-
-  span {
-    position: absolute;
-    line-height: 1.5;
-    height: auto;
-    padding: 0;
-    margin: 0;
-
-    top: 15px;
-    right: 15px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    color: #8f9bb3;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-`;

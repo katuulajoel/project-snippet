@@ -11,14 +11,13 @@ import styled from "styled-components";
 /* -------------------------- Internel Dependencies ------------------------- */
 import Button from "./Button";
 import store from "../redux/store";
-import ModalHeader from "./ModalHeader";
+// import ModalHeader from "./ModalHeader";
 
 const GenericModal = (props) => {
-  const [response, setResponse] = useState(null);
+  const [response] = useState(null);
   const wrapperRef = useRef(null);
 
-  const { show, proceed, dismiss, cancel, options, modalContent, modalHeader } =
-    props;
+  const { show, proceed, dismiss, cancel, options } = props;
   let safe_options = options || {};
 
   useEffect(() => {
@@ -27,24 +26,6 @@ const GenericModal = (props) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
-  const onResponseChange = (e) => {
-    setResponse(e.target.value);
-  };
-
-  const renderModalContent = () => {
-    return typeof modalContent === "string"
-      ? modalContent
-      : React.cloneElement(modalContent, { proceed, dismiss, cancel });
-  };
-
-  const renderModalHeader = () => {
-    return modalHeader ? (
-      React.cloneElement(modalHeader, { proceed, dismiss, cancel })
-    ) : options.title ? (
-      <ModalHeader {...props} />
-    ) : null;
-  };
 
   const handleClickOutside = (event) => {
     let safe_options = options || {};
@@ -62,51 +43,17 @@ const GenericModal = (props) => {
         className={`${safe_options.size ? `modal-${safe_options.size}` : ""} ${
           safe_options.className || ""
         }`}
-        backdrop={
-          safe_options.hideBackdrop
-            ? false
-            : safe_options.mustRespond
-            ? "static"
-            : true
-        }
-        keyboard={!safe_options.mustRespond}
       >
         <div ref={wrapperRef}>
-          {(!options.mustRespond || safe_options.title) && renderModalHeader()}
           <ModalBody>
-            <div>{renderModalContent()}</div>
-            {safe_options.isPrompt && (
-              <div className="form-group">
-                <textarea onChange={(e) => onResponseChange(e)} />
-              </div>
-            )}
+            <div>{props.children}</div>
           </ModalBody>
           {!safe_options.hideActions && (
             <StyledModalFooter>
-              {!safe_options.hideCancel && (
-                <Button
-                  className="cancel"
-                  onClick={() => cancel()}
-                  variant="secondary"
-                >
-                  {safe_options.cancel || "Cancel"}
-                </Button>
-              )}
               <Button
                 className="okay"
                 {...(safe_options.form || "")}
-                onClick={() => {
-                  if (safe_options.isPrompt) {
-                    if (response) {
-                      proceed(response);
-                    }
-                  } else {
-                    if (!safe_options.form) {
-                      proceed();
-                    }
-                  }
-                }}
-                disabled={safe_options.isPrompt && !response}
+                onClick={() => proceed(response)}
               >
                 {safe_options.ok || "OK"}
               </Button>
@@ -159,6 +106,7 @@ GenericModal.propTypes = {
     PropTypes.elementType,
     PropTypes.object,
   ]),
+  children: PropTypes.any,
 };
 
 GenericModal.defaultProps = {
