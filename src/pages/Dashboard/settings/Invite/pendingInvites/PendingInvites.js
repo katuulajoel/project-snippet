@@ -45,7 +45,7 @@ const PendingInvite = () => {
     <>
       <TabBar />
       <InfiniteScroll
-        dataLength={invites.count}
+        dataLength={invites && invites.count ? invites.count : 0}
         next={fetchMoreData}
         hasMore={false}
         loader={<Progress />}

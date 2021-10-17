@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { ContentSection } from "../../../../utils/styles";
 import { useDispatch } from "react-redux";
 import TabBar from "./tabBar";
 import Label from "../../../../components/Label";
 import { Input } from "reactstrap";
-import CountrySelector from "../../../../components/CountrySelector";
+import Select from "../../../../components/Select";
 import * as inviteActions from "../../../../redux/actions/InvitesActions";
 
-const CreateUser = () => {
+const CreateUser = (props) => {
+  const [countries, setCountries] = useState([...(props.countries || [])]);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    import("../../../../components/countries").then(({ Countries }) => {
+      setCountries(Countries);
+    });
+  }, []);
 
   const [user, setUser] = useState({
     email: "",
@@ -160,13 +169,14 @@ const CreateUser = () => {
             />
           </Label>
           <Label name="Country">
-            <CountrySelector
+            <Select
               className="form-control"
-              defaultValue={user.country}
+              defaultValue="Canada"
               name="country"
               onChange={onChangeField}
               dispatch={dispatch}
               aria-label="country-input"
+              data={countries}
               required
             />
           </Label>
@@ -176,6 +186,7 @@ const CreateUser = () => {
               type="submit"
               className="btn btn-primary save"
               disabled={!user.country || user.country === "----"}
+              aria-label="submit"
             >
               Create Client
             </button>
@@ -184,6 +195,10 @@ const CreateUser = () => {
       </ContentSection>
     </>
   );
+};
+
+CreateUser.propTypes = {
+  countries: PropTypes.array,
 };
 
 export default CreateUser;
