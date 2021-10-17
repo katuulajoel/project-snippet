@@ -1,32 +1,30 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import Button from "../../../components/Button";
+// import Button from "../../../components/Button";
 import CookieSettingForm from "./modals/CookieSettingForm";
 import { createModal } from "../../../utils/modals";
-import * as actions from "../../../redux/actions/AuthActions";
+import * as actions from "../../../redux/actions/ProfileActions";
 
 export default function Privacy() {
+  const dispatch = useDispatch();
   const { user } = useSelector(({ Auth }) => Auth);
-
   const { settings } = user;
 
   useEffect(() => {
-    actions.retrieveProfile()();
-  });
+    actions.getSettings()(dispatch);
+  }, []);
 
   const onCookieSettings = async () => {
     await createModal("Cookie Settings", <CookieSettingForm />);
   };
 
   const onChange = (name, value) => {
-    const { user, ProfileActions } = this.props;
-
     let setting = {};
     setting[name] = value;
 
-    if (value !== user.settings.switches[name]) {
-      ProfileActions.updateSettings({ switches: setting });
+    if (user.settings && user.settings.switches[name] !== value) {
+      actions.updateSettings({ switches: setting });
     }
   };
 
@@ -80,7 +78,9 @@ export default function Privacy() {
     <ContentSection className="privacy-settings">
       <div>
         <div className="section">
-          <div className="section-title">Cookie Settings</div>
+          <div className="section-title" aria-label="cookie-model">
+            Cookie Settings
+          </div>
 
           <div className="row">
             <div className="col-md-12">
@@ -97,9 +97,13 @@ export default function Privacy() {
               </p>
             </div>
             <div className="col">
-              <Button className="save" onClick={onCookieSettings}>
+              <button
+                className="save"
+                aria-label="submit"
+                onClick={onCookieSettings}
+              >
                 Cookie Settings
-              </Button>
+              </button>
             </div>
           </div>
         </div>
@@ -123,7 +127,8 @@ export default function Privacy() {
                     settings && settings.switches[label.name] ? "off" : "on"
                   }
                   type="checkbox"
-                  checked={settings && settings.switches[label.name]}
+                  aria-label={`check-${label.name}`}
+                  defaultChecked={settings && settings.switches[label.name]}
                   onChange={(e) => onChange(label.name, e.target.value)}
                 />
               </div>
@@ -150,6 +155,7 @@ export default function Privacy() {
                     settings && settings.switches[label.name] ? "off" : "on"
                   }
                   type="checkbox"
+                  aria-label={`check-${label.name}`}
                   checked={settings && settings.switches[label.name]}
                   onChange={(e) => onChange(label.name, e.target.value)}
                 />
