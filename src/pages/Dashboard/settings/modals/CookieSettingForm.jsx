@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import { FormGroup } from "reactstrap";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -16,99 +16,98 @@ import {
   setCookieConsent,
 } from "../../../../components/utils/consent";
 
-export default class CookieSettingForm extends React.Component {
-  static propTypes = {
-    proceed: PropTypes.func,
-    id: PropTypes.string,
-  };
+const CookieSettingForm = (props) => {
+  const [cookie, setCookie] = useState({
+    cookieConsents: parseDefaultConsents(),
+    showConsentAlert: !getCookieConsentCloseAt() && !getCookieConsent(),
+  });
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      cookieConsents: parseDefaultConsents(),
-      showConsentAlert: !getCookieConsentCloseAt() && !getCookieConsent(),
-    };
-  }
-
-  onChangeConsentValue(key, e) {
-    let idx = this.state.cookieConsents.indexOf(key),
-      updateConsents = this.state.cookieConsents;
+  const onChangeConsentValue = (e, key) => {
+    let idx = cookie.cookieConsents.indexOf(key),
+      updateConsents = cookie.cookieConsents;
     if (e.target.checked) {
       if (idx === -1) {
-        updateConsents = [...this.state.cookieConsents, key];
+        updateConsents = [...cookie.cookieConsents, key];
       }
     } else if (idx > -1) {
       updateConsents = [
-        ...this.state.cookieConsents.slice(0, idx),
-        ...this.state.cookieConsents.slice(idx + 1),
+        ...cookie.cookieConsents.slice(0, idx),
+        ...cookie.cookieConsents.slice(idx + 1),
       ];
     }
 
     updateConsents = Array.from(new Set(updateConsents));
-    this.setState({ cookieConsents: updateConsents });
-  }
+    setCookie({ cookieConsents: updateConsents });
+  };
 
-  onSave = (e) => {
+  const onSave = (e) => {
     e.preventDefault();
-    setCookieConsent(this.state.cookieConsents);
+    setCookieConsent(cookie.cookieConsents);
     setCookieConsentCloseAt();
-    if (this.props.proceed) {
-      this.props.proceed();
+    if (props.proceed) {
+      props.proceed();
     }
     return;
   };
 
-  render() {
-    return (
-      <form
-        id={this.props.id}
-        onSubmit={this.onSave}
-        className="cookie-settings"
+  return (
+    <form id={props.id} onSubmit={onSave} className="cookie-settings">
+      {COOKIE_OPTIONS.map((category, i) => {
+        let categoryId = category[0],
+          elementId = `consent-${categoryId}`;
+        return (
+          <FormGroup key={i}>
+            <FormCheck className={category[4] ? "disabled" : ""}>
+              <span>{category[1]}</span>
+              <input
+                type="checkbox"
+                id={elementId}
+                defaultChecked={
+                  (category[3] && category[4]) ||
+                  cookie.cookieConsents.indexOf(categoryId) > -1
+                }
+                // disabled={category[4]}
+                aria-label={`check-${categoryId}`}
+                onChange={(e) => onChangeConsentValue(e, categoryId)}
+              />
+              <label htmlFor={elementId}></label>
+            </FormCheck>
+            <div style={{ paddingLeft: "30px" }}>{category[2]}</div>
+          </FormGroup>
+        );
+      })}
+
+      <FormGroup>
+        Learn more from the {"Cookies"} section of our{" "}
+        <a
+          style={{
+            color: "#151A30",
+            fontWeight: "600",
+            textDecoration: "none",
+          }}
+          href="https://tunga.io/privacy/#cookies"
+        >
+          Privacy Policy.
+        </a>
+      </FormGroup>
+
+      <button
+        aria-label="save"
+        className="btn btn-primary save"
+        // bsStyle="primary"
       >
-        {COOKIE_OPTIONS.map((category, i) => {
-          let categoryId = category[0],
-            elementId = `consent-${categoryId}`;
-          return (
-            <Fragment key={i}>
-              <FormGroup>
-                <FormCheck className={category[4] ? "disabled" : ""}>
-                  <span>{category[1]}</span>
-                  <input
-                    type="checkbox"
-                    id={elementId}
-                    checked={
-                      (category[3] && category[4]) ||
-                      this.state.cookieConsents.indexOf(categoryId) > -1
-                    }
-                    disabled={category[4]}
-                    onChange={this.onChangeConsentValue.bind(this, categoryId)}
-                  />
-                  <label htmlFor={elementId}></label>
-                </FormCheck>
-                <div style={{ paddingLeft: "30px" }}>{category[2]}</div>
-              </FormGroup>
-            </Fragment>
-          );
-        })}
+        Save
+      </button>
+    </form>
+  );
+};
 
-        <FormGroup>
-          Learn more from the {"Cookies"} section of our{" "}
-          <a
-            style={{
-              color: "#151A30",
-              fontWeight: "600",
-              textDecoration: "none",
-            }}
-            href="https://tunga.io/privacy/#cookies"
-          >
-            Privacy Policy.
-          </a>
-        </FormGroup>
-      </form>
-    );
-  }
-}
+CookieSettingForm.propTypes = {
+  proceed: PropTypes.func,
+  id: PropTypes.string,
+};
 
+export default CookieSettingForm;
 const FormCheck = styled.div`
   position: relative;
   padding-left: 30px;
