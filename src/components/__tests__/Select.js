@@ -1,11 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {
-  render,
-   fireEvent, 
-  waitFor,
-  cleanup,
-} from '@testing-library/react';
+import { render, fireEvent, waitFor, cleanup } from '@testing-library/react';
 import Select from '../Select';
 
 afterEach(cleanup);
@@ -46,10 +41,7 @@ describe('Select component test', () => {
 
   it('should call onChange when the first option is selected', async () => {
     const mockedOnChange = jest.fn();
-    const {
-       getByText,
-      queryByTestId,
-    } = render(
+    const { getByText, queryByTestId } = render(
       <Select
         options={mockedOptions}
         onChange={(value) => mockedOnChange('comms_check', value)}

@@ -5,7 +5,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-// import { render } from '@testing-library/react';
+import {
+  render,
+   fireEvent, waitFor
+} from '@testing-library/react';
 // import { mount } from 'enzyme';
 // import { mount } from "enzyme/build";
 // import * as utils from "../utils/utils";
@@ -86,7 +89,7 @@ export const dummyResults = [
     id: 10,
     comms_check: 'very_good',
     mbti_profile: 'entj',
-    iq_test: 100,
+    iq_test: 140,
     sa_test: 100,
     code_of_conduct: 100,
     coding_tests: [
@@ -128,6 +131,98 @@ export const dummyResults = [
       tax_location: 'world',
     },
   },
+  {
+    id: 11,
+    comms_check: 'pass',
+    mbti_profile: 'entj',
+    iq_test: 80,
+    sa_test: 50,
+    code_of_conduct: 100,
+    coding_tests: [
+      {
+        skill: 1,
+        score: 20,
+        id: 12,
+        skill_name: 'react',
+      },
+    ],
+    user_obj: {
+      id: 18,
+      username: 'al',
+      email: 'al@tunga.io',
+      first_name: 'al',
+      last_name: 'la',
+      display_name: 'al la',
+      short_name: 'al',
+      type: 1,
+      image: null,
+      is_developer: true,
+      is_project_owner: false,
+      is_project_manager: false,
+      is_staff: false,
+      is_admin: false,
+      is_pay_admin: false,
+      verified: false,
+      company: null,
+      avatar_url: null,
+      can_contribute: false,
+      date_joined: '2021-06-22T22:48:41.243936',
+      agree_version: 1.2,
+      agreed_at: '2021-06-22T22:48:54',
+      disagree_version: 0,
+      disagreed_at: null,
+      payoneer_signup_url: '',
+      payoneer_status: 'initial',
+      exact_code: '000000000000000018',
+      tax_location: 'world',
+    },
+  },
+  {
+    id: 12,
+    comms_check: 'poor',
+    mbti_profile: 'entj',
+    iq_test: 112,
+    sa_test: 50,
+    code_of_conduct: 100,
+    coding_tests: [
+      {
+        skill: 1,
+        score: 20,
+        id: 12,
+        skill_name: 'react',
+      },
+    ],
+    user_obj: {
+      id: 20,
+      username: 'bb',
+      email: 'bb@tunga.io',
+      first_name: 'bb',
+      last_name: 'sb',
+      display_name: 'bb sb',
+      short_name: 'bb',
+      type: 1,
+      image: null,
+      is_developer: true,
+      is_project_owner: false,
+      is_project_manager: false,
+      is_staff: false,
+      is_admin: false,
+      is_pay_admin: false,
+      verified: false,
+      company: null,
+      avatar_url: null,
+      can_contribute: false,
+      date_joined: '2021-06-22T22:48:41.243936',
+      agree_version: 1.2,
+      agreed_at: '2021-06-22T22:48:54',
+      disagree_version: 0,
+      disagreed_at: null,
+      payoneer_signup_url: '',
+      payoneer_status: 'initial',
+      exact_code: '000000000000000020',
+      tax_location: 'world',
+    },
+  },
 ];
 
 const count = dummyResults.length;
@@ -149,6 +244,53 @@ describe('Dashboard test - Test Results', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('Check inputs value change', async () => {
+    const mockedOnChange = jest.fn();
+    const { queryByTestId, getByText, getByTestId } = render(
+      <BrowserRouter>
+        <Provider store={mockAppStore(mockAppState)}>
+          <Results {...props} setlimit={mockedOnChange} />
+        </Provider>
+      </BrowserRouter>
+    );
+
+    const selectComponent = queryByTestId('select-component');
+    // const selectPages = queryByTestId('select-pages');
+    // const selectPages = queryByLabelText('select-pages');
+    const userHeader = getByText('User');
+    const codingTestsHeader = getByText('Coding Tests');
+
+    expect(selectComponent).toBeDefined();
+    expect(userHeader).toBeDefined();
+    expect(codingTestsHeader).toBeDefined();
+    expect(selectComponent).not.toBeNull();
+    // expect(mockedOnChange).toHaveBeenCalledTimes(0);
+
+    fireEvent.keyDown(selectComponent.firstChild, { key: 'ArrowDown' });
+    await waitFor(() => {
+      expect(getByText('20')).toBeInTheDocument();
+      // expect(getByText('50')).toBeInTheDocument();
+    });
+    const option50 = getByTestId('option-50');
+    const option100 = getByTestId('option-100');
+    expect(option50).toBeDefined();
+    expect(option100).toBeDefined();
+    // fireEvent.click(option50);
+    // option50.simulate('click');
+
+    // expect(mockedOnChange).toHaveBeenCalledTimes(1);
+  });
+
+  // it('should call track pagination on load.', () => {
+  //   const trackPagination = jest.fn();
+  //   shallow(
+  //     <Provider store={mockAppStore()}>
+  //       <Results {...props} trackPagination={trackPagination} />
+  //     </Provider>
+  //   );
+  //   expect(trackPagination).toHaveBeenCalled();
+  // });
 
   // it('should show add new result for test.', async () => {
   //   const { getByText  } = render(

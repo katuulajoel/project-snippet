@@ -23,26 +23,14 @@ const propTypes = {
   limit: PropTypes.number,
 };
 
-const Results = ({
-  testResults: { results },
-  count,
-  trackPagination,
-  lastPageIndex,
-  onLoadMore,
-  setlimit,
-  limit,
-}) => {
-
-  const calculateStatus = (type, value) => {
+const Results = ({ testResults: { results }, count, trackPagination, lastPageIndex, onLoadMore, setlimit, limit }) => {
+  const paginationOptions = [
+    { value: 20, name: 20 },
+    { value: 50, name: 50 },
+    { value: 100, name: 100 },
+  ];
+  const calculateStatus = (value, type = 'numeric') => {
     switch (type) {
-      case 'numeric':
-        if (value < 50) {
-          return 'failed';
-        } else if (value >= 50 && value < 70) {
-          return 'average';
-        } else {
-          return 'passed';
-        }
       case 'alpha_numeric':
         if (value === 'very_good' || value === 'good') {
           return 'passed';
@@ -60,7 +48,13 @@ const Results = ({
           return 'passed';
         }
       default:
-        return null;
+        if (value < 50) {
+          return 'failed';
+        } else if (value >= 50 && value < 70) {
+          return 'average';
+        } else {
+          return 'passed';
+        }
     }
   };
 
@@ -74,25 +68,25 @@ const Results = ({
               return {
                 stack: test.skill_name,
                 result: test.score,
-                status: calculateStatus('numeric', test.score),
+                status: calculateStatus(test.score),
               };
             }),
           ],
           'comms-check': {
-            status: calculateStatus('alpha_numeric', item.comms_check),
+            status: calculateStatus(item.comms_check, 'alpha_numeric'),
             result: item.comms_check === 'very_good' ? 'Very good' : item.comms_check,
           },
           'mbti-profile': item.mbti_profile,
           'iq-tests': {
-            status: calculateStatus('iq', item.iq_test),
+            status: calculateStatus(item.iq_test, 'iq'),
             result: item.iq_test,
           },
           'sa-tests': {
-            status: calculateStatus('numeric', item.sa_test),
+            status: calculateStatus(item.sa_test),
             result: item.sa_test,
           },
           'code-of-conduct': {
-            status: calculateStatus('numeric', item.code_of_conduct),
+            status: calculateStatus(item.code_of_conduct),
             result: item.code_of_conduct,
           },
         };
@@ -197,7 +191,7 @@ const Results = ({
 
   useEffect(() => {
     return () => {
-      trackPagination(tableInstance.state.pageIndex);
+      trackPagination(pageIndex);
     };
   }, []);
 
@@ -267,16 +261,15 @@ const Results = ({
 
         <CustomSelect>
           <Select
+            // aria-label="select-pages"
+            data-testid="select-pages"
             className="form-control"
             onChange={(value) => {
               setlimit(value);
             }}
             selected={limit}
-          >
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-          </Select>
+            options={paginationOptions}
+          ></Select>
           <Icon name="rounded-keyboard-arrow-down" size="sm" />
         </CustomSelect>
         <span style={{ marginLeft: '16px' }}>of {count}</span>

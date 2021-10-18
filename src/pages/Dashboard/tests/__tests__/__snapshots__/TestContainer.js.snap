@@ -243,7 +243,20 @@ Array [
               className="result"
             >
               <span
-                className="failed"
+                className="passed"
+              >
+                140
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
               >
                 100
               </span>
@@ -259,6 +272,233 @@ Array [
                 className="passed"
               >
                 100
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <th
+            role="cell"
+          >
+            <div>
+              <div
+                className="sc-iqAclL jcGUvW avatar-dash avatar-initials"
+              >
+                <div
+                  className="avatar avatar-dash avatar-initials"
+                  style={Object {}}
+                >
+                  al
+                </div>
+              </div>
+              al la
+              <div
+                className="edit-action"
+              >
+                <button
+                  className="btn btn-icon sc-hKFxyN hwaQcw btn-edit  "
+                  form={null}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="tg-ic-circle-edit-outline tunga-ic-sz-main "
+                  />
+                </button>
+              </div>
+            </div>
+          </th>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="failed"
+              >
+                react
+                 - 
+                20
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="average"
+              >
+                pass
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="none"
+                style={
+                  Object {
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                entj
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="failed"
+              >
+                80
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="average"
+              >
+                50
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                100
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <th
+            role="cell"
+          >
+            <div>
+              <div
+                className="sc-iqAclL jcGUvW avatar-dash avatar-initials"
+              >
+                <div
+                  className="avatar avatar-dash avatar-initials"
+                  style={Object {}}
+                >
+                  bs
+                </div>
+              </div>
+              bb sb
+              <div
+                className="edit-action"
+              >
+                <button
+                  className="btn btn-icon sc-hKFxyN hwaQcw btn-edit  "
+                  form={null}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="tg-ic-circle-edit-outline tunga-ic-sz-main "
+                  />
+                </button>
+              </div>
+            </div>
+          </th>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="failed"
+              >
+                react
+                 - 
+                20
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="failed"
+              >
+                poor
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="none"
+                style={
+                  Object {
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                entj
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="average"
+              >
+                112
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="average"
+              >
+                50
               </span>
             </div>
           </td>
@@ -302,17 +542,20 @@ Array [
             -- Select --
           </option>
           <option
-            value="20"
+            data-testid="option-20"
+            value={20}
           >
             20
           </option>
           <option
-            value="50"
+            data-testid="option-50"
+            value={50}
           >
             50
           </option>
           <option
-            value="100"
+            data-testid="option-100"
+            value={100}
           >
             100
           </option>
@@ -330,7 +573,7 @@ Array [
       }
     >
       of 
-      1
+      3
     </span>
     <nav
       aria-label="Page navigation example"

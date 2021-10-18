@@ -149,7 +149,9 @@ describe('Test reducers tests', () => {
         default: undefined,
       },
       results: {
-        0: dummyResult,
+        0: dummyResults[0],
+        1: dummyResults[1],
+        2: dummyResults[2]
       },
     });
   });
@@ -179,7 +181,9 @@ describe('Test reducers tests', () => {
         default: false,
       },
       results: {
-        0: dummyResult,
+        0: dummyResults[0],
+        1: dummyResults[1],
+        2: dummyResults[2]
       },
     });
   });

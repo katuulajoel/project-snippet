@@ -1,5 +1,5 @@
-import { createConfirmation } from "react-confirm";
-import GenericModal from "../components/GenericModal";
+import { createConfirmation } from 'react-confirm';
+import GenericModal from '../components/GenericModal';
 
 export const confirm = createConfirmation(GenericModal);
 
@@ -18,10 +18,10 @@ const safeClassNameOptions = (className, options) => {
 };
 
 export const openConfirm = ({
-  message = "",
-  title = "",
+  message = '',
+  title = '',
   canClose = true,
-  options = { ok: "Yes", cancel: "Cancel" },
+  options = { ok: 'Yes', cancel: 'Cancel' },
   header = null,
 } = {}) => {
   return openGenericModal(
@@ -29,7 +29,7 @@ export const openConfirm = ({
     {
       mustRespond: !canClose,
       title,
-      ...safeClassNameOptions("modal-confirm", options),
+      ...safeClassNameOptions('modal-confirm', options),
     },
     header
   );
@@ -37,7 +37,7 @@ export const openConfirm = ({
 
 export const openModal = ({
   body = null,
-  title = "",
+  title = '',
   canClose = true,
   options = null,
   header = null,
@@ -59,6 +59,6 @@ export const openAlert = (body, canClose = false, options = null) => {
   return openGenericModal(body, {
     hideCancel: true,
     mustRespond: !canClose,
-    ...safeClassNameOptions("modal-alert", options),
+    ...safeClassNameOptions('modal-alert', options),
   });
 };

@@ -150,20 +150,32 @@ describe('Test list container', () => {
   });
 
   it('load new results on change to new status page', () => {
-    // eslint-disable-next-line no-unused-vars
-    const testResultsActions = jest.spyOn(actions, 'fetchResults');
+    const fetchResultsStub = jest.spyOn(actions, 'fetchResults');
 
     const store = mockAppStore({
       Invoice: {
         list: {
-          data: [dummyResults],
-          count: 10,
+          data: [],
+          count: 0,
         },
+        isMakingRequest: {},
+      },
+
+      TestResults: {
+        count: {},
+        errors: {},
+        isFetching: { default: true },
+        isSaved: {},
+        isSaving: {},
+        next: {},
+        previous: {},
+        results: dummyResults,
+        selectedFilters: [],
         isMakingRequest: {},
       },
     });
     // eslint-disable-next-line no-unused-vars
-    const wrapper = mount(
+    const { container } = render(
       <BrowserRouter>
         <Provider store={store}>
           <ThemeProvider theme={theme}>
@@ -174,12 +186,13 @@ describe('Test list container', () => {
         </Provider>
       </BrowserRouter>
     );
+    expect(fetchResultsStub).toHaveBeenCalled();
+    expect(fetchResultsStub).toHaveBeenCalledTimes(2);
 
-    // eslint-disable-next-line no-unused-vars
-    // const container = wrapper.find("TestContainer"); // TODO: finish up test
+    const h3 = container.querySelector('h3'); 
+    expect(h3).toBeTruthy();
+    expect(h3.innerHTML).toBe('Results');
+
     // container.setProps({ match: { params: { filter: "overdue" } } });
-
-    // expect(testResultsActions).toHaveBeenCalled();
-    // expect(listInvoicesAction).toBeCalledWith({});
   });
 });
