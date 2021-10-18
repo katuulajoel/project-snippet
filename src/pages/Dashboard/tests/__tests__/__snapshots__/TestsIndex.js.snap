@@ -3,7 +3,7 @@
 exports[`Dashboard test Should match snapshot test 1`] = `
 Array [
   <nav
-    className="sc-fKgJPI faFJEl navbar "
+    className="sc-fujyAs kVdmRC navbar "
   >
     <div
       className="title-bar"
@@ -63,7 +63,7 @@ Array [
     />
   </nav>,
   <div
-    className="sc-iwajpm RJsTp sidebar"
+    className="sc-jrsJWt ilZZuz sidebar"
     id="sidebar"
   >
     <img
@@ -185,12 +185,12 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-cxNHIi hSRdOT"
+    className="sc-kEqXSa geqNqL"
   >
     <div>
       <div>
         <div
-          className="sc-lmgQwP gXPVLb"
+          className="sc-iqAclL gMdmgh"
         >
           <div
             className="filter-links"
@@ -199,7 +199,7 @@ Array [
             Results
           </h3>
           <div
-            className="sc-iklJeh bIIsXr"
+            className="sc-iwajpm fJdaXq"
             style={
               Object {
                 "float": "right",
@@ -259,7 +259,7 @@ Array [
         className="table-responsive"
       >
         <table
-          className="sc-dIsUp sc-giAqHp gLKFTs iunQRS table"
+          className="sc-hBMUJo sc-bkbkJK kuQKgY bRrokN table"
           role="table"
         >
           <thead>
@@ -426,13 +426,13 @@ Array [
         </table>
       </div>
       <div
-        className="sc-ezzafa tkRfI"
+        className="sc-iemWCZ diYneA"
       >
         <span>
           Showing
         </span>
         <div
-          className="sc-bYwzuL kpRcIL"
+          className="sc-dIvrsQ ibTjCj"
         >
           <div
             data-testid="select-component"
@@ -485,7 +485,7 @@ Array [
             className="pagination"
           >
             <li
-              className="sc-iJCRrE bKoale page-item"
+              className="sc-crzoAE eNdjef page-item"
               onClick={[Function]}
             >
               <a
@@ -506,7 +506,7 @@ Array [
               }
             />
             <li
-              className="sc-iJCRrE bKoale next page-item"
+              className="sc-crzoAE eNdjef next page-item"
               onClick={[Function]}
             >
               <a

@@ -17,7 +17,7 @@ import {
   DELETE_RESULT_FAILED,
   SET_FILTERS,
 } from '../../../configs/constants/ActionTypes';
-import { dummyResult } from '../../../pages/Dashboard/tests/__tests__/TestForm';
+import { dummyResult } from '../../../pages/Dashboard/tests/__tests__/Results';
 import { dummyResults } from '../../../pages/Dashboard/tests/__tests__/Results';
 
 const middlewares = [thunk];

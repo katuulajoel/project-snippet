@@ -5,15 +5,11 @@ import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
 
 import SearchBox from './SearchBox';
 import NavLinks from './NavLinks';
 import Button from '../components/Button';
 import Icon from '../components/Icon';
-import { openModal } from '../utils/modals';
-import TestForm from '../pages/Dashboard/tests/TestForm';
-import { createResult } from '../redux/actions/TestResultsActions';
 import { useSelector } from 'react-redux';
 import Progress from './Progress';
 
@@ -25,7 +21,6 @@ function getMainPath(str) {
 const NavBar = (props, ref) => {
   const { className } = props;
   let history = useHistory();
-  const dispatch = useDispatch();
   const { isMakingRequest, project } = useSelector(({ Projects }) => Projects);
 
   const getNavTitle = () => {
@@ -55,28 +50,6 @@ const NavBar = (props, ref) => {
     return title;
   };
 
-  const addNewTest = () => {
-    openModal({
-      body: <TestForm id="test-form" />,
-      title: `Add New Result`,
-      options: {
-        className: 'modal-tests',
-        ok: `Save`,
-        cancel: 'Close',
-        form: {
-          type: 'submit',
-          form: `test-form`,
-        },
-        style: { maxWidth: '768px' },
-      },
-    }).then(
-      (data) => {
-        createResult(data)(dispatch);
-      },
-      () => {}
-    );
-  };
-
   const viewTitle = getNavTitle();
 
   return (
@@ -88,7 +61,7 @@ const NavBar = (props, ref) => {
         <ul className="navbar-nav ml-auto">
           {viewTitle === 'Tests' ? (
             <li>
-              <StyledButton id="createResult" variant={'primary'} onClick={() => addNewTest()}>
+              <StyledButton id="createResult" variant={'primary'} onClick={() => null}>
                 <Icon name="round-add" />
                 &nbsp;&nbsp;&nbsp;Add New Result
               </StyledButton>

@@ -6,7 +6,7 @@ Array [
     className="table-responsive"
   >
     <table
-      className="sc-jrsJWt sc-kfYoZR jcioRd cWyMWD table"
+      className="sc-jrsJWt sc-crzoAE jcioRd eTSFPk table"
       role="table"
     >
       <thead>
@@ -280,13 +280,13 @@ Array [
     </table>
   </div>,
   <div
-    className="sc-fKgJPI bBDNta"
+    className="sc-dIsUp xUNzk"
   >
     <span>
       Showing
     </span>
     <div
-      className="sc-bCwfaz fPySMr"
+      className="sc-bqGGPW bZBMeg"
     >
       <div
         data-testid="select-component"
@@ -393,7 +393,7 @@ exports[`Test list container Should match snapshot test 1`] = `
           Results
         </h3>
         <div
-          class="sc-cxNHIi kqKfJf"
+          class="sc-iemWCZ bokrOt"
           style="float: right;"
         >
           <a
