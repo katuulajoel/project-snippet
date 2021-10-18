@@ -1,7 +1,7 @@
 import { createConfirmation } from "react-confirm";
 import GenericModal from "../components/GenericModal";
 
-const confirm = createConfirmation(GenericModal);
+export const confirm = createConfirmation(GenericModal);
 
 export const openGenericModal = (modalContent, options = {}, modalHeader) => {
   return confirm({ modalHeader, modalContent, options: { ...options } });
