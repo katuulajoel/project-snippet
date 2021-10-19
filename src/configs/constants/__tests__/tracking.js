@@ -1,5 +1,4 @@
 import {
-  AUTH_METHODS,
   GA_COMMANDS,
   GA_EVENT_ACTIONS,
   GA_EVENT_CATEGORIES,
@@ -19,12 +18,6 @@ describe("Tracking utils tests", () => {
       1: "web",
       2: "mobile",
       3: "other",
-    });
-    expect(AUTH_METHODS).toEqual({
-      EMAIL: "Email",
-      FACEBOOK: "Facebook",
-      GOOGLE: "Google",
-      GITHUB: "GitHub",
     });
 
     expect(USER_TYPES).toEqual({

@@ -26,7 +26,7 @@ const mockAppState = {
   TestResults: {
     count: {},
     errors: { fetch: null },
-    isFetching: { default: false },
+    isMakingRequest: { default: false },
     isSaved: {},
     isSaving: {},
     next: {},

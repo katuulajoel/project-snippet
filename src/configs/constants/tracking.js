@@ -9,13 +9,6 @@ import {
   PROJECT_DURATION_PERMANENT,
 } from "../../utils/api";
 
-export const AUTH_METHODS = {
-  EMAIL: "Email",
-  FACEBOOK: "Facebook",
-  GOOGLE: "Google",
-  GITHUB: "GitHub",
-};
-
 export const USER_TYPES = {
   CLIENT: "client",
   DEVELOPER: "developer",
