@@ -7,6 +7,7 @@ import { filterButtonProps } from "../utils/forms";
 const Button = (props) => {
   return (
     <button
+      // {...props}
       type={props.type}
       form={props.form}
       className={`btn ${props.variant ? `btn-${props.variant}` : ""} ${

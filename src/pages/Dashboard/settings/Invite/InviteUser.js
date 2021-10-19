@@ -69,7 +69,7 @@ const InviteUser = () => {
               required
             />
           </Label>
-          <Label name="User type">
+          <Label name="User Type">
             <select
               className="form-control"
               onChange={onChangeField}
@@ -89,7 +89,7 @@ const InviteUser = () => {
             </select>
           </Label>
           {user.type === "1" && (
-            <Label name="User category">
+            <Label name="User Category">
               <select
                 className="form-control"
                 onChange={onChangeField}

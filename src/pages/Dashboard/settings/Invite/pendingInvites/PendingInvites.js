@@ -8,12 +8,12 @@ import styled from "styled-components";
 import InfiniteScroll from "react-infinite-scroll-component";
 // /* -------------------- Internel Dependencies (Utilites) -------------------- */
 // /* ------------------------- Component dependencies ------------------------- */
-import Progress from "../../../../components/Progress";
-import moment from "moment";
-import { ContentSection, StyledTable } from "../../../../utils/styles";
-import SummaryPlaceholder from "../../../../components/SummaryPlaceholder/SummaryPlaceholder";
-import * as inviteActions from "../../../../redux/actions/InvitesActions";
-import TabBar from "./tabBar";
+import Progress from "../../../../../components/Progress";
+import { ContentSection, StyledTable } from "../../../../../utils/styles";
+import SummaryPlaceholder from "../../../../../components/SummaryPlaceholder/SummaryPlaceholder";
+import * as inviteActions from "../../../../../redux/actions/InvitesActions";
+import TabBar from "../tabBar";
+import Invite from "./Invite";
 
 const PendingInvite = () => {
   const { invites } = useSelector((store) => store);
@@ -24,7 +24,9 @@ const PendingInvite = () => {
   }, []);
 
   const resendInvite = (data) => {
-    inviteActions.invite({ id: data.id, email: data.email, resend: true });
+    inviteActions.invite({ id: data.id, email: data.email, resend: true })(
+      dispatch
+    );
   };
 
   const fetchMoreData = () => {
@@ -41,7 +43,7 @@ const PendingInvite = () => {
     <>
       <TabBar />
       <InfiniteScroll
-        dataLength={is_available}
+        dataLength={invites && invites.count ? invites.count : 0}
         next={fetchMoreData}
         hasMore={false}
         loader={<Progress />}
@@ -62,35 +64,12 @@ const PendingInvite = () => {
               <tbody>
                 {invites.results.map((invite, i) => {
                   return (
-                    <tr key={`invite-${i}`}>
-                      <td>{moment(invite.created_at).format("ll")}</td>
-                      <td>
-                        {invite.first_name} {invite.last_name}
-                      </td>
-                      <td>{invite.email}</td>
-                      <td>{invite.display_type}</td>
-                      <td className="d-flex align-items-center ">
-                        <button
-                          className="btn btn-resend"
-                          onClick={() => resendInvite(invite)}
-                        >
-                          Resend
-                        </button>
-                        <svg
-                          width="14"
-                          height="18"
-                          viewBox="0 0 14 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          onClick={() => deleteInvite(invite.id)}
-                        >
-                          <path
-                            d="M1 16C1 16.5304 1.21071 17.0391 1.58579 17.4142C1.96086 17.7893 2.46957 18 3 18H11C11.5304 18 12.0391 17.7893 12.4142 17.4142C12.7893 17.0391 13 16.5304 13 16V4H1V16ZM3 6H11V16H3V6ZM10.5 1L9.5 0H4.5L3.5 1H0V3H14V1H10.5Z"
-                            fill="#8F9BB3"
-                          />
-                        </svg>
-                      </td>
-                    </tr>
+                    <Invite
+                      invite={invite}
+                      resendInvite={resendInvite}
+                      deleteInvite={deleteInvite}
+                      key={i}
+                    />
                   );
                 })}
               </tbody>

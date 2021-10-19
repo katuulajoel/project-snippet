@@ -6,7 +6,7 @@ import monitorReducersEnhancer from "../configs/enhancers/monitorReducer";
 import loggerMiddleware from "../configs/middleware/logger";
 import rootReducer from "./reducers";
 
-function configureStore(preloadedState = {}) {
+export function configureStore(preloadedState = {}) {
   const middlewares = [loggerMiddleware, reduxThunk];
   const middlewareEnhancer = applyMiddleware(...middlewares);
 
@@ -23,5 +23,4 @@ function configureStore(preloadedState = {}) {
 }
 
 const store = configureStore();
-
 export default store;

@@ -12,7 +12,7 @@ describe("Invites reducers tests", () => {
     expect(
       reducer(initialState, {
         type: actionTypes.SET_PENDING_INVITES,
-        payload: { results: [] },
+        data: { results: [] },
       })
     ).toEqual({
       results: [],
@@ -23,7 +23,7 @@ describe("Invites reducers tests", () => {
     expect(
       reducer(initialState, {
         type: actionTypes.SET_PENDING_INVITES,
-        payload: {
+        data: {
           count: 0,
           next: "",
           previous: null,
@@ -61,7 +61,7 @@ describe("Invites reducers tests", () => {
     expect(
       reducer(initialState, {
         type: actionTypes.SET_MORE_PENDING_INVITES,
-        payload: [
+        data: [
           {
             id: 111,
           },
@@ -97,7 +97,7 @@ describe("Invites reducers tests", () => {
     expect(
       reducer(initialState, {
         type: actionTypes.DELETE_PENDING_INVITE,
-        id: 222,
+        data: 222,
       })
     ).toEqual({
       count: 0,
