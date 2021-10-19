@@ -14,8 +14,8 @@ const CreateUser = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    import("../../../../components/countries").then(({ Countries }) => {
-      setCountries(Countries);
+    import("../../../../components/countries").then(({ countries }) => {
+      setCountries(countries);
     });
   }, []);
 
