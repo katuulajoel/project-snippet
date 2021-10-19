@@ -2,7 +2,12 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import axios from "axios";
 import * as actions from "../SkillActions";
-import { GET_SKILLS_START, GET_SKILLS_SUCCESS, GET_SKILLS_FAILED, INVALIDATE_SKILLS } from "../../../configs/constants/ActionTypes";
+import {
+  GET_SKILLS_START,
+  GET_SKILLS_SUCCESS,
+  GET_SKILLS_FAILED,
+  INVALIDATE_SKILLS,
+} from "../../../configs/constants/ActionTypes";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -80,7 +85,9 @@ describe("skill actions tests", () => {
       },
     ];
 
-    await store.dispatch(actions.getSkills({ search: "css", type: undefined }, "6LMlpGnA", null));
+    await store.dispatch(
+      actions.getSkills({ search: "css", type: undefined }, "6LMlpGnA", null)
+    );
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

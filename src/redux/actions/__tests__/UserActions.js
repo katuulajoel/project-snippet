@@ -2,7 +2,11 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import axios from "axios";
 import * as actions from "../UserActions";
-import { LIST_USERS_START, LIST_USERS_SUCCESS, LIST_USERS_FAILED } from "../../../configs/constants/ActionTypes";
+import {
+  LIST_USERS_START,
+  LIST_USERS_SUCCESS,
+  LIST_USERS_FAILED,
+} from "../../../configs/constants/ActionTypes";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -89,7 +93,8 @@ export const dummyUsers = [
       country: "",
       country_name: "",
       id: 15,
-      id_document: "http://localhost:8000/media/ids/2021/06/23/11038699_809353962473386_1825757412526772860_o.jpeg",
+      id_document:
+        "http://localhost:8000/media/ids/2021/06/23/11038699_809353962473386_1825757412526772860_o.jpeg",
       location: "",
       mobile_money_cc: null,
       mobile_money_number: null,
@@ -100,7 +105,15 @@ export const dummyUsers = [
       postal_code: null,
       reference_number: null,
       skills: [],
-      skills_details: { language: [], framework: [], platform: [], library: [], storage: [], api: [], other: [] },
+      skills_details: {
+        language: [],
+        framework: [],
+        platform: [],
+        library: [],
+        storage: [],
+        api: [],
+        other: [],
+      },
       street: null,
       tax_name: null,
       tax_percentage: null,
@@ -172,7 +185,13 @@ describe("User   actions tests", () => {
       },
     ];
 
-    await store.dispatch(actions.listUsers({ search: "w", account_type: undefined }, "6LMlpGnA", null));
+    await store.dispatch(
+      actions.listUsers(
+        { search: "w", account_type: undefined },
+        "6LMlpGnA",
+        null
+      )
+    );
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

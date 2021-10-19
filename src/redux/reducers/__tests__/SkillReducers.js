@@ -24,7 +24,9 @@ describe("Skill reducers tests", () => {
   });
 
   it("handles successfull dispatches", () => {
-    expect(reducer(initialState, { type: GET_SKILLS_SUCCESS, data: {} })).toEqual({
+    expect(
+      reducer(initialState, { type: GET_SKILLS_SUCCESS, data: {} })
+    ).toEqual({
       ...initialState,
       isFetching: {
         default: false,

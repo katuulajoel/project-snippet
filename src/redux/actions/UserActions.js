@@ -1,6 +1,10 @@
-import axios from 'axios';
-import { ENDPOINT_USERS } from '../../utils/api';
-import { LIST_USERS_START, LIST_USERS_SUCCESS, LIST_USERS_FAILED } from '../../configs/constants/ActionTypes';
+import axios from "axios";
+import { ENDPOINT_USERS } from "../../utils/api";
+import {
+  LIST_USERS_START,
+  LIST_USERS_SUCCESS,
+  LIST_USERS_FAILED,
+} from "../../configs/constants/ActionTypes";
 
 export const listUsers = (filter, selection, prev_selection) => {
   return (dispatch) => {

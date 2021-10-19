@@ -1,11 +1,11 @@
-import axios from 'axios';
-import { ENDPOINT_SKILLS } from '../../utils/api';
+import axios from "axios";
+import { ENDPOINT_SKILLS } from "../../utils/api";
 import {
   GET_SKILLS_START,
   GET_SKILLS_SUCCESS,
   GET_SKILLS_FAILED,
   INVALIDATE_SKILLS,
-} from '../../configs/constants/ActionTypes';
+} from "../../configs/constants/ActionTypes";
 export const getSkills = (filter, selection, prev_selection) => {
   return (dispatch) => {
     dispatch(getSkillsStart(filter, selection, prev_selection));
@@ -15,7 +15,13 @@ export const getSkills = (filter, selection, prev_selection) => {
         dispatch(getSkillsSuccess(response.data, selection, prev_selection));
       })
       .catch((error) => {
-        dispatch(getSkillsFailed(error.response ? error.response.data : null, selection, prev_selection));
+        dispatch(
+          getSkillsFailed(
+            error.response ? error.response.data : null,
+            selection,
+            prev_selection
+          )
+        );
       });
   };
 };
