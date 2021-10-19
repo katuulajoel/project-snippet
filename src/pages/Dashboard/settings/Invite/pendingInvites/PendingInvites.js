@@ -19,8 +19,6 @@ const PendingInvite = () => {
   const { invites } = useSelector((store) => store);
   const dispatch = useDispatch();
 
-  console.log(invites);
-
   useEffect(() => {
     inviteActions.getPendingInvites("")(dispatch);
   }, []);
