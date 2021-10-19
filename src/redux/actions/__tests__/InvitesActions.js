@@ -40,7 +40,7 @@ describe("Invoice actions tests", () => {
     const expectedActions = [
       {
         type: actionTypes.SET_PENDING_INVITES,
-        payload: [],
+        data: [],
       },
     ];
 
@@ -54,7 +54,7 @@ describe("Invoice actions tests", () => {
     const expectedActions = [
       {
         type: actionTypes.SET_MORE_PENDING_INVITES,
-        payload: [],
+        data: [],
       },
     ];
 
@@ -68,11 +68,11 @@ describe("Invoice actions tests", () => {
     const expectedActions = [
       {
         type: actionTypes.DELETE_PENDING_INVITE,
-        id: 1,
+        data: 1,
       },
       {
         type: actionTypes.SET_PENDING_INVITES,
-        payload: [],
+        data: [],
       },
     ];
 

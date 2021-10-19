@@ -37,7 +37,7 @@ describe("Profile actions tests", () => {
     const expectedActions = [
       {
         type: "SET_USER_PROFILE",
-        payload: {
+        data: {
           settings: {},
         },
       },
@@ -53,7 +53,7 @@ describe("Profile actions tests", () => {
     const expectedActions = [
       {
         type: "SET_USER_PROFILE",
-        payload: {
+        data: {
           settings: {},
         },
       },
