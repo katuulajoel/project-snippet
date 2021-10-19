@@ -6,53 +6,42 @@ import {
   GET_SKILLS_FAILED,
   INVALIDATE_SKILLS,
 } from "../../configs/constants/ActionTypes";
-export const getSkills = (filter, selection, prev_selection) => {
+
+export const getSkills = (filter) => {
   return (dispatch) => {
-    dispatch(getSkillsStart(filter, selection, prev_selection));
+    dispatch(getSkillsStart(filter));
     axios
       .get(ENDPOINT_SKILLS, { params: filter })
       .then((response) => {
-        dispatch(getSkillsSuccess(response.data, selection, prev_selection));
+        dispatch(getSkillsSuccess(response.data));
       })
       .catch((error) => {
-        dispatch(
-          getSkillsFailed(
-            error.response ? error.response.data : null,
-            selection,
-            prev_selection
-          )
-        );
+        dispatch(getSkillsFailed(error.response ? error.response.data : null));
       });
   };
 };
 
-export const getSkillsStart = (filter, selection, prev_selection) => {
+export const getSkillsStart = (filter) => {
   return {
     type: GET_SKILLS_START,
     filter,
-    selection,
-    prev_selection,
   };
 };
 
-export const getSkillsSuccess = (response, selection, prev_selection) => {
+export const getSkillsSuccess = (response) => {
   return {
     type: GET_SKILLS_SUCCESS,
     items: response.results,
     previous: response.previous,
     next: response.next,
     count: response.count,
-    selection,
-    prev_selection,
   };
 };
 
-export const getSkillsFailed = (error, selection, prev_selection) => {
+export const getSkillsFailed = (error) => {
   return {
     type: GET_SKILLS_FAILED,
     error,
-    selection,
-    prev_selection,
   };
 };
 

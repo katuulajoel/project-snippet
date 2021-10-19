@@ -199,7 +199,7 @@ Array [
             Results
           </h3>
           <div
-            className="sc-kfYoZR idNZDR"
+            className="sc-dlMDgC bsZWUr"
             style={
               Object {
                 "float": "right",
@@ -259,7 +259,7 @@ Array [
         className="table-responsive"
       >
         <table
-          className="sc-ksluID sc-fFSPTT iDktpv cKfuDP table"
+          className="sc-bqGGPW sc-fnVZcZ dnFgSz hWzpKt table"
           role="table"
         >
           <thead>
@@ -426,13 +426,13 @@ Array [
         </table>
       </div>
       <div
-        className="sc-bkbkJK cCWWAS"
+        className="sc-fFSPTT kVtiYo"
       >
         <span>
           Showing
         </span>
         <div
-          className="sc-iemWCZ gCllgf"
+          className="sc-bkbkJK izspcl"
         >
           <div
             data-testid="select-component"

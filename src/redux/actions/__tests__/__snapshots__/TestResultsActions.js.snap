@@ -6,7 +6,7 @@ Array [
     className="table-responsive"
   >
     <table
-      className="sc-iCoGMd sc-jrsJWt kgtQbc kHhxJa table"
+      className="sc-gKAaRy sc-pNWdM lgiGOA mMOpI table"
       role="table"
     >
       <thead>
@@ -164,7 +164,7 @@ Array [
           >
             <div>
               <div
-                className="sc-pNWdM jTGhMg avatar-dash avatar-initials"
+                className="sc-fujyAs fhgXi avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -284,7 +284,7 @@ Array [
           >
             <div>
               <div
-                className="sc-pNWdM jTGhMg avatar-dash avatar-initials"
+                className="sc-fujyAs fhgXi avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -404,7 +404,7 @@ Array [
           >
             <div>
               <div
-                className="sc-pNWdM jTGhMg avatar-dash avatar-initials"
+                className="sc-fujyAs fhgXi avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -520,13 +520,13 @@ Array [
     </table>
   </div>,
   <div
-    className="sc-kEqXSa cjmIaa"
+    className="sc-jrsJWt iA-dvXt"
   >
     <span>
       Showing
     </span>
     <div
-      className="sc-iqAclL fIrNey"
+      className="sc-kEqXSa dzpfkF"
     >
       <div
         data-testid="select-component"

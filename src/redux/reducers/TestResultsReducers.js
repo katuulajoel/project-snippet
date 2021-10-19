@@ -91,7 +91,7 @@ const isSaving = (state = {}, action) => {
   }
 };
 
-const isFetching = (state = {}, action) => {
+const isMakingRequest = (state = {}, action) => {
   let selectionKey = action.selection || "default";
   let newState = {};
   switch (action.type) {
@@ -173,7 +173,7 @@ const TestResults = combineReducers({
   results,
   isSaved,
   isSaving,
-  isFetching,
+  isMakingRequest,
   next,
   previous,
   count,

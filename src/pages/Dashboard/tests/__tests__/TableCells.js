@@ -70,7 +70,7 @@ const mockAppState = {
   TestResults: {
     count: { default: 1 },
     errors: { fetch: null },
-    isFetching: { default: false },
+    isMakingRequest: { default: false },
     isSaved: {},
     isSaving: {},
     next: {},

@@ -20,7 +20,7 @@ import { dummyResult } from "../../../pages/Dashboard/tests/__tests__/TableCells
 import { dummyResults } from "../../../pages/Dashboard/tests/__tests__/Results";
 
 const initialState = {
-  isFetching: {},
+  isMakingRequest: {},
   count: {},
   errors: {},
   isSaved: {},
@@ -82,7 +82,7 @@ describe("Test reducers tests", () => {
   it("handles FETCH_RESULT_START dispatches", () => {
     expect(reducer(initialState, { type: FETCH_RESULT_START })).toEqual({
       ...initialState,
-      isFetching: {
+      isMakingRequest: {
         default: true,
       },
     });
@@ -93,7 +93,7 @@ describe("Test reducers tests", () => {
       reducer(initialState, { type: FETCH_RESULT_SUCCESS, items: dummyResults })
     ).toEqual({
       ...initialState,
-      isFetching: {
+      isMakingRequest: {
         default: false,
       },
       count: {
@@ -106,7 +106,7 @@ describe("Test reducers tests", () => {
   it("handles FETCH_RESULT_FAILED dispatches", () => {
     expect(reducer(initialState, { type: FETCH_RESULT_FAILED })).toEqual({
       ...initialState,
-      isFetching: {
+      isMakingRequest: {
         default: false,
       },
       errors: {

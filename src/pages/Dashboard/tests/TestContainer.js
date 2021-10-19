@@ -143,7 +143,7 @@ const TestsContainer = (props) => {
         }
       />
 
-      {TestResults.isFetching?.default ? (
+      {TestResults.isMakingRequest?.default ? (
         <Progress />
       ) : (
         <Results

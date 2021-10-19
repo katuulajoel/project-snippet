@@ -31,7 +31,7 @@ const mockAppState = {
   TestResults: {
     count: {},
     errors: {},
-    isFetching: { default: true },
+    isMakingRequest: { default: true },
     isSaved: {},
     isSaving: {},
     next: {},
@@ -131,7 +131,7 @@ describe("Test list container", () => {
       TestResults: {
         count: {},
         errors: { fetch: null },
-        isFetching: { default: false },
+        isMakingRequest: { default: false },
         isSaved: {},
         isSaving: {},
         next: {},
@@ -181,14 +181,13 @@ describe("Test list container", () => {
       TestResults: {
         count: {},
         errors: {},
-        isFetching: { default: true },
+        isMakingRequest: { default: true },
         isSaved: {},
         isSaving: {},
         next: {},
         previous: {},
         results: dummyResults,
         selectedFilters: [],
-        isMakingRequest: {},
       },
     });
     // eslint-disable-next-line no-unused-vars

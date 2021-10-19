@@ -7,7 +7,7 @@ import {
 } from "../../../configs/constants/ActionTypes";
 
 const initialState = {
-  isFetching: {},
+  isMakingRequest: {},
   skills: {},
 };
 
@@ -19,7 +19,7 @@ describe("Skill reducers tests", () => {
   it("handles making requests", () => {
     expect(reducer(initialState, { type: GET_SKILLS_START })).toEqual({
       ...initialState,
-      isFetching: { default: true },
+      isMakingRequest: { default: true },
     });
   });
 
@@ -28,7 +28,7 @@ describe("Skill reducers tests", () => {
       reducer(initialState, { type: GET_SKILLS_SUCCESS, data: {} })
     ).toEqual({
       ...initialState,
-      isFetching: {
+      isMakingRequest: {
         default: false,
       },
       default: undefined,
@@ -43,7 +43,7 @@ describe("Skill reducers tests", () => {
       })
     ).toEqual({
       ...initialState,
-      isFetching: {
+      isMakingRequest: {
         default: false,
       },
     });
@@ -52,7 +52,7 @@ describe("Skill reducers tests", () => {
   it("handles invalidate skill dispatches", () => {
     expect(reducer(initialState, { type: INVALIDATE_SKILLS })).toEqual({
       ...initialState,
-      isFetching: {},
+      isMakingRequest: {},
       skills: {
         default: [],
       },

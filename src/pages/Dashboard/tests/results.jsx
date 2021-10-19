@@ -4,7 +4,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import PaginationWrapper from "../../../components/Pagination";
-import { StyledTable as Table } from "../styles";
+import { StyledTable as Table } from "../../../utils/styles";
 import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
 import CaretUp from "../../../assets/images/caret-arrow-up.png";
 import CaretDown from "../../../assets/images/caret-down.png";

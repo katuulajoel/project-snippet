@@ -6,7 +6,7 @@ Array [
     className="table-responsive"
   >
     <table
-      className="sc-eCApnc sc-fujyAs fpWjyx tDkRa table"
+      className="sc-hKFxyN sc-iCoGMd vVjoV fcOIOf table"
       role="table"
     >
       <thead>
@@ -164,7 +164,7 @@ Array [
           >
             <div>
               <div
-                className="sc-gKAaRy bubAcH avatar-dash avatar-initials"
+                className="sc-jSFjdj liUqpj avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -178,7 +178,7 @@ Array [
                 className="edit-action"
               >
                 <button
-                  className="btn btn-icon sc-iCoGMd fsPrSF btn-edit  "
+                  className="btn btn-icon sc-gKAaRy gKhyaZ btn-edit  "
                   form={null}
                   onClick={[Function]}
                   type="button"
@@ -284,7 +284,7 @@ Array [
           >
             <div>
               <div
-                className="sc-gKAaRy bubAcH avatar-dash avatar-initials"
+                className="sc-jSFjdj liUqpj avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -298,7 +298,7 @@ Array [
                 className="edit-action"
               >
                 <button
-                  className="btn btn-icon sc-iCoGMd fsPrSF btn-edit  "
+                  className="btn btn-icon sc-gKAaRy gKhyaZ btn-edit  "
                   form={null}
                   onClick={[Function]}
                   type="button"
@@ -404,7 +404,7 @@ Array [
           >
             <div>
               <div
-                className="sc-gKAaRy bubAcH avatar-dash avatar-initials"
+                className="sc-jSFjdj liUqpj avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -418,7 +418,7 @@ Array [
                 className="edit-action"
               >
                 <button
-                  className="btn btn-icon sc-iCoGMd fsPrSF btn-edit  "
+                  className="btn btn-icon sc-gKAaRy gKhyaZ btn-edit  "
                   form={null}
                   onClick={[Function]}
                   type="button"
@@ -520,13 +520,13 @@ Array [
     </table>
   </div>,
   <div
-    className="sc-pNWdM rLYbH"
+    className="sc-fujyAs jtabOx"
   >
     <span>
       Showing
     </span>
     <div
-      className="sc-jrsJWt hiCMwO"
+      className="sc-pNWdM lkRJvU"
     >
       <div
         data-testid="select-component"

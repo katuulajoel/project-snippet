@@ -6,7 +6,7 @@ Array [
     className="table-responsive"
   >
     <table
-      className="sc-gKAaRy sc-fujyAs lgiGOA tDkRa table"
+      className="sc-jSFjdj sc-iCoGMd hGmqhA fcOIOf table"
       role="table"
     >
       <thead>
@@ -520,13 +520,13 @@ Array [
     </table>
   </div>,
   <div
-    className="sc-pNWdM rLYbH"
+    className="sc-fujyAs jtabOx"
   >
     <span>
       Showing
     </span>
     <div
-      className="sc-jrsJWt hiCMwO"
+      className="sc-pNWdM lkRJvU"
     >
       <div
         data-testid="select-component"

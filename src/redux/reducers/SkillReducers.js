@@ -21,7 +21,7 @@ const skills = (state = {}, action) => {
   }
 };
 
-const isFetching = (state = {}, action) => {
+const isMakingRequest = (state = {}, action) => {
   const selection_key = action.selection || "default";
   const new_state = {};
   switch (action.type) {
@@ -39,7 +39,7 @@ const isFetching = (state = {}, action) => {
 
 const Skill = combineReducers({
   skills,
-  isFetching,
+  isMakingRequest,
 });
 
 export default Skill;

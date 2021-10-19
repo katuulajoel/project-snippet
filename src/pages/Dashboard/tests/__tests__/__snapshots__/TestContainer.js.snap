@@ -6,7 +6,7 @@ Array [
     className="table-responsive"
   >
     <table
-      className="sc-pNWdM sc-iqAclL feIUgL bEvDTG table"
+      className="sc-fujyAs sc-kEqXSa darQWV cVoVTh table"
       role="table"
     >
       <thead>
@@ -164,7 +164,7 @@ Array [
           >
             <div>
               <div
-                className="sc-kEqXSa dmFniR avatar-dash avatar-initials"
+                className="sc-jrsJWt fsXsRW avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -284,7 +284,7 @@ Array [
           >
             <div>
               <div
-                className="sc-kEqXSa dmFniR avatar-dash avatar-initials"
+                className="sc-jrsJWt fsXsRW avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -404,7 +404,7 @@ Array [
           >
             <div>
               <div
-                className="sc-kEqXSa dmFniR avatar-dash avatar-initials"
+                className="sc-jrsJWt fsXsRW avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -520,13 +520,13 @@ Array [
     </table>
   </div>,
   <div
-    className="sc-crzoAE bLnLOL"
+    className="sc-iqAclL gyslCV"
   >
     <span>
       Showing
     </span>
     <div
-      className="sc-dIsUp jsEMXf"
+      className="sc-crzoAE gUutGs"
     >
       <div
         data-testid="select-component"
@@ -636,7 +636,7 @@ exports[`Test list container Should match snapshot test 1`] = `
           Results
         </h3>
         <div
-          class="sc-fnVZcZ jWcOwz"
+          class="sc-hBMUJo cRLyst"
           style="float: right;"
         >
           <a

@@ -71,23 +71,17 @@ describe("skill actions tests", () => {
       {
         type: GET_SKILLS_START,
         filter: { search: "css", type: undefined },
-        prev_selection: null,
-        selection: "6LMlpGnA",
       },
       {
         type: GET_SKILLS_SUCCESS,
         count: 2,
         items: dummySkills,
         next: null,
-        prev_selection: null,
         previous: null,
-        selection: "6LMlpGnA",
       },
     ];
 
-    await store.dispatch(
-      actions.getSkills({ search: "css", type: undefined }, "6LMlpGnA", null)
-    );
+    await store.dispatch(actions.getSkills({ search: "css", type: undefined }));
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
@@ -101,13 +95,9 @@ describe("skill actions tests", () => {
     const expectedActions = [
       {
         type: GET_SKILLS_START,
-        prev_selection: undefined,
-        selection: undefined,
       },
       {
         error: null,
-        prev_selection: undefined,
-        selection: undefined,
         type: GET_SKILLS_FAILED,
       },
     ];
