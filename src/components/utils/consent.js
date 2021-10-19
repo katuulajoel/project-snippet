@@ -99,6 +99,7 @@ export function getCookieConsent() {
   return Cookies.get("cookieConsent");
 }
 
+// TODO: Checkout to see if its still needs to be used
 // export function removeCookieConsent() {
 //   Cookies.remove("cookieConsent");
 // }
