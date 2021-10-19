@@ -1,4 +1,4 @@
-import reducer from '../TestResultsReducers';
+import reducer from "../TestResultsReducers";
 import {
   CREATE_RESULT_START,
   CREATE_RESULT_SUCCESS,
@@ -15,9 +15,9 @@ import {
   DELETE_RESULT_SUCCESS,
   DELETE_RESULT_FAILED,
   SET_FILTERS,
-} from '../../../configs/constants/ActionTypes';
-import { dummyResult } from '../../../pages/Dashboard/tests/__tests__/TableCells';
-import { dummyResults } from '../../../pages/Dashboard/tests/__tests__/Results';
+} from "../../../configs/constants/ActionTypes";
+import { dummyResult } from "../../../pages/Dashboard/tests/__tests__/TableCells";
+import { dummyResults } from "../../../pages/Dashboard/tests/__tests__/Results";
 
 const initialState = {
   isFetching: {},
@@ -31,12 +31,12 @@ const initialState = {
   selectedFilters: [],
 };
 
-describe('Test reducers tests', () => {
-  it('returns the initial state', () => {
+describe("Test reducers tests", () => {
+  it("returns the initial state", () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
 
-  it('handles CREATE_RESULT_START requests', () => {
+  it("handles CREATE_RESULT_START requests", () => {
     expect(reducer(initialState, { type: CREATE_RESULT_START })).toEqual({
       ...initialState,
       isSaved: {
@@ -48,8 +48,10 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles CREATE_RESULT_SUCCESS dispatches', () => {
-    expect(reducer(initialState, { type: CREATE_RESULT_SUCCESS, data: dummyResult })).toEqual({
+  it("handles CREATE_RESULT_SUCCESS dispatches", () => {
+    expect(
+      reducer(initialState, { type: CREATE_RESULT_SUCCESS, data: dummyResult })
+    ).toEqual({
       ...initialState,
       isSaved: {
         default: true,
@@ -63,8 +65,10 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles CREATE_RESULT_FAILED dispatches', () => {
-    expect(reducer(initialState, { type: CREATE_RESULT_FAILED, data: {} })).toEqual({
+  it("handles CREATE_RESULT_FAILED dispatches", () => {
+    expect(
+      reducer(initialState, { type: CREATE_RESULT_FAILED, data: {} })
+    ).toEqual({
       ...initialState,
       isSaved: {
         default: true,
@@ -75,7 +79,7 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles FETCH_RESULT_START dispatches', () => {
+  it("handles FETCH_RESULT_START dispatches", () => {
     expect(reducer(initialState, { type: FETCH_RESULT_START })).toEqual({
       ...initialState,
       isFetching: {
@@ -84,8 +88,10 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles FETCH_RESULT_SUCCESS dispatches', () => {
-    expect(reducer(initialState, { type: FETCH_RESULT_SUCCESS, items: dummyResults })).toEqual({
+  it("handles FETCH_RESULT_SUCCESS dispatches", () => {
+    expect(
+      reducer(initialState, { type: FETCH_RESULT_SUCCESS, items: dummyResults })
+    ).toEqual({
       ...initialState,
       isFetching: {
         default: false,
@@ -97,7 +103,7 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles FETCH_RESULT_FAILED dispatches', () => {
+  it("handles FETCH_RESULT_FAILED dispatches", () => {
     expect(reducer(initialState, { type: FETCH_RESULT_FAILED })).toEqual({
       ...initialState,
       isFetching: {
@@ -109,7 +115,7 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles UPDATE_RESULT_START dispatches', () => {
+  it("handles UPDATE_RESULT_START dispatches", () => {
     expect(reducer(initialState, { type: UPDATE_RESULT_START })).toEqual({
       ...initialState,
       isSaving: {
@@ -118,8 +124,10 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles UPDATE_RESULT_SUCCESS dispatches', () => {
-    expect(reducer(initialState, { type: UPDATE_RESULT_SUCCESS, data: dummyResult })).toEqual({
+  it("handles UPDATE_RESULT_SUCCESS dispatches", () => {
+    expect(
+      reducer(initialState, { type: UPDATE_RESULT_SUCCESS, data: dummyResult })
+    ).toEqual({
       ...initialState,
       isSaving: {
         default: false,
@@ -127,7 +135,7 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles UPDATE_RESULT_FAILED dispatches', () => {
+  it("handles UPDATE_RESULT_FAILED dispatches", () => {
     expect(reducer(initialState, { type: UPDATE_RESULT_FAILED })).toEqual({
       ...initialState,
       errors: {
@@ -139,8 +147,13 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles LIST_MORE_RESULTS_SUCCESS dispatches', () => {
-    expect(reducer(initialState, { type: LIST_MORE_RESULTS_SUCCESS, items: dummyResults })).toEqual({
+  it("handles LIST_MORE_RESULTS_SUCCESS dispatches", () => {
+    expect(
+      reducer(initialState, {
+        type: LIST_MORE_RESULTS_SUCCESS,
+        items: dummyResults,
+      })
+    ).toEqual({
       ...initialState,
       previous: {
         default: undefined,
@@ -151,12 +164,12 @@ describe('Test reducers tests', () => {
       results: {
         0: dummyResults[0],
         1: dummyResults[1],
-        2: dummyResults[2]
+        2: dummyResults[2],
       },
     });
   });
 
-  it('handles LIST_MORE_RESULTS_FAILED dispatches', () => {
+  it("handles LIST_MORE_RESULTS_FAILED dispatches", () => {
     expect(reducer(initialState, { type: LIST_MORE_RESULTS_FAILED })).toEqual({
       ...initialState,
       count: {
@@ -165,8 +178,10 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles DELETE_RESULT_START dispatches', () => {
-    expect(reducer(initialState, { type: DELETE_RESULT_START, data: { id: 123 } })).toEqual({
+  it("handles DELETE_RESULT_START dispatches", () => {
+    expect(
+      reducer(initialState, { type: DELETE_RESULT_START, data: { id: 123 } })
+    ).toEqual({
       ...initialState,
       isSaving: {
         default: true,
@@ -174,8 +189,10 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles DELETE_RESULT_SUCCESS dispatches', () => {
-    expect(reducer(initialState, { type: DELETE_RESULT_SUCCESS, data: { id: 123 } })).toEqual({
+  it("handles DELETE_RESULT_SUCCESS dispatches", () => {
+    expect(
+      reducer(initialState, { type: DELETE_RESULT_SUCCESS, data: { id: 123 } })
+    ).toEqual({
       ...initialState,
       isSaving: {
         default: false,
@@ -183,12 +200,12 @@ describe('Test reducers tests', () => {
       results: {
         0: dummyResults[0],
         1: dummyResults[1],
-        2: dummyResults[2]
+        2: dummyResults[2],
       },
     });
   });
 
-  it('handles DELETE_RESULT_FAILED dispatches', () => {
+  it("handles DELETE_RESULT_FAILED dispatches", () => {
     expect(reducer(initialState, { type: DELETE_RESULT_FAILED })).toEqual({
       ...initialState,
       errors: {
@@ -200,11 +217,13 @@ describe('Test reducers tests', () => {
     });
   });
 
-  it('handles SET_FILTERS dispatches', () => {
-    expect(reducer(initialState, { type: SET_FILTERS, filters: { search: '' } })).toEqual({
+  it("handles SET_FILTERS dispatches", () => {
+    expect(
+      reducer(initialState, { type: SET_FILTERS, filters: { search: "" } })
+    ).toEqual({
       ...initialState,
       selectedFilters: {
-        search: '',
+        search: "",
       },
     });
   });

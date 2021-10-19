@@ -23,7 +23,7 @@ module.exports = {
     },
   },
   rules: {
-    // "prettier/prettier": ["error"],
+    "prettier/prettier": ["error"],
     "no-console": "off",
     "linebreak-style": ["error", "unix"],
     quotes: ["off", "single"],
@@ -34,12 +34,6 @@ module.exports = {
     "import/prefer-default-export": 0,
     "no-nested-ternary": 0,
     "react/no-array-index-key": 0,
-    // "prettier/prettier": [
-    //   "error",
-    //   {
-    //     printWidth: 120,
-    //   },
-    // ],
   },
   globals: {
     __PRODUCTION__: true,

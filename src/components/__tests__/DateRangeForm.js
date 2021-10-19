@@ -1,15 +1,15 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import DateRangeForm from '../DateRangeForm';
-import mount from 'enzyme/build/mount';
+import React from "react";
+import renderer from "react-test-renderer";
+import DateRangeForm from "../DateRangeForm";
+import mount from "enzyme/build/mount";
 
-describe('Auth layout test', () => {
-  it('Snapshot test for NavBar component', () => {
+describe("Auth layout test", () => {
+  it("Snapshot test for NavBar component", () => {
     const tree = renderer.create(<DateRangeForm />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('should submit result', () => {
+  it("should submit result", () => {
     const proceedMock = jest.fn();
     const wrapper = mount(
       <DateRangeForm
@@ -19,18 +19,18 @@ describe('Auth layout test', () => {
         defaultEnd="2021-10-19T11:24:08.429Z"
       />
     );
-    
-    const startDateInput = wrapper.find('#start-date DatePickerInput input');
-    const endDateInput = wrapper.find('#end-date DatePickerInput input');
+
+    const startDateInput = wrapper.find("#start-date DatePickerInput input");
+    const endDateInput = wrapper.find("#end-date DatePickerInput input");
     // console.log(startDateInput.debug());
     // expect(startDateInput.value).toEqual("2021-10-19T11:24:08.429Z");
     // expect(endDateInput.value).toEqual("2021-10-19T11:24:08.429Z");
-    
+
     const date = new Date();
-    startDateInput.simulate('change', {
+    startDateInput.simulate("change", {
       target: { value: date.toISOString() },
     });
-    endDateInput.simulate('change', {
+    endDateInput.simulate("change", {
       target: { value: date.toISOString() },
     });
     // expect(startDateInput.value).toEqual(date.toISOString());

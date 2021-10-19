@@ -1,30 +1,30 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { ThemeProvider } from 'styled-components';
-import { render } from '@testing-library/react';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import configureStore from "redux-mock-store";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import { ThemeProvider } from "styled-components";
+import { render } from "@testing-library/react";
 
-import TestContainer from '../TestContainer';
-import { mount } from 'enzyme/build';
-import Results, { dummyResults } from './Results';
-import * as actions from '../../../../redux/actions/TestResultsActions';
-import { toggleRightNav } from '../../../../redux/actions/UtilityActions';
-import theme from '../../../../assets/theme';
+import TestContainer from "../TestContainer";
+import { mount } from "enzyme/build";
+import Results, { dummyResults } from "./Results";
+import * as actions from "../../../../redux/actions/TestResultsActions";
+import { toggleRightNav } from "../../../../redux/actions/UtilityActions";
+import theme from "../../../../assets/theme";
 
 const middlewares = [thunk];
 
 const mockAppState = {
   Auth: {
-    user: { uid: 123, email: 'test@gmail.com' },
+    user: { uid: 123, email: "test@gmail.com" },
     isMakingRequest: {},
   },
   Invoice: {
     isMakingRequest: {},
     errors: {},
     summary: {},
-    list: { data: [], count: 0, next: '', previous: '' },
+    list: { data: [], count: 0, next: "", previous: "" },
     invoice: {},
     csv: {},
   },
@@ -52,29 +52,40 @@ const mockAppStore = (state) => {
   return mockStore(state || mockAppState);
 };
 
-describe('Test list container', () => {
-  it('Should match snapshot test', () => {
+describe("Test list container", () => {
+  it("Should match snapshot test", () => {
     const { asFragment } = render(
       <Provider store={mockAppStore()}>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-            <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults} />
+            <TestContainer
+              collapseRightNav={toggleRightNav}
+              TestResults={mockAppState.TestResults}
+            />
           </BrowserRouter>
         </ThemeProvider>
       </Provider>
     );
     expect(
-      asFragment(<TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults} />)
+      asFragment(
+        <TestContainer
+          collapseRightNav={toggleRightNav}
+          TestResults={mockAppState.TestResults}
+        />
+      )
     ).toMatchSnapshot();
   });
 
-  it('should render children', async () => {
+  it("should render children", async () => {
     const store = mockAppStore();
     mount(
       <BrowserRouter>
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults}>
+            <TestContainer
+              collapseRightNav={toggleRightNav}
+              TestResults={mockAppState.TestResults}
+            >
               <></>
             </TestContainer>
           </ThemeProvider>
@@ -82,17 +93,20 @@ describe('Test list container', () => {
       </BrowserRouter>
     );
 
-    const expectedActions = [{ type: 'FETCH_RESULT_START' }];
+    const expectedActions = [{ type: "FETCH_RESULT_START" }];
 
     expect(store.getActions()).toMatchObject(expectedActions);
   });
 
-  it('should show progress component', async () => {
+  it("should show progress component", async () => {
     const wrapper = mount(
       <BrowserRouter>
         <Provider store={mockAppStore()}>
           <ThemeProvider theme={theme}>
-            <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults}>
+            <TestContainer
+              collapseRightNav={toggleRightNav}
+              TestResults={mockAppState.TestResults}
+            >
               <></>
             </TestContainer>
           </ThemeProvider>
@@ -100,11 +114,11 @@ describe('Test list container', () => {
       </BrowserRouter>
     );
 
-    expect(wrapper.find('Progress').exists()).toBeTruthy();
+    expect(wrapper.find("Progress").exists()).toBeTruthy();
   });
 
-  it('should load data on page change', async () => {
-    const testResultsActions = jest.spyOn(actions, 'fetchResults');
+  it("should load data on page change", async () => {
+    const testResultsActions = jest.spyOn(actions, "fetchResults");
     const store = mockAppStore({
       ...mockAppState,
       Invoice: {
@@ -131,7 +145,10 @@ describe('Test list container', () => {
       <BrowserRouter>
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults}>
+            <TestContainer
+              collapseRightNav={toggleRightNav}
+              TestResults={mockAppState.TestResults}
+            >
               <></>
             </TestContainer>
           </ThemeProvider>
@@ -149,8 +166,8 @@ describe('Test list container', () => {
     // });
   });
 
-  it('load new results on change to new status page', () => {
-    const fetchResultsStub = jest.spyOn(actions, 'fetchResults');
+  it("load new results on change to new status page", () => {
+    const fetchResultsStub = jest.spyOn(actions, "fetchResults");
 
     const store = mockAppStore({
       Invoice: {
@@ -179,7 +196,10 @@ describe('Test list container', () => {
       <BrowserRouter>
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <TestContainer collapseRightNav={toggleRightNav} TestResults={mockAppState.TestResults}>
+            <TestContainer
+              collapseRightNav={toggleRightNav}
+              TestResults={mockAppState.TestResults}
+            >
               <Results {...props} />
             </TestContainer>
           </ThemeProvider>
@@ -189,9 +209,9 @@ describe('Test list container', () => {
     expect(fetchResultsStub).toHaveBeenCalled();
     expect(fetchResultsStub).toHaveBeenCalledTimes(2);
 
-    const h3 = container.querySelector('h3'); 
+    const h3 = container.querySelector("h3");
     expect(h3).toBeTruthy();
-    expect(h3.innerHTML).toBe('Results');
+    expect(h3.innerHTML).toBe("Results");
 
     // container.setProps({ match: { params: { filter: "overdue" } } });
   });

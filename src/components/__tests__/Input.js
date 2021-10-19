@@ -1,10 +1,10 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import Input from '../Input';
-import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { mount } from 'enzyme/build';
+import React from "react";
+import renderer from "react-test-renderer";
+import Input from "../Input";
+import configureStore from "redux-mock-store";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import { mount } from "enzyme/build";
 
 const middlewares = [thunk];
 
@@ -18,8 +18,8 @@ const mockAppStore = (state) => {
   return mockStore(state || mockAppState);
 };
 
-describe('Input component test', () => {
-  it('Snapshot test for Input component', () => {
+describe("Input component test", () => {
+  it("Snapshot test for Input component", () => {
     const tree = renderer
       .create(
         <Provider store={mockAppStore()}>
@@ -30,17 +30,17 @@ describe('Input component test', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should change input type on click showPassword', () => {
+  it("should change input type on click showPassword", () => {
     const wrapper = mount(
       <Provider store={mockAppStore()}>
         <Input type="password" />
       </Provider>
     );
-    const input = wrapper.find('input');
-    expect(input.instance().type).toEqual('password');
-    const showBtn = wrapper.find('button.input-icon');
-    showBtn.simulate('click');
-    expect(input.instance().type).toEqual('text');
+    const input = wrapper.find("input");
+    expect(input.instance().type).toEqual("password");
+    const showBtn = wrapper.find("button.input-icon");
+    showBtn.simulate("click");
+    expect(input.instance().type).toEqual("text");
   });
 
   // it('should change input type on click showPassword', () => {

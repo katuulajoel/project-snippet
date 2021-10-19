@@ -1,9 +1,9 @@
-import React from 'react';
-import axios from 'axios';
-import { ENDPOINT_TEST_RESULTS } from '../../utils/api';
+import React from "react";
+import axios from "axios";
+import { ENDPOINT_TEST_RESULTS } from "../../utils/api";
 
-import AlertDialogue from '../../components/AlertDialogue';
-import { openAlert } from '../../utils/modals';
+import AlertDialogue from "../../components/AlertDialogue";
+import { openAlert } from "../../utils/modals";
 import {
   CREATE_RESULT_START,
   CREATE_RESULT_SUCCESS,
@@ -18,7 +18,7 @@ import {
   DELETE_RESULT_SUCCESS,
   DELETE_RESULT_FAILED,
   SET_FILTERS,
-} from '../../configs/constants/ActionTypes';
+} from "../../configs/constants/ActionTypes";
 
 export const createResult = (data) => {
   return (dispatch) => {
@@ -29,7 +29,9 @@ export const createResult = (data) => {
         dispatch(createResultSuccess(response.data));
       })
       .catch((error) => {
-        dispatch(createResultFailed(error.response ? error.response.data : null));
+        dispatch(
+          createResultFailed(error.response ? error.response.data : null)
+        );
       });
   };
 };
@@ -51,7 +53,7 @@ export const createResultSuccess = (result) => {
 export const createResultFailed = (error) => {
   if (error) {
     openAlert(<AlertDialogue msg={error.message} />, false, {
-      className: 'error-dailogue',
+      className: "error-dailogue",
       hideActions: true,
       hideBackdrop: true,
     });
@@ -71,7 +73,9 @@ export const deleteResult = (id) => {
         dispatch(deleteResultSuccess(id));
       })
       .catch((error) => {
-        dispatch(deleteResultFailed(error.response ? error.response.data : null));
+        dispatch(
+          deleteResultFailed(error.response ? error.response.data : null)
+        );
       });
   };
 };
@@ -106,7 +110,9 @@ export const fetchResults = (filter) => {
         dispatch(fetchResultsSuccess(response.data));
       })
       .catch((error) => {
-        dispatch(fetchResultsFailed(error.response ? error.response.data : null));
+        dispatch(
+          fetchResultsFailed(error.response ? error.response.data : null)
+        );
       });
   };
 };
@@ -140,14 +146,20 @@ export const updateResult = (id, result) => {
     let headers = {};
 
     axios
-      .patch(ENDPOINT_TEST_RESULTS + id + '/', result, {
+      .patch(ENDPOINT_TEST_RESULTS + id + "/", result, {
         headers: { ...headers },
       })
       .then((response) => {
         dispatch(updateResultSuccess(response.data, id));
       })
       .catch((error) => {
-        dispatch(updateResultFailed(error.response ? error.response.data : null, id, result));
+        dispatch(
+          updateResultFailed(
+            error.response ? error.response.data : null,
+            id,
+            result
+          )
+        );
       });
   };
 };

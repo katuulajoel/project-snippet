@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
-import { filterEventProps } from '../utils/events';
-import { filterInputProps } from '../utils/forms';
+import { filterEventProps } from "../utils/events";
+import { filterInputProps } from "../utils/forms";
 
 export default class Select extends React.Component {
   static defaultProps = {
     options: [],
-    placeholder: '-- Select --',
+    placeholder: "-- Select --",
     grouped: false,
   };
 
@@ -47,7 +47,11 @@ export default class Select extends React.Component {
       const { value, name } = option;
 
       return (
-        <option key={`option-${value}`} value={value} data-testid={`option-${value}`}>
+        <option
+          key={`option-${value}`}
+          value={value}
+          data-testid={`option-${value}`}
+        >
           {name}
         </option>
       );
@@ -58,12 +62,12 @@ export default class Select extends React.Component {
     return (
       <div data-testid="select-component">
         <select
-          className={`form-control ${this.props.className || ''} ${
-            this.props.size ? `form-control-${this.props.size}` : ''
+          className={`form-control ${this.props.className || ""} ${
+            this.props.size ? `form-control-${this.props.size}` : ""
           }`}
           {...filterInputProps(this.props)}
           {...filterEventProps(this.props)}
-          value={this.state.selected || ''}
+          value={this.state.selected || ""}
           onChange={this.onChange.bind(this)}
           required={this.props.required}
         >

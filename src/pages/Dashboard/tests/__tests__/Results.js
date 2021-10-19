@@ -1,14 +1,11 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import Results from '../results';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import {
-  render,
-   fireEvent, waitFor
-} from '@testing-library/react';
+import React from "react";
+import renderer from "react-test-renderer";
+import Results from "../results";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
+import thunk from "redux-thunk";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 // import { mount } from 'enzyme';
 // import { mount } from "enzyme/build";
 // import * as utils from "../utils/utils";
@@ -26,7 +23,7 @@ const mockAppState = {
     isMakingRequest: {},
     errors: {},
     summary: {},
-    list: { data: [], count: 0, next: '', previous: '' },
+    list: { data: [], count: 0, next: "", previous: "" },
     invoice: {},
     csv: {},
   },
@@ -39,8 +36,8 @@ const mockAppStore = (state) => {
 
 export const dummyResult = {
   id: 10,
-  comms_check: 'very_good',
-  mbti_profile: 'entj',
+  comms_check: "very_good",
+  mbti_profile: "entj",
   iq_test: 100,
   sa_test: 100,
   code_of_conduct: 100,
@@ -49,17 +46,17 @@ export const dummyResult = {
       skill: 1,
       score: 100,
       id: 12,
-      skill_name: 'react',
+      skill_name: "react",
     },
   ],
   user_obj: {
     id: 16,
-    username: 'wd',
-    email: 'wd@tunga.io',
-    first_name: 'wd',
-    last_name: 'dw',
-    display_name: 'Wd Dw',
-    short_name: 'Wd',
+    username: "wd",
+    email: "wd@tunga.io",
+    first_name: "wd",
+    last_name: "dw",
+    display_name: "Wd Dw",
+    short_name: "Wd",
     type: 1,
     image: null,
     is_developer: true,
@@ -72,23 +69,23 @@ export const dummyResult = {
     company: null,
     avatar_url: null,
     can_contribute: false,
-    date_joined: '2021-06-22T22:48:41.243936',
+    date_joined: "2021-06-22T22:48:41.243936",
     agree_version: 1.2,
-    agreed_at: '2021-06-22T22:48:54',
+    agreed_at: "2021-06-22T22:48:54",
     disagree_version: 0,
     disagreed_at: null,
-    payoneer_signup_url: '',
-    payoneer_status: 'initial',
-    exact_code: '000000000000000016',
-    tax_location: 'world',
+    payoneer_signup_url: "",
+    payoneer_status: "initial",
+    exact_code: "000000000000000016",
+    tax_location: "world",
   },
 };
 
 export const dummyResults = [
   {
     id: 10,
-    comms_check: 'very_good',
-    mbti_profile: 'entj',
+    comms_check: "very_good",
+    mbti_profile: "entj",
     iq_test: 140,
     sa_test: 100,
     code_of_conduct: 100,
@@ -97,17 +94,17 @@ export const dummyResults = [
         skill: 1,
         score: 100,
         id: 12,
-        skill_name: 'react',
+        skill_name: "react",
       },
     ],
     user_obj: {
       id: 16,
-      username: 'wd',
-      email: 'wd@tunga.io',
-      first_name: 'wd',
-      last_name: 'dw',
-      display_name: 'Wd Dw',
-      short_name: 'Wd',
+      username: "wd",
+      email: "wd@tunga.io",
+      first_name: "wd",
+      last_name: "dw",
+      display_name: "Wd Dw",
+      short_name: "Wd",
       type: 1,
       image: null,
       is_developer: true,
@@ -120,21 +117,21 @@ export const dummyResults = [
       company: null,
       avatar_url: null,
       can_contribute: false,
-      date_joined: '2021-06-22T22:48:41.243936',
+      date_joined: "2021-06-22T22:48:41.243936",
       agree_version: 1.2,
-      agreed_at: '2021-06-22T22:48:54',
+      agreed_at: "2021-06-22T22:48:54",
       disagree_version: 0,
       disagreed_at: null,
-      payoneer_signup_url: '',
-      payoneer_status: 'initial',
-      exact_code: '000000000000000016',
-      tax_location: 'world',
+      payoneer_signup_url: "",
+      payoneer_status: "initial",
+      exact_code: "000000000000000016",
+      tax_location: "world",
     },
   },
   {
     id: 11,
-    comms_check: 'pass',
-    mbti_profile: 'entj',
+    comms_check: "pass",
+    mbti_profile: "entj",
     iq_test: 80,
     sa_test: 50,
     code_of_conduct: 100,
@@ -143,17 +140,17 @@ export const dummyResults = [
         skill: 1,
         score: 20,
         id: 12,
-        skill_name: 'react',
+        skill_name: "react",
       },
     ],
     user_obj: {
       id: 18,
-      username: 'al',
-      email: 'al@tunga.io',
-      first_name: 'al',
-      last_name: 'la',
-      display_name: 'al la',
-      short_name: 'al',
+      username: "al",
+      email: "al@tunga.io",
+      first_name: "al",
+      last_name: "la",
+      display_name: "al la",
+      short_name: "al",
       type: 1,
       image: null,
       is_developer: true,
@@ -166,21 +163,21 @@ export const dummyResults = [
       company: null,
       avatar_url: null,
       can_contribute: false,
-      date_joined: '2021-06-22T22:48:41.243936',
+      date_joined: "2021-06-22T22:48:41.243936",
       agree_version: 1.2,
-      agreed_at: '2021-06-22T22:48:54',
+      agreed_at: "2021-06-22T22:48:54",
       disagree_version: 0,
       disagreed_at: null,
-      payoneer_signup_url: '',
-      payoneer_status: 'initial',
-      exact_code: '000000000000000018',
-      tax_location: 'world',
+      payoneer_signup_url: "",
+      payoneer_status: "initial",
+      exact_code: "000000000000000018",
+      tax_location: "world",
     },
   },
   {
     id: 12,
-    comms_check: 'poor',
-    mbti_profile: 'entj',
+    comms_check: "poor",
+    mbti_profile: "entj",
     iq_test: 112,
     sa_test: 50,
     code_of_conduct: 100,
@@ -189,17 +186,17 @@ export const dummyResults = [
         skill: 1,
         score: 20,
         id: 12,
-        skill_name: 'react',
+        skill_name: "react",
       },
     ],
     user_obj: {
       id: 20,
-      username: 'bb',
-      email: 'bb@tunga.io',
-      first_name: 'bb',
-      last_name: 'sb',
-      display_name: 'bb sb',
-      short_name: 'bb',
+      username: "bb",
+      email: "bb@tunga.io",
+      first_name: "bb",
+      last_name: "sb",
+      display_name: "bb sb",
+      short_name: "bb",
       type: 1,
       image: null,
       is_developer: true,
@@ -212,15 +209,15 @@ export const dummyResults = [
       company: null,
       avatar_url: null,
       can_contribute: false,
-      date_joined: '2021-06-22T22:48:41.243936',
+      date_joined: "2021-06-22T22:48:41.243936",
       agree_version: 1.2,
-      agreed_at: '2021-06-22T22:48:54',
+      agreed_at: "2021-06-22T22:48:54",
       disagree_version: 0,
       disagreed_at: null,
-      payoneer_signup_url: '',
-      payoneer_status: 'initial',
-      exact_code: '000000000000000020',
-      tax_location: 'world',
+      payoneer_signup_url: "",
+      payoneer_status: "initial",
+      exact_code: "000000000000000020",
+      tax_location: "world",
     },
   },
 ];
@@ -231,8 +228,8 @@ const props = {
   count,
 };
 
-describe('Dashboard test - Test Results', () => {
-  it('Should match snapshot test', () => {
+describe("Dashboard test - Test Results", () => {
+  it("Should match snapshot test", () => {
     const tree = renderer
       .create(
         <BrowserRouter>
@@ -245,7 +242,7 @@ describe('Dashboard test - Test Results', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Check inputs value change', async () => {
+  it("Check inputs value change", async () => {
     const mockedOnChange = jest.fn();
     const { queryByTestId, getByText, getByTestId } = render(
       <BrowserRouter>
@@ -255,11 +252,11 @@ describe('Dashboard test - Test Results', () => {
       </BrowserRouter>
     );
 
-    const selectComponent = queryByTestId('select-component');
+    const selectComponent = queryByTestId("select-component");
     // const selectPages = queryByTestId('select-pages');
     // const selectPages = queryByLabelText('select-pages');
-    const userHeader = getByText('User');
-    const codingTestsHeader = getByText('Coding Tests');
+    const userHeader = getByText("User");
+    const codingTestsHeader = getByText("Coding Tests");
 
     expect(selectComponent).toBeDefined();
     expect(userHeader).toBeDefined();
@@ -267,13 +264,13 @@ describe('Dashboard test - Test Results', () => {
     expect(selectComponent).not.toBeNull();
     // expect(mockedOnChange).toHaveBeenCalledTimes(0);
 
-    fireEvent.keyDown(selectComponent.firstChild, { key: 'ArrowDown' });
+    fireEvent.keyDown(selectComponent.firstChild, { key: "ArrowDown" });
     await waitFor(() => {
-      expect(getByText('20')).toBeInTheDocument();
+      expect(getByText("20")).toBeInTheDocument();
       // expect(getByText('50')).toBeInTheDocument();
     });
-    const option50 = getByTestId('option-50');
-    const option100 = getByTestId('option-100');
+    const option50 = getByTestId("option-50");
+    const option100 = getByTestId("option-100");
     expect(option50).toBeDefined();
     expect(option100).toBeDefined();
     // fireEvent.click(option50);

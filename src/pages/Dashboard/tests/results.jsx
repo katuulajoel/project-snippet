@@ -1,16 +1,16 @@
-import React, { useMemo, useEffect } from 'react';
-import { useTable, usePagination, useSortBy } from 'react-table';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React, { useMemo, useEffect } from "react";
+import { useTable, usePagination, useSortBy } from "react-table";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import PaginationWrapper from '../../../components/Pagination';
-import { StyledTable as Table } from '../styles';
-import SummaryPlaceholder from '../../../components/SummaryPlaceholder/SummaryPlaceholder';
-import CaretUp from '../../../assets/images/caret-arrow-up.png';
-import CaretDown from '../../../assets/images/caret-down.png';
-import Select from '../../../components/Select';
-import Icon from '../../../components/Icon';
-import TableCells from './TableCells';
+import PaginationWrapper from "../../../components/Pagination";
+import { StyledTable as Table } from "../styles";
+import SummaryPlaceholder from "../../../components/SummaryPlaceholder/SummaryPlaceholder";
+import CaretUp from "../../../assets/images/caret-arrow-up.png";
+import CaretDown from "../../../assets/images/caret-down.png";
+import Select from "../../../components/Select";
+import Icon from "../../../components/Icon";
+import TableCells from "./TableCells";
 
 const propTypes = {
   testResults: PropTypes.object,
@@ -23,37 +23,45 @@ const propTypes = {
   limit: PropTypes.number,
 };
 
-const Results = ({ testResults: { results }, count, trackPagination, lastPageIndex, onLoadMore, setlimit, limit }) => {
+const Results = ({
+  testResults: { results },
+  count,
+  trackPagination,
+  lastPageIndex,
+  onLoadMore,
+  setlimit,
+  limit,
+}) => {
   const paginationOptions = [
     { value: 20, name: 20 },
     { value: 50, name: 50 },
     { value: 100, name: 100 },
   ];
-  const calculateStatus = (value, type = 'numeric') => {
+  const calculateStatus = (value, type = "numeric") => {
     switch (type) {
-      case 'alpha_numeric':
-        if (value === 'very_good' || value === 'good') {
-          return 'passed';
-        } else if (value === 'pass') {
-          return 'average';
+      case "alpha_numeric":
+        if (value === "very_good" || value === "good") {
+          return "passed";
+        } else if (value === "pass") {
+          return "average";
         } else {
-          return 'failed';
+          return "failed";
         }
-      case 'iq':
+      case "iq":
         if (value < 110) {
-          return 'failed';
+          return "failed";
         } else if (value >= 110 && value < 120) {
-          return 'average';
+          return "average";
         } else {
-          return 'passed';
+          return "passed";
         }
       default:
         if (value < 50) {
-          return 'failed';
+          return "failed";
         } else if (value >= 50 && value < 70) {
-          return 'average';
+          return "average";
         } else {
-          return 'passed';
+          return "passed";
         }
     }
   };
@@ -63,7 +71,7 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
       ...results.map((item) => {
         return {
           user: item,
-          'coding-tests': [
+          "coding-tests": [
             ...item.coding_tests.map((test) => {
               return {
                 stack: test.skill_name,
@@ -72,20 +80,21 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
               };
             }),
           ],
-          'comms-check': {
-            status: calculateStatus(item.comms_check, 'alpha_numeric'),
-            result: item.comms_check === 'very_good' ? 'Very good' : item.comms_check,
+          "comms-check": {
+            status: calculateStatus(item.comms_check, "alpha_numeric"),
+            result:
+              item.comms_check === "very_good" ? "Very good" : item.comms_check,
           },
-          'mbti-profile': item.mbti_profile,
-          'iq-tests': {
-            status: calculateStatus(item.iq_test, 'iq'),
+          "mbti-profile": item.mbti_profile,
+          "iq-tests": {
+            status: calculateStatus(item.iq_test, "iq"),
             result: item.iq_test,
           },
-          'sa-tests': {
+          "sa-tests": {
             status: calculateStatus(item.sa_test),
             result: item.sa_test,
           },
-          'code-of-conduct': {
+          "code-of-conduct": {
             status: calculateStatus(item.code_of_conduct),
             result: item.code_of_conduct,
           },
@@ -98,22 +107,30 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
   const columns = useMemo(
     () => [
       {
-        Header: 'User',
-        accessor: 'user', // accessor is the "key" in the data
+        Header: "User",
+        accessor: "user", // accessor is the "key" in the data
         sortType: (rowA, rowB, id) => {
-          if (rowA.original[id].user_obj.display_name > rowB.original[id].user_obj.display_name) return -1;
-          if (rowB.original[id].user_obj.display_name > rowA.original[id].user_obj.display_name) return 1;
+          if (
+            rowA.original[id].user_obj.display_name >
+            rowB.original[id].user_obj.display_name
+          )
+            return -1;
+          if (
+            rowB.original[id].user_obj.display_name >
+            rowA.original[id].user_obj.display_name
+          )
+            return 1;
           return 0;
         },
       },
       {
-        Header: 'Coding Tests',
-        accessor: 'coding-tests',
+        Header: "Coding Tests",
+        accessor: "coding-tests",
         disableSortBy: true,
       },
       {
-        Header: 'Comms Check',
-        accessor: 'comms-check',
+        Header: "Comms Check",
+        accessor: "comms-check",
         sortType: (rowA, rowB, id) => {
           if (rowA.original[id].result > rowB.original[id].result) return -1;
           if (rowB.original[id].result > rowA.original[id].result) return 1;
@@ -121,8 +138,8 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
         },
       },
       {
-        Header: 'MBTI Profile',
-        accessor: 'mbti-profile',
+        Header: "MBTI Profile",
+        accessor: "mbti-profile",
         sortType: (rowA, rowB, id) => {
           if (rowA.original[id] > rowB.original[id]) return -1;
           if (rowB.original[id] > rowA.original[id]) return 1;
@@ -130,8 +147,8 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
         },
       },
       {
-        Header: 'IQ Tests',
-        accessor: 'iq-tests',
+        Header: "IQ Tests",
+        accessor: "iq-tests",
         sortType: (rowA, rowB, id) => {
           if (rowA.original[id].result > rowB.original[id].result) return -1;
           if (rowB.original[id].result > rowA.original[id].result) return 1;
@@ -139,8 +156,8 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
         },
       },
       {
-        Header: 'SA Tests',
-        accessor: 'sa-tests',
+        Header: "SA Tests",
+        accessor: "sa-tests",
         sortType: (rowA, rowB, id) => {
           if (rowA.original[id].result > rowB.original[id].result) return -1;
           if (rowB.original[id].result > rowA.original[id].result) return 1;
@@ -148,8 +165,8 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
         },
       },
       {
-        Header: 'C. Of Conduct',
-        accessor: 'code-of-conduct',
+        Header: "C. Of Conduct",
+        accessor: "code-of-conduct",
         sortType: (rowA, rowB, id) => {
           if (rowA.original[id].result > rowB.original[id].result) return -1;
           if (rowB.original[id].result > rowA.original[id].result) return 1;
@@ -203,17 +220,26 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
             {headerGroups.map((headerGroup, row) => (
               <tr {...headerGroup.getHeaderGroupProps()} key={row}>
                 {headerGroup.headers.map((column, index) => (
-                  <th {...column.getHeaderProps(column.getSortByToggleProps())} key={index}>
+                  <th
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                    key={index}
+                  >
                     <div>
-                      {column.render('Header')}
+                      {column.render("Header")}
                       <div className="caret-group">
                         {column.isSorted ? (
                           <>
-                            <img src={CaretUp} className={!column.isSortedDesc ? 'active' : ''} />
-                            <img src={CaretDown} className={column.isSortedDesc ? 'active' : ''} />
+                            <img
+                              src={CaretUp}
+                              className={!column.isSortedDesc ? "active" : ""}
+                            />
+                            <img
+                              src={CaretDown}
+                              className={column.isSortedDesc ? "active" : ""}
+                            />
                           </>
                         ) : (
-                          ''
+                          ""
                         )}
                       </div>
                     </div>
@@ -228,7 +254,7 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
               return (
                 <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell) => {
-                    if (cell.column.id === 'user') {
+                    if (cell.column.id === "user") {
                       return (
                         <th {...cell.getCellProps()}>
                           <TableCells {...cell} row={row} />
@@ -249,7 +275,10 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
             {results.length === 0 && (
               <tr>
                 <th colSpan="7">
-                  <SummaryPlaceholder className="empty-table" description={`No results found`} />
+                  <SummaryPlaceholder
+                    className="empty-table"
+                    description={`No results found`}
+                  />
                 </th>
               </tr>
             )}
@@ -272,7 +301,7 @@ const Results = ({ testResults: { results }, count, trackPagination, lastPageInd
           ></Select>
           <Icon name="rounded-keyboard-arrow-down" size="sm" />
         </CustomSelect>
-        <span style={{ marginLeft: '16px' }}>of {count}</span>
+        <span style={{ marginLeft: "16px" }}>of {count}</span>
 
         <PaginationWrapper
           onPageChange={gotoPage}

@@ -1,22 +1,22 @@
 /* -------------------------------------------------------------------------- */
 /*                            External dependencies                           */
 /* -------------------------------------------------------------------------- */
-import React, { useEffect, useState, useCallback } from 'react';
-import styled from 'styled-components';
-import { withTheme } from 'styled-components';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState, useCallback } from "react";
+import styled from "styled-components";
+import { withTheme } from "styled-components";
+import PropTypes from "prop-types";
+import _ from "lodash";
+import { useDispatch } from "react-redux";
 
 /* -------------------------- Internal dependencies ------------------------- */
-import SectionNav from '../../../components/SectionNav';
-import Icon from '../../../components/Icon';
-import SearchBox from '../../../components/SearchBox';
-import Results from './results';
+import SectionNav from "../../../components/SectionNav";
+import Icon from "../../../components/Icon";
+import SearchBox from "../../../components/SearchBox";
+import Results from "./results";
 
-import Progress from '../../../components/Progress';
-import usePrevious from '../../../hooks/usePrevious';
-import { fetchResults } from '../../../redux/actions/TestResultsActions';
+import Progress from "../../../components/Progress";
+import usePrevious from "../../../hooks/usePrevious";
+import { fetchResults } from "../../../redux/actions/TestResultsActions";
 
 const propTypes = {
   collapseRightNav: PropTypes.func,
@@ -32,20 +32,30 @@ const TestsContainer = (props) => {
   const [currentPage, setcurrentPage] = useState(0);
   const [lastPageIndex, setlastPageIndex] = useState(0);
   const [useDefaultPageIndex, setuseDefaultPageIndex] = useState(false);
-  const [searchTerm, setsearchTerm] = useState('');
+  const [searchTerm, setsearchTerm] = useState("");
   const [limit, setlimit] = useState(20);
   const prevLimit = usePrevious(limit);
 
   const getFilterParams = () => {
     let data = { is_atleast: [], is_above: [], is_below: [] };
     TestResults.selectedFilters.forEach((element) => {
-      data[element.status].push(`${element.condition === 'and' ? 'and__' : ''}${element.skill.id}|${element.score}`);
+      data[element.status].push(
+        `${element.condition === "and" ? "and__" : ""}${element.skill.id}|${
+          element.score
+        }`
+      );
     });
 
     return {
-      ...(data.is_above.length > 0 ? { is_above: data.is_above.join(',') } : {}),
-      ...(data.is_atleast.length > 0 ? { is_atleast: data.is_atleast.join(',') } : {}),
-      ...(data.is_below.length > 0 ? { is_below: data.is_below.join(',') } : {}),
+      ...(data.is_above.length > 0
+        ? { is_above: data.is_above.join(",") }
+        : {}),
+      ...(data.is_atleast.length > 0
+        ? { is_atleast: data.is_atleast.join(",") }
+        : {}),
+      ...(data.is_below.length > 0
+        ? { is_below: data.is_below.join(",") }
+        : {}),
     };
   };
 
@@ -59,7 +69,7 @@ const TestsContainer = (props) => {
     } else if (currentPage !== 0) {
       let updatedFilters = {
         ...filters,
-        ...(searchTerm !== '' ? { search: searchTerm } : {}),
+        ...(searchTerm !== "" ? { search: searchTerm } : {}),
         page_size: limit,
         ...(prevLimit !== limit ? {} : { page: currentPage + 1 }),
       };
@@ -67,7 +77,7 @@ const TestsContainer = (props) => {
     } else {
       fetchResults({
         page_size: limit,
-        ...(searchTerm !== '' ? { search: searchTerm } : {}),
+        ...(searchTerm !== "" ? { search: searchTerm } : {}),
       })(dispatch);
     }
   }, [TestResults.isSaving, TestResults.selectedFilters, limit]);
@@ -77,7 +87,7 @@ const TestsContainer = (props) => {
       ...filters,
       page_size: limit,
       page: page + 1,
-      ...(searchTerm !== '' ? { search: searchTerm } : {}),
+      ...(searchTerm !== "" ? { search: searchTerm } : {}),
     };
 
     if (page !== currentPage) {
@@ -115,10 +125,12 @@ const TestsContainer = (props) => {
       <SectionNav
         title="Results"
         rightActions={
-          <NavActions style={{ float: 'right' }}>
-            <a href="#" onClick={() => collapseRightNav(true, 'filter-tests')}>
-              <Icon name="filter-variant" size="sm" /> Filter{' '}
-              {TestResults.selectedFilters.length > 0 && <span>{TestResults.selectedFilters.length}</span>}
+          <NavActions style={{ float: "right" }}>
+            <a href="#" onClick={() => collapseRightNav(true, "filter-tests")}>
+              <Icon name="filter-variant" size="sm" /> Filter{" "}
+              {TestResults.selectedFilters.length > 0 && (
+                <span>{TestResults.selectedFilters.length}</span>
+              )}
             </a>
             <StyledSearchBox
               variant="search"
@@ -199,15 +211,17 @@ const NavActions = withTheme(styled.div`
 
   a {
     align-self: center;
-    color: ${(props) => props.theme.colors['gray'] || 'initial'};
+    color: ${(props) => props.theme.colors["gray"] || "initial"};
     font-weight: 500;
     font-size: ${(props) =>
-      props.theme.functions.pxToRem(14)}; /* TODO 14px can be added to global styles cause it seems all text is 14px  */
+      props.theme.functions.pxToRem(
+        14
+      )}; /* TODO 14px can be added to global styles cause it seems all text is 14px  */
     text-decoration: none;
     margin-left: 25px;
 
     /* Pull in mixins from props */
-    ${(props) => props.theme.mixins.link(props.theme.colors['gray'])}
+    ${(props) => props.theme.mixins.link(props.theme.colors["gray"])}
 
     i {
       vertical-align: baseline;
