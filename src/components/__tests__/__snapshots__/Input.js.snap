@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component test Snapshot test for Input component 1`] = `
+<div
+  className="sc-bdnxRM lboORq"
+  data-testid="input"
+>
+  <input
+    className="form-control"
+    color="blue"
+    data-testid=""
+    fontSize="12px"
+    id=""
+    label="Label"
+    placeholder="input"
+    type="text"
+  />
+</div>
+`;

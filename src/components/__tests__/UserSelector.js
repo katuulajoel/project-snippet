@@ -51,17 +51,21 @@ describe("GenericModal component test", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  // it("calls logout function when logout link is clicked", () => {
-  //   const wrapper = render(
-  //     <Router>
-  //       <Provider store={store}>
-  //         <GenericModal />
-  //       </Provider>
-  //     </Router>
-  //   );
+  it("should clear search input", () => {
+    const wrapper = mount(
+      <Router>
+        <Provider store={store}>
+          <ThemeProvider theme={theme}>
+            <UserSelector />
+          </ThemeProvider>
+        </Provider>
+      </Router>
+    );
+    const input = wrapper.find("input");
+    input.simulate("change", { target: { value: "search term" } });
 
-  //   const signout = wrapper.getByTestId("signout");
-  //   fireEvent.click(signout);
-  //   expect(useDispatch).toHaveBeenCalledTimes(1);
-  // });
+    // const clearBtn = wrapper.find("mocked button");
+    // clearBtn.simulate("click");
+    expect(input.instance().value).toEqual("");
+  });
 });

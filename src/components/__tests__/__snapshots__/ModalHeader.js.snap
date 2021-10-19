@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalHeader component test Snapshot test for ModalHeader component 1`] = `
+<div
+  className="sc-dlnjwi jGxFhh"
+>
+  <div
+    className="sc-gtsrHT eYgyKJ actions"
+  >
+    <button
+      className="btn btn-icon sc-bdnxRM gIqEUJ  "
+      form={null}
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="tg-ic-x-circle tunga-ic-sz-md "
+      />
+    </button>
+  </div>
+</div>
+`;
