@@ -79,6 +79,7 @@ const DateRangeForm = (props) => {
         <FormGroup>
           {endError && <FieldError message={endError} />}
           <StyledDateTimePicker
+            id="end-date"
             className="tg-date-field"
             placeholder="To"
             format={"DD MMM YYYY"}

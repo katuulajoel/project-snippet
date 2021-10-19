@@ -80,7 +80,7 @@ exports[`Login snapshot test Snapshot test for Login component 1`] = `
                       *
                     </span>
                     <a
-                      className="sc-eCApnc llEWnM  Form__cta"
+                      className="sc-hKFxyN dPRhFE  Form__cta"
                       href="/forgot-password"
                       onClick={[Function]}
                       style={

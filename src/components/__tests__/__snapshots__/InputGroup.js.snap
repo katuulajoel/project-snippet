@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputGroup component test Snapshot test for InputGroup component 1`] = `
+<div
+  className="input-group "
+>
+  <div
+    className="sc-bdnxRM lboORq"
+    data-testid="input"
+  >
+    <input
+      className="form-control"
+      data-testid=""
+      id=""
+      label="Label"
+      placeholder="input"
+      type="input"
+      value="test"
+    />
+  </div>
+  <span
+    className="input-group-prepend"
+  >
+    <span
+      className="input-group-text"
+    >
+      <button
+        className="tst"
+      >
+        Add
+      </button>
+    </span>
+  </span>
+</div>
+`;

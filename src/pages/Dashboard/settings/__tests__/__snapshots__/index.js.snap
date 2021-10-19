@@ -3,7 +3,7 @@
 exports[`Settings index comp test Settings index component snapshot 1`] = `
 <DocumentFragment>
   <nav
-    class="sc-fujyAs kVdmRC navbar "
+    class="sc-iCoGMd wWrIP navbar "
   >
     <div
       class="title-bar"
@@ -19,7 +19,7 @@ exports[`Settings index comp test Settings index component snapshot 1`] = `
       >
         <li>
           <div
-            class="input-group sc-eCApnc kyswBz input-search"
+            class="input-group sc-hKFxyN iTzOqL input-search"
           >
             <span
               class="input-group-prepend"
@@ -56,11 +56,11 @@ exports[`Settings index comp test Settings index component snapshot 1`] = `
       </ul>
     </div>
     <div
-      class="sc-iCoGMd liNCSM"
+      class="sc-gKAaRy jFGIs"
     />
   </nav>
   <div
-    class="sc-jrsJWt ilZZuz sidebar"
+    class="sc-pNWdM ibuYVp sidebar"
     id="sidebar"
   >
     <img
@@ -170,7 +170,7 @@ exports[`Settings index comp test Settings index component snapshot 1`] = `
     </ul>
   </div>
   <div
-    class="sc-kEqXSa dcuRaE"
+    class="sc-jrsJWt itdHgX"
   >
     <div
       class="content-card settings-card settings-container clearfix"
