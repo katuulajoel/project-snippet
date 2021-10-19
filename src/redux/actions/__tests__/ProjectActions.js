@@ -12,6 +12,18 @@ import {
   FETCH_MORE_PROJECTS_START,
   FETCH_MORE_PROJECTS_SUCCESS,
   FETCH_MORE_PROJECTS_FAILED,
+  CREATE_PROGRESS_EVENT_START,
+  CREATE_PROGRESS_EVENT_SUCCESS,
+  CREATE_PROGRESS_EVENT_FAILED,
+  UPDATE_PROGRESS_EVENT_START,
+  UPDATE_PROGRESS_EVENT_SUCCESS,
+  UPDATE_PROGRESS_EVENT_FAILED,
+  UPDATE_DOCUMENT_START,
+  UPDATE_DOCUMENT_SUCCESS,
+  UPDATE_DOCUMENT_FAILED,
+  CREATE_DOCUMENT_START,
+  CREATE_DOCUMENT_SUCCESS,
+  CREATE_DOCUMENT_FAILED,
 } from "../../../configs/constants/ActionTypes";
 
 const middlewares = [thunk];
@@ -142,6 +154,142 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.fetchMoreProjects({}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should create documents", async () => {
+    axios.post.mockReturnValue(Promise.resolve({ data: { id: 1234 } }));
+    const expectedActions = [
+      { type: CREATE_DOCUMENT_START },
+      {
+        type: CREATE_DOCUMENT_SUCCESS,
+        data: { id: 1234 },
+      },
+    ];
+
+    await store.dispatch(actions.createDocument({}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch CREATE_DOCUMENT_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.post.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: CREATE_DOCUMENT_START },
+      {
+        type: CREATE_DOCUMENT_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.createDocument({}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should create progress events", async () => {
+    axios.post.mockReturnValue(Promise.resolve({ data: { id: 1234 } }));
+    const expectedActions = [
+      { type: CREATE_PROGRESS_EVENT_START },
+      {
+        type: CREATE_PROGRESS_EVENT_SUCCESS,
+        data: { id: 1234 },
+      },
+    ];
+
+    await store.dispatch(actions.createProgressEvent({}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch CREATE_PROGRESS_EVENT_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.post.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: CREATE_PROGRESS_EVENT_START },
+      {
+        type: CREATE_PROGRESS_EVENT_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.createProgressEvent({}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should update progress events", async () => {
+    axios.patch.mockReturnValue(Promise.resolve({ data: { id: 1234 } }));
+    const expectedActions = [
+      { type: UPDATE_PROGRESS_EVENT_START },
+      {
+        type: UPDATE_PROGRESS_EVENT_SUCCESS,
+        data: { id: 1234 },
+      },
+    ];
+
+    await store.dispatch(actions.updateProgressEvent(123, {}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch UPDATE_PROGRESS_EVENT_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.patch.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: UPDATE_PROGRESS_EVENT_START },
+      {
+        type: UPDATE_PROGRESS_EVENT_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.updateProgressEvent(123, {}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should update documents", async () => {
+    axios.patch.mockReturnValue(Promise.resolve({ data: { id: 1234 } }));
+    const expectedActions = [
+      { type: UPDATE_DOCUMENT_START },
+      {
+        type: UPDATE_DOCUMENT_SUCCESS,
+        data: { id: 1234 },
+      },
+    ];
+
+    await store.dispatch(actions.updateDocument(123, {}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch UPDATE_DOCUMENT_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.patch.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: UPDATE_DOCUMENT_START },
+      {
+        type: UPDATE_DOCUMENT_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.updateDocument(123, {}));
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

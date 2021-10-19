@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Project Planning test Should match snapshot test 1`] = `
+<form
+  className="sc-dlnjwi dmLwQU"
+  onSubmit={[Function]}
+>
+  <label>
+    Timeline
+    <span
+      className="sc-jSFjdj cdiNpc"
+    >
+      <span
+        className="label-style"
+      >
+        *
+      </span>
+    </span>
+  </label>
+  <div
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <div
+      className="form-group"
+    >
+      <input
+        calendar={true}
+        className="sc-gtsrHT giRYEg tg-date-field"
+        format="DD MMM YYYY"
+        onChange={[Function]}
+        originalComponent="DateTimePicker"
+        placeholder="Enter Start Date"
+        required={true}
+        time={false}
+        value={null}
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <input
+        calendar={true}
+        className="sc-gtsrHT giRYEg tg-date-field"
+        format="DD MMM YYYY"
+        onChange={[Function]}
+        originalComponent="DateTimePicker"
+        placeholder="Enter Deadline"
+        required={true}
+        time={false}
+        value={null}
+      />
+    </div>
+  </div>
+</form>
+`;

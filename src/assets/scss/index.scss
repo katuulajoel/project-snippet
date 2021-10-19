@@ -131,3 +131,170 @@
     }
   }
 }
+
+/*TODO: rename the css to make it more generic */
+.project-planning,
+.project-docs {
+  .section {
+    border-bottom: 1px solid #edf1f7;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      span {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: #151a30;
+      }
+
+      a {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #062e64;
+
+        i {
+          vertical-align: baseline;
+        }
+      }
+    }
+
+    .section-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #edf1f7;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 10px;
+
+      a,
+      span {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #3e4857;
+
+        i {
+          vertical-align: baseline;
+          margin-right: 20px;
+          color: #8f9bb3;
+        }
+      }
+
+      button {
+        color: #8f9bb3;
+      }
+    }
+
+    .tg-date-field {
+      display: inline-block;
+      border: 1px solid rgba(194, 204, 217, 0.25);
+      box-shadow: initial;
+      box-shadow: initial;
+
+      .rw-input {
+        background-color: #fff;
+        font-size: 16px;
+        color: #3e4857;
+      }
+
+      .rw-select {
+        background-color: #fff;
+        border-left: none;
+        border-right: 1px solid rgba(194, 204, 217, 0.25);
+        border-top: 1px solid rgba(194, 204, 217, 0.25);
+        border-bottom: 1px solid rgba(194, 204, 217, 0.25);
+        width: 2.9em;
+
+        button.rw-btn {
+          color: #8f9bb3;
+          width: 2.6em;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .section-item-wrapper {
+      border: 1px solid #edf1f7;
+      box-sizing: border-box;
+      border-radius: 6px;
+      padding: 24px;
+
+      .section-item {
+        margin-bottom: 24px;
+
+        .milestone-time {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 22px;
+
+          span,
+          i {
+            color: #8f9bb3;
+            vertical-align: middle;
+          }
+
+          button {
+            margin-left: 26px;
+          }
+        }
+      }
+
+      .milestone-divider {
+        position: relative;
+        margin-left: -25px;
+        margin-right: -25px;
+        margin-bottom: 24px;
+
+        .head {
+          width: 0;
+          height: 0;
+          border-top: 7px solid transparent;
+          border-left: 14px solid #da3451;
+          border-bottom: 7px solid transparent;
+          position: absolute;
+          top: -6px;
+        }
+
+        .divider {
+          background: #da3451;
+          height: 2px;
+          width: 100%;
+        }
+
+        span {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 150%;
+          text-align: center;
+          color: #3e4857;
+          position: absolute;
+          right: 0px;
+          top: -12px;
+          background: #f8f8f8;
+          padding: 0 24px;
+        }
+      }
+    }
+  }
+
+  .milestones {
+    .btn-icon {
+      height: auto;
+      line-height: 1.5;
+    }
+  }
+
+  .btn-icon.btn-edit {
+    height: auto;
+    line-height: 1.5;
+  }
+}

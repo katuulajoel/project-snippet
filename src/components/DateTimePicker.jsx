@@ -13,7 +13,7 @@ export default class DateTimePicker extends React.Component {
     onClick: PropTypes.bool,
     time: PropTypes.bool,
     calendar: PropTypes.bool,
-    open: PropTypes.bool,
+    open: PropTypes.func,
   };
 
   constructor(props) {

@@ -16,7 +16,8 @@ import store from "../redux/store";
 import { isPayAdmin, isClient, isPayAdminOrPM } from "./auth";
 import * as actions from "../configs/constants/invoiceConstants";
 
-const Header = (props) => (
+// TODO: move this to components folder
+export const Header = (props) => (
   <ModalHeader
     {...props}
     style={{ paddingBottom: "8px" }}

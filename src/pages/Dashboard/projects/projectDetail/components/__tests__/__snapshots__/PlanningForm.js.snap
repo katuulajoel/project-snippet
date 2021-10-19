@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Project Planning test Should match snapshot test 1`] = `
+<form
+  className="sc-eCApnc gjwEEg"
+  onSubmit={[Function]}
+>
+  <div
+    className="form-group"
+  >
+    <div
+      className="sc-bdnxRM lboORq"
+      data-testid="input"
+    >
+      <input
+        className="form-control"
+        data-testid=""
+        id=""
+        label="Label"
+        name="url"
+        onChange={[Function]}
+        placeholder="Url"
+        required={true}
+        type="input"
+      />
+    </div>
+  </div>
+  <div
+    className="form-group"
+  >
+    <div
+      className="sc-bdnxRM lboORq"
+      data-testid="input"
+    >
+      <input
+        className="form-control"
+        data-testid=""
+        id=""
+        label="Label"
+        onChange={[Function]}
+        placeholder="Name of file"
+        required={true}
+        type="input"
+        value=""
+      />
+    </div>
+  </div>
+</form>
+`;
