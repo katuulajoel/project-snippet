@@ -91,13 +91,13 @@ const CookieSettingForm = (props) => {
         </a>
       </FormGroup>
 
-      <button
+      {/* <button
         aria-label="save"
         className="btn btn-primary save"
         // bsStyle="primary"
       >
         Save
-      </button>
+      </button> */}
     </form>
   );
 };
