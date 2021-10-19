@@ -8,8 +8,9 @@ import * as actions from "../../../redux/actions/ProfileActions";
 
 export default function Privacy() {
   const dispatch = useDispatch();
+  const { settings } = useSelector(({ profile }) => profile);
   const { user } = useSelector(({ Auth }) => Auth);
-  const { settings } = user;
+  // const { settings } = user;
 
   useEffect(() => {
     actions.getSettings()(dispatch);
@@ -23,7 +24,7 @@ export default function Privacy() {
     let setting = {};
     setting[name] = value;
 
-    if (user.settings && user.settings.switches[name] !== value) {
+    if (settings && settings.switches[name] !== value) {
       actions.updateSettings({ switches: setting });
     }
   };
