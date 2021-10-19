@@ -39,18 +39,18 @@ describe("CookieSettingForm layout test", () => {
     }
   });
 
-  it("Check close modal", async () => {
-    const action = jest.fn();
-    const { getByLabelText } = render(
-      <Provider store={store}>
-        <Router>
-          <CookieSettingForm proceed={action} />
-        </Router>
-      </Provider>
-    );
+  // it("Check close modal", async () => {
+  //   const action = jest.fn();
+  //   const { getByLabelText } = render(
+  //     <Provider store={store}>
+  //       <Router>
+  //         <CookieSettingForm proceed={action} />
+  //       </Router>
+  //     </Provider>
+  //   );
 
-    const closeModalbutton = getByLabelText("save");
-    fireEvent.click(closeModalbutton);
-    expect(action).toHaveBeenCalled();
-  });
+  //   const closeModalbutton = getByLabelText("save");
+  //   fireEvent.click(closeModalbutton);
+  //   expect(action).toHaveBeenCalled();
+  // });
 });
