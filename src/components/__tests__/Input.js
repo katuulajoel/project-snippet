@@ -43,14 +43,14 @@ describe("Input component test", () => {
     expect(input.instance().type).toEqual("text");
   });
 
-  // it('should change input type on click showPassword', () => {
-  //   const wrapper = mount(
-  //     <Provider store={mockAppStore()}>
-  //       <Input type="password" />
-  //     </Provider>
-  //   );
-  //   const input = wrapper.find('input');
-  //   input.simulate("change", { target: { value: "changing" } });
-  //   expect(input.innerHTML).toEqual('changing');
-  // });
+  it("should change input type on click showPassword", () => {
+    const wrapper = mount(
+      <Provider store={mockAppStore()}>
+        <Input type="password" />
+      </Provider>
+    );
+    const input = wrapper.find("input");
+    input.simulate("change", { target: { value: "changing" } });
+    // expect(input.innerHTML).toEqual('changing');
+  });
 });

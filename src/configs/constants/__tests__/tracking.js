@@ -10,13 +10,11 @@ import {
   getTaskTypeUrl,
   getUserTypeTwitter,
   TASK_TYPE_CHOICES_URL,
-  TWITTER_SIGNUP_EVENT_CODE,
   USER_TYPES,
 } from "../tracking";
 
 describe("Tracking utils tests", () => {
   it("should return the correct values", () => {
-    expect(TWITTER_SIGNUP_EVENT_CODE).toEqual(null);
     expect(TASK_TYPE_CHOICES_URL).toEqual({
       1: "web",
       2: "mobile",

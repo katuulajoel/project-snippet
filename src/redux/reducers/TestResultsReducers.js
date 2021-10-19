@@ -122,11 +122,9 @@ const next = (state = {}, action) => {
 };
 
 const previous = (state = {}, action) => {
-  let selectionKey = action.selection || "default";
   let newState = {};
   switch (action.type) {
     case LIST_MORE_RESULTS_SUCCESS:
-      newState[selectionKey] = action.previous;
       return { ...state, ...newState };
     default:
       return state;
@@ -134,14 +132,11 @@ const previous = (state = {}, action) => {
 };
 
 const count = (state = {}, action) => {
-  let selectionKey = action.selection || "default";
   let newState = {};
   switch (action.type) {
     case FETCH_RESULT_SUCCESS:
-      newState[selectionKey] = action.count;
       return { ...state, ...newState };
     case LIST_MORE_RESULTS_FAILED:
-      newState[selectionKey] = 0;
       return { ...state, ...newState };
     default:
       return state;

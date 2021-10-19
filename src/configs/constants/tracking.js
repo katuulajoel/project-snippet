@@ -9,9 +9,6 @@ import {
   PROJECT_DURATION_PERMANENT,
 } from "../../utils/api";
 
-export const TWITTER_SIGNUP_EVENT_CODE =
-  process.env.REACT_APP_NODE_ENV === "production" ? "nve6f" : null;
-
 export const AUTH_METHODS = {
   EMAIL: "Email",
   FACEBOOK: "Facebook",
@@ -136,12 +133,6 @@ export const sendGAPageView = (url) => {
     window.ga("send", "pageview", url);
   } else {
     //console.log('GA Page View', url);
-  }
-};
-
-export const sendTwitterSignUpEvent = (data) => {
-  if (window.twttr) {
-    window.twttr.conversion.trackPid(TWITTER_SIGNUP_EVENT_CODE, data);
   }
 };
 

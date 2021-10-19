@@ -19,7 +19,7 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
     >
       <li>
         <div
-          className="input-group sc-hKFxyN iTzOqL input-search"
+          className="input-group sc-hKFxyN TizIP input-search"
         >
           <span
             className="input-group-prepend"

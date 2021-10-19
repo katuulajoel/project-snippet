@@ -33,9 +33,6 @@ const NavBar = (props, ref) => {
           project?.title || "Projects"
         );
         break;
-      case "network":
-        title = "Network";
-        break;
       case "payments":
         title = "Payments";
         break;
@@ -65,11 +62,7 @@ const NavBar = (props, ref) => {
         <ul className="navbar-nav ml-auto">
           {viewTitle === "Tests" ? (
             <li>
-              <StyledButton
-                id="createResult"
-                variant={"primary"}
-                onClick={() => null}
-              >
+              <StyledButton id="createResult" variant={"primary"}>
                 <Icon name="round-add" />
                 &nbsp;&nbsp;&nbsp;Add New Result
               </StyledButton>

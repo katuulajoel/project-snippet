@@ -100,15 +100,11 @@ export const ENDPOINT_COUNTRIES = getEndpointUrl("countries/");
 
 export const ENDPOINT_CONTACT_REQUEST = getEndpointUrl("contact-request/");
 export const ENDPOINT_INVITE_REQUEST = getEndpointUrl("invite-request/");
-export const ENDPOINT_MEDIUM = getEndpointUrl("medium/");
 export const ENDPOINT_OEMBED = getEndpointUrl("oembed/");
 export const ENDPOINT_SKILL_PAGES = getEndpointUrl("skill-pages/");
 export const ENDPOINT_BLOGS = getEndpointUrl("blogs/");
 export const ENDPOINT_MIGRATE = getEndpointUrl("migrate/");
 export const ENDPOINT_LOG_SEARCH = getEndpointUrl("log/search/");
 export const ENDPOINT_VISITORS = getEndpointUrl("visitors/");
-export const ENDPOINT_DEVELOPER_RATING = getEndpointUrl("developer-rating/");
-export const ENDPOINT_GENERAL_RATING = getEndpointUrl("progress-reports/");
-
 export const ENDPOINT_TEST_RESULTS = getEndpointUrl("results/");
 export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");

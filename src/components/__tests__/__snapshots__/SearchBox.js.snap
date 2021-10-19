@@ -3,7 +3,7 @@
 exports[`Search Box test Snapshot test for Searchbox index component 1`] = `
 Array [
   <div
-    className="input-group sc-dlnjwi iUkIbj input-search"
+    className="input-group sc-dlnjwi gbAAUH input-search"
   >
     <span
       className="input-group-prepend"

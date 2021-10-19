@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const CountrySelector = ({ ...props }) => {
+const CountrySelector = (props) => {
   return (
     <select {...props}>
       {props.data &&

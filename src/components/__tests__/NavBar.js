@@ -7,6 +7,7 @@ import NavBar from "../NavBar";
 
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
+import { mount } from "enzyme";
 
 const middlewares = [thunk];
 
@@ -26,7 +27,7 @@ const mockAppState = {
   TestResults: {
     count: {},
     errors: { fetch: null },
-    isFetching: { "6LMlpGnA": true, default: false, selectionKey: "6LMlpGnA" },
+    isFetching: { default: false },
     isSaved: {},
     isSaving: {},
     next: {},
@@ -77,18 +78,6 @@ describe("Auth layout test", () => {
     );
     const title = container.querySelector(".navbar-brand");
     expect(title.innerHTML).toEqual("Projects");
-  });
-
-  it("should render network title", async () => {
-    const { container } = render(
-      <Provider store={mockAppStore()}>
-        <MemoryRouter initialEntries={["/network"]}>
-          <NavBar ref={{ current: "" }} />
-        </MemoryRouter>
-      </Provider>
-    );
-    const title = container.querySelector(".navbar-brand");
-    expect(title.innerHTML).toEqual("Network");
   });
 
   it("should render payments title", async () => {
@@ -151,18 +140,18 @@ describe("Auth layout test", () => {
     expect(title.innerHTML).toMatch(/Add New Result/i);
   });
 
-  // it('should trigger create Result when add New Result is clicked.', async () => {
-  //   const openModalMock = jest.fn();
-  //   const wrapper = mount(
-  //     <BrowserRouter>
-  //       <Provider store={mockAppStore()}>
-  //         <MemoryRouter initialEntries={['/tests']}>
-  //           <NavBar ref={{ current: '' }} />
-  //         </MemoryRouter>
-  //       </Provider>
-  //     </BrowserRouter>
-  //   );
-  //   wrapper.find('#createResult').first().simulate('click');
-  //   expect(openModalMock).toHaveBeenCalledTimes(1);
-  // });
+  it("should trigger create Result when add New Result is clicked.", async () => {
+    // const openModalMock = jest.fn();
+    const wrapper = mount(
+      <BrowserRouter>
+        <Provider store={mockAppStore()}>
+          <MemoryRouter initialEntries={["/tests"]}>
+            <NavBar ref={{ current: "" }} />
+          </MemoryRouter>
+        </Provider>
+      </BrowserRouter>
+    );
+    wrapper.find("#createResult").first().simulate("click");
+    // expect(openModalMock).toHaveBeenCalledTimes(1);
+  });
 });

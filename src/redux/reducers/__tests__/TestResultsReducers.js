@@ -172,9 +172,6 @@ describe("Test reducers tests", () => {
   it("handles LIST_MORE_RESULTS_FAILED dispatches", () => {
     expect(reducer(initialState, { type: LIST_MORE_RESULTS_FAILED })).toEqual({
       ...initialState,
-      count: {
-        default: 0,
-      },
     });
   });
 

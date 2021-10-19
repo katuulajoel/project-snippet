@@ -60,7 +60,6 @@ const TestsContainer = (props) => {
   };
 
   useEffect(() => {
-    //TODO: fetchResults being called twice
     if (TestResults.selectedFilters.length > 0) {
       fetchResults({
         page_size: limit,

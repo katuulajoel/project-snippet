@@ -8,7 +8,6 @@ import GenericModal from "../GenericModal";
 import { ThemeProvider } from "styled-components";
 import theme from "../../assets/theme";
 import { cleanup, render } from "@testing-library/react";
-// import store from "../../redux/store";
 
 const mockAppState = {
   Auth: {
