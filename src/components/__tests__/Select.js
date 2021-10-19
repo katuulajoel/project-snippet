@@ -134,4 +134,9 @@ describe("Select component test", () => {
   //   expect(mockedOnChange).toHaveBeenCalledTimes(1);
   //   expect(mockedOnChange).toHaveBeenCalledWith({ label: 'Mocked option 10', value: 'mocked-option-10' });
   // });
+
+  it("CountrySelector component snapshot", () => {
+    const { asFragment } = render(<Select />);
+    expect(asFragment(<Select />)).toMatchSnapshot();
+  });
 });

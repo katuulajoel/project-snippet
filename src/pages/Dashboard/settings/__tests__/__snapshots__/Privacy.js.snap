@@ -1,63 +1,179 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Auth layout test Snapshot test for Login component 1`] = `
-<div
-  className="sc-bdnxRM bUyDYb privacy-settings"
->
-  <div>
-    <div
-      className="section"
-    >
+exports[`Privacy layout test Privacy component snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-dlnjwi HnUbq privacy-settings"
+  >
+    <div>
       <div
-        className="section-title"
-      >
-        Cookie Settings
-      </div>
-      <div
-        className="row"
+        class="section"
       >
         <div
-          className="col-md-12"
+          aria-label="cookie-model"
+          class="section-title"
         >
-          <p>
-            Learn more about how we use cookies from the "Cookies" section of our
-             
-            <a
-              href="https://tunga.io/privacy/#cookies"
-            >
-              Privacy Policy.
-            </a>
-          </p>
+          Cookie Settings
         </div>
         <div
-          className="col-md-12"
+          class="row"
         >
-          <p>
-            You can opt-out of specific cookie categories (except essential website cookies) by clicking on the button below.
-          </p>
-        </div>
-        <div
-          className="col"
-        >
-          <button
-            className="btn btn-default save  "
-            form={null}
-            type="button"
+          <div
+            class="col-md-12"
           >
-            Cookie Settings
-          </button>
+            <p>
+              Learn more about how we use cookies from the "Cookies" section of our 
+              <a
+                href="https://tunga.io/privacy/#cookies"
+              >
+                Privacy Policy.
+              </a>
+            </p>
+          </div>
+          <div
+            class="col-md-12"
+          >
+            <p>
+              You can opt-out of specific cookie categories (except essential website cookies) by clicking on the button below.
+            </p>
+          </div>
+          <div
+            class="col"
+          >
+            <button
+              aria-label="submit"
+              class="save"
+            >
+              Cookie Settings
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="section"
-    >
       <div
-        className="section-title"
+        class="section"
       >
-        Promotional Email Settings
+        <div
+          class="section-title"
+        >
+          Promotional Email Settings
+        </div>
+        <div
+          class="form-check"
+        >
+          <label
+            class="form-check-label"
+            for="check-NEWSLETTER_EMAIL"
+          >
+            Email newsletters from Tunga
+          </label>
+          <input
+            aria-label="check-NEWSLETTER_EMAIL"
+            class="switch form-check-input"
+            id="check-NEWSLETTER_EMAIL"
+            type="checkbox"
+            value="on"
+          />
+        </div>
+        <div
+          class="form-check"
+        >
+          <label
+            class="form-check-label"
+            for="check-EVENT_EMAIL"
+          >
+            Emails about interesting events from Tunga
+          </label>
+          <input
+            aria-label="check-EVENT_EMAIL"
+            class="switch form-check-input"
+            id="check-EVENT_EMAIL"
+            type="checkbox"
+            value="on"
+          />
+        </div>
+      </div>
+      <div
+        class="section"
+      >
+        <div
+          class="section-title"
+        >
+          Transactional Email Settings
+        </div>
+        <div
+          class="form-check"
+        >
+          <label
+            class="form-check-label"
+            for="check-TASK_PROGRESS_REPORT_REMINDER_EMAIL"
+          >
+            Email reminders about project progress updates.
+          </label>
+          <input
+            aria-label="check-TASK_PROGRESS_REPORT_REMINDER_EMAIL"
+            class="switch form-check-input"
+            id="check-TASK_PROGRESS_REPORT_REMINDER_EMAIL"
+            type="checkbox"
+            value="on"
+          />
+        </div>
+        <div
+          class="form-check"
+        >
+          <label
+            class="form-check-label"
+            for="check-TASK_INVITATION_RESPONSE_EMAIL"
+          >
+            Email notifications about task invitation responses from developers.
+          </label>
+          <input
+            aria-label="check-TASK_INVITATION_RESPONSE_EMAIL"
+            class="switch form-check-input"
+            id="check-TASK_INVITATION_RESPONSE_EMAIL"
+            type="checkbox"
+            value="on"
+          />
+        </div>
+      </div>
+      <div
+        class="section agreements"
+      >
+        <div
+          class="section-title"
+        >
+          Agreements and Policies
+        </div>
+        <ul>
+          <li
+            style="margin-bottom: 8px;"
+          >
+            <a
+              href="/privacy"
+            >
+              Privacy Policy
+            </a>
+          </li>
+          <li
+            style="margin-bottom: 8px;"
+          >
+            <a
+              href="/agreement"
+            >
+              User Agreement
+            </a>
+          </li>
+          <li
+            style="margin-bottom: 8px;"
+          >
+            <a
+              href="/code-of-conduct"
+            >
+              Code of Conduct
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

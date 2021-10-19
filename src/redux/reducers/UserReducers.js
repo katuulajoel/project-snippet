@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 import {
   LIST_USERS_START,
   LIST_USERS_SUCCESS,
@@ -6,11 +6,11 @@ import {
   RETRIEVE_USER_START,
   RETRIEVE_USER_SUCCESS,
   RETRIEVE_USER_FAILED,
-} from '../../configs/constants/ActionTypes';
-import { getIds, reduceUser } from './utils';
+} from "../../configs/constants/ActionTypes";
+import { getIds, reduceUser } from "./utils";
 
 const ids = (state = {}, action) => {
-  let selection_key = action.selection || 'default';
+  let selection_key = action.selection || "default";
   let new_state = {};
   switch (action.type) {
     case LIST_USERS_SUCCESS:
@@ -49,7 +49,7 @@ const users = (state = {}, action) => {
 };
 
 const isRetrieving = (state = {}, action) => {
-  let targetKey = action.id || 'default';
+  let targetKey = action.id || "default";
   let newState = {};
   switch (action.type) {
     case RETRIEVE_USER_START:

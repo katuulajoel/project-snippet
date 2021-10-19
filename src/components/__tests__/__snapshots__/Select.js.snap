@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Select component test CountrySelector component snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="select-component"
+  >
+    <select
+      class="form-control  "
+    >
+      <option
+        value=""
+      >
+        -- Select --
+      </option>
+    </select>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Select component test Snapshot test for Select component 1`] = `
 <div
   data-testid="select-component"

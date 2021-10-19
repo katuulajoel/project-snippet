@@ -1,4 +1,4 @@
-import { TOGGLE_RIGHT_NAV } from '../../configs/constants/ActionTypes';
+import { TOGGLE_RIGHT_NAV } from "../../configs/constants/ActionTypes";
 
 export const toggleRightNav = (collapsed, contentType) => {
   return {

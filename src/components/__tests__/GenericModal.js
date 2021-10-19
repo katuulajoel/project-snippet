@@ -3,11 +3,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import { mount } from "enzyme/build";
-// import { render, fireEvent } from "@testing-library/react";
 import { useSelector, useDispatch } from "react-redux";
 import GenericModal from "../GenericModal";
 import { ThemeProvider } from "styled-components";
 import theme from "../../assets/theme";
+import { cleanup, render } from "@testing-library/react";
+// import store from "../../redux/store";
 
 const mockAppState = {
   Auth: {
@@ -25,6 +26,8 @@ jest.mock("react-redux", () => ({
   useDispatch: jest.fn(),
   useSelector: jest.fn(),
 }));
+
+afterEach(cleanup);
 
 describe("GenericModal component test", () => {
   const store = mockAppStore();
@@ -55,17 +58,15 @@ describe("GenericModal component test", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  // it("calls logout function when logout link is clicked", () => {
-  //   const wrapper = render(
-  //     <Router>
-  //       <Provider store={store}>
-  //         <GenericModal />
-  //       </Provider>
-  //     </Router>
-  //   );
+  it("GenericModal component snapshot", () => {
+    const { asFragment } = render(
+      <Provider store={store}>
+        <Router>
+          <GenericModal />
+        </Router>
+      </Provider>
+    );
 
-  //   const signout = wrapper.getByTestId("signout");
-  //   fireEvent.click(signout);
-  //   expect(useDispatch).toHaveBeenCalledTimes(1);
-  // });
+    expect(asFragment(<GenericModal />)).toMatchSnapshot();
+  });
 });

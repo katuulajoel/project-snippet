@@ -1,13 +1,87 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import Button from "../../../components/Button";
+// import Button from "../../../components/Button";
+import CookieSettingForm from "./modals/CookieSettingForm";
+import { createModal } from "../../../utils/modals";
+import * as actions from "../../../redux/actions/ProfileActions";
 
 export default function Privacy() {
+  const dispatch = useDispatch();
+  const { settings } = useSelector(({ profile }) => profile);
+  const { user } = useSelector(({ Auth }) => Auth);
+  // const { settings } = user;
+
+  useEffect(() => {
+    actions.getSettings()(dispatch);
+  }, []);
+
+  const onCookieSettings = async () => {
+    await createModal("Cookie Settings", <CookieSettingForm />);
+  };
+
+  const onChange = (name, value) => {
+    let setting = {};
+    setting[name] = value;
+
+    if (settings && settings.switches[name] !== value) {
+      actions.updateSettings({ switches: setting });
+    }
+  };
+
+  const getTrans = (user) => {
+    if (user.is_developer || user.is_project_manager) {
+      return [
+        {
+          name: "TASK_PROGRESS_REPORT_REMINDER_EMAIL",
+          label: "Email reminders about project progress updates.",
+        },
+        {
+          name: "TASK_INVITATION_RESPONSE_EMAIL",
+          label:
+            "Email notifications about task invitation responses from developers.",
+        },
+      ];
+    } else {
+      return [
+        {
+          name: "TASK_SURVEY_REMINDER_EMAIL",
+          label: "Email reminders about client progress surveys.",
+        },
+        {
+          name: "NEW_TASK_PROGRESS_REPORT_EMAIL",
+          label: "Email notifications about new developer progress reports.",
+        },
+      ];
+    }
+  };
+
+  const labels = {
+    promo: [
+      {
+        name: "NEWSLETTER_EMAIL",
+        label: "Email newsletters from Tunga",
+      },
+      {
+        name: "EVENT_EMAIL",
+        label: "Emails about interesting events from Tunga",
+      },
+    ],
+    trans: [...getTrans(user)],
+    agreement: [
+      ["/privacy", "Privacy Policy"],
+      ["/agreement", "User Agreement"],
+      ["/code-of-conduct", "Code of Conduct"],
+    ],
+  };
+
   return (
     <ContentSection className="privacy-settings">
       <div>
         <div className="section">
-          <div className="section-title">Cookie Settings</div>
+          <div className="section-title" aria-label="cookie-model">
+            Cookie Settings
+          </div>
 
           <div className="row">
             <div className="col-md-12">
@@ -24,18 +98,90 @@ export default function Privacy() {
               </p>
             </div>
             <div className="col">
-              <Button className="save">Cookie Settings</Button>
+              <button
+                className="save"
+                aria-label="submit"
+                onClick={onCookieSettings}
+              >
+                Cookie Settings
+              </button>
             </div>
           </div>
         </div>
 
         <div className="section">
           <div className="section-title">Promotional Email Settings</div>
+          {labels.promo.map((label) => {
+            return (
+              <div className="form-check" key={`day-${label.name}`}>
+                <label
+                  className="form-check-label"
+                  htmlFor={`check-${label.name}`}
+                >
+                  {label.label}
+                </label>
+
+                <input
+                  className="switch form-check-input"
+                  id={`check-${label.name}`}
+                  value={
+                    settings && settings.switches[label.name] ? "off" : "on"
+                  }
+                  type="checkbox"
+                  aria-label={`check-${label.name}`}
+                  defaultChecked={settings && settings.switches[label.name]}
+                  onChange={(e) => onChange(label.name, e.target.value)}
+                />
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="section">
+          <div className="section-title">Transactional Email Settings</div>
+          {labels.trans.map((label) => {
+            return (
+              <div className="form-check" key={`day-${label.name}`}>
+                <label
+                  className="form-check-label"
+                  htmlFor={`check-${label.name}`}
+                >
+                  {label.label}
+                </label>
+
+                <input
+                  className="switch form-check-input"
+                  id={`check-${label.name}`}
+                  value={
+                    settings && settings.switches[label.name] ? "off" : "on"
+                  }
+                  type="checkbox"
+                  aria-label={`check-${label.name}`}
+                  checked={settings && settings.switches[label.name]}
+                  onChange={(e) => onChange(label.name, e.target.value)}
+                />
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="section agreements">
+          <div className="section-title">Agreements and Policies</div>
+          <ul>
+            {labels.agreement.map((link, key) => {
+              return (
+                <li key={key} style={{ marginBottom: "8px" }}>
+                  <a href={link[0]}>{link[1]}</a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </ContentSection>
   );
 }
+
 const ContentSection = styled.div`
   .section {
     border-bottom: 1px solid #edf1f7;

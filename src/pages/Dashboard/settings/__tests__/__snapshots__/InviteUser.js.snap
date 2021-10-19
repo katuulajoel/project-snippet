@@ -165,10 +165,10 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
             class="form-group"
           >
             <label
-              aria-label="User type"
+              aria-label="User Type"
               class="control-label"
             >
-              User type
+              User Type
               <span
                 class="label-style"
               >

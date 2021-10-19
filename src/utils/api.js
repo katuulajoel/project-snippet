@@ -37,7 +37,15 @@ export const ENDPOINT_APPLY = getEndpointUrl("apply/");
 export const ENDPOINT_INVITE = getEndpointUrl("invite/");
 export const ENDPOINT_CHANGE_PASSWORD = getEndpointUrl("auth/password/change/");
 export const ENDPOINT_RESET_PASSWORD = getEndpointUrl("auth/password/reset/");
-export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl("auth/password/reset/confirm/");
+export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl(
+  "auth/password/reset/confirm/"
+);
+
+export const ENDPOINT_INVOICES_SUMMARY = getEndpointUrl("invoices/summary/");
+export const ENDPOINT_INVOICES = getEndpointUrl("invoices/");
+export const ENDPOINT_PROJECTS = getEndpointUrl("projects/");
+export const ENDPOINT_NOTIFICATION_LOG = getEndpointUrl("notification-log/");
+export const ENDPOINT_USERS = getEndpointUrl("users/");
 
 export const USER_TYPE_DEVELOPER = 1;
 export const USER_TYPE_PROJECT_OWNER = 2;
@@ -76,10 +84,6 @@ export const ENDPOINT_USER_INFO = getEndpointUrl("me/user/");
 export const ENDPOINT_USER_EDUCATION = getEndpointUrl("me/education/");
 export const ENDPOINT_USER_PROJECT = getEndpointUrl("me/project/");
 export const ENDPOINT_USER_WORK = getEndpointUrl("me/work/");
-export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");
-
-export const ENDPOINT_PROJECTS = getEndpointUrl("projects/");
-export const ENDPOINT_USERS = getEndpointUrl("users/");
 export const ENDPOINT_DOCUMENTS = getEndpointUrl("documents/");
 export const ENDPOINT_PARTICIPATION = getEndpointUrl("participation/");
 export const ENDPOINT_PROGRESS_EVENTS = getEndpointUrl("progress-events/");
@@ -90,8 +94,6 @@ export const ENDPOINT_COMMENTS = getEndpointUrl("comments/");
 export const ENDPOINT_CHANNELS = getEndpointUrl("channels/");
 export const ENDPOINT_MESSAGES = getEndpointUrl("messages/");
 export const ENDPOINT_UPLOADS = getEndpointUrl("uploads/");
-export const ENDPOINT_INVOICES = getEndpointUrl("invoices/");
-export const ENDPOINT_INVOICES_SUMMARY = getEndpointUrl("invoices/summary/");
 export const ENDPOINT_INTEREST_POLLS = getEndpointUrl("interest-polls/");
 
 export const ENDPOINT_COUNTRIES = getEndpointUrl("countries/");
@@ -103,10 +105,10 @@ export const ENDPOINT_OEMBED = getEndpointUrl("oembed/");
 export const ENDPOINT_SKILL_PAGES = getEndpointUrl("skill-pages/");
 export const ENDPOINT_BLOGS = getEndpointUrl("blogs/");
 export const ENDPOINT_MIGRATE = getEndpointUrl("migrate/");
-export const ENDPOINT_NOTIFICATION_LOG = getEndpointUrl("notification-log/");
 export const ENDPOINT_LOG_SEARCH = getEndpointUrl("log/search/");
 export const ENDPOINT_VISITORS = getEndpointUrl("visitors/");
 export const ENDPOINT_DEVELOPER_RATING = getEndpointUrl("developer-rating/");
 export const ENDPOINT_GENERAL_RATING = getEndpointUrl("progress-reports/");
 
 export const ENDPOINT_TEST_RESULTS = getEndpointUrl("results/");
+export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");

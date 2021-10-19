@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalContainer layout test ModalContainer component snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="static-modal"
+  />
+</DocumentFragment>
+`;

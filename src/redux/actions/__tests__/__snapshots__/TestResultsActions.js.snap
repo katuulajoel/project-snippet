@@ -6,7 +6,7 @@ Array [
     className="table-responsive"
   >
     <table
-      className="sc-pNWdM sc-iqAclL feIUgL bEvDTG table"
+      className="sc-iCoGMd sc-jrsJWt kgtQbc kHhxJa table"
       role="table"
     >
       <thead>
@@ -164,7 +164,7 @@ Array [
           >
             <div>
               <div
-                className="sc-kEqXSa dmFniR avatar-dash avatar-initials"
+                className="sc-pNWdM jTGhMg avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -284,7 +284,7 @@ Array [
           >
             <div>
               <div
-                className="sc-kEqXSa dmFniR avatar-dash avatar-initials"
+                className="sc-pNWdM jTGhMg avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -404,7 +404,7 @@ Array [
           >
             <div>
               <div
-                className="sc-kEqXSa dmFniR avatar-dash avatar-initials"
+                className="sc-pNWdM jTGhMg avatar-dash avatar-initials"
               >
                 <div
                   className="avatar avatar-dash avatar-initials"
@@ -520,13 +520,13 @@ Array [
     </table>
   </div>,
   <div
-    className="sc-crzoAE bLnLOL"
+    className="sc-kEqXSa cjmIaa"
   >
     <span>
       Showing
     </span>
     <div
-      className="sc-dIsUp jsEMXf"
+      className="sc-iqAclL fIrNey"
     >
       <div
         data-testid="select-component"
@@ -583,7 +583,7 @@ Array [
         className="pagination"
       >
         <li
-          className="sc-jSFjdj dlCsmo page-item"
+          className="sc-hKFxyN eagyxd page-item"
           onClick={[Function]}
         >
           <a
@@ -604,7 +604,7 @@ Array [
           }
         />
         <li
-          className="sc-jSFjdj dlCsmo next page-item"
+          className="sc-hKFxyN eagyxd next page-item"
           onClick={[Function]}
         >
           <a
