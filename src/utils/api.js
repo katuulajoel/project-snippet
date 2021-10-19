@@ -80,3 +80,5 @@ export const INVOICE_TYPES = {
   purchase: "Payout",
   credit_nota: "Credit Note",
 };
+
+export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");
