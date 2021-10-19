@@ -116,12 +116,6 @@ exports[`CookieSettingForm layout test CookieSettingForm component snapshot 1`] 
         Privacy Policy.
       </a>
     </div>
-    <button
-      aria-label="save"
-      class="btn btn-primary save"
-    >
-      Save
-    </button>
   </form>
 </DocumentFragment>
 `;
