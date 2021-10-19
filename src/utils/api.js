@@ -75,36 +75,8 @@ export const INVOICE_TYPES = {
 };
 
 // Account
-export const ENDPOINT_PROFILE = getEndpointUrl("me/profile/");
-export const ENDPOINT_COMPANY = getEndpointUrl("me/company/");
 export const ENDPOINT_NOTIFICATIONS = getEndpointUrl("me/notification/");
-export const ENDPOINT_ACCOUNT_INFO = getEndpointUrl("me/account/");
-export const ENDPOINT_ACCOUNT_SETTINGS = getEndpointUrl("me/settings/");
 export const ENDPOINT_USER_INFO = getEndpointUrl("me/user/");
-export const ENDPOINT_USER_EDUCATION = getEndpointUrl("me/education/");
-export const ENDPOINT_USER_PROJECT = getEndpointUrl("me/project/");
-export const ENDPOINT_USER_WORK = getEndpointUrl("me/work/");
-export const ENDPOINT_DOCUMENTS = getEndpointUrl("documents/");
-export const ENDPOINT_PARTICIPATION = getEndpointUrl("participation/");
-export const ENDPOINT_PROGRESS_EVENTS = getEndpointUrl("progress-events/");
-export const ENDPOINT_PROGRESS_REPORTS = getEndpointUrl("progress-reports/");
 export const ENDPOINT_SKILLS = getEndpointUrl("skills/");
-export const ENDPOINT_ACTIVITIES = getEndpointUrl("activity/");
-export const ENDPOINT_COMMENTS = getEndpointUrl("comments/");
-export const ENDPOINT_CHANNELS = getEndpointUrl("channels/");
-export const ENDPOINT_MESSAGES = getEndpointUrl("messages/");
-export const ENDPOINT_UPLOADS = getEndpointUrl("uploads/");
-export const ENDPOINT_INTEREST_POLLS = getEndpointUrl("interest-polls/");
-
-export const ENDPOINT_COUNTRIES = getEndpointUrl("countries/");
-
-export const ENDPOINT_CONTACT_REQUEST = getEndpointUrl("contact-request/");
-export const ENDPOINT_INVITE_REQUEST = getEndpointUrl("invite-request/");
-export const ENDPOINT_OEMBED = getEndpointUrl("oembed/");
-export const ENDPOINT_SKILL_PAGES = getEndpointUrl("skill-pages/");
-export const ENDPOINT_BLOGS = getEndpointUrl("blogs/");
-export const ENDPOINT_MIGRATE = getEndpointUrl("migrate/");
-export const ENDPOINT_LOG_SEARCH = getEndpointUrl("log/search/");
-export const ENDPOINT_VISITORS = getEndpointUrl("visitors/");
 export const ENDPOINT_TEST_RESULTS = getEndpointUrl("results/");
 export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");
