@@ -20,7 +20,7 @@ Array [
       >
         <li>
           <div
-            className="input-group sc-hKFxyN TizIP input-search"
+            className="input-group sc-hKFxyN jgJWoP input-search"
           >
             <span
               className="input-group-prepend"
@@ -217,7 +217,7 @@ Array [
                
             </a>
             <div
-              className="input-group sc-hKFxyN TizIP input-search"
+              className="input-group sc-hKFxyN jgJWoP input-search"
             >
               <span
                 className="input-group-prepend"
