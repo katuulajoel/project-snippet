@@ -224,7 +224,7 @@ export const dummyResults = [
 
 const count = dummyResults.length;
 const props = {
-  testResults: { results: dummyResults },
+  results: dummyResults,
   count,
 };
 
@@ -253,8 +253,6 @@ describe("Dashboard test - Test Results", () => {
     );
 
     const selectComponent = queryByTestId("select-component");
-    // const selectPages = queryByTestId('select-pages');
-    // const selectPages = queryByLabelText('select-pages');
     const userHeader = getByText("User");
     const codingTestsHeader = getByText("Coding Tests");
 
@@ -267,75 +265,10 @@ describe("Dashboard test - Test Results", () => {
     fireEvent.keyDown(selectComponent.firstChild, { key: "ArrowDown" });
     await waitFor(() => {
       expect(getByText("20")).toBeInTheDocument();
-      // expect(getByText('50')).toBeInTheDocument();
     });
     const option50 = getByTestId("option-50");
     const option100 = getByTestId("option-100");
     expect(option50).toBeDefined();
     expect(option100).toBeDefined();
-    // fireEvent.click(option50);
-    // option50.simulate('click');
-
-    // expect(mockedOnChange).toHaveBeenCalledTimes(1);
   });
-
-  // it('should call track pagination on load.', () => {
-  //   const trackPagination = jest.fn();
-  //   shallow(
-  //     <Provider store={mockAppStore()}>
-  //       <Results {...props} trackPagination={trackPagination} />
-  //     </Provider>
-  //   );
-  //   expect(trackPagination).toHaveBeenCalled();
-  // });
-
-  // it('should show add new result for test.', async () => {
-  //   const { getByText  } = render(
-  //     <Provider store={mockAppStore()}>
-  //         <Results {...props} />
-  //     </Provider>
-  //   );
-  //   // const title = container.querySelector('.btn-primary');
-  //   // expect(title.innerHTML).toMatch(/Add New Result/i);
-  //   const fullNamePlaceholder = getByText('Full name');
-  //   expect(fullNamePlaceholder).toBeTruthy();
-  // });
-
-  // it('checks the table rows successfuly', async () => {
-  //   const wrapper = mount(
-  //     <BrowserRouter>
-  //       <Provider store={mockAppStore(mockAppState)}>
-  //         <Results {...props} onLoadMore={() => {}} filter="" />
-  //       </Provider>
-  //     </BrowserRouter>
-  //   );
-
-  //   // const editBtn = wrapper.find('.btn-edit');
-  //   expect(wrapper.find('StyledTable').exists()).toBeFalsy();
-  //   // editBtn.simulate('click');
-  //   expect(wrapper.find('TableFooter').exists()).toBeTruthy();
-  //   // editBtn.simulate('click');
-  //   // expect(wrapper.find('BulkActions').exists()).toBeFalsy();
-  // });
-
-  // it("should open dropdown actions", async () => {
-  //   jest.spyOn(utils, "showAction").mockReturnValueOnce(true);
-
-  //   // eslint-disable-next-line no-unused-vars
-  //   const wrapper = mount(
-  //     <BrowserRouter>
-  //       <Provider store={mockAppStore(mockAppState)}>
-  //         <Results data={[dummyResults]} onLoadMore={() => {}} filter="in" />
-  //       </Provider>
-  //     </BrowserRouter>
-  //   );
-
-  //   // TODO: unfinished test for toggle dropdown action
-  //   //var dropdownAction = wrapper.find(".btn-group > button");
-  //   /* expect(wrapper.find("BulkActions").exists()).toBeFalsy();
-  //   checkbox.simulate("click");
-  //   expect(wrapper.find("BulkActions").exists()).toBeTruthy();
-  //   checkbox.simulate("click");
-  //   expect(wrapper.find("BulkActions").exists()).toBeFalsy(); */
-  // });
 });

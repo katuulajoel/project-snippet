@@ -15,7 +15,6 @@ import SearchBox from "../../../components/SearchBox";
 import Results from "./results";
 
 import Progress from "../../../components/Progress";
-import usePrevious from "../../../hooks/usePrevious";
 import { fetchResults } from "../../../redux/actions/TestResultsActions";
 
 const propTypes = {
@@ -26,6 +25,7 @@ const propTypes = {
 
 const TestsContainer = (props) => {
   const { collapseRightNav, match, TestResults } = props;
+  const { data, isMakingRequest } = TestResults;
   const dispatch = useDispatch();
 
   const [filters] = useState({});
@@ -34,51 +34,9 @@ const TestsContainer = (props) => {
   const [useDefaultPageIndex, setuseDefaultPageIndex] = useState(false);
   const [searchTerm, setsearchTerm] = useState("");
   const [limit, setlimit] = useState(20);
-  const prevLimit = usePrevious(limit);
-
-  const getFilterParams = () => {
-    let data = { is_atleast: [], is_above: [], is_below: [] };
-    TestResults.selectedFilters.forEach((element) => {
-      data[element.status].push(
-        `${element.condition === "and" ? "and__" : ""}${element.skill.id}|${
-          element.score
-        }`
-      );
-    });
-
-    return {
-      ...(data.is_above.length > 0
-        ? { is_above: data.is_above.join(",") }
-        : {}),
-      ...(data.is_atleast.length > 0
-        ? { is_atleast: data.is_atleast.join(",") }
-        : {}),
-      ...(data.is_below.length > 0
-        ? { is_below: data.is_below.join(",") }
-        : {}),
-    };
-  };
 
   useEffect(() => {
-    if (TestResults.selectedFilters.length > 0) {
-      fetchResults({
-        page_size: limit,
-        ...getFilterParams(),
-      })(dispatch);
-    } else if (currentPage !== 0) {
-      let updatedFilters = {
-        ...filters,
-        ...(searchTerm !== "" ? { search: searchTerm } : {}),
-        page_size: limit,
-        ...(prevLimit !== limit ? {} : { page: currentPage + 1 }),
-      };
-      fetchResults(updatedFilters)(dispatch);
-    } else {
-      fetchResults({
-        page_size: limit,
-        ...(searchTerm !== "" ? { search: searchTerm } : {}),
-      })(dispatch);
-    }
+    fetchResults()(dispatch);
   }, [TestResults.isSaving, TestResults.selectedFilters, limit]);
 
   const onLoadMore = (page) => {
@@ -127,9 +85,6 @@ const TestsContainer = (props) => {
           <NavActions style={{ float: "right" }}>
             <a href="#" onClick={() => collapseRightNav(true, "filter-tests")}>
               <Icon name="filter-variant" size="sm" /> Filter{" "}
-              {TestResults.selectedFilters.length > 0 && (
-                <span>{TestResults.selectedFilters.length}</span>
-              )}
             </a>
             <StyledSearchBox
               variant="search"
@@ -143,15 +98,15 @@ const TestsContainer = (props) => {
         }
       />
 
-      {TestResults.isMakingRequest?.default ? (
+      {isMakingRequest ? (
         <Progress />
       ) : (
         <Results
-          testResults={TestResults}
+          results={data.results}
           onLoadMore={onLoadMore}
           trackPagination={trackPagination}
           lastPageIndex={lastPageIndex}
-          count={TestResults.count?.default}
+          count={data.count}
           setlimit={setlimit}
           limit={limit}
         />

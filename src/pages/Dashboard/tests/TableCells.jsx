@@ -5,9 +5,10 @@ import { generateUserIntials } from "../../../utils/stringUtils";
 import IconButton from "../../../components/IconButton";
 
 const propTypes = {
-  value: PropTypes.object,
+  value: PropTypes.any,
   column: PropTypes.object,
 };
+
 const TableCells = (cell) => {
   const cellValues = cell.value;
   const user = cellValues.user_obj;

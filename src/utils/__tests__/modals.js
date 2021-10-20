@@ -1,6 +1,4 @@
 import * as modalUtils from "../modals";
-import store from "../../redux/store";
-import * as testResultAction from "../../redux/actions/TestResultsActions";
 
 describe("Modal utils tests", () => {
   it("should open confirm modal", async () => {
@@ -17,15 +15,5 @@ describe("Modal utils tests", () => {
     expect(openConfirmStub).toBeTruthy();
     expect(openModalStub).toBeTruthy();
     expect(openAlertStub).toBeTruthy();
-  });
-
-  it("should trigger open alert action", async () => {
-    jest.clearAllMocks();
-    const createResultFailedStub = jest.spyOn(
-      testResultAction,
-      "createResultFailed"
-    );
-    store.dispatch(createResultFailedStub);
-    expect(createResultFailedStub).toHaveBeenCalled();
   });
 });

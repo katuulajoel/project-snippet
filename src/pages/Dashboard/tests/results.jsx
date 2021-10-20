@@ -13,7 +13,6 @@ import Icon from "../../../components/Icon";
 import TableCells from "./TableCells";
 
 const propTypes = {
-  testResults: PropTypes.object,
   results: PropTypes.array,
   onLoadMore: PropTypes.func,
   trackPagination: PropTypes.func,
@@ -24,7 +23,7 @@ const propTypes = {
 };
 
 const Results = ({
-  testResults: { results },
+  results,
   count,
   trackPagination,
   lastPageIndex,
@@ -109,19 +108,6 @@ const Results = ({
       {
         Header: "User",
         accessor: "user", // accessor is the "key" in the data
-        sortType: (rowA, rowB, id) => {
-          if (
-            rowA.original[id].user_obj.display_name >
-            rowB.original[id].user_obj.display_name
-          )
-            return -1;
-          if (
-            rowB.original[id].user_obj.display_name >
-            rowA.original[id].user_obj.display_name
-          )
-            return 1;
-          return 0;
-        },
       },
       {
         Header: "Coding Tests",
@@ -131,47 +117,22 @@ const Results = ({
       {
         Header: "Comms Check",
         accessor: "comms-check",
-        sortType: (rowA, rowB, id) => {
-          if (rowA.original[id].result > rowB.original[id].result) return -1;
-          if (rowB.original[id].result > rowA.original[id].result) return 1;
-          return 0;
-        },
       },
       {
         Header: "MBTI Profile",
         accessor: "mbti-profile",
-        sortType: (rowA, rowB, id) => {
-          if (rowA.original[id] > rowB.original[id]) return -1;
-          if (rowB.original[id] > rowA.original[id]) return 1;
-          return 0;
-        },
       },
       {
         Header: "IQ Tests",
         accessor: "iq-tests",
-        sortType: (rowA, rowB, id) => {
-          if (rowA.original[id].result > rowB.original[id].result) return -1;
-          if (rowB.original[id].result > rowA.original[id].result) return 1;
-          return 0;
-        },
       },
       {
         Header: "SA Tests",
         accessor: "sa-tests",
-        sortType: (rowA, rowB, id) => {
-          if (rowA.original[id].result > rowB.original[id].result) return -1;
-          if (rowB.original[id].result > rowA.original[id].result) return 1;
-          return 0;
-        },
       },
       {
         Header: "C. Of Conduct",
         accessor: "code-of-conduct",
-        sortType: (rowA, rowB, id) => {
-          if (rowA.original[id].result > rowB.original[id].result) return -1;
-          if (rowB.original[id].result > rowA.original[id].result) return 1;
-          return 0;
-        },
       },
     ],
     []
