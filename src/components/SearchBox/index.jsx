@@ -59,7 +59,8 @@ const StyledSearchInput = styled(InputGroup)`
   box-sizing: border-box;
   border-radius: 4px;
   margin-left: 15px;
-  padding: 0 18px;
+  // padding: 0 18px;
+  background: #fff;
   align-items: center;
   flex-wrap: nowrap;
 
