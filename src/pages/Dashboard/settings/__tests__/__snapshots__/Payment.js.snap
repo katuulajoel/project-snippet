@@ -7,22 +7,22 @@ exports[`Auth layout test Privacy component snapshot 1`] = `
       class="sc-bdnxRM bzbqFw"
     >
       <div>
-        <h4>
-          Payoneer
-        </h4>
-        <p>
-          To receive payments for your work on Tunga, you need to setup Payoneer. You can do so using the button below.
-        </p>
-        <h5>
-          Status: 
-        </h5>
-        <a
-          class="btn btn-primary"
-          href="undefinedapi/payoneer/?next_url=undefined&error_url=http%3A%2F%2Flocalhost%2Fsettings%2Fpayment"
-          title="Setup Payoneer"
-        >
-          Setup Payoneer
-        </a>
+        <div>
+           
+          <h4>
+            Setup Payoneer
+          </h4>
+          <p>
+            To receive payments for your work on Tunga, you need to setup Payoneer. You can do so using the button below.
+          </p>
+          <a
+            class="btn btn-primary"
+            href="undefinedapi/payoneer/?next_url=undefined&error_url=http%3A%2F%2Flocalhost%2Fsettings%2Fpayment"
+            title="Setup Payoneer"
+          >
+            Setup Payoneer
+          </a>
+        </div>
       </div>
     </div>
   </div>
