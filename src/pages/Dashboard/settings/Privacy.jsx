@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 // import Button from "../../../components/Button";
 import CookieSettingForm from "./modals/CookieSettingForm";
-import { createModal } from "../../../utils/modals";
+import { openModal } from "../../../utils/modals";
 import * as actions from "../../../redux/actions/ProfileActions";
 
 export default function Privacy() {
@@ -17,7 +17,7 @@ export default function Privacy() {
   }, []);
 
   const onCookieSettings = async () => {
-    await createModal("Cookie Settings", <CookieSettingForm />);
+    await openModal({ body: <CookieSettingForm />, title: "Cookie Settings" });
   };
 
   const onChange = (name, value) => {
