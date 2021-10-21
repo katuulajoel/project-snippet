@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import SectionNav from "../../../components/SectionNav";
 import Icon from "../../../components/Icon";
 import SearchBox from "../../../components/SearchBox";
-import Results from "./results";
+import Results from "./Results";
 
 import Progress from "../../../components/Progress";
 import { fetchResults } from "../../../redux/actions/TestResultsActions";

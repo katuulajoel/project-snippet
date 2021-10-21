@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Results from "../results";
+import Results from "../Results";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";

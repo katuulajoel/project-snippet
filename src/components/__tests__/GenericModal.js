@@ -30,6 +30,11 @@ afterEach(cleanup);
 
 describe("GenericModal component test", () => {
   const store = mockAppStore();
+  const options = {
+    hideActions: false,
+    mustRespond: false,
+    title: "",
+  };
   beforeEach(() => {
     useSelector.mockImplementation((callback) => callback(mockAppState));
     useDispatch.mockReturnValue(jest.fn());
@@ -40,11 +45,6 @@ describe("GenericModal component test", () => {
   });
 
   it("Snapshot test for GenericModal component", () => {
-    const options = {
-      hideActions: false,
-      mustRespond: false,
-      title: "",
-    };
     const tree = mount(
       <Router>
         <Provider store={store}>
@@ -61,7 +61,7 @@ describe("GenericModal component test", () => {
     const { asFragment } = render(
       <Provider store={store}>
         <Router>
-          <GenericModal />
+          <GenericModal options={options} modalContent={""} />
         </Router>
       </Provider>
     );
