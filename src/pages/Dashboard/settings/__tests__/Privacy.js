@@ -1,10 +1,8 @@
 import React from "react";
-// import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { cleanup, render, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Privacy from "../Privacy";
-// import AuthReducers from "../../../../redux/reducers/AuthReducers";
 import { configureStore } from "../../../../redux/store";
 
 afterEach(cleanup);
@@ -156,14 +154,4 @@ describe("Privacy layout test", () => {
     fireEvent.click(button);
     expect(getByLabelText("cookie-model")).toBeTruthy();
   });
-
-  // it("Check close modal", async () => {
-  //   const { getByLabelText } = renderComponent(user_dev);
-
-  //   const openModalButton = getByLabelText("submit");
-  //   fireEvent.click(openModalButton);
-  //   const closeModalbutton = getByLabelText("save-settings");
-  //   fireEvent.click(closeModalbutton);
-  //   expect(getByLabelText("cookie-model")).toBeFalsy();
-  // });
 });
