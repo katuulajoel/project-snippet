@@ -20,7 +20,7 @@ const mockAppState = {
     project: {},
   },
   TestResults: {
-    isMakingRequest: { default: false },
+    isMakingRequest: false,
     data: null,
   },
 };
