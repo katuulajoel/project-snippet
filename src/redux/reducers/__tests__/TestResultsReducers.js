@@ -29,10 +29,6 @@ describe("Test reducers tests", () => {
     ).toEqual({
       ...initialState,
       isMakingRequest: false,
-      // data: {
-      //   count: dummyResults.length,
-      //   results: dummyResults,
-      // },
     });
   });
 

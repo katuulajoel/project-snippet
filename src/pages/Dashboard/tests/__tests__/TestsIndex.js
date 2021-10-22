@@ -7,32 +7,22 @@ import thunk from "redux-thunk";
 import { ThemeProvider } from "styled-components";
 import Tests from "../index";
 import theme from "../../../../assets/theme";
+import { defaultState } from "../../../../redux/reducers/TestResultsReducers";
 
 const middlewares = [thunk];
 
 const mockAppState = {
   Invoice: {
-    isMakingRequest: {},
-    errors: {},
-    summary: {},
-    list: { data: [], count: 0, next: "", previous: "" },
-    invoice: {},
-    csv: {},
+    isMakingRequest: false,
+    search: {},
   },
   Projects: {
-    isMakingRequest: {},
+    isMakingRequest: false,
     project: {},
   },
   TestResults: {
-    count: {},
-    errors: { fetch: null },
-    isMakingRequest: { default: false },
-    isSaved: {},
-    isSaving: {},
-    next: {},
-    previous: {},
-    results: [],
-    selectedFilters: [],
+    isMakingRequest: false,
+    data: defaultState,
   },
 };
 

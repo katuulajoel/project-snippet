@@ -6,9 +6,6 @@ import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { render, fireEvent, waitFor } from "@testing-library/react";
-// import { mount } from 'enzyme';
-// import { mount } from "enzyme/build";
-// import * as utils from "../utils/utils";
 
 const middlewares = [thunk];
 
@@ -18,14 +15,6 @@ const mockAppState = {
       is_admin: true,
       is_pay_admin: true,
     },
-  },
-  Invoice: {
-    isMakingRequest: {},
-    errors: {},
-    summary: {},
-    list: { data: [], count: 0, next: "", previous: "" },
-    invoice: {},
-    csv: {},
   },
 };
 

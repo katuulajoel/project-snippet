@@ -14,26 +14,14 @@ const middlewares = [thunk];
 const mockAppState = {
   Invoice: {
     isMakingRequest: {},
-    errors: {},
-    summary: {},
-    list: { data: [], count: 0, next: "", previous: "" },
-    invoice: {},
-    csv: {},
   },
   Projects: {
     isMakingRequest: {},
     project: {},
   },
   TestResults: {
-    count: {},
-    errors: { fetch: null },
     isMakingRequest: { default: false },
-    isSaved: {},
-    isSaving: {},
-    next: {},
-    previous: {},
-    results: [],
-    selectedFilters: [],
+    data: null,
   },
 };
 

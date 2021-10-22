@@ -161,12 +161,6 @@ const InputContainer = styled.div`
   }
 `;
 
-// export const Text = styled.span`
-//   color: ${(props) => props.color};
-//   font-size: ${(props) => props.fontSize};
-//   overflow-wrap: break-word;
-// `;
-
 Input.defaultProps = defaultProps;
 
 Input.propTypes = propTypes;

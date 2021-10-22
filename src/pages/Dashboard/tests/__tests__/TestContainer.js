@@ -18,26 +18,13 @@ const middlewares = [thunk];
 const mockAppState = {
   Auth: {
     user: { uid: 123, email: "test@gmail.com" },
-    isMakingRequest: {},
+    isMakingRequest: false,
   },
   Invoice: {
-    isMakingRequest: {},
-    errors: {},
-    summary: {},
-    list: { data: [], count: 0, next: "", previous: "" },
-    invoice: {},
-    csv: {},
+    isMakingRequest: false,
   },
   TestResults: {
-    count: {},
-    errors: {},
-    isMakingRequest: { default: true },
-    isSaved: {},
-    isSaving: {},
-    next: {},
-    previous: {},
-    results: [],
-    selectedFilters: [],
+    isMakingRequest: true,
   },
 };
 
@@ -118,32 +105,11 @@ describe("Test list container", () => {
   });
 
   it("should load data on page change", async () => {
-    const testResultsActions = jest.spyOn(actions, "fetchResults");
-    const store = mockAppStore({
-      ...mockAppState,
-      Invoice: {
-        list: {
-          data: [dummyResults],
-          count: dummyResults.length,
-        },
-        isMakingRequest: {},
-      },
-      TestResults: {
-        count: {},
-        errors: { fetch: null },
-        isMakingRequest: { default: false },
-        isSaved: {},
-        isSaving: {},
-        next: {},
-        previous: {},
-        results: [],
-        selectedFilters: [],
-      },
-    });
+    const fetchResultsStub = jest.spyOn(actions, "fetchResults");
     // eslint-disable-next-line no-unused-vars
     const wrapper = mount(
       <BrowserRouter>
-        <Provider store={store}>
+        <Provider store={mockAppStore()}>
           <ThemeProvider theme={theme}>
             <TestContainer
               collapseRightNav={toggleRightNav}
@@ -156,44 +122,14 @@ describe("Test list container", () => {
       </BrowserRouter>
     );
 
-    // const nextPage = wrapper.find("li.next");
-    // nextPage.simulate("click");
-
-    expect(testResultsActions).toHaveBeenCalled();
-    // expect(testResultsActions).toBeCalledWith({
-    //   "6LMlpGnA": { page_size: 20 },
-    //   //  2: "6LMlpGnA", {"page_size": 20}
-    // });
+    expect(fetchResultsStub).toHaveBeenCalled();
   });
 
   it("load new results on change to new status page", () => {
     const fetchResultsStub = jest.spyOn(actions, "fetchResults");
-
-    const store = mockAppStore({
-      Invoice: {
-        list: {
-          data: [],
-          count: 0,
-        },
-        isMakingRequest: {},
-      },
-
-      TestResults: {
-        count: {},
-        errors: {},
-        isMakingRequest: { default: true },
-        isSaved: {},
-        isSaving: {},
-        next: {},
-        previous: {},
-        results: dummyResults,
-        selectedFilters: [],
-      },
-    });
-    // eslint-disable-next-line no-unused-vars
     const { container } = render(
       <BrowserRouter>
-        <Provider store={store}>
+        <Provider store={mockAppStore()}>
           <ThemeProvider theme={theme}>
             <TestContainer
               collapseRightNav={toggleRightNav}
@@ -211,7 +147,5 @@ describe("Test list container", () => {
     const h3 = container.querySelector("h3");
     expect(h3).toBeTruthy();
     expect(h3.innerHTML).toBe("Results");
-
-    // container.setProps({ match: { params: { filter: "overdue" } } });
   });
 });

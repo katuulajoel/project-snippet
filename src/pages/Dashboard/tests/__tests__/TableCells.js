@@ -7,29 +7,12 @@ import thunk from "redux-thunk";
 import { ThemeProvider } from "styled-components";
 import TableCells from "../TableCells";
 import theme from "../../../../assets/theme";
-import { dummyResult } from "./Results";
 
 const middlewares = [thunk];
 
 const mockAppState = {
-  Invoice: {
-    isMakingRequest: {},
-    errors: {},
-    summary: {},
-    list: { data: [], count: 0, next: "", previous: "" },
-    invoice: {},
-    csv: {},
-  },
   TestResults: {
-    count: { default: 1 },
-    errors: { fetch: null },
-    isMakingRequest: { default: false },
-    isSaved: {},
-    isSaving: {},
-    next: {},
-    previous: {},
-    results: [dummyResult],
-    selectedFilters: [],
+    isMakingRequest: false,
   },
 };
 
