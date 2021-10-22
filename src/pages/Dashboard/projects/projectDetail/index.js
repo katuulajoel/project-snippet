@@ -9,6 +9,7 @@ import { fetchProject } from "../../../../redux/actions/ProjectActions";
 import Progress from "../../../../components/Progress";
 import PaymentContainer from "./PaymentContainer";
 import { FETCH_PROJECT_SUCCESS } from "../../../../configs/constants/ActionTypes";
+import Planning from "./Planning";
 
 const ProjectDetail = ({ match }) => {
   const { isMakingRequest, project } = useSelector(({ Projects }) => Projects);
@@ -33,7 +34,7 @@ const ProjectDetail = ({ match }) => {
     <Switch>
       {[
         ["docs", <></>],
-        ["plan", <></>],
+        ["plan", <Planning project={project} key={"plan"} />],
         ["pay", <PaymentContainer project={project} key={"payment"} />],
         ["reports", <></>],
         ["settings", <></>],

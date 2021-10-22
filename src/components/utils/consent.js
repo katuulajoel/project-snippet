@@ -4,10 +4,6 @@
 import moment from "moment";
 import Cookies from "js-cookie";
 
-/* -------------------------- Internel Dependencies ------------------------- */
-// import { openModal } from "../../utils/modals";
-// import CookieSettings from "../CookieSettings";
-
 export const COOKIE_OPTIONS = [
   [
     "essential",

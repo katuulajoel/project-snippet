@@ -46,13 +46,15 @@ export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl(
 );
 
 export const ENDPOINT_USER_INFO = getEndpointUrl("me/settings/");
-
 export const ENDPOINT_INVOICES_SUMMARY = getEndpointUrl("invoices/summary/");
 export const ENDPOINT_INVOICES = getEndpointUrl("invoices/");
 export const ENDPOINT_PROJECTS = getEndpointUrl("projects/");
 export const ENDPOINT_NOTIFICATIONS = getEndpointUrl("me/notification/");
 export const ENDPOINT_NOTIFICATION_LOG = getEndpointUrl("notification-log/");
 export const ENDPOINT_USERS = getEndpointUrl("users/");
+export const ENDPOINT_PROGRESS_EVENTS = getEndpointUrl("progress-events/");
+export const ENDPOINT_DOCUMENTS = getEndpointUrl("documents/");
+export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");
 
 export const USER_TYPE_DEVELOPER = 1;
 export const USER_TYPE_PROJECT_OWNER = 2;
@@ -81,4 +83,10 @@ export const INVOICE_TYPES = {
   credit_nota: "Credit Note",
 };
 
-export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");
+export function composeFormData(data) {
+  let formData = new FormData();
+  Object.keys(data).forEach(key => {
+      formData.append(key, data[key]);
+  });
+  return formData;
+}

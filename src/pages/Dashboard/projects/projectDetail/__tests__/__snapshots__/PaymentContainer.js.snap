@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard test Should match snapshot test 1`] = `
+exports[`Project Payments test Should match snapshot test 1`] = `
 Array [
   <div
     className="sc-bqGGPW lkZMzU"

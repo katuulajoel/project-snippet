@@ -1,6 +1,10 @@
-/* eslint-disable no-unused-vars */
 import axios from "axios";
-import { ENDPOINT_PROJECTS } from "../../utils/api";
+import {
+  composeFormData,
+  ENDPOINT_PROJECTS,
+  ENDPOINT_PROGRESS_EVENTS,
+  ENDPOINT_DOCUMENTS,
+} from "../../utils/api";
 
 import {
   FETCH_PROJECT_START,
@@ -12,6 +16,21 @@ import {
   FETCH_MORE_PROJECTS_START,
   FETCH_MORE_PROJECTS_SUCCESS,
   FETCH_MORE_PROJECTS_FAILED,
+  UPDATE_PROJECT_START,
+  UPDATE_PROJECT_SUCCESS,
+  UPDATE_PROJECT_FAILED,
+  CREATE_PROGRESS_EVENT_START,
+  CREATE_PROGRESS_EVENT_SUCCESS,
+  CREATE_PROGRESS_EVENT_FAILED,
+  UPDATE_PROGRESS_EVENT_START,
+  UPDATE_PROGRESS_EVENT_SUCCESS,
+  UPDATE_PROGRESS_EVENT_FAILED,
+  CREATE_DOCUMENT_START,
+  CREATE_DOCUMENT_SUCCESS,
+  CREATE_DOCUMENT_FAILED,
+  UPDATE_DOCUMENT_START,
+  UPDATE_DOCUMENT_SUCCESS,
+  UPDATE_DOCUMENT_FAILED,
 } from "../../configs/constants/ActionTypes";
 import { success, start, failed } from "../../utils/actions";
 
@@ -58,6 +77,105 @@ export function fetchMoreProjects(nextUrl) {
       })
       .catch(function (error) {
         dispatch(failed(FETCH_MORE_PROJECTS_FAILED, error));
+      });
+  };
+}
+
+export function updateProject(id, project) {
+  return (dispatch) => {
+    dispatch(start(UPDATE_PROJECT_START));
+
+    let headers = {},
+      data = project;
+    if (project.documents && project.documents.length) {
+      headers["Content-Type"] = "multipart/form-data";
+      data = composeFormData(project);
+    }
+
+    axios
+      .patch(`${ENDPOINT_PROJECTS}${id}/`, data, {
+        headers: { ...headers },
+      })
+      .then(function (response) {
+        dispatch(success(UPDATE_PROJECT_SUCCESS, response.data));
+      })
+      .catch(function (error) {
+        dispatch(failed(UPDATE_PROJECT_FAILED, error));
+      });
+  };
+}
+
+export function createProgressEvent(progress_event) {
+  return (dispatch) => {
+    dispatch(start(CREATE_PROGRESS_EVENT_START));
+    axios
+      .post(ENDPOINT_PROGRESS_EVENTS, progress_event)
+      .then(function (response) {
+        dispatch(success(CREATE_PROGRESS_EVENT_SUCCESS, response.data));
+      })
+      .catch(function (error) {
+        dispatch(failed(CREATE_PROGRESS_EVENT_FAILED, error));
+      });
+  };
+}
+
+export function updateProgressEvent(id, progress_event) {
+  return (dispatch) => {
+    dispatch(start(UPDATE_PROGRESS_EVENT_START));
+    axios
+      .patch(ENDPOINT_PROGRESS_EVENTS + id + "/", progress_event)
+      .then(function (response) {
+        dispatch(success(UPDATE_PROGRESS_EVENT_SUCCESS, response.data));
+      })
+      .catch(function (error) {
+        dispatch(failed(UPDATE_PROGRESS_EVENT_FAILED, error));
+      });
+  };
+}
+
+export function createDocument(document) {
+  return (dispatch) => {
+    dispatch(start(CREATE_DOCUMENT_START));
+
+    let headers = {},
+      data = document;
+
+    if (document.file) {
+      headers["Content-Type"] = "multipart/form-data";
+      data = composeFormData(document);
+    }
+
+    axios
+      .post(ENDPOINT_DOCUMENTS, data, { headers })
+      .then(function (response) {
+        dispatch(success(CREATE_DOCUMENT_SUCCESS, response.data));
+      })
+      .catch(function (error) {
+        dispatch(failed(CREATE_DOCUMENT_FAILED, error));
+      });
+  };
+}
+
+export function updateDocument(id, document) {
+  return (dispatch) => {
+    dispatch(start(UPDATE_DOCUMENT_START));
+
+    let headers = {},
+      data = document;
+    if (document.file) {
+      headers["Content-Type"] = "multipart/form-data";
+      data = composeFormData(document);
+    }
+
+    axios
+      .patch(ENDPOINT_DOCUMENTS + id + "/", data, {
+        headers: { ...headers },
+      })
+      .then(function (response) {
+        dispatch(success(UPDATE_DOCUMENT_SUCCESS, response.data));
+      })
+      .catch(function (error) {
+        dispatch(failed(UPDATE_DOCUMENT_FAILED, error));
       });
   };
 }
