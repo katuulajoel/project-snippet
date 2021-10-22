@@ -5,7 +5,6 @@ import {
   GA_EVENT_LABELS,
   GA_HIT,
   getGAUserType,
-  getScopeUrl,
   getTaskTypeUrl,
   getUserTypeTwitter,
   TASK_TYPE_CHOICES_URL,
@@ -99,10 +98,5 @@ describe("Tracking utils tests", () => {
     expect(getTaskTypeUrl("web")).toEqual("web");
     expect(getTaskTypeUrl("other")).toEqual("other");
     expect(getTaskTypeUrl("")).toEqual(null);
-
-    expect(getScopeUrl("2w")).toEqual("task");
-    expect(getScopeUrl("6m")).toEqual("project");
-    expect(getScopeUrl("permanent")).toEqual("ongoing");
-    expect(getScopeUrl("")).toEqual(null);
   });
 });

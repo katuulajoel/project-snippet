@@ -4,9 +4,6 @@ import {
   PROJECT_TYPE_WEB,
   PROJECT_TYPE_MOBILE,
   PROJECT_TYPE_OTHER,
-  PROJECT_DURATION_2_WEEKS,
-  PROJECT_DURATION_6_MONTHS,
-  PROJECT_DURATION_PERMANENT,
 } from "../../utils/api";
 
 export const USER_TYPES = {
@@ -139,19 +136,6 @@ export const getTaskTypeUrl = (type) => {
       return "web";
     case PROJECT_TYPE_OTHER:
       return "other";
-    default:
-      return null;
-  }
-};
-
-export const getScopeUrl = (type) => {
-  switch (type) {
-    case PROJECT_DURATION_2_WEEKS:
-      return "task";
-    case PROJECT_DURATION_6_MONTHS:
-      return "project";
-    case PROJECT_DURATION_PERMANENT:
-      return "ongoing";
     default:
       return null;
   }

@@ -12,7 +12,10 @@ const propTypes = {
 const TableCells = (cell) => {
   const cellValues = cell.value;
   const user = cellValues.user_obj;
-  const editTest = cell.editTest;
+
+  const editTest = () => {
+    cell.editTest(cellValues);
+  };
 
   switch (cell.column.id) {
     case "user":
@@ -31,9 +34,7 @@ const TableCells = (cell) => {
               name="circle-edit-outline"
               size="main"
               className="btn-edit"
-              onClick={() => {
-                editTest(cellValues);
-              }}
+              onClick={editTest}
             />
           </div>
         </div>

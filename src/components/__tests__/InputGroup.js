@@ -4,7 +4,6 @@ import InputGroup from "../InputGroup";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import { mount } from "enzyme/build";
 
 const middlewares = [thunk];
 
@@ -30,16 +29,5 @@ describe("InputGroup component test", () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
-  });
-
-  it("should change input type on click showPassword", () => {
-    const wrapper = mount(
-      <Provider store={mockAppStore()}>
-        <InputGroup appendFunc={appendFunc} value="test" append={append} />
-      </Provider>
-    );
-    const btn = wrapper.find("button.tst");
-    btn.simulate("click");
-    // expect(appendFunc).toHaveBeenCalled();
   });
 });
