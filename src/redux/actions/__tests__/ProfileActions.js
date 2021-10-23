@@ -63,4 +63,40 @@ describe("Profile actions tests", () => {
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
+
+  it("should update auth user settings", async () => {
+    axios.patch.mockReturnValue(Promise.resolve({ data: {} }));
+    const expectedActions = [];
+
+    await store.dispatch(actions.updateAuthUser());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should update user password", async () => {
+    axios.post.mockReturnValue(Promise.resolve({ data: {} }));
+    const expectedActions = [];
+
+    await store.dispatch(actions.updatePassword());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should update user account", async () => {
+    axios.patch.mockReturnValue(Promise.resolve({ data: {} }));
+    const expectedActions = [];
+
+    await store.dispatch(actions.updateAccountInfo());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should delete user account", async () => {
+    axios.post.mockReturnValue(Promise.resolve({ data: {} }));
+    const expectedActions = [];
+
+    await store.dispatch(actions.deactivateAccount());
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
 });
