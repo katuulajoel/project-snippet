@@ -18,7 +18,7 @@ function safeClassNameOptions(className, options) {
 }
 
 export function openConfirm({
-  message = "",
+  message = null,
   title = "",
   canClose = true,
   options = { ok: "Yes", cancel: "Cancel" },
