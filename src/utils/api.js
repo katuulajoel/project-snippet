@@ -45,12 +45,9 @@ export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl(
 );
 
 export const ENDPOINT_USER_INFO = getEndpointUrl("me/settings/");
-<<<<<<< HEAD
-=======
 export const ENDPOINT_ACCOUNT_INFO = getEndpointUrl("me/account/");
 export const ENDPOINT_RESET_PASSWORD = getEndpointUrl("auth/password/reset/");
 
->>>>>>> efdb886 (Added new account apis)
 export const ENDPOINT_INVOICES_SUMMARY = getEndpointUrl("invoices/summary/");
 export const ENDPOINT_INVOICES = getEndpointUrl("invoices/");
 export const ENDPOINT_PROJECTS = getEndpointUrl("projects/");
@@ -90,8 +87,8 @@ export const INVOICE_TYPES = {
 
 export function composeFormData(data) {
   let formData = new FormData();
-  Object.keys(data).forEach(key => {
-      formData.append(key, data[key]);
+  Object.keys(data).forEach((key) => {
+    formData.append(key, data[key]);
   });
   return formData;
 }
