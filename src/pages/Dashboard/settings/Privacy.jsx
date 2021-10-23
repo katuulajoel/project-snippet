@@ -183,6 +183,11 @@ export default function Privacy() {
 }
 
 const ContentSection = styled.div`
+  width: 600px;
+  padding: 40px;
+  margin: auto;
+  background: white;
+
   .section {
     border-bottom: 1px solid #edf1f7;
     padding-bottom: 24px;
