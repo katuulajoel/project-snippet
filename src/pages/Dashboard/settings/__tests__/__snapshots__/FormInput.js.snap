@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInput layout test Snapshot test for FormInput component 1`] = `
+<DocumentFragment>
+  <div
+    class="form-group"
+  >
+    <label
+      class=""
+    >
+      <span
+        class="label-style"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="sc-bdnxRM lboORq"
+      data-testid="input"
+    >
+      <input
+        class="form-control"
+        data-testid=""
+        id=""
+        label="Label"
+        placeholder="Enter your password"
+        required=""
+        type="text"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
