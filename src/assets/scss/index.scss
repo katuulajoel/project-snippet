@@ -264,6 +264,13 @@
       line-height: 1.5;
     }
   }
+
+  .content-card > div {
+    width: 600px;
+    padding: 40px;
+    margin: auto;
+    background: white;
+  }
 }
 
 .save {
