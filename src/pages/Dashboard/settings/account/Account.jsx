@@ -106,11 +106,6 @@ const Account = () => {
 };
 
 const ContentSection = styled.div`
-  width: 600px;
-  padding: 40px;
-  margin: auto;
-  background: white;
-
   .label-style {
     color: #da3451;
     padding-left: 2px;
