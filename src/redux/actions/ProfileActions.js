@@ -1,8 +1,13 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import { SET_USER_PROFILE } from "../../configs/constants/ActionTypes";
-import { ENDPOINT_USER_INFO } from "../../utils/api";
 import { success } from "../../utils/actions";
+import {
+  ENDPOINT_ACCOUNT_INFO,
+  ENDPOINT_CHANGE_PASSWORD,
+  ENDPOINT_USER_INFO,
+} from "../../utils/api";
+import { getUser } from "../../utils/auth";
 
 // TODO:
 // - Work error handling
@@ -25,6 +30,58 @@ export function updateSettings() {
       .patch(ENDPOINT_USER_INFO)
       .then(function (res) {
         dispatch(success(SET_USER_PROFILE, { settings: { ...res.data } }));
+      })
+      .catch(function () {});
+  };
+}
+
+export function updateAuthUser(user) {
+  // No password required and can update all user fields
+  return (dispatch) => {
+    var headers = {},
+      data = user;
+    // if (user.image) {
+    //   headers["Content-Type"] = "multipart/form-data";
+    //   data = composeFormData(user);
+    // }
+    axios
+      .patch(ENDPOINT_USER_INFO, data, { headers })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function () {});
+  };
+}
+
+export function updateAccountInfo(user) {
+  // Requires password and limited to a few account fields
+  return (dispatch) => {
+    axios
+      .patch(`${ENDPOINT_ACCOUNT_INFO}${getUser().id}/`, user)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function () {});
+  };
+}
+
+export function updatePassword(credentials) {
+  return (dispatch) => {
+    axios
+      .post(ENDPOINT_CHANGE_PASSWORD, credentials)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function () {});
+  };
+}
+
+export function deactivateAccount() {
+  return (dispatch) => {
+    axios
+      .post(`${ENDPOINT_ACCOUNT_INFO}deactivate/`, {})
+      .then(function (response) {
+        console.log(response);
       })
       .catch(function () {});
   };
