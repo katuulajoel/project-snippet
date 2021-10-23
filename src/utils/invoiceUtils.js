@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
 import {
@@ -10,24 +10,23 @@ import {
   bulkAction,
 } from "../redux/actions/InvoiceActions";
 import DateRangeForm from "../components/DateRangeForm";
-import ModalHeader from "../components/ModalHeader";
+// import ModalHeader from "../components/ModalHeader";
 import { openConfirm, openModal } from "./modals";
 import store from "../redux/store";
 import { isPayAdmin, isClient, isPayAdminOrPM } from "./auth";
 import * as actions from "../configs/constants/invoiceConstants";
 
-// TODO: move this to components folder
-export const Header = (props) => (
-  <ModalHeader
-    {...props}
-    style={{ paddingBottom: "8px" }}
-    options={{ title: props.title }}
-  />
-);
+// const Header = (props) => (
+//   <ModalHeader
+//     {...props}
+//     style={{ paddingBottom: "8px" }}
+//     options={{ title: props.title }}
+//   />
+// );
 
-Header.propTypes = {
-  title: PropTypes.string,
-};
+// Header.propTypes = {
+//   title: PropTypes.string,
+// };
 
 //TODO: check if use is pay admin to active batch actions, add ...isPayAdmin() && on line 6
 export const getTableColumns = (filter, project = null) => [
@@ -244,7 +243,7 @@ export const getPaymentsFilters = (filter) => {
 export function generateInvoice(invoiceId) {
   openConfirm({
     message: "Are you sure you want to generate an invoice for this payment?",
-    header: <Header title="Generate Invoice" />,
+    // title: <Header />,
   }).then(() => {
     store.dispatch(generateInvoiceAction(invoiceId));
   });
@@ -253,7 +252,7 @@ export function generateInvoice(invoiceId) {
 export function markAsPaid(invoiceId) {
   openConfirm({
     message: "Are you sure you want to mark this invoice as paid?",
-    header: <Header title="Mark as Paid" />,
+    title: "Mark as Paid",
   }).then(() => {
     store.dispatch(updateInvoice(invoiceId, { paid: true }));
   });
@@ -262,7 +261,7 @@ export function markAsPaid(invoiceId) {
 export function markAsArchived(invoiceId) {
   openConfirm({
     message: "Are you sure you want to archive this invoice?",
-    header: <Header title="Archive invoice" />,
+    title: "Archive invoice",
   }).then(() => {
     store.dispatch(archiveInvoice(invoiceId));
   });
@@ -272,7 +271,7 @@ export function approvePayout(invoices) {
   openConfirm({
     message: "Are you sure you want to approve this payout?",
     options: { ok: "Approve", cancel: "Cancel" },
-    header: <Header title="Approve payout" />,
+    title: "Approve payout",
   }).then(() => {
     invoices.forEach((invoice) => {
       store.dispatch(updateInvoice(invoice.id, { status: "approved" }));
@@ -283,7 +282,7 @@ export function approvePayout(invoices) {
 export function bulkMarkAsPaid(invoices) {
   openConfirm({
     message: "Are you sure you want to mark all selected as paid?",
-    header: <Header title="Bulk mark as Paid" />,
+    title: "Bulk mark as Paid",
   }).then(() => {
     invoices.forEach((invoice) => {
       store.dispatch(updateInvoice(invoice.id, { paid: true }));
@@ -294,7 +293,7 @@ export function bulkMarkAsPaid(invoices) {
 export function bulkGenerateInvoice(invoices) {
   openConfirm({
     message: "Are you sure you want to generate invoices for all selected?",
-    header: <Header title="Bulk generate invoices" />,
+    title: "Bulk generate invoices",
   }).then(() => {
     invoices.forEach((invoice) => {
       store.dispatch(generateInvoiceAction(invoice.id));
@@ -305,7 +304,7 @@ export function bulkGenerateInvoice(invoices) {
 export function bulkDeleteInvoice(invoices) {
   openConfirm({
     message: "Are you sure you want to delete all selected?",
-    header: <Header title="Bulk delete invoices" />,
+    title: "Bulk delete invoices",
   }).then(() => {
     store.dispatch(bulkAction(invoices, "delete"));
   });
@@ -314,7 +313,7 @@ export function bulkDeleteInvoice(invoices) {
 export function bulkArchiveInvoice(invoices) {
   openConfirm({
     message: "Are you sure you want to archive all selected?",
-    header: <Header title="Bulk archive invoices" />,
+    title: "Bulk archive invoices",
   }).then(() => {
     store.dispatch(bulkAction(invoices, "archive"));
   });
@@ -331,7 +330,7 @@ export function downloadCsv(filter, type, project = null) {
         form: `export-form`,
       },
     },
-    header: <Header title={`Export ${type}`} />,
+    title: `Export ${type}`,
   }).then((data) => {
     if (data) {
       let params = {};
@@ -397,11 +396,7 @@ export function filterPaymentSummaries(
         form: `fiter-payment`,
       },
     },
-    header: (
-      <Header
-        title={`Filter Total ${type === "Payments" ? "Payments" : "Payouts"}`}
-      />
-    ),
+    title: `Filter Total ${type === "Payments" ? "Payments" : "Payouts"}`,
   }).then((data) => {
     if (data) {
       const START = `${moment(data.start).format(
