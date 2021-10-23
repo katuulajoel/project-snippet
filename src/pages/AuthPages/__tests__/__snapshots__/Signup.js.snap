@@ -57,7 +57,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     </span>
                   </label>
                   <div
-                    className="sc-hKFxyN gjxWXv"
+                    className="sc-hKFxyN dECJHo"
                     data-testid="input"
                   >
                     <input
@@ -89,7 +89,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                         </span>
                       </label>
                       <div
-                        className="sc-hKFxyN gjxWXv"
+                        className="sc-hKFxyN dECJHo"
                         data-testid="input"
                       >
                         <input
@@ -120,7 +120,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                         </span>
                       </label>
                       <div
-                        className="sc-hKFxyN gjxWXv"
+                        className="sc-hKFxyN dECJHo"
                         data-testid="input"
                       >
                         <input
@@ -148,7 +148,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                       </span>
                     </label>
                     <div
-                      className="sc-hKFxyN gjxWXv"
+                      className="sc-hKFxyN dECJHo"
                       data-testid="input"
                     >
                       <input
@@ -175,18 +175,9 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     </span>
                   </label>
                   <div
-                    className="sc-hKFxyN gjxWXv"
+                    className="sc-hKFxyN dECJHo"
                     data-testid="input"
                   >
-                    <input
-                      className="form-control"
-                      data-testid=""
-                      id="pwd"
-                      label=""
-                      placeholder="Password"
-                      required={true}
-                      type="password"
-                    />
                     <button
                       className="input-icon "
                       onClick={[Function]}
@@ -205,6 +196,15 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                         />
                       </svg>
                     </button>
+                    <input
+                      className="form-control"
+                      data-testid=""
+                      id="pwd"
+                      label=""
+                      placeholder="Password"
+                      required={true}
+                      type="password"
+                    />
                   </div>
                 </div>
                 <div
@@ -219,18 +219,9 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     </span>
                   </label>
                   <div
-                    className="sc-hKFxyN gjxWXv"
+                    className="sc-hKFxyN dECJHo"
                     data-testid="input"
                   >
-                    <input
-                      className="form-control"
-                      data-testid=""
-                      id="pwd-confirm"
-                      label=""
-                      placeholder="Confirm Password"
-                      required={true}
-                      type="password"
-                    />
                     <button
                       className="input-icon "
                       onClick={[Function]}
@@ -249,6 +240,15 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                         />
                       </svg>
                     </button>
+                    <input
+                      className="form-control"
+                      data-testid=""
+                      id="pwd-confirm"
+                      label=""
+                      placeholder="Confirm Password"
+                      required={true}
+                      type="password"
+                    />
                   </div>
                 </div>
                 <div

@@ -28,7 +28,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             </span>
           </label>
           <div
-            className="sc-bdnxRM lboORq"
+            className="sc-bdnxRM bvISXd"
             data-testid="input"
           >
             <input
@@ -58,7 +58,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             </span>
           </label>
           <div
-            className="sc-bdnxRM lboORq"
+            className="sc-bdnxRM bvISXd"
             data-testid="input"
           >
             <input
@@ -88,7 +88,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             </span>
           </label>
           <div
-            className="sc-bdnxRM lboORq"
+            className="sc-bdnxRM bvISXd"
             data-testid="input"
           >
             <input
@@ -122,7 +122,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             </span>
           </label>
           <div
-            className="sc-bdnxRM lboORq"
+            className="sc-bdnxRM bvISXd"
             data-testid="input"
           >
             <input
@@ -167,7 +167,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             VAT Number
           </label>
           <div
-            className="sc-bdnxRM lboORq"
+            className="sc-bdnxRM bvISXd"
             data-testid="input"
           >
             <input
@@ -196,7 +196,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
             Company Registration Number (Optional)
           </label>
           <div
-            className="sc-bdnxRM lboORq"
+            className="sc-bdnxRM bvISXd"
             data-testid="input"
           >
             <input
