@@ -1,4 +1,4 @@
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import React from "react";
 import moment from "moment";
 import {
@@ -10,23 +10,23 @@ import {
   bulkAction,
 } from "../redux/actions/InvoiceActions";
 import DateRangeForm from "../components/DateRangeForm";
-// import ModalHeader from "../components/ModalHeader";
+import ModalHeader from "../components/ModalHeader";
 import { openConfirm, openModal } from "./modals";
 import store from "../redux/store";
 import { isPayAdmin, isClient, isPayAdminOrPM } from "./auth";
 import * as actions from "../configs/constants/invoiceConstants";
 
-// const Header = (props) => (
-//   <ModalHeader
-//     {...props}
-//     style={{ paddingBottom: "8px" }}
-//     options={{ title: props.title }}
-//   />
-// );
+export const Header = (props) => (
+  <ModalHeader
+    {...props}
+    style={{ paddingBottom: "8px" }}
+    options={{ title: props.title }}
+  />
+);
 
-// Header.propTypes = {
-//   title: PropTypes.string,
-// };
+Header.propTypes = {
+  title: PropTypes.string,
+};
 
 //TODO: check if use is pay admin to active batch actions, add ...isPayAdmin() && on line 6
 export const getTableColumns = (filter, project = null) => [
