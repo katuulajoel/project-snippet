@@ -81,6 +81,7 @@ const Wrapper = styled.div`
   position: absolute;
   background: #fff;
   border: 1px solid #efefef;
+  margin-top: 7.0625rem;
 
   .results {
     font-size: 16px;
