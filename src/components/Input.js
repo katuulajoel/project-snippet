@@ -36,16 +36,6 @@ const Input = React.forwardRef(
         disabled={rest?.disabled}
         data-testid="input"
       >
-        <input
-          {...rest}
-          type={type === "password" ? showPassword : type}
-          id={id}
-          ref={ref}
-          className="form-control"
-          placeholder={placeholder}
-          data-testid={dataTestId}
-        />
-
         {type === "password" && (
           <button
             onClick={() =>
@@ -72,6 +62,15 @@ const Input = React.forwardRef(
             </svg>
           </button>
         )}
+        <input
+          {...rest}
+          type={type === "password" ? showPassword : type}
+          id={id}
+          ref={ref}
+          className="form-control"
+          placeholder={placeholder}
+          data-testid={dataTestId}
+        />
       </InputContainer>
     );
   }
@@ -79,6 +78,7 @@ const Input = React.forwardRef(
 
 const InputContainer = styled.div`
   margin-bottom: 1.5rem;
+  position: relative;
   input[id="fname"],
   input[id="lname"] {
     width: 190px;
@@ -132,18 +132,22 @@ const InputContainer = styled.div`
   }
   button {
     &.input-icon {
-      height: 42px;
+      height: 92%;
       z-index: 12;
       width: 34px;
       align-items: center;
       justify-content: center;
       display: flex;
       margin-right: 2px;
-      float: right;
+      // float: right;
       cursor: pointer;
       background: white;
       border: none;
-      margin-top: -2.7rem;
+      // margin-top: -2.7rem;
+      border: none;
+      right: 0;
+      position: absolute;
+      margin: 3px;
 
       &.active__showpassword {
         svg {
