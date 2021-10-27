@@ -1,59 +1,38 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { DateTimePicker as DTP } from "react-widgets";
 import moment from "moment/moment";
 import momentLocalizer from "react-widgets-moment";
+import styled from "styled-components";
+import Icon from "./Icon";
 
 new momentLocalizer(moment);
 
-export default class DateTimePicker extends React.Component {
-  static propTypes = {
-    onToggle: PropTypes.bool,
-    onClick: PropTypes.bool,
-    time: PropTypes.bool,
-    calendar: PropTypes.bool,
-    open: PropTypes.func,
-  };
+const DateTimePicker = (props) => {
+  return <Wrapper {...props} selectIcon={<Icon name="calendar2" />} />;
+};
 
-  constructor(props) {
-    super(props);
-    this.state = { open: this.props.open || false };
-  }
-
-  onClick(event) {
-    if (event.target.tagName === "INPUT") {
-      const { time, calendar } = this.props;
-      this.open(time && !calendar ? "time" : "calendar");
+const Wrapper = styled(DTP)`
+  border: 1px solid rgba(194, 204, 217, 0.5);
+  border-radius: 4px;
+  .rw-widget-container {
+    grid-template: 1fr/1fr 2.3em;
+    border: none;
+    input,
+    button {
+      border: none !important;
     }
-
-    const { onClick } = this.props;
-    if (onClick) {
-      onClick(event);
+    input {
+      width: inherit;
     }
-  }
-
-  onToggle(view) {
-    this.open(view);
-
-    const { onToggle } = this.props;
-    if (onToggle) {
-      onToggle(view);
+    button {
+      color: rgb(143, 155, 179);
+      font-size: 16px;
+      width: initial;
+      display: flex;
+      justify-content: center;
     }
   }
+`;
 
-  open(view = null) {
-    this.setState({ open: view });
-  }
-
-  render() {
-    return (
-      <DTP
-        {...this.props}
-        onClick={this.onClick.bind(this)}
-        onToggle={this.onToggle.bind(this)}
-        open={this.state.open}
-      />
-    );
-  }
-}
+export default DateTimePicker;

@@ -3,16 +3,24 @@
 exports[`Auth layout test Snapshot test for NavBar component 1`] = `
 Array [
   <button
+    className="sc-bdnxRM erSqTl"
     onClick={[Function]}
-    onToggle={[Function]}
-    open={false}
+    selectIcon={
+      <Icon
+        name="calendar2"
+      />
+    }
   >
     Toggle DateTimePicker
   </button>,
   <button
+    className="sc-bdnxRM erSqTl"
     onClick={[Function]}
-    onToggle={[Function]}
-    open={false}
+    selectIcon={
+      <Icon
+        name="calendar2"
+      />
+    }
   >
     Click DateTimePicker
   </button>,

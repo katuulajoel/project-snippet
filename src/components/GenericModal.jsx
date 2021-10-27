@@ -48,7 +48,7 @@ const GenericModal = (props) => {
 
   const handleClickOutside = (event) => {
     let safe_options = options || {};
-    if (wrapperRef && !wrapperRef.current.contains(event.target)) {
+    if (wrapperRef && !wrapperRef.current?.contains(event.target)) {
       safe_options.dismissAsCancel ? cancel() : dismiss();
     }
   };

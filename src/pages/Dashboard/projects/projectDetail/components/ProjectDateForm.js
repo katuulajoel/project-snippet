@@ -12,7 +12,8 @@ import TextArea from "../../../../../components/TextArea";
 import FieldError from "../../../../../components/FieldError";
 
 /* --------------------------- Style dependencies --------------------------- */
-import { StyledForm, StyledDateTimePicker } from "../../../../../utils/styles";
+import { StyledForm } from "../../../../../utils/styles";
+import DateTimePicker from "../../../../../components/DateTimePicker";
 
 const ProjectDateForm = (props) => {
   const { proceed, id } = props;
@@ -61,10 +62,10 @@ const ProjectDateForm = (props) => {
           <span className="label-style">*</span>
         </LabelStyle>
       </label>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", gap: "14px" }}>
         <FormGroup>
           {errors.start_error && <FieldError message={errors.start_error} />}
-          <StyledDateTimePicker
+          <DateTimePicker
             className="tg-date-field"
             placeholder="Enter Start Date"
             format={"DD MMM YYYY"}
@@ -79,7 +80,7 @@ const ProjectDateForm = (props) => {
         </FormGroup>
         <FormGroup>
           {errors.end_error && <FieldError message={errors.end_error} />}
-          <StyledDateTimePicker
+          <DateTimePicker
             className="tg-date-field"
             placeholder="Enter Deadline"
             format={"DD MMM YYYY"}
