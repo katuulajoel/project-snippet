@@ -2,7 +2,7 @@
 
 exports[`Project Planning test Should match snapshot test 1`] = `
 <form
-  className="sc-dlnjwi dmLwQU"
+  className="sc-dlnjwi fVvCwS"
   onSubmit={[Function]}
 >
   <label>
@@ -21,6 +21,7 @@ exports[`Project Planning test Should match snapshot test 1`] = `
     style={
       Object {
         "display": "flex",
+        "gap": "14px",
       }
     }
   >
@@ -29,7 +30,7 @@ exports[`Project Planning test Should match snapshot test 1`] = `
     >
       <input
         calendar={true}
-        className="sc-gtsrHT giRYEg tg-date-field"
+        className="sc-gtsrHT dRerJY tg-date-field"
         format="DD MMM YYYY"
         onChange={[Function]}
         originalComponent="DateTimePicker"
@@ -44,7 +45,7 @@ exports[`Project Planning test Should match snapshot test 1`] = `
     >
       <input
         calendar={true}
-        className="sc-gtsrHT giRYEg tg-date-field"
+        className="sc-gtsrHT dRerJY tg-date-field"
         format="DD MMM YYYY"
         onChange={[Function]}
         originalComponent="DateTimePicker"

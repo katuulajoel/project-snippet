@@ -2,10 +2,10 @@
 /*                            External Dependencies                           */
 /* -------------------------------------------------------------------------- */
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 /* -------------------- Internel Dependencies (Utilites) -------------------- */
 
@@ -23,26 +23,44 @@ import {
   onManagePlan,
   onManageSchedule,
 } from "../../../../utils/projectUtils";
+import { fetchProject } from "../../../../redux/actions/ProjectActions";
+import usePrevious from "../../../../hooks/usePrevious";
 
 /* ------------------------- Component dependencies ------------------------- */
 
 const Planning = () => {
-  const { project } = useSelector(({ Projects }) => Projects);
+  const dispatch = useDispatch();
+  const { project, isMakingRequest } = useSelector(({ Projects }) => Projects);
+  const prevIsMakingRequest = usePrevious(isMakingRequest);
+  const [planningDoc, setPlanningDoc] = useState({});
+  const hasAccess = isAdminOrClient(project) || isPMAndHasProjectAcess(project);
 
-  const hasAccess = isAdminOrClient || isPMAndHasProjectAcess;
+  useEffect(() => {
+    getLatestPlanningDoc();
+  }, []);
+
+  useEffect(() => {
+    if (
+      prevIsMakingRequest?.updateDocument ||
+      prevIsMakingRequest?.createEvent ||
+      prevIsMakingRequest?.updateEvent
+    ) {
+      dispatch(fetchProject(project.id));
+    }
+  }, [isMakingRequest]);
 
   const getLatestPlanningDoc = () => {
-    let planningDoc = null;
+    let localDoc = null;
     (project.documents || []).forEach((doc) => {
       if (
         doc.type === "planning" &&
-        (!planningDoc ||
-          moment.utc(planningDoc.created_at) < moment.utc(doc.created_at))
+        (!localDoc ||
+          moment.utc(localDoc.created_at) < moment.utc(doc.created_at))
       ) {
-        planningDoc = doc;
+        localDoc = doc;
       }
     });
-    return planningDoc;
+    setPlanningDoc(localDoc);
   };
 
   const getMilestones = () => {
@@ -79,42 +97,36 @@ const Planning = () => {
           <div className="section">
             <div className="section-title">
               <span>Detailed Planning Documents</span>
-              {!getLatestPlanningDoc() &&
-                hasAccess(project) &&
-                !project.archived && (
-                  <a
-                    href="#"
-                    className="add-btn"
-                    onClick={() => onManagePlan(project)}
-                  >
-                    <Icon name="round-add" size="sm" />
-                    &nbsp;&nbsp;Add New
-                  </a>
-                )}
+              {!planningDoc && hasAccess && !project.archived && (
+                <a
+                  href="#"
+                  className="add-btn"
+                  onClick={() => onManagePlan(project)}
+                >
+                  <Icon name="round-add" size="sm" />
+                  &nbsp;&nbsp;Add New
+                </a>
+              )}
             </div>
 
-            {getLatestPlanningDoc() && (
+            {planningDoc && (
               <div className="section-item">
                 <a
-                  href={getLatestPlanningDoc().url}
+                  href={planningDoc.url}
                   className="truncate"
                   target="_blank"
                   rel="noreferrer"
-                  title={getLatestPlanningDoc().title || ""}
+                  title={planningDoc.title || ""}
                 >
                   <Icon name="file-document-outline" />
-                  {getLatestPlanningDoc().title
-                    ? getLatestPlanningDoc().title
-                    : "Document Name"}
+                  {planningDoc.title ? planningDoc.title : "Document Name"}
                 </a>
-                {hasAccess(project) && !project.archived && (
+                {hasAccess && !project.archived && (
                   <IconButton
                     name="circle-edit-outline"
                     size="main"
                     className="btn-edit"
-                    onClick={() =>
-                      onManagePlan(project, getLatestPlanningDoc())
-                    }
+                    onClick={() => onManagePlan(project, planningDoc)}
                   />
                 )}
               </div>
@@ -125,7 +137,7 @@ const Planning = () => {
             <div className="section-title">
               <span>Timeline</span>
 
-              {hasAccess(project) &&
+              {hasAccess &&
                 ((!project.archived && !project.start_date) ||
                   !project.deadline) && (
                   <a
@@ -145,7 +157,7 @@ const Planning = () => {
                 <div>-</div>
                 <div>{moment(project.deadline).format("Do MMM YYYY")}</div>
 
-                {hasAccess(project) && !project.archived && (
+                {hasAccess && !project.archived && (
                   <IconButton
                     name="circle-edit-outline"
                     size="main"
@@ -165,7 +177,7 @@ const Planning = () => {
             <div className="section-title">
               <span>Milestones</span>
 
-              {hasAccess(project) && !project.archived && (
+              {hasAccess && !project.archived && (
                 <a
                   href="#"
                   className="add-btn"
@@ -199,7 +211,7 @@ const Planning = () => {
                           <span>
                             {moment(milestone.due_at).format("Do MMM YYYY")}
                           </span>
-                          {hasAccess(project) && !project.archived && (
+                          {hasAccess && !project.archived && (
                             <IconButton
                               name="circle-edit-outline"
                               size="main"

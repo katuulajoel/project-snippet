@@ -77,12 +77,12 @@ export function isProjectClient(project) {
 
 export function hasProjectAccess(project) {
   let allowedUserIds = [];
-  ["user", "owner", "pm"].forEach((key) => {
-    if (project[key]) {
+  ["user", "owner", "cm"].forEach((key) => {
+    if (project && project[key]) {
       allowedUserIds.push(project[key].id);
     }
   });
-  if (project.participation) {
+  if (project?.participation) {
     project.participation.forEach((item) => {
       if (item.status === "accepted" && item.user) {
         allowedUserIds.push(item.user.id);

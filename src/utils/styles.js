@@ -7,7 +7,7 @@ import { Table } from "react-bootstrap";
 import DateTimePicker from "../components/DateTimePicker";
 
 export const StyledDateTimePicker = styled(DateTimePicker)`
-  &.tg-date-field {
+  /* &.tg-date-field {
     display: inline-block;
     border: 1px solid rgba(194, 204, 217, 0.25);
     box-shadow: initial;
@@ -38,7 +38,7 @@ export const StyledDateTimePicker = styled(DateTimePicker)`
         font-size: 16px;
       }
     }
-  }
+  } */
 `;
 
 export const StyledForm = styled.form`
@@ -53,13 +53,20 @@ export const StyledForm = styled.form`
     }
   }
 
+  label {
+    color: #151a30;
+    margin-bottom: 0.5rem;
+  }
+
   .form-group {
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
+    margin-bottom: 14px;
 
     label {
       color: #151a30;
+      margin-bottom: 0.5rem;
     }
 
     input,

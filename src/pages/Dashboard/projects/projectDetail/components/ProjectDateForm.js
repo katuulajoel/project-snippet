@@ -61,7 +61,7 @@ const ProjectDateForm = (props) => {
           <span className="label-style">*</span>
         </LabelStyle>
       </label>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", gap: "14px" }}>
         <FormGroup>
           {errors.start_error && <FieldError message={errors.start_error} />}
           <StyledDateTimePicker

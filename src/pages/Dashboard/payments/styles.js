@@ -295,9 +295,9 @@ export const StyledForm = styled.form`
       }
     }
 
-    .tg-date-field {
+    /* .tg-date-field {
       margin-bottom: 0px;
-    }
+    } */
 
     &.footer {
       float: right;

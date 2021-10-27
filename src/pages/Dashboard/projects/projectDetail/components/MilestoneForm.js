@@ -17,12 +17,9 @@ import FieldError from "../../../../../components/FieldError";
 import { StyledDateTimePicker, StyledForm } from "../../../../../utils/styles";
 
 const MilestoneForm = (props) => {
-  const { milestone: milestoneData, proceed, id } = props;
+  const { milestone: prevMilestone, proceed, id } = props;
 
-  const [milestone, setMilestone] = useState({
-    ...milestoneData,
-    due_at: milestoneData.due_at ? new Date(milestoneData.due_at) : null,
-  });
+  const [milestone, setMilestone] = useState(prevMilestone);
   const [errors, setErrors] = useState({ deadline: null });
 
   const onChangeValue = (key, value) => {
@@ -37,7 +34,7 @@ const MilestoneForm = (props) => {
 
   useEffect(() => {
     if (milestone.due_at && milestone.due_at === "Invalid date") {
-      setMilestone({ ...milestone, due_at: "" });
+      setMilestone({ ...milestone, due_at: null });
     }
   }, [milestone]);
 
@@ -78,10 +75,9 @@ const MilestoneForm = (props) => {
           className="tg-date-field"
           placeholder="Enter Deadline"
           format={"DD MMM YYYY"}
-          calendar={true}
-          time={false}
+          includeTime={false}
           min={new Date()}
-          value={milestone.due_at}
+          value={milestone.due_at ? new Date(milestone.due_at) : null}
           onChange={(date) => {
             onChangeValue("due_at", moment.utc(date).format());
           }}

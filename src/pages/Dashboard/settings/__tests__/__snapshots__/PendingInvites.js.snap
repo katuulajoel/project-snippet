@@ -29,7 +29,7 @@ exports[`PendingInvites test PendingInvites component snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="sc-eCApnc hGEZDR"
+      class="sc-jSFjdj bCLeQw"
     >
       <div
         class="filter-links"
@@ -60,7 +60,7 @@ exports[`PendingInvites test PendingInvites component snapshot 1`] = `
       style="height: auto; overflow: auto;"
     >
       <div
-        class="sc-hKFxyN sc-jSFjdj eHYxOi gBkOUI"
+        class="sc-eCApnc sc-gKAaRy lwnPK flzgFA"
       >
         <div
           class="undefined undefined"
