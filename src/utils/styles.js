@@ -3,12 +3,6 @@
 /* -------------------------------------------------------------------------- */
 import styled from "styled-components";
 import { Table } from "react-bootstrap";
-/* -------------------------- Internel Dependencies ------------------------- */
-import DateTimePicker from "../components/DateTimePicker";
-
-export const StyledDateTimePicker = styled(DateTimePicker)`
-  
-`;
 
 export const StyledForm = styled.form`
   .tag-input {

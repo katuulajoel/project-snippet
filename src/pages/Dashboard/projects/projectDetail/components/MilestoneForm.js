@@ -11,10 +11,10 @@ import styled from "styled-components";
 import Input from "../../../../../components/Input";
 import TextArea from "../../../../../components/TextArea";
 import FieldError from "../../../../../components/FieldError";
+import DateTimePicker from "../../../../../components/DateTimePicker";
 
 /* --------------------------- Style dependencies --------------------------- */
-
-import { StyledDateTimePicker, StyledForm } from "../../../../../utils/styles";
+import { StyledForm } from "../../../../../utils/styles";
 
 const MilestoneForm = (props) => {
   const { milestone: prevMilestone, proceed, id } = props;
@@ -71,7 +71,7 @@ const MilestoneForm = (props) => {
             <span className="label-style">*</span>
           </LabelStyle>
         </label>
-        <StyledDateTimePicker
+        <DateTimePicker
           className="tg-date-field"
           placeholder="Enter Deadline"
           format={"DD MMM YYYY"}

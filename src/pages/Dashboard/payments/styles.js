@@ -295,7 +295,6 @@ export const StyledForm = styled.form`
       }
     }
 
-
     &.footer {
       float: right;
       margin-top: 45px;

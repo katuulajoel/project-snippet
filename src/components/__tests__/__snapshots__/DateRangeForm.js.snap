@@ -2,7 +2,7 @@
 
 exports[`Auth layout test Snapshot test for NavBar component 1`] = `
 <form
-  className="sc-hKFxyN sc-gKAaRy kdKmpq hNcUMV"
+  className="sc-gtsrHT sc-jSFjdj jKtEre dJWzYt"
   onSubmit={[Function]}
 >
   <div
@@ -23,7 +23,7 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
     >
       <div
         calendar={true}
-        className="sc-gtsrHT cNjeZY sc-dlnjwi dtSAJM tg-date-field rw-date-picker rw-widget"
+        className="sc-eCApnc fwprEY tg-date-field rw-date-picker rw-widget"
         data-intent="mouse"
         format="DD MMM YYYY"
         onBlur={[Function]}
@@ -72,7 +72,7 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
     >
       <div
         calendar={true}
-        className="sc-gtsrHT cNjeZY sc-dlnjwi dtSAJM tg-date-field rw-date-picker rw-widget"
+        className="sc-eCApnc fwprEY tg-date-field rw-date-picker rw-widget"
         data-intent="mouse"
         format="DD MMM YYYY"
         onBlur={[Function]}
