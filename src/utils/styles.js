@@ -7,38 +7,7 @@ import { Table } from "react-bootstrap";
 import DateTimePicker from "../components/DateTimePicker";
 
 export const StyledDateTimePicker = styled(DateTimePicker)`
-  /* &.tg-date-field {
-    display: inline-block;
-    border: 1px solid rgba(194, 204, 217, 0.25);
-    box-shadow: initial;
-    box-shadow: initial;
-    width: 100%;
-    margin-bottom: 24px;
-
-    .rw-input {
-      background-color: #fff;
-      font-size: 16px;
-      color: #3e4857;
-      border-left: 1px solid rgba(194, 204, 217, 0.5);
-      border-bottom: 1px solid rgba(194, 204, 217, 0.5);
-      border-top: 1px solid rgba(194, 204, 217, 0.5);
-      box-shadow: none;
-    }
-
-    .rw-select {
-      background-color: #fff;
-      border-left: none;
-      border-right: 1px solid rgba(194, 204, 217, 0.5);
-      border-top: 1px solid rgba(194, 204, 217, 0.5);
-      border-bottom: 1px solid rgba(194, 204, 217, 0.5);
-      width: 2.9em;
-      button.rw-btn {
-        color: #8f9bb3;
-        width: 2.6em;
-        font-size: 16px;
-      }
-    }
-  } */
+  
 `;
 
 export const StyledForm = styled.form`
