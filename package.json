@@ -50,7 +50,7 @@
     "react-scripts": "4.0.3",
     "react-table": "^7.7.0",
     "react-test-renderer": "^17.0.2",
-    "react-widgets": "^5.2.0",
+    "react-widgets": "^5.4.0",
     "react-widgets-moment": "^5.0.7",
     "reactstrap": "^8.9.0",
     "redux": "^4.1.0",

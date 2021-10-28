@@ -5,7 +5,8 @@ import moment from "moment";
 import styled from "styled-components";
 
 import FieldError from "./FieldError";
-import { StyledDateTimePicker, StyledForm } from "../utils/styles";
+import { StyledForm } from "../utils/styles";
+import DateTimePicker from "../components/DateTimePicker";
 
 const DateRangeForm = (props) => {
   const {
@@ -61,7 +62,7 @@ const DateRangeForm = (props) => {
       <div>
         <FormGroup>
           {startError && <FieldError message={startError} />}
-          <StyledDateTimePicker
+          <DateTimePicker
             id="start-date"
             className="tg-date-field"
             placeholder="From"
@@ -78,7 +79,7 @@ const DateRangeForm = (props) => {
         </FormGroup>
         <FormGroup>
           {endError && <FieldError message={endError} />}
-          <StyledDateTimePicker
+          <DateTimePicker
             id="end-date"
             className="tg-date-field"
             placeholder="To"
@@ -106,6 +107,7 @@ const DateRangeStyledForm = styled(StyledForm)`
   > div {
     display: flex;
     justify-content: space-between;
+    gap: 14px;
 
     > span {
       padding: 10px 16px;
