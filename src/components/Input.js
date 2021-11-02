@@ -139,11 +139,9 @@ const InputContainer = styled.div`
       justify-content: center;
       display: flex;
       margin-right: 2px;
-      // float: right;
       cursor: pointer;
       background: white;
       border: none;
-      // margin-top: -2.7rem;
       border: none;
       right: 0;
       position: absolute;
