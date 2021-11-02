@@ -15,7 +15,6 @@ const ModelHeaderProptypes = {
 };
 
 export const ModalHeader = ({ dismiss, style, options = {} }) => {
-  console.log("options", options);
   return (
     <StyledModalHeader style={style}>
       {options.title ? <h3>{options.title}</h3> : null}
