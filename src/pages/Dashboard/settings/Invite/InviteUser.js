@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TabBar from "./tabBar";
+import InviteContainer from "./InviteContainer";
 import { ContentSection } from "../../../../utils/styles";
 import Input from "../../../../components/Input";
 import { isAdmin } from "../../../../utils/auth";
@@ -35,9 +35,8 @@ const InviteUser = () => {
   };
 
   return (
-    <>
-      <TabBar />
-      <ContentSection>
+    <InviteContainer>
+      <ContentSection style={{ paddingTop: "0" }}>
         <form onSubmit={onSave}>
           <Label name="Email Address">
             <Input
@@ -112,7 +111,7 @@ const InviteUser = () => {
           </div>
         </form>
       </ContentSection>
-    </>
+    </InviteContainer>
   );
 };
 
