@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabBar comp test TabBar component snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="sc-bdnxRM gOFDIS"
+      style="margin-bottom: 0px;"
+    >
+      <div
+        class="filter-links"
+      >
+        <a
+          href="/settings/invite"
+        >
+          INVITE USERS
+        </a>
+        <a
+          href="/settings/invite/create"
+        >
+          CREATE CLIENT
+        </a>
+        <a
+          href="/settings/invite/pending"
+        >
+          View pending invites
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
