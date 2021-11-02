@@ -243,7 +243,6 @@ export const getPaymentsFilters = (filter) => {
 export function generateInvoice(invoiceId) {
   openConfirm({
     message: "Are you sure you want to generate an invoice for this payment?",
-    // title: <Header />,
   }).then(() => {
     store.dispatch(generateInvoiceAction(invoiceId));
   });
