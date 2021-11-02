@@ -57,7 +57,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     </span>
                   </label>
                   <div
-                    className="sc-hKFxyN dECJHo"
+                    className="sc-hKFxyN fpRpug"
                     data-testid="input"
                   >
                     <input
@@ -89,7 +89,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                         </span>
                       </label>
                       <div
-                        className="sc-hKFxyN dECJHo"
+                        className="sc-hKFxyN fpRpug"
                         data-testid="input"
                       >
                         <input
@@ -120,7 +120,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                         </span>
                       </label>
                       <div
-                        className="sc-hKFxyN dECJHo"
+                        className="sc-hKFxyN fpRpug"
                         data-testid="input"
                       >
                         <input
@@ -148,7 +148,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                       </span>
                     </label>
                     <div
-                      className="sc-hKFxyN dECJHo"
+                      className="sc-hKFxyN fpRpug"
                       data-testid="input"
                     >
                       <input
@@ -175,7 +175,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     </span>
                   </label>
                   <div
-                    className="sc-hKFxyN dECJHo"
+                    className="sc-hKFxyN fpRpug"
                     data-testid="input"
                   >
                     <button
@@ -219,7 +219,7 @@ exports[`Sign up tests Should match snapshot test 1`] = `
                     </span>
                   </label>
                   <div
-                    className="sc-hKFxyN dECJHo"
+                    className="sc-hKFxyN fpRpug"
                     data-testid="input"
                   >
                     <button

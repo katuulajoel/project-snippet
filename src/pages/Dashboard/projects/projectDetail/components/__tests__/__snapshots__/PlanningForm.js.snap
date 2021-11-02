@@ -9,7 +9,7 @@ exports[`Project Planning test Should match snapshot test 1`] = `
     className="form-group"
   >
     <div
-      className="sc-bdnxRM bvISXd"
+      className="sc-bdnxRM iEBWwR"
       data-testid="input"
     >
       <input
@@ -29,7 +29,7 @@ exports[`Project Planning test Should match snapshot test 1`] = `
     className="form-group"
   >
     <div
-      className="sc-bdnxRM bvISXd"
+      className="sc-bdnxRM iEBWwR"
       data-testid="input"
     >
       <input

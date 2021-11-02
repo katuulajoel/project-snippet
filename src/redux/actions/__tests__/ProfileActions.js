@@ -2,6 +2,7 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import axios from "axios";
 import * as actions from "../ProfileActions";
+import { SET_USER_SETTINGS } from "../../../configs/constants/ActionTypes";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -36,10 +37,8 @@ describe("Profile actions tests", () => {
     axios.get.mockReturnValue(Promise.resolve({ data: {} }));
     const expectedActions = [
       {
-        type: "SET_USER_PROFILE",
-        data: {
-          settings: {},
-        },
+        type: SET_USER_SETTINGS,
+        data: {},
       },
     ];
 
@@ -52,10 +51,8 @@ describe("Profile actions tests", () => {
     axios.patch.mockReturnValue(Promise.resolve({ data: {} }));
     const expectedActions = [
       {
-        type: "SET_USER_PROFILE",
-        data: {
-          settings: {},
-        },
+        type: SET_USER_SETTINGS,
+        data: {},
       },
     ];
 
