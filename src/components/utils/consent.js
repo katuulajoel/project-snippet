@@ -5,13 +5,15 @@ import moment from "moment";
 import Cookies from "js-cookie";
 
 export const COOKIE_OPTIONS = [
-  [
-    "essential",
-    "Essential Website Cookies",
-    "These cookies are strictly necessary to provide you with services available through our website and to use some of its features, such as logging in, filling forms and setting your privacy settings. Because these cookies are strictly necessary to deliver the website, you cannot refuse them without impacting how our website functions.",
-    true,
-    true,
-    [
+  {
+    id: "essential",
+    name: "",
+    title: "Essential Website Cookies",
+    content:
+      "These cookies are strictly necessary to provide you with services available through our website and to use some of its features, such as logging in, filling forms and setting your privacy settings. Because these cookies are strictly necessary to deliver the website, you cannot refuse them without impacting how our website functions.",
+    defaultChecked: true,
+    disabled: true,
+    list: [
       [
         "Tunga",
         "https://tunga.io",
@@ -31,14 +33,16 @@ export const COOKIE_OPTIONS = [
         ["_dc_gtm_UA-70644715-1"],
       ],
     ],
-  ],
-  [
-    "perf_func",
-    "Performance and Functionality Cookies",
-    "These cookies are used to enhance the performance and functionality of our websites but are non-essential to their use. However, without these cookies, certain functionality may become unavailable.",
-    true,
-    false,
-    [
+  },
+  {
+    id: "perf_func",
+    name: "cookie_performance_functionality",
+    title: "Performance and Functionality Cookies",
+    content:
+      "These cookies are used to enhance the performance and functionality of our websites but are non-essential to their use. However, without these cookies, certain functionality may become unavailable.",
+    defaultChecked: true,
+    disabled: false,
+    list: [
       [
         "Tunga",
         "https://tunga.io",
@@ -46,14 +50,16 @@ export const COOKIE_OPTIONS = [
         ["chatAutoOpenAt"],
       ],
     ],
-  ],
-  [
-    "analytics_custom",
-    "Analytics and Customization Cookies",
-    "These cookies collect information that is used either in aggregate form to help us understand how our website is being used or how effective our marketing campaigns are, or to help us customize our website for you in order to enhance your experience.",
-    true,
-    false,
-    [
+  },
+  {
+    id: "analytics_custom",
+    name: "cookie_analytics_customization",
+    title: "Analytics and Customization Cookies",
+    content:
+      "These cookies collect information that is used either in aggregate form to help us understand how our website is being used or how effective our marketing campaigns are, or to help us customize our website for you in order to enhance your experience.",
+    defaultChecked: true,
+    disabled: false,
+    list: [
       [
         "Google Analytics",
         "https://analytics.google.com/analytics/web/",
@@ -73,14 +79,16 @@ export const COOKIE_OPTIONS = [
         ["optimizelyDomainTestCookie", "optimizelyEndUserId"],
       ],
     ],
-  ],
-  [
-    "target_advert",
-    "Targeting and Advertising Cookies",
-    "These cookies are used to make advertising messages more relevant to you and your interests. They also perform functions like preventing the same ad from continuously reappearing, ensuring that ads are properly displayed, and in some cases selecting advertisements that are based on your interests.",
-    true,
-    false,
-  ],
+  },
+  {
+    id: "target_advert",
+    name: "cookie_analytics_customization",
+    title: "Targeting and Advertising Cookies",
+    content:
+      "These cookies are used to make advertising messages more relevant to you and your interests. They also perform functions like preventing the same ad from continuously reappearing, ensuring that ads are properly displayed, and in some cases selecting advertisements that are based on your interests.",
+    defaultChecked: true,
+    disabled: false,
+  },
 ];
 
 export function setCookieConsent(consentDetails) {
