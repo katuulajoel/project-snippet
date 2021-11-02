@@ -9,6 +9,9 @@ import { isAdmin } from "../../../../utils/auth";
 const TabBar = () => {
   return (
     <SectionNav
+      style={{
+        marginBottom: "0px",
+      }}
       links={[
         ...(isAdmin
           ? [
