@@ -164,7 +164,8 @@ const NavActions = withTheme(styled.div`
   display: flex;
 
   a {
-    align-self: center;
+    display: inline-flex;
+    align-items: center;
     color: ${(props) => props.theme.colors["gray"] || "initial"};
     font-weight: 500;
     font-size: ${(props) =>

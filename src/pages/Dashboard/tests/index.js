@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { toggleRightNav } from "../../../redux/actions/UtilityActions";
 import DashboardLayout from "../../../layouts/DashboardLayout";
 import TestsContainer from "./TestContainer";
-// import "../../../assets/scss/tunga.scss";
 
 const TestsPage = () => {
   const testResults = useSelector((state) => state.TestResults);
