@@ -1,6 +1,6 @@
 import React from "react";
 // import { useDispatch, useSelector } from "react-redux";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import DashboardLayout from "../../../layouts/DashboardLayout";
 import Account from "./account/Account";
 import CreateUser from "./Invite/CreateUser";
@@ -10,9 +10,15 @@ import Payment from "./Payment";
 import Privacy from "./Privacy";
 
 export default function Settings() {
+  const hs = useLocation();
+  console.log("LOCATION", hs);
   return (
     <DashboardLayout>
-      <div className={`content-card settings-card settings-container clearfix`}>
+      <div
+        className={`content-card settings-card settings-container clearfix ${
+          hs.pathname.includes("/pending") && "pending_invites"
+        }`}
+      >
         <Switch>
           <Route exact path="/settings/account" component={Account} />
           <Route exact path="/settings/payment" component={Payment} />
