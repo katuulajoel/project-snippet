@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
-import { SET_USER_PROFILE } from "../../configs/constants/ActionTypes";
+import { SET_USER_SETTINGS } from "../../configs/constants/ActionTypes";
 import { success } from "../../utils/actions";
 import {
   ENDPOINT_ACCOUNT_INFO,
@@ -18,28 +18,28 @@ export function getSettings() {
     axios
       .get(ENDPOINT_USER_INFO)
       .then(function (res) {
-        dispatch(success(SET_USER_PROFILE, { settings: { ...res.data } }));
+        dispatch(success(SET_USER_SETTINGS, { ...res.data }));
       })
       .catch(function () {});
   };
 }
 
-export function updateSettings() {
+export function updateSettings(data) {
   return (dispatch) => {
     axios
-      .patch(ENDPOINT_USER_INFO)
+      .patch(ENDPOINT_USER_INFO, data)
       .then(function (res) {
-        dispatch(success(SET_USER_PROFILE, { settings: { ...res.data } }));
+        dispatch(success(SET_USER_SETTINGS, { ...res.data }));
       })
       .catch(function () {});
   };
 }
 
 export function updateAuthUser(user) {
-  // No password required and can update all user fields
   return (dispatch) => {
     var headers = {},
       data = user;
+    // TODO: Will be used once i start implement profiles
     // if (user.image) {
     //   headers["Content-Type"] = "multipart/form-data";
     //   data = composeFormData(user);
