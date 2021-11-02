@@ -1,10 +1,10 @@
 // Variables: includes Bootstrap overrides
-@import 'variables';
-@import 'functions';
-@import 'mixins';
+@import "variables";
+@import "functions";
+@import "mixins";
 
 // Bootstrap and its default variables
-@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import "../../../node_modules/bootstrap/scss/bootstrap";
 
 // Tunga styles
 html {
@@ -16,11 +16,11 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100%;
-  background-color: get-color('white');
+  background-color: get-color("white");
   word-break: break-word;
 
   &.is-dashboard {
-    background-color: get-color('light-grey');
+    background-color: get-color("light-grey");
     // Hard fix scrolling
     overflow-y: scroll !important;
     height: auto !important;
@@ -38,15 +38,15 @@ strong {
 
 // Social links
 .facebook {
-  @include brand-link(get-color('facebook'));
+  @include brand-link(get-color("facebook"));
 }
 
 .google {
-  @include brand-link(get-color('google'));
+  @include brand-link(get-color("google"));
 }
 
 .github {
-  @include brand-link(get-color('github'));
+  @include brand-link(get-color("github"));
 }
 
 // Progress
@@ -65,7 +65,7 @@ strong {
   justify-content: center;
   text-align: center;
   height: 100vh;
-  background-color: get-color('light-grey');
+  background-color: get-color("light-grey");
 
   img {
     height: 50px;
@@ -86,7 +86,7 @@ strong {
   font-size: px-to-rem(14);
   color: #062e64;
   line-height: 17px;
-  background-color: get-color('white');
+  background-color: get-color("white");
   padding: 12px;
 }
 
@@ -120,8 +120,8 @@ strong {
 // Consent
 #cookie-consent {
   font-size: px-to-rem(14);
-  color: get-color('black');
-  background-color: get-color('consent-bg');
+  color: get-color("black");
+  background-color: get-color("consent-bg");
   padding: 15px 0;
   z-index: 1050;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
@@ -130,7 +130,7 @@ strong {
   margin-left: auto;
   margin-right: auto;
 
-  background: get-color('white');
+  background: get-color("white");
 
   .learn-more {
     display: inline-block;
@@ -163,7 +163,7 @@ strong {
   }
 
   span {
-    color: get-color('pink');
+    color: get-color("pink");
     font-weight: bold;
 
     &:hover {
@@ -184,8 +184,8 @@ strong {
     }
 
     @supports (-webkit-appearance: none) or (-moz-appearance: none) {
-      input[type='checkbox'],
-      input[type='radio'] {
+      input[type="checkbox"],
+      input[type="radio"] {
         --active: #219653;
         --active-inner: #fff;
         --focus: 2px rgba(39, 94, 254, 0.3);
@@ -208,7 +208,7 @@ strong {
         transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
 
         &:after {
-          content: '';
+          content: "";
           display: block;
           left: 0;
           top: 0;
@@ -252,7 +252,7 @@ strong {
         }
       }
 
-      input[type='checkbox'] {
+      input[type="checkbox"] {
         &.switch {
           width: 30px;
           border-radius: 11px;
@@ -282,7 +282,7 @@ strong {
         }
       }
 
-      input[type='radio'] {
+      input[type="radio"] {
         border-radius: 50%;
 
         &:after {
@@ -479,7 +479,7 @@ strong {
 
       .input-group-text,
       .form-control {
-        background-color: get-color('white');
+        background-color: get-color("white");
         color: #3e4857; // TODO: add this to get-color
         padding: 0; // TODO: this is picking from somewhere else
         font-size: px-to-rem(16);
@@ -516,7 +516,7 @@ strong {
       height: px-to-rem(30);
 
       &::placeholder {
-        color: get-color('darker-grey');
+        color: get-color("darker-grey");
       }
 
       &:focus {
@@ -531,7 +531,7 @@ table {
   font-size: $font-size-sm;
 
   .table-striped tbody tr:nth-of-type(odd) {
-    background-color: get-color('lightest-grey');
+    background-color: get-color("lightest-grey");
   }
 
   &.table {
@@ -574,14 +574,14 @@ table {
     position: absolute;
     top: -2px;
     right: -2px;
-    color: get-color('green');
+    color: get-color("green");
   }
 
   .remove {
     position: absolute;
     top: -6px;
     right: -4px;
-    color: get-color('black');
+    color: get-color("black");
     height: auto;
     line-height: 1.5;
   }
@@ -618,7 +618,7 @@ table {
     font-size: 40px;
     text-align: center;
     color: $brand-color;
-    background-color: get-color('white');
+    background-color: get-color("white");
     vertical-align: middle;
 
     > i,
@@ -722,7 +722,7 @@ table {
 // Badge
 .badge {
   color: $brand-color;
-  background-color: get-color('white');
+  background-color: get-color("white");
   border: 1px $brand-color solid;
   border-radius: 50%;
 }
@@ -738,16 +738,16 @@ table {
   }
 
   input {
-    background-color: get-color('light-grey');
+    background-color: get-color("light-grey");
     height: 40px;
 
     &::placeholder {
-      color: get-color('darker-grey');
+      color: get-color("darker-grey");
     }
   }
 
   > .rw-select {
-    background-color: get-color('light-grey');
+    background-color: get-color("light-grey");
     border-width: 0;
   }
 }
@@ -763,7 +763,7 @@ table {
   }
 
   .rw-header .rw-btn-view {
-    background-color: get-color('light-grey');
+    background-color: get-color("light-grey");
   }
 
   .rw-btn {
@@ -771,7 +771,7 @@ table {
     &:focus,
     &:active {
       color: $brand-color;
-      background-color: get-color('white') !important;
+      background-color: get-color("white") !important;
       border-color: $brand-color;
     }
 
@@ -779,7 +779,7 @@ table {
     &.rw-state-selected:hover,
     &.rw-state-selected:active,
     &.rw-state-selected:focus {
-      color: get-color('white');
+      color: get-color("white");
       background-color: $brand-color !important;
       border-color: $brand-color;
     }
@@ -787,7 +787,7 @@ table {
 
   .rw-empty-cell {
     height: 36px;
-    background-color: get-color('white');
+    background-color: get-color("white");
   }
 }
 
@@ -798,7 +798,7 @@ table {
       .placeholder {
         min-height: 130px;
 
-        [class*='tg-ic'] {
+        [class*="tg-ic"] {
           font-size: 130px;
         }
       }
@@ -826,7 +826,7 @@ table {
     }
 
     &:hover {
-      border-color: get-color('blue');
+      border-color: get-color("blue");
     }
 
     > * {
@@ -859,7 +859,7 @@ table {
     padding: 5px 25px 5px 10px;
     margin-right: 10px;
     margin-bottom: 5px;
-    background-color: get-color('light-grey');
+    background-color: get-color("light-grey");
     border-radius: 6px;
 
     a {
@@ -911,14 +911,14 @@ table {
       padding: 5px 5px 5px 10px;
       margin: 5px 2px 5px 0;
       border-radius: 5px;
-      background-color: get-color('white');
+      background-color: get-color("white");
       border: 1px solid rgba(0, 0, 0, 0.125);
 
       &.dark-user-block {
         float: none;
         display: block;
-        color: get-color('white');
-        background-color: get-color('dark-grey');
+        color: get-color("white");
+        background-color: get-color("dark-grey");
         @include padding-y(px-to-rem(8.5));
         margin: 10px 0 0;
         border-radius: 2px;
@@ -960,7 +960,7 @@ table {
 
       &:hover,
       &:focus {
-        color: get-color('white');
+        color: get-color("white");
         background-color: $brand-color;
       }
     }
@@ -969,7 +969,7 @@ table {
 
 // Alerts
 .error {
-  color: get-color('red');
+  color: get-color("red");
 }
 
 .success {
@@ -978,21 +978,21 @@ table {
 
   .status-icon {
     display: block;
-    color: get-color('green');
+    color: get-color("green");
     margin-bottom: 5px;
   }
 }
 
 .green {
-  color: get-color('green');
+  color: get-color("green");
 }
 
 .orange {
-  color: get-color('orange');
+  color: get-color("orange");
 }
 
 .red {
-  color: get-color('red');
+  color: get-color("red");
 }
 
 // Modals
@@ -1251,7 +1251,7 @@ table {
       position: absolute;
       top: 20px;
       right: 20px;
-      color: get-color('black');
+      color: get-color("black");
       line-height: 1.5;
       height: auto;
       padding: 0;
@@ -1329,7 +1329,7 @@ table {
 
       .result-item {
         display: block;
-        color: get-color('black');
+        color: get-color("black");
         margin: 5px auto;
 
         &:hover,
@@ -1358,14 +1358,14 @@ table {
       line-height: px-to-rem(24);
 
       &.hover {
-        color: get-color('black');
+        color: get-color("black");
       }
     }
 
     .navbar-nav {
       > li {
         > a {
-          color: get-color('black');
+          color: get-color("black");
         }
       }
     }
@@ -1379,7 +1379,7 @@ table {
     margin: 0;
     padding: 0;
     font-size: 20px;
-    color: get-color('white'); // TODO: add this to colors
+    color: get-color("white"); // TODO: add this to colors
 
     img {
       height: 50px;
@@ -1393,7 +1393,7 @@ table {
 
     > li {
       > a {
-        color: get-color('white');
+        color: get-color("white");
         line-height: 50px;
         @include padding-x(px-to-rem(10));
 
@@ -1421,14 +1421,14 @@ table {
           > li > a,
           > li > a:hover,
           > li > a:active {
-            color: get-color('black');
+            color: get-color("black");
             @include padding-y(px-to-rem(10));
             @include padding-x(px-to-rem(14));
 
             &:hover,
             &:focus {
               color: $brand-color;
-              background-color: get-color('white');
+              background-color: get-color("white");
             }
           }
         }
@@ -1444,7 +1444,7 @@ table {
           &:hover,
           &:focus {
             text-decoration: none;
-            color: get-color('white');
+            color: get-color("white");
             background-color: $brand-color;
           }
         }
@@ -1456,16 +1456,16 @@ table {
       line-height: px-to-rem(40);
       @include padding-x(px-to-rem(20));
       color: $brand-color;
-      background-color: get-color('light-grey');
+      background-color: get-color("light-grey");
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     }
 
     .avatar-wrapper {
-      background-color: get-color('white');
+      background-color: get-color("white");
       line-height: 1;
 
       .avatar {
-        color: get-color('white');
+        color: get-color("white");
         background-color: $brand-color;
       }
     }
@@ -1485,7 +1485,7 @@ table {
   overflow-x: hidden;
   overflow-y: auto;
   /* Scrollable contents if viewport is shorter than content. */
-  background-color: get-color('dark-blue');
+  background-color: get-color("dark-blue");
   box-shadow: inset 0 -3px 3px 0 rgba(0, 0, 0, 0.5);
 
   padding-top: 0px;
@@ -1493,7 +1493,7 @@ table {
   h2 {
     font-size: px-to-rem(20);
     line-height: px-to-rem(24);
-    color: get-color('white');
+    color: get-color("white");
     margin: 24px 18px;
   }
 
@@ -1505,7 +1505,7 @@ table {
 
       a {
         display: block;
-        color: get-color('gray');
+        color: get-color("gray");
         padding: 12px 18px;
 
         &:hover,
@@ -1515,7 +1515,7 @@ table {
         }
 
         &.active {
-          color: get-color('white');
+          color: get-color("white");
           background: rgba(255, 255, 255, 0.05);
           border-radius: 6px;
         }
@@ -1543,7 +1543,7 @@ table {
   top: 73px;
   left: 0;
   right: 0;
-  background-color: get-color('white');
+  background-color: get-color("white");
   @include padding-x(px-to-rem(20));
   padding-top: px-to-rem(5);
   box-shadow: 0 2px 4px 0 rgba(204, 204, 204, 0.5);
@@ -1553,7 +1553,7 @@ table {
       display: inline-block;
       font-weight: $font-weight-normal;
       text-align: left;
-      color: get-color('black');
+      color: get-color("black");
       padding-bottom: px-to-rem(8);
       font-size: px-to-rem(16);
       margin-right: 40px;
@@ -1636,7 +1636,7 @@ table {
 }
 
 .content-card {
-  background-color: get-color('white');
+  background-color: get-color("white");
   padding: 40px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.11);
   border: solid 1px #ececec;
@@ -1663,10 +1663,10 @@ table {
 }
 
 .project-card {
-  @include card-link(get-color('black'));
+  @include card-link(get-color("black"));
   position: relative;
   height: 255px;
-  background-color: get-color('white');
+  background-color: get-color("white");
   padding: 24px;
   border: solid 1px #ececec;
   box-shadow: 0 2px 4px 0 rgba(204, 204, 204, 0.5);
@@ -1752,7 +1752,7 @@ table {
         font-weight: 500;
         font-size: px-to-rem(14);
         line-height: px-to-rem(22);
-        color: get-color('white');
+        color: get-color("white");
       }
     }
 
@@ -1760,7 +1760,7 @@ table {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      color: get-color('text-grey');
+      color: get-color("text-grey");
 
       &:hover {
         text-decoration: none;
@@ -1787,7 +1787,7 @@ table {
     margin-right: -10px;
 
     > .col,
-    > [class*='col-'] {
+    > [class*="col-"] {
       padding-right: 10px;
       padding-left: 10px;
     }
@@ -1824,7 +1824,7 @@ table {
     line-height: 1;
 
     &.negative {
-      color: get-color('red');
+      color: get-color("red");
     }
 
     .number {
@@ -1986,7 +1986,6 @@ table {
           color: #8f9bb3;
         }
       }
-
 
       .section-item-wrapper {
         border: 1px solid #edf1f7;
@@ -2219,7 +2218,7 @@ table {
   top: 0px;
   right: 0px;
   bottom: 0px;
-  background-color: get-color('white');
+  background-color: get-color("white");
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.11);
   border-left: 1px solid #edf1f7;
   transition: 0.5s;
@@ -2440,7 +2439,7 @@ table {
   }
 
   .media-body {
-    background-color: get-color('light-grey');
+    background-color: get-color("light-grey");
     border-radius: 5px;
   }
 
@@ -2450,7 +2449,7 @@ table {
 
   time,
   .time {
-    color: get-color('dark-grey');
+    color: get-color("dark-grey");
   }
 
   .sub-message,
@@ -2487,7 +2486,7 @@ table {
 }
 
 .progress-bar-success {
-  background-color: get-color('green');
+  background-color: get-color("green");
 }
 
 // Other
@@ -2548,7 +2547,7 @@ table {
 }
 
 .subtotal {
-  border-top: 1px solid get-color('black');
+  border-top: 1px solid get-color("black");
   font-weight: $font-weight-normal;
 }
 
@@ -2583,7 +2582,7 @@ textarea {
     flex-direction: column;
     justify-content: space-between;
     min-height: 50vh;
-    color: get-color('white');
+    color: get-color("white");
     /* background: get-color("dark-grey")
             url("../assets/images/showcase/welcome-header-mobile.jpg") no-repeat
             center; */
@@ -2647,7 +2646,7 @@ textarea {
   footer {
     padding: 45px 15px;
     background-color: #202020;
-    color: get-color('white');
+    color: get-color("white");
 
     s {
       .section {
@@ -2664,17 +2663,17 @@ textarea {
       padding-left: 0;
     }
 
-    [class*='tg-ic'] {
+    [class*="tg-ic"] {
       color: $brand-color;
     }
 
     a {
-      color: get-color('white');
+      color: get-color("white");
 
       &:hover,
       &:focus,
       &:active {
-        color: get-color('white');
+        color: get-color("white");
       }
     }
   }
@@ -2682,7 +2681,7 @@ textarea {
   .maintenance-page {
     header {
       padding-top: 240px;
-      background-image: url('../images/maintenance.webp');
+      background-image: url("../images/maintenance.webp");
     }
   }
 
@@ -2698,17 +2697,17 @@ textarea {
       max-width: 400px;
       margin: 0 auto 30px;
       padding: 30px;
-      color: get-color('black');
-      background-color: get-color('white');
+      color: get-color("black");
+      background-color: get-color("white");
       border-radius: 8px;
     }
 
-    form[name='signin'],
-    form[name='reset-confirm'] {
+    form[name="signin"],
+    form[name="reset-confirm"] {
       margin-top: 50px;
     }
 
-    form[name='reset-form'] {
+    form[name="reset-form"] {
       margin-top: 100px;
     }
 
@@ -2817,4 +2816,4 @@ textarea {
   }
 }
 
-@import 'breakpoints';
+@import "breakpoints";
