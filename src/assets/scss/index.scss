@@ -273,6 +273,31 @@
   }
 }
 
+.content-card > div {
+  width: 100%;
+  padding: 40px;
+  margin: auto;
+  background: white;
+}
+
+.content-card.settings-card {
+  max-width: 650px;
+  background: #fff;
+  border: 1px solid #edf1f7;
+  border-radius: 6px;
+  box-shadow: none;
+  position: relative;
+}
+
+.content-card.pending_invites {
+  padding: 0 !important;
+  max-width: 750px !important;
+}
+
+.infinite-scroll-component__outerdiv {
+  padding-top: 0 !important;
+}
+
 .save {
   box-shadow: none;
   border: none;
