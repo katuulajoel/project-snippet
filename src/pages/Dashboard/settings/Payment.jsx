@@ -18,7 +18,7 @@ const Payment = () => {
     <div>
       <PayoneerCard>
         <div>
-          {user.payoneer_status === STATUS_APPROVED ? (
+          {user.payoneer_status === STATUS_APPROVED && (
             <div className="media">
               <img src={Mark} />
               <div className="media-body ml-3">
@@ -29,53 +29,57 @@ const Payment = () => {
                 </p>
               </div>
             </div>
-          ) : user.payoneer_status === STATUS_PENDING ? (
+          )}
+
+          {user.payoneer_status === STATUS_PENDING && (
             <div>
               <Icon name="attention" size="main" className="orange" />
               <span>Your Payoneer application is still under review</span>
             </div>
-          ) : (
-            <div>
-              {user.payoneer_status === STATUS_DECLINED ? (
-                <p>
-                  <Icon name="attention" size="main" className="error" />
-                  <span>
-                    Your Payoneer application was declined, please try again
-                  </span>
-                </p>
-              ) : null}
-
-              {user.payoneer_status === STATUS_INITIATED ? (
-                <p>
-                  <Icon name="attention" size="main" className="orange" />
-                  <span>Your Payoneer application has been initiated</span>
-                </p>
-              ) : null}
-              {user.payoneer_status !== STATUS_APPROVED && (
-                <>
-                  {" "}
-                  <h4>Setup Payoneer</h4>
-                  <p>
-                    To receive payments for your work on Tunga, you need to
-                    setup Payoneer. You can do so using the button below.
-                  </p>
-                </>
-              )}
-              <a
-                href={`${ENDPOINT_PAYONEER_SIGNUP}?next_url=${encodeURIComponent(
-                  user.payoneer_signup_url
-                )}&error_url=${encodeURIComponent(
-                  `${window.location.origin}/settings/payment`
-                )}`}
-                className="btn btn-primary"
-                title="Setup Payoneer"
-              >
-                {user && user.payoneer_status === STATUS_INITIATED
-                  ? "Having trouble? Re-setup Payoneer account"
-                  : "Setup Payoneer"}
-              </a>
-            </div>
           )}
+
+          <div>
+            {user.payoneer_status === STATUS_DECLINED && (
+              <p>
+                <Icon name="attention" size="main" className="error" />
+                <span>
+                  Your Payoneer application was declined, please try again
+                </span>
+              </p>
+            )}
+
+            {user.payoneer_status === STATUS_INITIATED && (
+              <p>
+                <Icon name="attention" size="main" className="orange" />
+                <span>Your Payoneer application has been initiated</span>
+              </p>
+            )}
+
+            {user.payoneer_status !== STATUS_APPROVED && (
+              <>
+                {" "}
+                <h4>Setup Payoneer</h4>
+                <p>
+                  To receive payments for your work on Tunga, you need to setup
+                  Payoneer. You can do so using the button below.
+                </p>
+              </>
+            )}
+
+            <a
+              href={`${ENDPOINT_PAYONEER_SIGNUP}?next_url=${encodeURIComponent(
+                user.payoneer_signup_url
+              )}&error_url=${encodeURIComponent(
+                `${window.location.origin}/settings/payment`
+              )}`}
+              className="btn btn-primary"
+              title="Setup Payoneer"
+            >
+              {user && user.payoneer_status === STATUS_INITIATED
+                ? "Having trouble? Re-setup Payoneer account"
+                : "Setup Payoneer"}
+            </a>
+          </div>
         </div>
       </PayoneerCard>
     </div>
