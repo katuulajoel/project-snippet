@@ -46,9 +46,7 @@ export function updateAuthUser(user) {
     // }
     axios
       .patch(ENDPOINT_USER_INFO, data, { headers })
-      .then(function (response) {
-        console.log(response);
-      })
+      .then(function () {})
       .catch(function () {});
   };
 }
@@ -58,9 +56,7 @@ export function updateAccountInfo(user) {
   return (dispatch) => {
     axios
       .patch(`${ENDPOINT_ACCOUNT_INFO}${getUser().id}/`, user)
-      .then(function (response) {
-        console.log(response);
-      })
+      .then(function () {})
       .catch(function () {});
   };
 }
@@ -69,9 +65,7 @@ export function updatePassword(credentials) {
   return (dispatch) => {
     axios
       .post(ENDPOINT_CHANGE_PASSWORD, credentials)
-      .then(function (response) {
-        console.log(response);
-      })
+      .then(function () {})
       .catch(function () {});
   };
 }
@@ -80,9 +74,7 @@ export function deactivateAccount() {
   return (dispatch) => {
     axios
       .post(`${ENDPOINT_ACCOUNT_INFO}deactivate/`, {})
-      .then(function (response) {
-        console.log(response);
-      })
+      .then(function () {})
       .catch(function () {});
   };
 }
