@@ -194,7 +194,6 @@
       }
     }
 
-
     .section-item-wrapper {
       border: 1px solid #edf1f7;
       box-sizing: border-box;
@@ -265,9 +264,21 @@
       line-height: 1.5;
     }
   }
+}
+.save {
+  box-shadow: none;
+  border: none;
+  background: rgba(6, 46, 100, 0.05);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #062e64;
+  height: 2.5rem;
+  padding: 0.4375rem 1.25rem;
+}
 
-  .btn-icon.btn-edit {
-    height: auto;
-    line-height: 1.5;
-  }
+.privacy-settings .section {
+  margin-bottom: 20px;
 }
