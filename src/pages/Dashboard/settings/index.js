@@ -10,13 +10,12 @@ import Payment from "./Payment";
 import Privacy from "./Privacy";
 
 export default function Settings() {
-  const hs = useLocation();
-  console.log("LOCATION", hs);
+  const location = useLocation();
   return (
     <DashboardLayout>
       <div
         className={`content-card settings-card settings-container clearfix ${
-          hs.pathname.includes("/pending") && "pending_invites"
+          location.pathname.includes("/pending") && "pending_invites"
         }`}
       >
         <Switch>
