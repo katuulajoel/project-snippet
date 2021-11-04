@@ -13,13 +13,16 @@ import Button from "./Button";
 import store from "../redux/store";
 import ModalHeader from "./ModalHeader";
 
-const GenericModal = (props) => {
+const GenericModal = ({
+  show,
+  proceed,
+  dismiss,
+  cancel,
+  options = {},
+  modalContent,
+}) => {
   const [response, setResponse] = useState(null);
   const wrapperRef = useRef(null);
-
-  const { show, proceed, dismiss, cancel, options, modalContent, modalHeader } =
-    props;
-  let safe_options = options || {};
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -38,77 +41,71 @@ const GenericModal = (props) => {
       : React.cloneElement(modalContent, { proceed, dismiss, cancel });
   };
 
-  const renderModalHeader = () => {
-    return modalHeader ? (
-      React.cloneElement(modalHeader, { proceed, dismiss, cancel })
-    ) : options.title ? (
-      <ModalHeader {...props} />
-    ) : null;
-  };
-
   const handleClickOutside = (event) => {
-    let safe_options = options || {};
-    if (wrapperRef && !wrapperRef.current?.contains(event.target)) {
-      safe_options.dismissAsCancel ? cancel() : dismiss();
+    if (wrapperRef && !wrapperRef.current.contains(event.target)) {
+      options.dismissAsCancel ? cancel() : dismiss();
     }
   };
 
   return (
     <Provider store={store}>
       <Modal
-        style={safe_options.style}
+        style={options.style}
         isOpen={show}
         toggle={dismiss}
-        className={`${safe_options.size ? `modal-${safe_options.size}` : ""} ${
-          safe_options.className || ""
+        className={`${options.size ? `modal-${options.size}` : ""} ${
+          options.className || ""
         }`}
         backdrop={
-          safe_options.hideBackdrop
-            ? false
-            : safe_options.mustRespond
-            ? "static"
-            : true
+          options.hideBackdrop ? false : options.mustRespond ? "static" : true
         }
-        keyboard={!safe_options.mustRespond}
+        keyboard={!options.mustRespond}
       >
         <div ref={wrapperRef}>
-          {(!options.mustRespond || safe_options.title) && renderModalHeader()}
+          {(!options.mustRespond || options.title) && (
+            <ModalHeader
+              proceed={proceed}
+              dismiss={dismiss}
+              cancel={cancel}
+              options={options}
+            />
+          )}
           <ModalBody>
             <div>{renderModalContent()}</div>
-            {safe_options.isPrompt && (
+            {options.isPrompt && (
               <div className="form-group">
                 <textarea onChange={(e) => onResponseChange(e)} />
               </div>
             )}
           </ModalBody>
-          {!safe_options.hideActions && (
+          {!options.hideActions && (
             <StyledModalFooter>
-              {!safe_options.hideCancel && (
+              {!options.hideCancel && (
                 <Button
                   className="cancel"
                   onClick={() => cancel()}
                   variant="secondary"
                 >
-                  {safe_options.cancel || "Cancel"}
+                  {options.cancel || "Cancel"}
                 </Button>
               )}
               <Button
                 className="okay"
-                {...(safe_options.form || "")}
+                {...(options.form || "")}
                 onClick={() => {
-                  if (safe_options.isPrompt) {
+                  if (options.isPrompt) {
                     if (response) {
                       proceed(response);
                     }
                   } else {
-                    if (!safe_options.form) {
+                    if (!options.form) {
                       proceed();
                     }
                   }
                 }}
-                disabled={safe_options.isPrompt && !response}
+                disabled={options.isPrompt && !response}
               >
-                {safe_options.ok || "OK"}
+                {options.ok || "OK"}
               </Button>
             </StyledModalFooter>
           )}
@@ -154,11 +151,6 @@ GenericModal.propTypes = {
   dismiss: PropTypes.func,
   modalContent: PropTypes.any,
   options: PropTypes.object,
-  modalHeader: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.elementType,
-    PropTypes.object,
-  ]),
 };
 
 GenericModal.defaultProps = {
