@@ -22,26 +22,6 @@ const CookieSettingForm = (props) => {
     showConsentAlert: !getCookieConsentCloseAt() && !getCookieConsent(),
   });
 
-  // const onChangeConsentValue = (e, key) => {
-  //   let idx = cookie.cookieConsents.indexOf(key),
-  //     updateConsents = cookie.cookieConsents;
-  //   console.log(idx, updateConsents);
-  //   // props.onChange(e, key)
-  //   if (e.target.checked) {
-  //     if (idx === -1) {
-  //       updateConsents = [...cookie.cookieConsents, key];
-  //     }
-  //   } else if (idx > -1) {
-  //     updateConsents = [
-  //       ...cookie.cookieConsents.slice(0, idx),
-  //       ...cookie.cookieConsents.slice(idx + 1),
-  //     ];
-  //   }
-
-  //   updateConsents = Array.from(new Set(updateConsents));
-  //   setCookie({ cookieConsents: updateConsents });
-  // };
-
   const onSave = (e) => {
     e.preventDefault();
     setCookieConsent(cookie.cookieConsents);
