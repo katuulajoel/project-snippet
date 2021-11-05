@@ -82,11 +82,11 @@ describe("Privacy layout test", () => {
 
     let label = [
       {
-        name: "NEWSLETTER_EMAIL",
+        name: "newsletter_email",
         label: "Email newsletters from Tunga",
       },
       {
-        name: "EVENT_EMAIL",
+        name: "event_email",
         label: "Emails about interesting events from Tunga",
       },
     ];
@@ -105,11 +105,11 @@ describe("Privacy layout test", () => {
 
     let label = [
       {
-        name: "TASK_PROGRESS_REPORT_REMINDER_EMAIL",
+        name: "task_progress_report_reminder_email",
         label: "Email reminders about project progress updates.",
       },
       {
-        name: "TASK_INVITATION_RESPONSE_EMAIL",
+        name: "task_invitation_response_email",
         label:
           "Email notifications about task invitation responses from developers.",
       },
@@ -129,11 +129,11 @@ describe("Privacy layout test", () => {
 
     let label = [
       {
-        name: "TASK_SURVEY_REMINDER_EMAIL",
+        name: "task_survey_reminder_email",
         label: "Email reminders about client progress surveys.",
       },
       {
-        name: "NEW_TASK_PROGRESS_REPORT_EMAIL",
+        name: "new_task_progress_report_email",
         label: "Email notifications about new developer progress reports.",
       },
     ];

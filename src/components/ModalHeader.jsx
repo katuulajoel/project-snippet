@@ -14,12 +14,11 @@ const ModelHeaderProptypes = {
   options: PropTypes.object,
 };
 
-export const ModalHeader = ({ dismiss, style, options }) => {
-  let safe_options = options || {};
+export const ModalHeader = ({ dismiss, style, options = {} }) => {
   return (
     <StyledModalHeader style={style}>
-      {safe_options.title ? <h3>{safe_options.title}</h3> : null}
-      {safe_options.mustRespond ? null : (
+      {options.title ? <h3>{options.title}</h3> : null}
+      {options.mustRespond ? null : (
         <HeaderActions className="actions">
           <IconButton name="x-circle" onClick={() => dismiss()} />
         </HeaderActions>

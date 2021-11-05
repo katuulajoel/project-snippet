@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deactivate layout test Snapshot test for Deactivate component 1`] = `
+<DocumentFragment>
+  <form
+    aria-label="deactivate-form"
+    id="deactivate"
+  >
+    <div
+      class="header"
+    >
+      Deactivate account
+    </div>
+    <div>
+      <button
+        class="btn btn-default save  "
+        type="submit"
+      >
+        Deactivate my account
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;

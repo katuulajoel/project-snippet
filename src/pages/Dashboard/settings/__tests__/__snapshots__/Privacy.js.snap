@@ -62,14 +62,14 @@ exports[`Privacy layout test Privacy component snapshot 1`] = `
         >
           <label
             class="form-check-label"
-            for="check-NEWSLETTER_EMAIL"
+            for="check-newsletter_email"
           >
             Email newsletters from Tunga
           </label>
           <input
-            aria-label="check-NEWSLETTER_EMAIL"
+            aria-label="check-newsletter_email"
             class="switch form-check-input"
-            id="check-NEWSLETTER_EMAIL"
+            id="check-newsletter_email"
             type="checkbox"
             value="on"
           />
@@ -79,14 +79,14 @@ exports[`Privacy layout test Privacy component snapshot 1`] = `
         >
           <label
             class="form-check-label"
-            for="check-EVENT_EMAIL"
+            for="check-event_email"
           >
             Emails about interesting events from Tunga
           </label>
           <input
-            aria-label="check-EVENT_EMAIL"
+            aria-label="check-event_email"
             class="switch form-check-input"
-            id="check-EVENT_EMAIL"
+            id="check-event_email"
             type="checkbox"
             value="on"
           />
@@ -105,14 +105,14 @@ exports[`Privacy layout test Privacy component snapshot 1`] = `
         >
           <label
             class="form-check-label"
-            for="check-TASK_PROGRESS_REPORT_REMINDER_EMAIL"
+            for="check-task_progress_report_reminder_email"
           >
             Email reminders about project progress updates.
           </label>
           <input
-            aria-label="check-TASK_PROGRESS_REPORT_REMINDER_EMAIL"
+            aria-label="check-task_progress_report_reminder_email"
             class="switch form-check-input"
-            id="check-TASK_PROGRESS_REPORT_REMINDER_EMAIL"
+            id="check-task_progress_report_reminder_email"
             type="checkbox"
             value="on"
           />
@@ -122,14 +122,14 @@ exports[`Privacy layout test Privacy component snapshot 1`] = `
         >
           <label
             class="form-check-label"
-            for="check-TASK_INVITATION_RESPONSE_EMAIL"
+            for="check-task_invitation_response_email"
           >
             Email notifications about task invitation responses from developers.
           </label>
           <input
-            aria-label="check-TASK_INVITATION_RESPONSE_EMAIL"
+            aria-label="check-task_invitation_response_email"
             class="switch form-check-input"
-            id="check-TASK_INVITATION_RESPONSE_EMAIL"
+            id="check-task_invitation_response_email"
             type="checkbox"
             value="on"
           />

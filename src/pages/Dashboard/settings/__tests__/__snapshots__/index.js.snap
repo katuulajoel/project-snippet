@@ -33,7 +33,7 @@ exports[`Settings index comp test Settings index component snapshot 1`] = `
               </span>
             </span>
             <div
-              class="sc-bdnxRM lboORq"
+              class="sc-bdnxRM iEBWwR"
               data-testid="input"
             >
               <input
@@ -173,7 +173,7 @@ exports[`Settings index comp test Settings index component snapshot 1`] = `
     class="sc-jrsJWt itdHgX"
   >
     <div
-      class="content-card settings-card settings-container clearfix"
+      class="content-card settings-card settings-container clearfix false"
     />
   </div>
 </DocumentFragment>

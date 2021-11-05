@@ -2,7 +2,7 @@
 
 exports[`SearchBox Results test Snapshot test for search results component 1`] = `
 <div
-  className="sc-bdnxRM igYzrV"
+  className="sc-bdnxRM bngALE"
 >
   <div
     className="results"

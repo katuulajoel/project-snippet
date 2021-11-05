@@ -2,21 +2,20 @@ import React from "react";
 import { Provider } from "react-redux";
 import { cleanup, render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import TabBar from "../Invite/tabBar";
+import AddAdminEmail from "../account/AddAdminEmail";
 import store from "../../../../redux/store";
 
 afterEach(cleanup);
-
-describe("TabBar comp test", () => {
-  it("TabBar component snapshot", () => {
+describe("AddAdminEmail layout test", () => {
+  it("Snapshot test for AddAdminEmail component", () => {
     const { asFragment } = render(
       <Provider store={store}>
         <Router>
-          <TabBar />
+          <AddAdminEmail />
         </Router>
       </Provider>
     );
 
-    expect(asFragment(<TabBar />)).toMatchSnapshot();
+    expect(asFragment(<AddAdminEmail />)).toMatchSnapshot();
   });
 });

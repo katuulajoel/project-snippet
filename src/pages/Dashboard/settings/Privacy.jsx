@@ -3,21 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 // import Button from "../../../components/Button";
 import CookieSettingForm from "./modals/CookieSettingForm";
-import { createModal } from "../../../utils/modals";
+import { openModal } from "../../../utils/modals";
 import * as actions from "../../../redux/actions/ProfileActions";
 
 export default function Privacy() {
   const dispatch = useDispatch();
   const { settings } = useSelector(({ profile }) => profile);
   const { user } = useSelector(({ Auth }) => Auth);
-  // const { settings } = user;
 
   useEffect(() => {
     actions.getSettings()(dispatch);
   }, []);
 
   const onCookieSettings = async () => {
-    await createModal("Cookie Settings", <CookieSettingForm />);
+    await openModal({
+      body: <CookieSettingForm onChange={onChange} settings={settings} />,
+      title: "Cookie Settings",
+    });
   };
 
   const onChange = (name, value) => {
@@ -25,7 +27,7 @@ export default function Privacy() {
     setting[name] = value;
 
     if (settings && settings.switches[name] !== value) {
-      actions.updateSettings({ switches: setting });
+      actions.updateSettings({ switches: setting })(dispatch);
     }
   };
 
@@ -33,11 +35,11 @@ export default function Privacy() {
     if (user.is_developer || user.is_project_manager) {
       return [
         {
-          name: "TASK_PROGRESS_REPORT_REMINDER_EMAIL",
+          name: "task_progress_report_reminder_email",
           label: "Email reminders about project progress updates.",
         },
         {
-          name: "TASK_INVITATION_RESPONSE_EMAIL",
+          name: "task_invitation_response_email",
           label:
             "Email notifications about task invitation responses from developers.",
         },
@@ -45,11 +47,11 @@ export default function Privacy() {
     } else {
       return [
         {
-          name: "TASK_SURVEY_REMINDER_EMAIL",
+          name: "task_survey_reminder_email",
           label: "Email reminders about client progress surveys.",
         },
         {
-          name: "NEW_TASK_PROGRESS_REPORT_EMAIL",
+          name: "new_task_progress_report_email",
           label: "Email notifications about new developer progress reports.",
         },
       ];
@@ -59,11 +61,11 @@ export default function Privacy() {
   const labels = {
     promo: [
       {
-        name: "NEWSLETTER_EMAIL",
+        name: "newsletter_email",
         label: "Email newsletters from Tunga",
       },
       {
-        name: "EVENT_EMAIL",
+        name: "event_email",
         label: "Emails about interesting events from Tunga",
       },
     ],
@@ -157,7 +159,7 @@ export default function Privacy() {
                   }
                   type="checkbox"
                   aria-label={`check-${label.name}`}
-                  checked={settings && settings.switches[label.name]}
+                  defaultChecked={settings && settings.switches[label.name]}
                   onChange={(e) => onChange(label.name, e.target.value)}
                 />
               </div>
