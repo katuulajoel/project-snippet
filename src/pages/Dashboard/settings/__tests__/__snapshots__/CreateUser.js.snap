@@ -4,7 +4,8 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="sc-hKFxyN gDVNEN"
+      class="sc-hKFxyN UFHeH"
+      style="margin-bottom: 0px;"
     >
       <div
         class="filter-links"
@@ -29,6 +30,7 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
   </div>
   <div
     class="sc-dlnjwi bVmqia"
+    style="padding-top: 0px;"
   >
     <form>
       <div
