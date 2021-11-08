@@ -3,10 +3,13 @@ import { useSelector } from "react-redux";
 import { ENDPOINT_PAYONEER_SIGNUP } from "../../../utils/api";
 // import { STATUS_INITIATED } from "../../../configs/constants/ActionTypes";
 import styled from "styled-components";
-// export const STATUS_APPROVED = "approved";
-// export const STATUS_DECLINED = "declined";
-export const STATUS_INITIATED = "initiated";
-// export const STATUS_PENDING = "pending";
+import Icon from "../../../components/Icon";
+import Mark from "../../../assets/images/icons/success.svg";
+
+const STATUS_APPROVED = "approved";
+const STATUS_DECLINED = "declined";
+const STATUS_INITIATED = "initiated";
+const STATUS_PENDING = "pending";
 
 const Payment = () => {
   const { user } = useSelector(({ Auth }) => Auth);
@@ -15,26 +18,68 @@ const Payment = () => {
     <div>
       <PayoneerCard>
         <div>
-          <h4>Payoneer</h4>
-          <p>
-            To receive payments for your work on Tunga, you need to setup
-            Payoneer. You can do so using the button below.
-          </p>
-          <h5>Status: {user.payoneer_status || ""}</h5>
+          {user.payoneer_status === STATUS_APPROVED && (
+            <div className="media">
+              <img src={Mark} />
+              <div className="media-body ml-3">
+                <h4>Setup Complete</h4>
+                <p style={{ margin: 0 }}>
+                  Payoneer is setup correctly. You are ready to receive
+                  payments.
+                </p>
+              </div>
+            </div>
+          )}
 
-          <a
-            href={`${ENDPOINT_PAYONEER_SIGNUP}?next_url=${encodeURIComponent(
-              user.payoneer_signup_url
-            )}&error_url=${encodeURIComponent(
-              `${window.location.origin}/settings/payment`
-            )}`}
-            className="btn btn-primary"
-            title="Setup Payoneer"
-          >
-            {user && user.payoneer_status === STATUS_INITIATED
-              ? "Having trouble? Re-setup Payoneer account"
-              : "Setup Payoneer"}
-          </a>
+          {user.payoneer_status === STATUS_PENDING && (
+            <div>
+              <Icon name="attention" size="main" className="orange" />
+              <span>Your Payoneer application is still under review</span>
+            </div>
+          )}
+
+          <div>
+            {user.payoneer_status === STATUS_DECLINED && (
+              <p>
+                <Icon name="attention" size="main" className="error" />
+                <span>
+                  Your Payoneer application was declined, please try again
+                </span>
+              </p>
+            )}
+
+            {user.payoneer_status === STATUS_INITIATED && (
+              <p>
+                <Icon name="attention" size="main" className="orange" />
+                <span>Your Payoneer application has been initiated</span>
+              </p>
+            )}
+
+            {user.payoneer_status !== STATUS_APPROVED && (
+              <>
+                {" "}
+                <h4>Setup Payoneer</h4>
+                <p>
+                  To receive payments for your work on Tunga, you need to setup
+                  Payoneer. You can do so using the button below.
+                </p>
+              </>
+            )}
+
+            <a
+              href={`${ENDPOINT_PAYONEER_SIGNUP}?next_url=${encodeURIComponent(
+                user.payoneer_signup_url
+              )}&error_url=${encodeURIComponent(
+                `${window.location.origin}/settings/payment`
+              )}`}
+              className="btn btn-primary"
+              title="Setup Payoneer"
+            >
+              {user && user.payoneer_status === STATUS_INITIATED
+                ? "Having trouble? Re-setup Payoneer account"
+                : "Setup Payoneer"}
+            </a>
+          </div>
         </div>
       </PayoneerCard>
     </div>

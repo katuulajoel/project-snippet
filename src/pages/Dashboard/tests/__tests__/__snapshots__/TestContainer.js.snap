@@ -627,7 +627,7 @@ exports[`Test list container Should match snapshot test 1`] = `
   <div>
     <div>
       <div
-        class="sc-bdnxRM dNpxFo"
+        class="sc-bdnxRM gOFDIS"
       >
         <div
           class="filter-links"
@@ -662,7 +662,7 @@ exports[`Test list container Should match snapshot test 1`] = `
               </span>
             </span>
             <div
-              class="sc-gtsrHT jGBtBH"
+              class="sc-gtsrHT krXPYk"
               data-testid="input"
             >
               <input

@@ -36,12 +36,14 @@ export const ENDPOINT_EMAIL_VISITOR = getEndpointUrl("auth/visitor/");
 export const ENDPOINT_APPLY = getEndpointUrl("apply/");
 export const ENDPOINT_INVITE = getEndpointUrl("invite/");
 export const ENDPOINT_CHANGE_PASSWORD = getEndpointUrl("auth/password/change/");
-export const ENDPOINT_RESET_PASSWORD = getEndpointUrl("auth/password/reset/");
 export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl(
   "auth/password/reset/confirm/"
 );
 
 export const ENDPOINT_USER_INFO = getEndpointUrl("me/settings/");
+export const ENDPOINT_ACCOUNT_INFO = getEndpointUrl("me/account/");
+export const ENDPOINT_RESET_PASSWORD = getEndpointUrl("auth/password/reset/");
+
 export const ENDPOINT_INVOICES_SUMMARY = getEndpointUrl("invoices/summary/");
 export const ENDPOINT_INVOICES = getEndpointUrl("invoices/");
 export const ENDPOINT_PROJECTS = getEndpointUrl("projects/");
@@ -85,8 +87,8 @@ export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");
 
 export function composeFormData(data) {
   let formData = new FormData();
-  Object.keys(data).forEach(key => {
-      formData.append(key, data[key]);
+  Object.keys(data).forEach((key) => {
+    formData.append(key, data[key]);
   });
   return formData;
 }

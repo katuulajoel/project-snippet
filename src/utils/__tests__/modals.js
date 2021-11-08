@@ -8,12 +8,10 @@ describe("Modal utils tests", () => {
     const openGenericModalStub = jest.spyOn(modalUtils, "openGenericModal");
     const openConfirmStub = jest.spyOn(modalUtils, "openConfirm");
     const openModalStub = jest.spyOn(modalUtils, "openModal");
-    const openAlertStub = jest.spyOn(modalUtils, "openAlert");
 
     expect(createConfirmationStub).toBeTruthy();
     expect(openGenericModalStub).toBeTruthy();
     expect(openConfirmStub).toBeTruthy();
     expect(openModalStub).toBeTruthy();
-    expect(openAlertStub).toBeTruthy();
   });
 });

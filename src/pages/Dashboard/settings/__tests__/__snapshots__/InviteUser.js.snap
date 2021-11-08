@@ -4,7 +4,8 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="sc-bdnxRM dNpxFo"
+      class="sc-bdnxRM gOFDIS"
+      style="margin-bottom: 0px;"
     >
       <div
         class="filter-links"
@@ -29,6 +30,7 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
   </div>
   <div
     class="sc-hKFxyN eHYxOi"
+    style="padding-top: 0px;"
   >
     <form>
       <div
@@ -53,7 +55,7 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
               </span>
             </label>
             <div
-              class="sc-eCApnc gTYqBD"
+              class="sc-eCApnc jgCAUE"
               data-testid="input"
             >
               <input
@@ -94,7 +96,7 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
               </span>
             </label>
             <div
-              class="sc-eCApnc gTYqBD"
+              class="sc-eCApnc jgCAUE"
               data-testid="input"
             >
               <input
@@ -135,7 +137,7 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
               </span>
             </label>
             <div
-              class="sc-eCApnc gTYqBD"
+              class="sc-eCApnc jgCAUE"
               data-testid="input"
             >
               <input

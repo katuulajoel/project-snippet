@@ -17,6 +17,7 @@ exports[`CookieSettingForm layout test CookieSettingForm component snapshot 1`] 
         <input
           aria-label="check-essential"
           checked=""
+          disabled=""
           id="consent-essential"
           type="checkbox"
         />

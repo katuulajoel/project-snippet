@@ -17,28 +17,10 @@ import {
 } from "../../../../components/utils/consent";
 
 const CookieSettingForm = (props) => {
-  const [cookie, setCookie] = useState({
+  const [cookie] = useState({
     cookieConsents: parseDefaultConsents(),
     showConsentAlert: !getCookieConsentCloseAt() && !getCookieConsent(),
   });
-
-  const onChangeConsentValue = (e, key) => {
-    let idx = cookie.cookieConsents.indexOf(key),
-      updateConsents = cookie.cookieConsents;
-    if (e.target.checked) {
-      if (idx === -1) {
-        updateConsents = [...cookie.cookieConsents, key];
-      }
-    } else if (idx > -1) {
-      updateConsents = [
-        ...cookie.cookieConsents.slice(0, idx),
-        ...cookie.cookieConsents.slice(idx + 1),
-      ];
-    }
-
-    updateConsents = Array.from(new Set(updateConsents));
-    setCookie({ cookieConsents: updateConsents });
-  };
 
   const onSave = (e) => {
     e.preventDefault();
@@ -52,30 +34,32 @@ const CookieSettingForm = (props) => {
 
   return (
     <form id={props.id} onSubmit={onSave} className="cookie-settings">
-      {COOKIE_OPTIONS.map((category, i) => {
-        let categoryId = category[0],
-          elementId = `consent-${categoryId}`;
-        return (
-          <FormGroup key={i}>
-            <FormCheck className={category[4] ? "disabled" : ""}>
-              <span>{category[1]}</span>
-              <input
-                type="checkbox"
-                id={elementId}
-                defaultChecked={
-                  (category[3] && category[4]) ||
-                  cookie.cookieConsents.indexOf(categoryId) > -1
-                }
-                // disabled={category[4]}
-                aria-label={`check-${categoryId}`}
-                onChange={(e) => onChangeConsentValue(e, categoryId)}
-              />
-              <label htmlFor={elementId}></label>
-            </FormCheck>
-            <div style={{ paddingLeft: "30px" }}>{category[2]}</div>
-          </FormGroup>
-        );
-      })}
+      {COOKIE_OPTIONS.map(
+        ({ id, name, title, content, defaultChecked, disabled }, i) => {
+          let elementId = `consent-${id}`;
+          return (
+            <FormGroup key={i}>
+              <FormCheck className={disabled ? "disabled" : ""}>
+                <span>{title}</span>
+                <input
+                  type="checkbox"
+                  id={elementId}
+                  defaultChecked={
+                    (props.settings && props.settings[name]) ||
+                    defaultChecked ||
+                    cookie.cookieConsents.indexOf(id) > -1
+                  }
+                  disabled={disabled}
+                  aria-label={`check-${id}`}
+                  onChange={(e) => props.onChange(name, e.target.value)}
+                />
+                <label htmlFor={elementId}></label>
+              </FormCheck>
+              <div style={{ paddingLeft: "30px" }}>{content}</div>
+            </FormGroup>
+          );
+        }
+      )}
 
       <FormGroup>
         Learn more from the {"Cookies"} section of our{" "}
@@ -105,6 +89,8 @@ const CookieSettingForm = (props) => {
 CookieSettingForm.propTypes = {
   proceed: PropTypes.func,
   id: PropTypes.string,
+  onChange: PropTypes.func,
+  settings: PropTypes.object,
 };
 
 export default CookieSettingForm;

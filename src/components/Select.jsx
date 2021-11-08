@@ -4,45 +4,30 @@ import React from "react";
 import { filterEventProps } from "../utils/events";
 import { filterInputProps } from "../utils/forms";
 
-export default class Select extends React.Component {
-  static defaultProps = {
-    options: [],
-    placeholder: "-- Select --",
-    grouped: false,
-  };
+const propTypes = {
+  className: PropTypes.string,
+  options: PropTypes.array,
+  selected: PropTypes.any,
+  children: PropTypes.any,
+  onChange: PropTypes.func,
+  size: PropTypes.string,
+  placeholder: PropTypes.string,
+  grouped: PropTypes.bool,
+  required: PropTypes.bool,
+  testId: PropTypes.string,
+};
 
-  static propTypes = {
-    className: PropTypes.string,
-    options: PropTypes.array,
-    selected: PropTypes.any,
-    children: PropTypes.any,
-    onChange: PropTypes.func,
-    size: PropTypes.string,
-    placeholder: PropTypes.string,
-    grouped: PropTypes.bool,
-    required: PropTypes.bool,
-  };
+const Select = (props) => {
+  const { options = [], placeholder = "-- Select --", testId } = props;
 
-  constructor(props) {
-    super(props);
-    this.state = { selected: props.selected };
-  }
-
-  onChange(e) {
+  const onChange = (e) => {
     let choice = e.target.value;
-    this.setState({ selected: choice });
-    if (this.props.onChange) {
-      this.props.onChange(choice);
+    if (props.onChange) {
+      props.onChange(choice);
     }
-  }
+  };
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.selected !== this.props.selected) {
-      this.setState({ selected: nextProps.selected });
-    }
-  }
-
-  renderOptions(options) {
+  const renderOptions = (options) => {
     return options.map((option) => {
       const { value, name } = option;
 
@@ -56,32 +41,32 @@ export default class Select extends React.Component {
         </option>
       );
     });
-  }
+  };
 
-  render() {
-    return (
-      <div data-testid="select-component">
-        <select
-          className={`form-control ${this.props.className || ""} ${
-            this.props.size ? `form-control-${this.props.size}` : ""
-          }`}
-          {...filterInputProps(this.props)}
-          {...filterEventProps(this.props)}
-          value={this.state.selected || ""}
-          onChange={this.onChange.bind(this)}
-          required={this.props.required}
-        >
-          {this.props.placeholder ? (
-            <option key="option-placeholder" value="">
-              {this.props.placeholder}
-            </option>
-          ) : null}
+  return (
+    <div data-testid={testId ? testId : "select-component"}>
+      <select
+        className={`form-control ${props.className || ""} ${
+          props.size ? `form-control-${props.size}` : ""
+        }`}
+        {...filterInputProps(props)}
+        {...filterEventProps(props)}
+        value={props.selected || ""}
+        onChange={onChange.bind(this)}
+        required={props.required}
+      >
+        {placeholder ? (
+          <option key="option-placeholder" value="">
+            {placeholder}
+          </option>
+        ) : null}
 
-          {this.props.children
-            ? this.props.children
-            : this.renderOptions(this.props.options)}
-        </select>
-      </div>
-    );
-  }
-}
+        {props.children ? props.children : renderOptions(options)}
+      </select>
+    </div>
+  );
+};
+
+Select.propTypes = propTypes;
+
+export default Select;

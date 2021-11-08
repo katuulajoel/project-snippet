@@ -63,7 +63,7 @@ const Navbar = styled.div`
       line-height: 22px;
       letter-spacing: 0.05em;
       color: #8f9bb3;
-      margin-right: 40px;
+      margin-right: 39px;
       text-transform: uppercase;
       text-decoration: none;
 

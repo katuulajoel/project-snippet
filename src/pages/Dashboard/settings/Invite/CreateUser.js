@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { ContentSection } from "../../../../utils/styles";
 import { useDispatch } from "react-redux";
-import TabBar from "./tabBar";
+import InviteContainer from "./InviteContainer";
 import Label from "../../../../components/Label";
 import { Input } from "reactstrap";
 import CountrySelector from "../../../../components/CountrySelector";
@@ -73,9 +73,8 @@ const CreateUser = (props) => {
   };
 
   return (
-    <>
-      <TabBar />
-      <ContentSection>
+    <InviteContainer>
+      <ContentSection style={{ paddingTop: "0" }}>
         <form onSubmit={onSave}>
           <Label name="Email Address">
             <Input
@@ -193,7 +192,7 @@ const CreateUser = (props) => {
           </div>
         </form>
       </ContentSection>
-    </>
+    </InviteContainer>
   );
 };
 

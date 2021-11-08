@@ -13,7 +13,7 @@ describe("CookieSettingForm layout test", () => {
     const { asFragment } = render(
       <Provider store={store}>
         <Router>
-          <CookieSettingForm />
+          <CookieSettingForm onChange={jest.fn} settings={{}} />
         </Router>
       </Provider>
     );
@@ -25,14 +25,14 @@ describe("CookieSettingForm layout test", () => {
     const { getByLabelText } = render(
       <Provider store={store}>
         <Router>
-          <CookieSettingForm />
+          <CookieSettingForm onChange={jest.fn} settings={{}} />
         </Router>
       </Provider>
     );
 
     for (let i = 0; i < COOKIE_OPTIONS.length; i++) {
       const element = COOKIE_OPTIONS[i];
-      let check = getByLabelText(`check-${element[0]}`);
+      let check = getByLabelText(`check-${element.id}`);
 
       fireEvent.click(check);
       expect(check.checked).toEqual(false);

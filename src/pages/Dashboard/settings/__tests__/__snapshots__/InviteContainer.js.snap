@@ -4,7 +4,8 @@ exports[`TabBar comp test TabBar component snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="sc-bdnxRM dNpxFo"
+      class="sc-bdnxRM gOFDIS"
+      style="margin-bottom: 0px;"
     >
       <div
         class="filter-links"

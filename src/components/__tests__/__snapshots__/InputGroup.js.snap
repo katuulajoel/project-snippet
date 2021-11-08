@@ -5,7 +5,7 @@ exports[`InputGroup component test Snapshot test for InputGroup component 1`] = 
   className="input-group "
 >
   <div
-    className="sc-bdnxRM lboORq"
+    className="sc-bdnxRM iEBWwR"
     data-testid="input"
   >
     <input

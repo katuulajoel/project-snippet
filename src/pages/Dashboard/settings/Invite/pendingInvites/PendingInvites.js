@@ -12,7 +12,7 @@ import Progress from "../../../../../components/Progress";
 import { ContentSection, StyledTable } from "../../../../../utils/styles";
 import SummaryPlaceholder from "../../../../../components/SummaryPlaceholder/SummaryPlaceholder";
 import * as inviteActions from "../../../../../redux/actions/InvitesActions";
-import TabBar from "../tabBar";
+import InviteContainer from "../InviteContainer";
 import Invite from "./Invite";
 
 const PendingInvite = () => {
@@ -40,8 +40,7 @@ const PendingInvite = () => {
   let is_available = Object.keys(invites).length && invites.results.length;
 
   return (
-    <>
-      <TabBar />
+    <InviteContainer>
       <InfiniteScroll
         dataLength={invites && invites.count ? invites.count : 0}
         next={fetchMoreData}
@@ -82,7 +81,7 @@ const PendingInvite = () => {
           )}
         </Wrapper>
       </InfiniteScroll>
-    </>
+    </InviteContainer>
   );
 };
 

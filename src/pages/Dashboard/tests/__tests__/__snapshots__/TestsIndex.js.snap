@@ -34,7 +34,7 @@ Array [
               </span>
             </span>
             <div
-              className="sc-bdnxRM lboORq"
+              className="sc-bdnxRM iEBWwR"
               data-testid="input"
             >
               <input
@@ -190,7 +190,7 @@ Array [
     <div>
       <div>
         <div
-          className="sc-kEqXSa cMBdJe"
+          className="sc-kEqXSa jgSBmE"
         >
           <div
             className="filter-links"
@@ -231,7 +231,7 @@ Array [
                 </span>
               </span>
               <div
-                className="sc-bdnxRM lboORq"
+                className="sc-bdnxRM iEBWwR"
                 data-testid="input"
               >
                 <input

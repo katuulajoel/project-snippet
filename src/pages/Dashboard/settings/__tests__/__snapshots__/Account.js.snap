@@ -1,220 +1,272 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Auth layout test Snapshot test for Login component 1`] = `
-<div
-  className="sc-gtsrHT liNnTL account-settings"
->
-  <form>
-    <div
-      className="header"
-    >
-      Add admin email address for invoices
-    </div>
-    <label
-      className=""
-    >
-      Email Address
-      <span
-        className="label-style"
-      >
-        *
-      </span>
-    </label>
-    <div
-      className="row"
-    >
-      <div
-        className="col-md-12"
-      >
-        <div
-          className="form-group"
-        >
-          <div
-            className="sc-bdnxRM lboORq"
-            data-testid="input"
-          >
-            <input
-              className="form-control"
-              data-testid=""
-              id=""
-              label="Label"
-              placeholder="input"
-              required={true}
-              type="input"
-              value=""
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        className="col"
-      >
-        <button
-          className="btn btn-default save  "
-          form={null}
-          type="submit"
-        >
-          Save
-        </button>
-      </div>
-    </div>
-  </form>
-  <form
-    className="update-password-form"
+exports[`Account layout test Snapshot test for Account component 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-jSFjdj hgLsyQ account-settings"
   >
-    <div
-      className="header"
-    >
-      Change Password
-    </div>
-    <div
-      className="row"
+    <form
+      aria-label="changePassword-form"
+      class="update-password-form"
+      id="changePassword"
     >
       <div
-        className="col"
+        class="header"
       >
-        <div
-          className="form-group"
-        >
-          <label
-            className=""
-          >
-            Current Password
-            <span
-              className="label-style"
-            >
-              *
-            </span>
-          </label>
-        </div>
+        Change Password
       </div>
       <div
-        className="col"
+        class="row"
       >
         <div
-          className="form-group"
-        >
-          <label
-            className=""
-          >
-            New Password
-            <span
-              className="label-style"
-            >
-              *
-            </span>
-          </label>
-        </div>
-      </div>
-    </div>
-    <div
-      className="row"
-    >
-      <div
-        className="col"
-      >
-        <button
-          className="btn btn-default save  "
-          form={null}
-          type="submit"
-        >
-          Save
-        </button>
-      </div>
-    </div>
-  </form>
-  <form>
-    <div
-      className="header"
-    >
-      Change Email Address
-    </div>
-    <div
-      className="row"
-    >
-      <div
-        className="col-md-6"
-      >
-        <label
-          className=""
-        >
-          New Email Address
-          <span
-            className="label-style"
-          >
-            *
-          </span>
-        </label>
-        <div
-          className="form-group"
+          class="col"
         >
           <div
-            className="sc-bdnxRM lboORq"
-            data-testid="input"
+            class="form-group"
           >
-            <input
-              className="form-control"
-              data-testid=""
-              id=""
-              label="Label"
-              placeholder="Enter new email address"
-              required={true}
-              type="input"
-              value=""
-            />
+            <label
+              class=""
+            >
+              Current Password
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <div
+              class="sc-bdnxRM iEBWwR"
+              data-testid="input"
+            >
+              <button
+                class="input-icon "
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 5.41667C11.5323 5.41157 13.0349 5.83899 14.3351 6.64977C15.6353 7.46056 16.6804 8.6218 17.35 10C15.975 12.8083 13.1667 14.5833 10 14.5833C6.83337 14.5833 4.02504 12.8083 2.65004 10C3.31972 8.6218 4.36473 7.46056 5.66494 6.64977C6.96515 5.83899 8.46776 5.41157 10 5.41667ZM10 3.75C5.83337 3.75 2.27504 6.34167 0.833374 10C2.27504 13.6583 5.83337 16.25 10 16.25C14.1667 16.25 17.725 13.6583 19.1667 10C17.725 6.34167 14.1667 3.75 10 3.75ZM10 7.91667C10.5526 7.91667 11.0825 8.13616 11.4732 8.52686C11.8639 8.91756 12.0834 9.44747 12.0834 10C12.0834 10.5525 11.8639 11.0824 11.4732 11.4731C11.0825 11.8638 10.5526 12.0833 10 12.0833C9.44751 12.0833 8.9176 11.8638 8.5269 11.4731C8.1362 11.0824 7.91671 10.5525 7.91671 10C7.91671 9.44747 8.1362 8.91756 8.5269 8.52686C8.9176 8.13616 9.44751 7.91667 10 7.91667ZM10 6.25C7.93337 6.25 6.25004 7.93333 6.25004 10C6.25004 12.0667 7.93337 13.75 10 13.75C12.0667 13.75 13.75 12.0667 13.75 10C13.75 7.93333 12.0667 6.25 10 6.25Z"
+                    fill="#8F9BB3"
+                  />
+                </svg>
+              </button>
+              <input
+                aria-label="old_password"
+                class="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="old_password"
+                placeholder="Enter your password"
+                required=""
+                type="password"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="col"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class=""
+            >
+              New Password
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <div
+              class="sc-bdnxRM iEBWwR"
+              data-testid="input"
+            >
+              <button
+                class="input-icon "
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 5.41667C11.5323 5.41157 13.0349 5.83899 14.3351 6.64977C15.6353 7.46056 16.6804 8.6218 17.35 10C15.975 12.8083 13.1667 14.5833 10 14.5833C6.83337 14.5833 4.02504 12.8083 2.65004 10C3.31972 8.6218 4.36473 7.46056 5.66494 6.64977C6.96515 5.83899 8.46776 5.41157 10 5.41667ZM10 3.75C5.83337 3.75 2.27504 6.34167 0.833374 10C2.27504 13.6583 5.83337 16.25 10 16.25C14.1667 16.25 17.725 13.6583 19.1667 10C17.725 6.34167 14.1667 3.75 10 3.75ZM10 7.91667C10.5526 7.91667 11.0825 8.13616 11.4732 8.52686C11.8639 8.91756 12.0834 9.44747 12.0834 10C12.0834 10.5525 11.8639 11.0824 11.4732 11.4731C11.0825 11.8638 10.5526 12.0833 10 12.0833C9.44751 12.0833 8.9176 11.8638 8.5269 11.4731C8.1362 11.0824 7.91671 10.5525 7.91671 10C7.91671 9.44747 8.1362 8.91756 8.5269 8.52686C8.9176 8.13616 9.44751 7.91667 10 7.91667ZM10 6.25C7.93337 6.25 6.25004 7.93333 6.25004 10C6.25004 12.0667 7.93337 13.75 10 13.75C12.0667 13.75 13.75 12.0667 13.75 10C13.75 7.93333 12.0667 6.25 10 6.25Z"
+                    fill="#8F9BB3"
+                  />
+                </svg>
+              </button>
+              <input
+                aria-label="new_password1"
+                class="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="new_password1"
+                placeholder="Enter your password"
+                required=""
+                type="password"
+              />
+            </div>
           </div>
         </div>
       </div>
       <div
-        className="col-md-6"
+        class="row"
       >
-        <label
-          className=""
-        >
-          Password
-          <span
-            className="label-style"
-          >
-            *
-          </span>
-        </label>
         <div
-          className="form-group"
-        />
+          class="col"
+        >
+          <button
+            class="btn btn-default save  "
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
       </div>
-    </div>
-    <div
-      className="row"
+    </form>
+    <form
+      aria-label="changeEmail-form"
+      id="changeEmail"
     >
       <div
-        className="col"
+        class="header"
       >
+        Change Email Address
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="col"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class=""
+            >
+              New Email Address
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <div
+              class="sc-bdnxRM iEBWwR"
+              data-testid="input"
+            >
+              <input
+                aria-label="email"
+                class="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="email"
+                placeholder="Enter your password"
+                required=""
+                type="email"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="col"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class=""
+            >
+              Password
+              <span
+                class="label-style"
+              >
+                *
+              </span>
+            </label>
+            <div
+              class="sc-bdnxRM iEBWwR"
+              data-testid="input"
+            >
+              <button
+                class="input-icon "
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 5.41667C11.5323 5.41157 13.0349 5.83899 14.3351 6.64977C15.6353 7.46056 16.6804 8.6218 17.35 10C15.975 12.8083 13.1667 14.5833 10 14.5833C6.83337 14.5833 4.02504 12.8083 2.65004 10C3.31972 8.6218 4.36473 7.46056 5.66494 6.64977C6.96515 5.83899 8.46776 5.41157 10 5.41667ZM10 3.75C5.83337 3.75 2.27504 6.34167 0.833374 10C2.27504 13.6583 5.83337 16.25 10 16.25C14.1667 16.25 17.725 13.6583 19.1667 10C17.725 6.34167 14.1667 3.75 10 3.75ZM10 7.91667C10.5526 7.91667 11.0825 8.13616 11.4732 8.52686C11.8639 8.91756 12.0834 9.44747 12.0834 10C12.0834 10.5525 11.8639 11.0824 11.4732 11.4731C11.0825 11.8638 10.5526 12.0833 10 12.0833C9.44751 12.0833 8.9176 11.8638 8.5269 11.4731C8.1362 11.0824 7.91671 10.5525 7.91671 10C7.91671 9.44747 8.1362 8.91756 8.5269 8.52686C8.9176 8.13616 9.44751 7.91667 10 7.91667ZM10 6.25C7.93337 6.25 6.25004 7.93333 6.25004 10C6.25004 12.0667 7.93337 13.75 10 13.75C12.0667 13.75 13.75 12.0667 13.75 10C13.75 7.93333 12.0667 6.25 10 6.25Z"
+                    fill="#8F9BB3"
+                  />
+                </svg>
+              </button>
+              <input
+                aria-label="password"
+                class="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="password"
+                placeholder="Enter your password"
+                required=""
+                type="password"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="col"
+        >
+          <button
+            class="btn btn-default save  "
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+    <form
+      aria-label="deactivate-form"
+      id="deactivate"
+    >
+      <div
+        class="header"
+      >
+        Deactivate account
+      </div>
+      <div>
         <button
-          className="btn btn-default save  "
-          form={null}
+          class="btn btn-default save  "
           type="submit"
         >
-          Save
+          Deactivate my account
         </button>
       </div>
-    </div>
-  </form>
-  <form>
-    <div
-      className="header"
-    >
-      Deactivate account
-    </div>
-    <div>
-      <button
-        className="btn btn-default save  "
-        form={null}
-        type="submit"
-      >
-         
-        Deactivate my account
-      </button>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
+</DocumentFragment>
 `;
