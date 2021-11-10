@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 // import Button from "../../../components/Button";
 import CookieSettingForm from "./modals/CookieSettingForm";
+import {} from "../../../components/Input";
 import { openModal } from "../../../utils/modals";
 import * as actions from "../../../redux/actions/ProfileActions";
 
@@ -24,9 +25,9 @@ export default function Privacy() {
 
   const onChange = (name, value) => {
     let setting = {};
-    setting[name] = value;
+    setting[name] = value ? "on" : "off";
 
-    if (settings && settings.switches[name] !== value) {
+    if (settings && settings.switches[name] !== setting[name]) {
       actions.updateSettings({ switches: setting })(dispatch);
     }
   };
@@ -112,59 +113,60 @@ export default function Privacy() {
         </div>
 
         <div className="section">
-          <div className="section-title">Promotional Email Settings</div>
-          {labels.promo.map((label) => {
-            return (
-              <div className="form-check" key={`day-${label.name}`}>
-                <label
-                  className="form-check-label"
-                  htmlFor={`check-${label.name}`}
-                >
-                  {label.label}
-                </label>
-
-                <input
-                  className="switch form-check-input"
-                  id={`check-${label.name}`}
-                  value={
-                    settings && settings.switches[label.name] ? "off" : "on"
-                  }
-                  type="checkbox"
-                  aria-label={`check-${label.name}`}
-                  defaultChecked={settings && settings.switches[label.name]}
-                  onChange={(e) => onChange(label.name, e.target.value)}
-                />
-              </div>
-            );
-          })}
+          {settings && settings.switches && (
+            <>
+              <div className="section-title">Promotional Email Settings</div>
+              {labels.promo.map((label) => {
+                return (
+                  <div className="form-check" key={`day-${label.name}`}>
+                    <label
+                      className="form-check-label"
+                      htmlFor={`check-${label.name}`}
+                    >
+                      {label.label}
+                    </label>
+                    <input
+                      className="switch form-check-input"
+                      id={`check-${label.name}`}
+                      type="checkbox"
+                      aria-label={`check-${label.name}`}
+                      defaultChecked={settings.switches[label.name]}
+                      onChange={(e) => onChange(label.name, e.target.checked)}
+                    />
+                  </div>
+                );
+              })}
+            </>
+          )}
         </div>
 
         <div className="section">
-          <div className="section-title">Transactional Email Settings</div>
-          {labels.trans.map((label) => {
-            return (
-              <div className="form-check" key={`day-${label.name}`}>
-                <label
-                  className="form-check-label"
-                  htmlFor={`check-${label.name}`}
-                >
-                  {label.label}
-                </label>
+          {settings && settings.switches && (
+            <>
+              <div className="section-title">Transactional Email Settings</div>
+              {labels.trans.map((label) => {
+                return (
+                  <div className="form-check" key={`day-${label.name}`}>
+                    <label
+                      className="form-check-label"
+                      htmlFor={`check-${label.name}`}
+                    >
+                      {label.label}
+                    </label>
 
-                <input
-                  className="switch form-check-input"
-                  id={`check-${label.name}`}
-                  value={
-                    settings && settings.switches[label.name] ? "off" : "on"
-                  }
-                  type="checkbox"
-                  aria-label={`check-${label.name}`}
-                  defaultChecked={settings && settings.switches[label.name]}
-                  onChange={(e) => onChange(label.name, e.target.value)}
-                />
-              </div>
-            );
-          })}
+                    <input
+                      className="switch form-check-input"
+                      id={`check-${label.name}`}
+                      type="checkbox"
+                      aria-label={`check-${label.name}`}
+                      defaultChecked={settings.switches[label.name]}
+                      onChange={(e) => onChange(label.name, e.target.value)}
+                    />
+                  </div>
+                );
+              })}
+            </>
+          )}
         </div>
 
         <div className="section agreements">
