@@ -51,7 +51,7 @@ const CookieSettingForm = (props) => {
                   }
                   disabled={disabled}
                   aria-label={`check-${id}`}
-                  onChange={(e) => props.onChange(name, e.target.value)}
+                  onChange={(e) => props.onChange(name, e.target.checked)}
                 />
                 <label htmlFor={elementId}></label>
               </FormCheck>
