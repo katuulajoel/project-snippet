@@ -27,3 +27,9 @@ export function filterInputProps(props) {
 export function filterButtonProps(props) {
   return filterValidProps(["disabled"], props);
 }
+
+export const getFormData = (formdata) => {
+  let data = {};
+  formdata.forEach((val, key) => (data[key] = val));
+  return data;
+};
