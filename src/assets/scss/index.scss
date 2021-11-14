@@ -291,7 +291,7 @@
 
 .content-card.pending_invites {
   padding: 0 !important;
-  max-width: 750px !important;
+  max-width: 900px !important;
 }
 
 .infinite-scroll-component__outerdiv {
@@ -318,4 +318,22 @@
 
 .privacy-settings .section {
   margin-bottom: 20px;
+}
+
+.btn.animate {
+  display: flex;
+  align-items: center;
+  fill: #fff;
+}
+
+.btn.animate svg {
+  width: 30px;
+  height: 30px;
+}
+
+.toast-container {
+  z-index: 10000;
+  position: absolute;
+  right: 30px;
+  top: 32px;
 }
