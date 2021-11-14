@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect } from "react";
+import React, { useMemo } from "react";
 import { useTable, usePagination, useSortBy } from "react-table";
 import styled from "styled-components";
 import PropTypes from "prop-types";
@@ -15,7 +15,6 @@ import TableCells from "./TableCells";
 const propTypes = {
   results: PropTypes.array,
   onLoadMore: PropTypes.func,
-  trackPagination: PropTypes.func,
   lastPageIndex: PropTypes.number,
   count: PropTypes.number,
   setlimit: PropTypes.func,
@@ -25,7 +24,6 @@ const propTypes = {
 const Results = ({
   results,
   count,
-  trackPagination,
   lastPageIndex,
   onLoadMore,
   setlimit,
@@ -166,12 +164,6 @@ const Results = ({
     previousPage,
     state: { pageIndex },
   } = tableInstance;
-
-  useEffect(() => {
-    return () => {
-      trackPagination(pageIndex);
-    };
-  }, []);
 
   return (
     <>

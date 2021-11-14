@@ -4,9 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import { ThemeProvider } from "styled-components";
 import TableCells from "../TableCells";
-import theme from "../../../../assets/theme";
 
 const middlewares = [thunk];
 
@@ -37,38 +35,11 @@ describe("TableCells Component test", () => {
       .create(
         <BrowserRouter>
           <Provider store={mockAppStore(mockAppState)}>
-            <ThemeProvider theme={theme}>
-              <TableCells {...cell} />
-            </ThemeProvider>
+            <TableCells {...cell} />
           </Provider>
         </BrowserRouter>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-  // it('Should trigger edit on click', () => {
-  //   const onButtonClickMock = jest.fn();
-  //   const cell = {
-  //     value: {
-  //       result: 100,
-  //       status: 'failed',
-  //     },
-  //     column: {
-  //       id: 'code-of-conduct',
-  //     },
-  //   };
-  //   const wrapper = mount(
-  //     <BrowserRouter>
-  //       <Provider store={mockAppStore()}>
-  //         <ThemeProvider theme={theme}>
-  //           <TableCells {...cell} editTest={onButtonClickMock} />
-  //         </ThemeProvider>
-  //       </Provider>
-  //     </BrowserRouter>
-  //   );
-  //   const btn = wrapper.find('button');
-  //   btn.simulate('click');
-  //   expect(onButtonClickMock).toHaveBeenCalled();
-  // });
 });

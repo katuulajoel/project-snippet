@@ -30,8 +30,6 @@ const TestsContainer = (props) => {
 
   const [filters] = useState({});
   const [currentPage, setcurrentPage] = useState(0);
-  const [lastPageIndex, setlastPageIndex] = useState(0);
-  const [useDefaultPageIndex, setuseDefaultPageIndex] = useState(false);
   const [searchTerm, setsearchTerm] = useState("");
   const [limit, setlimit] = useState(20);
 
@@ -50,13 +48,6 @@ const TestsContainer = (props) => {
     if (page !== currentPage) {
       setcurrentPage(page);
       fetchResults({ ...(updatedFilters || {}) });
-    }
-  };
-
-  const trackPagination = (index) => {
-    setlastPageIndex(useDefaultPageIndex ? 0 : index);
-    if (useDefaultPageIndex) {
-      setuseDefaultPageIndex(false);
     }
   };
 
@@ -104,8 +95,7 @@ const TestsContainer = (props) => {
         <Results
           results={data.results}
           onLoadMore={onLoadMore}
-          trackPagination={trackPagination}
-          lastPageIndex={lastPageIndex}
+          lastPageIndex={currentPage}
           count={data.count}
           setlimit={setlimit}
           limit={limit}
