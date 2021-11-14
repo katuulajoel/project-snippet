@@ -5,6 +5,7 @@ import Invoice from "./InvoiceReducers";
 import Dashboard from "./DashboardReducer";
 import Projects from "./ProjectsReducer";
 import profile from "./ProfileReducer";
+import button from "./ButtonReducer";
 
 const appReducer = combineReducers({
   Auth,
@@ -13,6 +14,7 @@ const appReducer = combineReducers({
   Dashboard,
   Projects,
   profile,
+  button,
 });
 
 export default appReducer;
