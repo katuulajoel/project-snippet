@@ -18,6 +18,7 @@ import {
   deactivateAccount,
 } from "../../../../redux/actions/ProfileActions";
 import { openConfirm } from "../../../../utils/modals";
+import { getFormData } from "../../../../utils/forms";
 
 const Account = () => {
   const [page] = useState({
@@ -25,12 +26,6 @@ const Account = () => {
   });
   const { user } = useSelector(({ Auth }) => Auth);
   const dispatch = useDispatch();
-
-  const getFormData = (formdata) => {
-    let data = {};
-    formdata.forEach((val, key) => (data[key] = val));
-    return data;
-  };
 
   const addAdminEmail = (e) => {
     e.preventDefault();
