@@ -19,7 +19,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
         <i
           className="tg-ic-clock-outline tunga-ic-sz-sm "
         />
-        10 Nov 2021
+        14 Nov 2021
       </p>
       <div
         className="d-flex project__card-about"
