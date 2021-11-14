@@ -166,7 +166,7 @@ describe("Dashboard test - Test Results", () => {
       </BrowserRouter>
     );
 
-    const selectComponent = queryByTestId("select-component");
+    const selectComponent = queryByTestId("select-pages");
     const userHeader = getByText("User");
     const codingTestsHeader = getByText("Coding Tests");
 

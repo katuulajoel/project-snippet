@@ -5,8 +5,8 @@ import { useDispatch } from "react-redux";
 import InviteContainer from "./InviteContainer";
 import Label from "../../../../components/Label";
 import { Input } from "reactstrap";
-import CountrySelector from "../../../../components/CountrySelector";
 import * as inviteActions from "../../../../redux/actions/InvitesActions";
+import Select from "../../../../components/Select";
 
 const CreateUser = (props) => {
   const [countries, setCountries] = useState([...(props.countries || [])]);
@@ -168,14 +168,14 @@ const CreateUser = (props) => {
             />
           </Label>
           <Label name="Country">
-            <CountrySelector
+            <Select
               className="form-control"
               defaultValue="Canada"
               name="country"
               onChange={onChangeField}
               dispatch={dispatch}
               aria-label="country-input"
-              data={countries}
+              options={countries}
               required
             />
           </Label>

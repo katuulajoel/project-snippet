@@ -434,39 +434,47 @@ Array [
         <div
           className="sc-fFSPTT cBhSjn"
         >
-          <div
-            data-testid="select-component"
+          <select
+            className="form-control form-control "
+            data-testid="select-pages"
+            defaultValue={20}
+            onChange={[Function]}
+            options={
+              Array [
+                Object {
+                  "name": 20,
+                  "value": 20,
+                },
+                Object {
+                  "name": 50,
+                  "value": 50,
+                },
+                Object {
+                  "name": 100,
+                  "value": 100,
+                },
+              ]
+            }
           >
-            <select
-              className="form-control form-control "
-              onChange={[Function]}
-              value={20}
+            <option
+              data-testid="option-20"
+              defaultValue={20}
             >
-              <option
-                value=""
-              >
-                -- Select --
-              </option>
-              <option
-                data-testid="option-20"
-                value={20}
-              >
-                20
-              </option>
-              <option
-                data-testid="option-50"
-                value={50}
-              >
-                50
-              </option>
-              <option
-                data-testid="option-100"
-                value={100}
-              >
-                100
-              </option>
-            </select>
-          </div>
+              20
+            </option>
+            <option
+              data-testid="option-50"
+              defaultValue={50}
+            >
+              50
+            </option>
+            <option
+              data-testid="option-100"
+              defaultValue={100}
+            >
+              100
+            </option>
+          </select>
           <i
             className="tg-ic-rounded-keyboard-arrow-down tunga-ic-sz-sm "
           />

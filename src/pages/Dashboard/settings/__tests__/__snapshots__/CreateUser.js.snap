@@ -353,9 +353,9 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
             </label>
             <select
               aria-label="country-input"
-              class="form-control"
-              data=""
+              class="form-control form-control "
               name="country"
+              options=""
               required=""
             />
           </div>

@@ -33,14 +33,10 @@ describe("Select component test", () => {
   it("should render without errors", async () => {
     const mockedOnChange = jest.fn();
     const { getByText } = render(
-      <Select
-        options={mockedOptions}
-        onChange={mockedOnChange}
-        placeholder="Comms Check"
-      />
+      <Select options={mockedOptions} onChange={mockedOnChange} />
     );
-    const placeholder = getByText("Comms Check");
-    expect(placeholder).toBeTruthy();
+    const text = getByText("Very good");
+    expect(text).toBeTruthy();
   });
 
   it("should call onChange when the first option is selected", async () => {
@@ -49,11 +45,11 @@ describe("Select component test", () => {
       <Select
         options={mockedOptions}
         onChange={(value) => mockedOnChange("comms_check", value)}
-        placeholder="Comms Check"
+        data-testid="select"
       />
     );
 
-    const selectComponent = queryByTestId("select-component");
+    const selectComponent = queryByTestId("select");
 
     expect(selectComponent).toBeDefined();
     expect(selectComponent).not.toBeNull();
@@ -74,11 +70,11 @@ describe("Select component test", () => {
       <Select
         options={mockedOptions}
         onChange={mockedOnChange}
-        placeholder="Comms Check"
+        data-testid="select-commms"
       />
     );
 
-    const selectComponent = queryByTestId("select-component");
+    const selectComponent = queryByTestId("select-commms");
 
     expect(selectComponent).toBeDefined();
     expect(selectComponent).not.toBeNull();

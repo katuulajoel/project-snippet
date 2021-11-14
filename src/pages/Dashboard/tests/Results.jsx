@@ -251,13 +251,14 @@ const Results = ({
 
         <CustomSelect>
           <Select
-            // aria-label="select-pages"
             data-testid="select-pages"
             className="form-control"
-            onChange={(value) => {
+            defaultValue={limit || ""}
+            onChange={(e) => {
+              e.preventDefault();
+              const { value } = e.target;
               setlimit(value);
             }}
-            selected={limit}
             options={paginationOptions}
           ></Select>
           <Icon name="rounded-keyboard-arrow-down" size="sm" />
