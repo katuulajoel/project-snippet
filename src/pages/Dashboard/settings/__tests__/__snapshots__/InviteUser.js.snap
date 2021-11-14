@@ -29,10 +29,20 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
     </div>
   </div>
   <div
-    class="sc-hKFxyN eHYxOi"
+    class="sc-hKFxyN hnZzVJ"
     style="padding-top: 0px;"
   >
     <form>
+      <input
+        name="resent"
+        type="hidden"
+        value="false"
+      />
+      <input
+        name="category"
+        type="hidden"
+        value=""
+      />
       <div
         aria-label="label"
         class="row"
@@ -68,7 +78,6 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
                 placeholder="eg. bart@tunga.io"
                 required=""
                 type="input"
-                value=""
               />
             </div>
           </div>
@@ -109,7 +118,6 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
                 placeholder="Enter first name"
                 required=""
                 type="input"
-                value=""
               />
             </div>
           </div>
@@ -150,7 +158,6 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
                 placeholder="Enter last name"
                 required=""
                 type="input"
-                value=""
               />
             </div>
           </div>
@@ -184,6 +191,7 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
               required=""
             >
               <option
+                selected=""
                 value=""
               >
                 Select type of user
@@ -201,7 +209,8 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
         class="col-12"
       >
         <button
-          class="btn btn-primary save"
+          class="btn btn-primary save animate"
+          type="submit"
         >
           Send Invite
         </button>
