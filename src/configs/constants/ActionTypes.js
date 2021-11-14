@@ -122,3 +122,6 @@ export const DELETE_PENDING_INVITE = "DELETE_PENDING_INVITE";
 // Profile Actions
 export const SET_USER_PROFILE = "SET_USER_PROFILE";
 export const SET_USER_SETTINGS = "SET_USER_SETTINGS";
+
+// Buttons
+export const SET_BUTTON = "SET_BUTTON";
