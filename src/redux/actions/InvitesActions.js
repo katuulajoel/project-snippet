@@ -8,12 +8,7 @@ import { success } from "../../utils/actions";
 // - Loading via button
 
 export function createUser(data) {
-  return () => {
-    axios
-      .post(ENDPOINT_USERS, data)
-      .then(function () {})
-      .catch(function () {});
-  };
+  return axios.post(ENDPOINT_USERS, data);
 }
 
 export function getPendingInvites() {
@@ -51,17 +46,11 @@ export function deleteInvite(id) {
 }
 
 export function invite(data, type = null) {
-  return () => {
-    let request_method = type ? "patch" : "post";
-    axios
-      .request({
-        url: `${ENDPOINT_INVITE}${
-          request_method === "patch" ? data.id + "/" : ""
-        }`,
-        method: request_method,
-        data,
-      })
-      .then(function () {})
-      .catch(function () {});
-  };
+  let request_method = type ? "patch" : "post";
+
+  return axios.request({
+    url: `${ENDPOINT_INVITE}${request_method === "patch" ? data.id + "/" : ""}`,
+    method: request_method,
+    data,
+  });
 }
