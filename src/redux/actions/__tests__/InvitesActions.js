@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import axios from "axios";
 import * as actions from "../InvitesActions";
 import * as actionTypes from "../../../configs/constants/ActionTypes";
+import { success } from "../../../utils/actions";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -83,18 +84,39 @@ describe("Invoice actions tests", () => {
 
   it("should invite", async () => {
     axios.request.mockReturnValue(Promise.resolve({ data: [] }));
-    const expectedActions = [];
+    const expectedActions = [
+      {
+        data: false,
+        type: "SET_BUTTON",
+      },
+    ];
 
-    await store.dispatch(actions.invite());
+    await actions
+      .invite()
+      .then(function () {
+        return store.dispatch(success(actionTypes.SET_BUTTON, false));
+      })
+      .catch(function () {});
+
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
 
   it("create user", async () => {
     axios.post.mockReturnValue(Promise.resolve({ data: [] }));
-    const expectedActions = [];
+    const expectedActions = [
+      {
+        data: false,
+        type: "SET_BUTTON",
+      },
+    ];
 
-    await store.dispatch(actions.createUser());
+    await actions
+      .createUser()
+      .then(function () {
+        return store.dispatch(success(actionTypes.SET_BUTTON, false));
+      })
+      .catch(function () {});
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
