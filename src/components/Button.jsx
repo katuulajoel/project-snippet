@@ -46,7 +46,7 @@ Button.propTypes = {
 
 export const AnimatedButton = ({ children, ...props }) => {
   const dispatch = useDispatch();
-  const { button } = useSelector((store) => store);
+  const { common } = useSelector((store) => store);
 
   const setSubmit = () => {
     if (props.default) return;
@@ -69,11 +69,11 @@ export const AnimatedButton = ({ children, ...props }) => {
 
   return (
     <button
-      type={button && button.pending ? "button" : "submit"}
+      type={common && common.button ? "button" : "submit"}
       className="btn btn-primary save animate"
       {...props}
     >
-      {button && button.pending ? <Loading /> : children}
+      {common && common.button ? <Loading /> : children}
     </button>
   );
 };
