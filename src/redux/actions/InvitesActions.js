@@ -45,8 +45,8 @@ export function deleteInvite(id) {
   };
 }
 
-export function invite(data, type = null) {
-  let request_method = type ? "patch" : "post";
+export function invite(data, isPatch = null) {
+  let request_method = isPatch ? "patch" : "post";
 
   return axios.request({
     url: `${ENDPOINT_INVITE}${request_method === "patch" ? data.id + "/" : ""}`,
