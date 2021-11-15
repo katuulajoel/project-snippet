@@ -3,7 +3,6 @@ import thunk from "redux-thunk";
 import axios from "axios";
 import * as actions from "../InvitesActions";
 import * as actionTypes from "../../../configs/constants/ActionTypes";
-import { success } from "../../../utils/actions";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -91,13 +90,7 @@ describe("Invoice actions tests", () => {
       },
     ];
 
-    await actions
-      .invite()
-      .then(function () {
-        return store.dispatch(success(actionTypes.SET_BUTTON, false));
-      })
-      .catch(function () {});
-
+    await store.dispatch(actions.invite());
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
@@ -111,12 +104,7 @@ describe("Invoice actions tests", () => {
       },
     ];
 
-    await actions
-      .createUser()
-      .then(function () {
-        return store.dispatch(success(actionTypes.SET_BUTTON, false));
-      })
-      .catch(function () {});
+    store.dispatch(actions.createUser());
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });
