@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 // import Button from "../../../components/Button";
 import CookieSettingForm from "./modals/CookieSettingForm";
-import {} from "../../../components/Input";
 import { openModal } from "../../../utils/modals";
 import * as actions from "../../../redux/actions/ProfileActions";
 
