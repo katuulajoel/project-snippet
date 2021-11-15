@@ -1,5 +1,5 @@
 const helpers = {
-  generate: function (length = 8) {
+  generate: (length = 8) => {
     var result = "";
     var characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -22,10 +22,10 @@ export const numberWithCommas = (x) => {
   }
 };
 
-export function generateUserIntials(user) {
+export const generateUserIntials = (user) => {
   return !user?.avatar_url
     ? user?.display_name.match(/\b(\w)/g).join("")
     : null;
-}
+};
 
 export default helpers;

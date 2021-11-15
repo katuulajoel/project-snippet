@@ -2,20 +2,27 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import { render } from "@testing-library/react";
+import thunk from "redux-thunk";
 import NavBar from "../NavBar";
 
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
+import { mount } from "enzyme";
 
 const middlewares = [thunk];
 
 const mockAppState = {
-  Auth: {},
   Invoice: {
-    search: {},
+    isMakingRequest: {},
   },
-  Projects: { isMakingRequest: {} },
+  Projects: {
+    isMakingRequest: {},
+    project: {},
+  },
+  TestResults: {
+    isMakingRequest: false,
+    data: null,
+  },
 };
 
 const mockAppStore = (state) => {
@@ -107,5 +114,32 @@ describe("Auth layout test", () => {
     );
     const title = container.querySelector(".navbar-brand");
     expect(title.innerHTML).toEqual("Community Guide");
+  });
+
+  it("should show add new result for test.", async () => {
+    const { container } = render(
+      <Provider store={mockAppStore()}>
+        <MemoryRouter initialEntries={["/tests"]}>
+          <NavBar ref={{ current: "" }} />
+        </MemoryRouter>
+      </Provider>
+    );
+    const title = container.querySelector(".btn-primary");
+    expect(title.innerHTML).toMatch(/Add New Result/i);
+  });
+
+  it("should trigger create Result when add New Result is clicked.", async () => {
+    // const openModalMock = jest.fn();
+    const wrapper = mount(
+      <BrowserRouter>
+        <Provider store={mockAppStore()}>
+          <MemoryRouter initialEntries={["/tests"]}>
+            <NavBar ref={{ current: "" }} />
+          </MemoryRouter>
+        </Provider>
+      </BrowserRouter>
+    );
+    wrapper.find("#createResult").first().simulate("click");
+    // expect(openModalMock).toHaveBeenCalledTimes(1);
   });
 });

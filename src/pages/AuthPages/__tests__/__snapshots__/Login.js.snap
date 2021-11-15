@@ -64,7 +64,7 @@ exports[`Login snapshot test Snapshot test for Login component 1`] = `
                       name="username"
                       onChange={[Function]}
                       placeholder="Enter email address or username"
-                      type="email"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -80,7 +80,7 @@ exports[`Login snapshot test Snapshot test for Login component 1`] = `
                       *
                     </span>
                     <a
-                      className="sc-eCApnc llEWnM  Form__cta"
+                      className="sc-hKFxyN dPRhFE  Form__cta"
                       href="/forgot-password"
                       onClick={[Function]}
                       style={

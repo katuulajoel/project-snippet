@@ -1,10 +1,36 @@
+// Variables: includes Bootstrap overrides
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+
+// Bootstrap and its default variables
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
 * {
-  font-family: "IBM Plex Sans", sans-serif !important;
+  font-family: 'IBM Plex Sans', sans-serif !important;
 }
 
 :root {
   --dashboardCardHeight: 416px;
   --cardTitleHeight: 46px;
+}
+
+// Tunga styles
+html {
+  font-size: $font-size-base; // 16px
+}
+
+body {
+  font-size: $font-size-normal; // 14px
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: get-color('white');
+}
+
+b,
+strong {
+  font-weight: $font-weight-medium;
 }
 
 .dashboard-card {
@@ -313,6 +339,66 @@
 
   &:disabled {
     color: rgba(6, 46, 100, 0.25);
+  }
+}
+
+// Buttons
+.btn {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-light;
+  @include padding-y(0 !important);
+  line-height: px-to-rem(40);
+  height: px-to-rem(40);
+
+  &.btn-sm {
+    line-height: px-to-rem(30);
+    height: px-to-rem(30);
+  }
+
+  &.btn-lg {
+    font-size: $font-size-normal;
+    line-height: px-to-rem(50);
+    height: px-to-rem(50);
+  }
+
+  &.btn-xl {
+    font-size: $font-size-lg;
+    line-height: px-to-rem(60);
+    height: px-to-rem(60);
+    border-radius: $border-radius-lg;
+  }
+
+  &.btn-xxl {
+    font-size: $font-size-xl;
+    line-height: px-to-rem(70);
+    height: px-to-rem(70);
+    border-radius: $border-radius-lg;
+  }
+}
+
+// Tables
+table {
+  font-size: $font-size-sm;
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: get-color('lightest-grey');
+  }
+
+  &.table {
+    margin-bottom: 0;
+
+    th {
+      font-weight: $font-weight-normal;
+    }
+  }
+
+  .loading {
+    text-align: left;
+    margin: 0;
+
+    > img {
+      height: 15px !important;
+    }
   }
 }
 

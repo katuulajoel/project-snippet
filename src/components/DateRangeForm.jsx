@@ -80,6 +80,7 @@ const DateRangeForm = (props) => {
         <FormGroup>
           {endError && <FieldError message={endError} />}
           <DateTimePicker
+            id="end-date"
             className="tg-date-field"
             placeholder="To"
             format={"DD MMM YYYY"}

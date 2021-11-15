@@ -1,13 +1,13 @@
 import GenericModal from "../components/GenericModal";
 import { createConfirmation } from "react-confirm";
 
-const confirm = createConfirmation(GenericModal);
+export const confirm = createConfirmation(GenericModal);
 
-export function openGenericModal(modalContent, options = {}, modalHeader) {
+export const openGenericModal = (modalContent, options = {}, modalHeader) => {
   return confirm({ modalHeader, modalContent, options: { ...options } });
-}
+};
 
-function safeClassNameOptions(className, options) {
+const safeClassNameOptions = (className, options) => {
   let safeOptions = options || {};
   if (safeOptions.className) {
     safeOptions.className = `${className} ${safeOptions.className}`;
@@ -15,15 +15,15 @@ function safeClassNameOptions(className, options) {
     safeOptions.className = className;
   }
   return safeOptions;
-}
+};
 
-export function openConfirm({
+export const openConfirm = ({
   message = null,
   title = "",
   canClose = true,
   options = { ok: "Yes", cancel: "Cancel" },
   header = null,
-} = {}) {
+} = {}) => {
   return openGenericModal(
     message,
     {
@@ -33,16 +33,16 @@ export function openConfirm({
     },
     header
   );
-}
+};
 
-export function openModal({
+export const openModal = ({
   body = null,
   title = "",
   canClose = true,
   options = null,
   header = null,
   hideActions = false,
-} = {}) {
+} = {}) => {
   return openGenericModal(
     body,
     {
@@ -53,4 +53,4 @@ export function openModal({
     },
     header
   );
-}
+};

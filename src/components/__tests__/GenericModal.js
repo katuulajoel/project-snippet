@@ -1,9 +1,15 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { cleanup, render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
 import GenericModal from "../GenericModal";
+import { cleanup, render } from "@testing-library/react";
 import store from "../../redux/store";
+
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: jest.fn(),
+  useSelector: jest.fn(),
+}));
 
 afterEach(cleanup);
 

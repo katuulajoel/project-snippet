@@ -67,6 +67,7 @@
     "test": "jest --config ./jest.config.json",
     "eject": "react-scripts eject",
     "lint": "node ./scripts/tasks/eslint.js",
+    "lint:fix": "node ./scripts/tasks/eslint.js --fix",
     "format": "prettier -w .",
     "test:coverage": "SKIP_PREFLIGHT_CHECK=true CI=true jest --config ./jest.config.json --coverage",
     "start-prod": "env-cmd -f .env.prod react-scripts start"

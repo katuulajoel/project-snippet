@@ -6,16 +6,12 @@ axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.withCredentials = true;
 axios.interceptors.response.use(undefined, (err) => {
   const url = `${
-    process.env.REACT_APP_NODE_ENV === "production"
-      ? window.location.origin + "/"
-      : process.env.REACT_APP_BACKEND_ROOT
+    process.env.REACT_APP_NODE_ENV === "production" ? window.location.origin + "/" : process.env.REACT_APP_BACKEND_ROOT
   }api/auth/verify/`;
 
   if (
     err.request.responseURL !== url &&
-    (err.response.status === 403 ||
-      err.response.data.detail ===
-        "Authentication credentials were not provided.")
+    (err.response.status === 403 || err.response.data.detail === "Authentication credentials were not provided.")
   ) {
     window.location.pathname = `/login`;
   }
@@ -27,9 +23,9 @@ let API_PATH = "api/";
 
 export const API_ROOT = `${BACKEND_PATH}${API_PATH}`;
 
-function getEndpointUrl(path) {
+const getEndpointUrl = (path) => {
   return API_ROOT + path;
-}
+};
 
 // Auth
 export const ENDPOINT_LOGIN = getEndpointUrl("auth/login/");
@@ -51,12 +47,10 @@ export const ENDPOINT_RESET_PASSWORD = getEndpointUrl("auth/password/reset/");
 export const ENDPOINT_INVOICES_SUMMARY = getEndpointUrl("invoices/summary/");
 export const ENDPOINT_INVOICES = getEndpointUrl("invoices/");
 export const ENDPOINT_PROJECTS = getEndpointUrl("projects/");
-export const ENDPOINT_NOTIFICATIONS = getEndpointUrl("me/notification/");
 export const ENDPOINT_NOTIFICATION_LOG = getEndpointUrl("notification-log/");
 export const ENDPOINT_USERS = getEndpointUrl("users/");
 export const ENDPOINT_PROGRESS_EVENTS = getEndpointUrl("progress-events/");
 export const ENDPOINT_DOCUMENTS = getEndpointUrl("documents/");
-export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");
 
 export const USER_TYPE_DEVELOPER = 1;
 export const USER_TYPE_PROJECT_OWNER = 2;
@@ -84,6 +78,12 @@ export const INVOICE_TYPES = {
   purchase: "Payout",
   credit_nota: "Credit Note",
 };
+
+// Account
+export const ENDPOINT_NOTIFICATIONS = getEndpointUrl("me/notification/");
+export const ENDPOINT_SKILLS = getEndpointUrl("skills/");
+export const ENDPOINT_TEST_RESULTS = getEndpointUrl("results/");
+export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");
 
 export function composeFormData(data) {
   let formData = new FormData();

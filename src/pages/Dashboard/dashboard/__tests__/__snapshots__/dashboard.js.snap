@@ -3,7 +3,7 @@
 exports[`Dashboard test Should match snapshot test 1`] = `
 Array [
   <nav
-    className="sc-pNWdM ixJkbw navbar "
+    className="sc-fujyAs kVdmRC navbar "
   >
     <div
       className="title-bar"
@@ -20,7 +20,7 @@ Array [
       >
         <li>
           <div
-            className="input-group sc-jSFjdj hTzrBi input-search"
+            className="input-group sc-eCApnc bSZIdv input-search"
           >
             <span
               className="input-group-prepend"
@@ -59,7 +59,7 @@ Array [
       </ul>
     </div>
     <div
-      className="sc-fujyAs cKNmWV"
+      className="sc-iCoGMd liNCSM"
     />
   </nav>,
   <div
@@ -226,7 +226,7 @@ Array [
             <span
               className="sub-text"
             >
-              Fri, 5th Nov 2021
+              Sun, 14th Nov 2021
             </span>
           </div>
         </div>

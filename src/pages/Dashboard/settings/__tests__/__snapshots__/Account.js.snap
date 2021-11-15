@@ -3,7 +3,7 @@
 exports[`Account layout test Snapshot test for Account component 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gKAaRy iOazTI account-settings"
+    class="sc-jSFjdj hgLsyQ account-settings"
   >
     <form
       aria-label="changePassword-form"

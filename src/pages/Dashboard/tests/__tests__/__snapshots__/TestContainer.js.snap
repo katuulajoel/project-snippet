@@ -1,0 +1,707 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard test - Test Results Should match snapshot test 1`] = `
+Array [
+  <div
+    className="table-responsive"
+  >
+    <table
+      className="sc-iCoGMd sc-jrsJWt kgtQbc kHhxJa table"
+      role="table"
+    >
+      <thead>
+        <tr
+          role="row"
+        >
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              User
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": undefined,
+              }
+            }
+          >
+            <div>
+              Coding Tests
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              Comms Check
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              MBTI Profile
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              IQ Tests
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              SA Tests
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+            title="Toggle SortBy"
+          >
+            <div>
+              C. Of Conduct
+              <div
+                className="caret-group"
+              >
+                
+              </div>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        role="rowgroup"
+      >
+        <tr
+          role="row"
+        >
+          <th
+            role="cell"
+          >
+            <div>
+              <div
+                className="sc-pNWdM jTGhMg avatar-dash avatar-initials"
+              >
+                <div
+                  className="avatar avatar-dash avatar-initials"
+                  style={Object {}}
+                >
+                  WD
+                </div>
+              </div>
+              Wd Dw
+              <div
+                className="edit-action"
+              >
+                <button
+                  className="btn btn-icon sc-dlnjwi jGlQmw btn-edit  "
+                  form={null}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="tg-ic-circle-edit-outline tunga-ic-sz-main "
+                  />
+                </button>
+              </div>
+            </div>
+          </th>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                react
+                 - 
+                100
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                Very good
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="none"
+                style={
+                  Object {
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                entj
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                140
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                100
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                100
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <th
+            role="cell"
+          >
+            <div>
+              <div
+                className="sc-pNWdM jTGhMg avatar-dash avatar-initials"
+              >
+                <div
+                  className="avatar avatar-dash avatar-initials"
+                  style={Object {}}
+                >
+                  al
+                </div>
+              </div>
+              al la
+              <div
+                className="edit-action"
+              >
+                <button
+                  className="btn btn-icon sc-dlnjwi jGlQmw btn-edit  "
+                  form={null}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="tg-ic-circle-edit-outline tunga-ic-sz-main "
+                  />
+                </button>
+              </div>
+            </div>
+          </th>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="failed"
+              >
+                react
+                 - 
+                20
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="average"
+              >
+                pass
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="none"
+                style={
+                  Object {
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                entj
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="failed"
+              >
+                80
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="average"
+              >
+                50
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                100
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <th
+            role="cell"
+          >
+            <div>
+              <div
+                className="sc-pNWdM jTGhMg avatar-dash avatar-initials"
+              >
+                <div
+                  className="avatar avatar-dash avatar-initials"
+                  style={Object {}}
+                >
+                  bs
+                </div>
+              </div>
+              bb sb
+              <div
+                className="edit-action"
+              >
+                <button
+                  className="btn btn-icon sc-dlnjwi jGlQmw btn-edit  "
+                  form={null}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="tg-ic-circle-edit-outline tunga-ic-sz-main "
+                  />
+                </button>
+              </div>
+            </div>
+          </th>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="failed"
+              >
+                react
+                 - 
+                20
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="failed"
+              >
+                poor
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="none"
+                style={
+                  Object {
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                entj
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="average"
+              >
+                112
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="average"
+              >
+                50
+              </span>
+            </div>
+          </td>
+          <td
+            role="cell"
+          >
+            <div
+              className="result"
+            >
+              <span
+                className="passed"
+              >
+                100
+              </span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>,
+  <div
+    className="sc-kEqXSa cjmIaa"
+  >
+    <span>
+      Showing
+    </span>
+    <div
+      className="sc-iqAclL fIrNey"
+    >
+      <select
+        className="form-control form-control "
+        data-testid="select-pages"
+        defaultValue=""
+        onChange={[Function]}
+        options={
+          Array [
+            Object {
+              "name": 20,
+              "value": 20,
+            },
+            Object {
+              "name": 50,
+              "value": 50,
+            },
+            Object {
+              "name": 100,
+              "value": 100,
+            },
+          ]
+        }
+      >
+        <option
+          data-testid="option-20"
+          defaultValue={20}
+        >
+          20
+        </option>
+        <option
+          data-testid="option-50"
+          defaultValue={50}
+        >
+          50
+        </option>
+        <option
+          data-testid="option-100"
+          defaultValue={100}
+        >
+          100
+        </option>
+      </select>
+      <i
+        className="tg-ic-rounded-keyboard-arrow-down tunga-ic-sz-sm "
+      />
+    </div>
+    <span
+      style={
+        Object {
+          "marginLeft": "16px",
+        }
+      }
+    >
+      of 
+      3
+    </span>
+    <nav
+      aria-label="Page navigation example"
+      className=""
+    >
+      <ul
+        className="pagination"
+      >
+        <li
+          className="sc-jSFjdj dlCsmo page-item"
+          onClick={[Function]}
+        >
+          <a
+            className="page-link"
+            href="#"
+          >
+            <i
+              className="tg-ic-arrow-left tunga-ic-sz-sm "
+            />
+          </a>
+        </li>
+        <div
+          className="Table__visiblePagesWrapper"
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
+        />
+        <li
+          className="sc-jSFjdj dlCsmo next page-item"
+          onClick={[Function]}
+        >
+          <a
+            className="page-link"
+            href="#"
+          >
+            <i
+              className="tg-ic-arrow-right tunga-ic-sz-sm "
+            />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>,
+]
+`;
+
+exports[`Test list container Should match snapshot test 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <div
+        class="sc-bdnxRM gOFDIS"
+      >
+        <div
+          class="filter-links"
+        />
+        <h3>
+          Results
+        </h3>
+        <div
+          class="sc-dIsUp iPMPKp"
+          style="float: right;"
+        >
+          <a
+            href="#"
+          >
+            <i
+              class="tg-ic-filter-variant tunga-ic-sz-sm "
+            />
+             Filter 
+          </a>
+          <div
+            class="input-group sc-eCApnc bSZIdv input-search"
+          >
+            <span
+              class="input-group-prepend"
+            >
+              <span
+                class="input-group-text"
+              >
+                <i
+                  class="tg-ic-search1  "
+                />
+              </span>
+            </span>
+            <div
+              class="sc-gtsrHT krXPYk"
+              data-testid="input"
+            >
+              <input
+                autocomplete="off"
+                class="form-control"
+                data-testid=""
+                id=""
+                label="Label"
+                name="search"
+                placeholder="Search...."
+                type="input"
+                value=""
+              />
+            </div>
+            <span
+              class="input-group-prepend"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="loading"
+      data-testid="loading"
+    >
+      <img
+        src="[object Object]"
+        style="width: 20px;"
+      />
+       
+    </div>
+  </div>
+</DocumentFragment>
+`;

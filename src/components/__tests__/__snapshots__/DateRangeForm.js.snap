@@ -89,10 +89,10 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
           <input
             aria-expanded={false}
             aria-haspopup={true}
-            aria-owns="rw_4_date"
+            aria-owns="end-date_date"
             autoComplete="off"
             className="rw-widget-input rw-input"
-            id="rw_3_input"
+            id="end-date_input"
             onBlur={[Function]}
             onChange={[Function]}
             placeholder="To"

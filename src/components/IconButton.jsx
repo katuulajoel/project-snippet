@@ -35,6 +35,7 @@ IconButton.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string,
   size: PropTypes.string,
+  onClick: PropTypes?.func,
   "data-tip": PropTypes.string,
 };
 

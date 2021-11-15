@@ -1,14 +1,31 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
-const CountrySelector = ({ ...props }) => {
+const propTypes = {
+  className: PropTypes.string,
+  options: PropTypes.array,
+  size: PropTypes.string,
+};
+
+const Select = (props) => {
+  const { options = [] } = props;
+
   return (
-    <select {...props}>
-      {props.data &&
-        props.data.map((item, i) => {
+    <select
+      {...props}
+      className={`form-control ${props.className || ""} ${
+        props.size ? `form-control-${props.size}` : ""
+      }`}
+    >
+      {options &&
+        options.map(({ value, name }) => {
           return (
-            <option key={i} defaultValue={item.name}>
-              {item.name}
+            <option
+              key={`option-${value || name}`}
+              defaultValue={value || name}
+              data-testid={`option-${value || name}`}
+            >
+              {name}
             </option>
           );
         })}
@@ -16,8 +33,6 @@ const CountrySelector = ({ ...props }) => {
   );
 };
 
-CountrySelector.propTypes = {
-  data: PropTypes.array,
-};
+Select.propTypes = propTypes;
 
-export default CountrySelector;
+export default Select;

@@ -58,14 +58,17 @@ const StyledSearchInput = styled(InputGroup)`
   border: 1px solid rgb(237, 241, 247);
   box-sizing: border-box;
   border-radius: 4px;
-  padding: 0 18px;
+  margin-left: 15px;
+  // padding: 0 18px;
+  background: #fff;
   align-items: center;
   flex-wrap: nowrap;
 
   .input-group-prepend .input-group-text {
     background-color: rgb(255, 255, 255);
     color: rgb(62, 72, 87);
-    padding: 0px;
+    margin-left: 10px;
+    padding: 0 10px;
     font-size: 16px;
     height: initial;
     border: none;

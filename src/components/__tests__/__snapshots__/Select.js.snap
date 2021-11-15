@@ -1,7 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CountrySelector layout test CountrySelector component snapshot 1`] = `
+exports[`Select component test CountrySelector component snapshot 1`] = `
 <DocumentFragment>
-  <select />
+  <select
+    class="form-control  "
+  />
 </DocumentFragment>
+`;
+
+exports[`Select component test Snapshot test for Select component 1`] = `
+<select
+  className="form-control  "
+/>
 `;

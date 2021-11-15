@@ -10,15 +10,24 @@ describe("Auth layout test", () => {
   });
 
   it("should submit result", () => {
-    const wrapper = mount(<DateRangeForm proceed={() => {}} />);
-
-    console.log(wrapper.debug());
+    const proceedMock = jest.fn();
+    const wrapper = mount(
+      <DateRangeForm
+        id="testRange"
+        proceed={proceedMock}
+        defaultStart="2021-10-19T11:24:08.429Z"
+        defaultEnd="2021-10-19T11:24:08.429Z"
+      />
+    );
 
     const startDateInput = wrapper.find("#start-date DatePickerInput input");
-    console.log(startDateInput.debug());
+    const endDateInput = wrapper.find("#end-date DatePickerInput input");
 
-    let date = new Date();
+    const date = new Date();
     startDateInput.simulate("change", {
+      target: { value: date.toISOString() },
+    });
+    endDateInput.simulate("change", {
       target: { value: date.toISOString() },
     });
   });
