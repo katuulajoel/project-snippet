@@ -162,7 +162,7 @@ const CreateUser = (props) => {
                   onChange={(e) => setUserCountry(e.target.value)}
                   dispatch={dispatch}
                   aria-label="country-input"
-                  data={countries}
+                  options={countries}
                   required
                 />
               </FormGroup>
