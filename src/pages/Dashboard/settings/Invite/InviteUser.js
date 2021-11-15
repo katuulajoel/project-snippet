@@ -1,49 +1,38 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import InviteContainer from "./InviteContainer";
 import { ContentSection } from "../../../../utils/styles";
 import Input from "../../../../components/Input";
 import { isAdmin } from "../../../../utils/auth";
 import * as InviteActions from "../../../../redux/actions/InvitesActions";
 import Label from "../../../../components/Label";
+import { AnimatedButton } from "../../../../components/Button";
+import { getFormData } from "../../../../utils/forms";
 
 const InviteUser = () => {
-  const [user, setUser] = useState({
-    email: "",
-    first_name: "",
-    last_name: "",
-    resent: false,
-    type: "",
-    category: "",
-  });
-
-  const onChangeField = (e) => {
-    e.preventDefault();
-
-    const { name, value } = e.target;
-
-    setUser((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
-  };
+  const dispatch = useDispatch();
+  const [userType, setUserType] = useState("");
 
   const onSave = async (e) => {
     e.preventDefault();
-    InviteActions.invite({ ...user })();
+
+    let form = document.querySelector("form");
+    let formdata = new FormData(form);
+    let data = getFormData(formdata);
+
+    return InviteActions.invite({ ...data })(dispatch, () => form.reset());
   };
 
   return (
     <InviteContainer>
       <ContentSection style={{ paddingTop: "0" }}>
         <form onSubmit={onSave}>
+          <input type="hidden" name="resent" defaultValue={false} />
+          <input type="hidden" name="category" defaultValue={""} />
           <Label name="Email Address">
             <Input
               placeholder="eg. bart@tunga.io"
-              onChange={onChangeField}
               name="email"
-              defaultValue={user.email}
               aria-label="email-input"
               required
             />
@@ -51,9 +40,7 @@ const InviteUser = () => {
           <Label name="First Name">
             <Input
               placeholder="Enter first name"
-              onChange={onChangeField}
               name="first_name"
-              value={user.first_name}
               aria-label="first_name-input"
               required
             />
@@ -62,8 +49,6 @@ const InviteUser = () => {
             <Input
               placeholder="Enter last name"
               name="last_name"
-              onChange={onChangeField}
-              value={user.last_name}
               aria-label="last_name-input"
               required
             />
@@ -71,9 +56,9 @@ const InviteUser = () => {
           <Label name="User Type">
             <select
               className="form-control"
-              onChange={onChangeField}
+              onChange={(e) => setUserType(e.target.value)}
               name="type"
-              value={user.type}
+              defaultValue={userType}
               aria-label="type-input"
               required
             >
@@ -87,14 +72,9 @@ const InviteUser = () => {
               )}
             </select>
           </Label>
-          {user.type === "1" && (
+          {userType === "1" && (
             <Label name="User Category">
-              <select
-                className="form-control"
-                onChange={onChangeField}
-                name="category"
-                value={user.category}
-              >
+              <select className="form-control" name="category">
                 <option value="">Select category of user</option>
                 <option value="developer">Developer</option>
                 <option value="designer">Designer</option>
@@ -102,12 +82,7 @@ const InviteUser = () => {
             </Label>
           )}
           <div className="col-12">
-            <button
-              className="btn btn-primary save"
-              // disabled={this.props.isInviting[this.state.selectionKey]}
-            >
-              Send Invite
-            </button>
+            <AnimatedButton>Send Invite</AnimatedButton>
           </div>
         </form>
       </ContentSection>

@@ -29,10 +29,20 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
     </div>
   </div>
   <div
-    class="sc-dlnjwi bVmqia"
+    class="sc-dlnjwi fHkIBR"
     style="padding-top: 0px;"
   >
     <form>
+      <input
+        name="source"
+        type="hidden"
+        value="3"
+      />
+      <input
+        name="type"
+        type="hidden"
+        value="2"
+      />
       <div
         aria-label="label"
         class="row"
@@ -61,7 +71,6 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               placeholder="eg. bart@tunga.io"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
@@ -94,7 +103,6 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               placeholder="Enter first name"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
@@ -127,7 +135,6 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               placeholder="Enter last name"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
@@ -160,7 +167,6 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               placeholder="Enter name of company"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
@@ -180,36 +186,29 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               class="control-label"
             >
               VAT Number: 
-              <span
-                class="label-style"
-              >
-                *
-              </span>
             </label>
             <input
               aria-label="vat_number-input"
               class="form-control"
               name="vat_number"
               placeholder="VAT Number"
-              required=""
               type="text"
-              value=""
             />
           </div>
         </div>
       </div>
       <div
-        aria-label="label"
         class="row"
       >
         <div
-          class="col-sm-12"
+          aria-label="label"
+          class="col-sm-6"
         >
           <div
             class="form-group"
           >
             <label
-              aria-label="Street"
+              aria-label="street"
               class="control-label"
             >
               Street
@@ -226,17 +225,12 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               placeholder="Enter street name"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
-      </div>
-      <div
-        aria-label="label"
-        class="row"
-      >
         <div
-          class="col-sm-12"
+          aria-label="label"
+          class="col-sm-3"
         >
           <div
             class="form-group"
@@ -259,17 +253,12 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               placeholder="Enter no."
               required=""
               type="number"
-              value=""
             />
           </div>
         </div>
-      </div>
-      <div
-        aria-label="label"
-        class="row"
-      >
         <div
-          class="col-sm-12"
+          aria-label="label"
+          class="col-sm-3"
         >
           <div
             class="form-group"
@@ -292,7 +281,6 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               placeholder="Enter ZIP"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
@@ -302,13 +290,13 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
         class="row"
       >
         <div
-          class="col-sm-12"
+          class="col-sm-6"
         >
           <div
             class="form-group"
           >
             <label
-              aria-label="City"
+              aria-label="city"
               class="control-label"
             >
               City
@@ -325,23 +313,18 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               placeholder="Enter city"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
-      </div>
-      <div
-        aria-label="label"
-        class="row"
-      >
         <div
-          class="col-sm-12"
+          aria-label="label"
+          class="col-sm-6"
         >
           <div
             class="form-group"
           >
             <label
-              aria-label="Country"
+              aria-label="country"
               class="control-label"
             >
               Country
@@ -357,7 +340,13 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               name="country"
               options=""
               required=""
-            />
+            >
+              <option
+                value="choose"
+              >
+                Choose Country
+              </option>
+            </select>
           </div>
         </div>
       </div>
@@ -366,11 +355,11 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
       >
         <button
           aria-label="submit"
-          class="btn btn-primary save"
+          class="btn btn-primary save animate"
           disabled=""
           type="submit"
         >
-          Create Client
+          Create User
         </button>
       </div>
     </form>

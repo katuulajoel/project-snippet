@@ -344,6 +344,7 @@ export const ContentSection = styled.div`
       font-size: 14px;
       line-height: 21px;
       color: #151a30;
+      margin-bottom: 8px;
     }
 
     input,

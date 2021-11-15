@@ -83,7 +83,12 @@ describe("Invoice actions tests", () => {
 
   it("should invite", async () => {
     axios.request.mockReturnValue(Promise.resolve({ data: [] }));
-    const expectedActions = [];
+    const expectedActions = [
+      {
+        data: false,
+        type: "SET_BUTTON",
+      },
+    ];
 
     await store.dispatch(actions.invite());
     const storeActions = await store.getActions();
@@ -92,9 +97,14 @@ describe("Invoice actions tests", () => {
 
   it("create user", async () => {
     axios.post.mockReturnValue(Promise.resolve({ data: [] }));
-    const expectedActions = [];
+    const expectedActions = [
+      {
+        data: false,
+        type: "SET_BUTTON",
+      },
+    ];
 
-    await store.dispatch(actions.createUser());
+    store.dispatch(actions.createUser());
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

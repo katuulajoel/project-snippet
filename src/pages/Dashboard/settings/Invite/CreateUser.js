@@ -6,10 +6,17 @@ import InviteContainer from "./InviteContainer";
 import Label from "../../../../components/Label";
 import { Input } from "reactstrap";
 import * as inviteActions from "../../../../redux/actions/InvitesActions";
+import { SET_BUTTON } from "../../../../configs/constants/ActionTypes";
+import { FormGroup } from "react-bootstrap";
+import { getFormData } from "../../../../utils/forms";
+import { AnimatedButton } from "../../../../components/Button";
 import Select from "../../../../components/Select";
+import Alert from "../../../../utils/alert";
+import { success } from "../../../../utils/actions";
 
 const CreateUser = (props) => {
   const [countries, setCountries] = useState([...(props.countries || [])]);
+  const [userCountry, setUserCountry] = useState("");
 
   const dispatch = useDispatch();
 
@@ -19,69 +26,44 @@ const CreateUser = (props) => {
     });
   }, []);
 
-  const [user, setUser] = useState({
-    email: "",
-    source: 3,
-    first_name: "",
-    last_name: "",
-    type: 2,
-    company: "",
-    street: "",
-    plot_number: "",
-    city: "",
-    postal_code: "",
-    country: "",
-    vat_number: "",
-  });
-
-  const onChangeField = (e) => {
-    e.preventDefault();
-
-    const { name, value } = e.target;
-
-    setUser((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
-  };
-
   const onSave = async (e) => {
     e.preventDefault();
 
-    const { email, first_name, last_name, type, source } = user;
-    const data = {
-      email,
-      first_name,
-      last_name,
-      type,
-      username: email,
-      source,
-      company: {
-        name: user.company,
-        street: user.street,
-        plot_number: user.plot_number,
-        city: user.city,
-        postal_code: user.postal_code,
-        country: user.country,
-        vat_number: user.vat_number,
-      },
+    let form = document.querySelector("form");
+    let formdata = new FormData(form);
+    let data = getFormData(formdata);
+
+    data["username"] = data.email;
+    data["company"] = {
+      name: data.company,
+      street: data.street,
+      plot_number: data.plot_number,
+      city: data.city,
+      postal_code: data.postal_code,
+      country: data.country,
+      vat_number: data.vat_number,
     };
 
-    inviteActions.createUser({ ...data })();
+    if (data["country"] == "choose") {
+      Alert("Chooose a country");
+
+      dispatch(success(SET_BUTTON, false));
+      return;
+    }
+
+    return inviteActions.createUser({ ...data })(dispatch, () => form.reset());
   };
 
   return (
     <InviteContainer>
       <ContentSection style={{ paddingTop: "0" }}>
         <form onSubmit={onSave}>
+          <input type="hidden" name="source" value="3" />
+          <input type="hidden" name="type" value="2" />
           <Label name="Email Address">
             <Input
               placeholder="eg. bart@tunga.io"
-              onChange={onChangeField}
               name="email"
-              defaultValue={user.email}
               aria-label="email-input"
               required
             />
@@ -89,9 +71,7 @@ const CreateUser = (props) => {
           <Label name="First Name">
             <Input
               placeholder="Enter first name"
-              onChange={onChangeField}
               name="first_name"
-              value={user.first_name}
               aria-label="first_name-input"
               required
             />
@@ -100,8 +80,6 @@ const CreateUser = (props) => {
             <Input
               placeholder="Enter last name"
               name="last_name"
-              onChange={onChangeField}
-              value={user.last_name}
               aria-label="last_name-input"
               required
             />
@@ -110,85 +88,105 @@ const CreateUser = (props) => {
             <Input
               placeholder="Enter name of company"
               name="company"
-              onChange={onChangeField}
-              value={user.company}
               aria-label="company-input"
               required
             />
           </Label>
-          <Label name="VAT Number: ">
+          <Label name="VAT Number: " required={false}>
             <Input
               placeholder="VAT Number"
               name="vat_number"
-              onChange={onChangeField}
-              value={user.vat_number}
               aria-label="vat_number-input"
-              required
             />
           </Label>
-          <Label name="Street">
-            <Input
-              placeholder="Enter street name"
-              name="street"
-              onChange={onChangeField}
-              value={user.street}
-              aria-label="street-input"
-              required
-            />
-          </Label>
-          <Label name="Number/Plot">
-            <Input
-              placeholder="Enter no."
-              type="number"
-              name="plot_number"
-              onChange={onChangeField}
-              value={user.plot_number}
-              aria-label="plot_number-input"
-              required
-            />
-          </Label>
-          <Label name="Zip code">
-            <Input
-              placeholder="Enter ZIP"
-              name="postal_code"
-              onChange={onChangeField}
-              value={user.postal_code}
-              aria-label="postal_code-input"
-              required
-            />
-          </Label>
-          <Label name="City">
-            <Input
-              placeholder="Enter city"
-              name="city"
-              onChange={onChangeField}
-              value={user.city}
-              aria-label="city-input"
-              required
-            />
-          </Label>
-          <Label name="Country">
-            <Select
-              className="form-control"
-              defaultValue="Canada"
-              name="country"
-              onChange={onChangeField}
-              dispatch={dispatch}
-              aria-label="country-input"
-              options={countries}
-              required
-            />
-          </Label>
+          <div className="row">
+            <div className="col-sm-6" aria-label="label">
+              <FormGroup>
+                <label className="control-label" aria-label="street">
+                  Street
+                  <span className="label-style">*</span>
+                </label>
+                <Input
+                  placeholder="Enter street name"
+                  name="street"
+                  aria-label="street-input"
+                  required
+                />
+              </FormGroup>
+            </div>
+            <div className="col-sm-3" aria-label="label">
+              <FormGroup>
+                <label className="control-label" aria-label="Number/Plot">
+                  Number/Plot
+                  <span className="label-style">*</span>
+                </label>
+                <Input
+                  placeholder="Enter no."
+                  type="number"
+                  name="plot_number"
+                  aria-label="plot_number-input"
+                  required
+                />
+              </FormGroup>
+            </div>
+            <div className="col-sm-3" aria-label="label">
+              <FormGroup>
+                <label className="control-label" aria-label="Zip code">
+                  Zip code
+                  <span className="label-style">*</span>
+                </label>
+                <Input
+                  placeholder="Enter ZIP"
+                  name="postal_code"
+                  aria-label="postal_code-input"
+                  required
+                />
+              </FormGroup>
+            </div>
+          </div>
+          <div className="row" aria-label="label">
+            <div className="col-sm-6">
+              <FormGroup>
+                <label className="control-label" aria-label="city">
+                  City
+                  <span className="label-style">*</span>
+                </label>
+                <Input
+                  placeholder="Enter city"
+                  name="city"
+                  aria-label="city-input"
+                  required
+                />
+              </FormGroup>
+            </div>
+            <div className="col-sm-6" aria-label="label">
+              <FormGroup>
+                <label className="control-label" aria-label="country">
+                  Country
+                  <span className="label-style">*</span>
+                </label>
+                <Select
+                  className="form-control"
+                  defaultValue="Canada"
+                  name="country"
+                  onChange={(e) => setUserCountry(e.target.value)}
+                  aria-label="country-input"
+                  options={countries}
+                  required
+                >
+                  <option value="choose">Choose Country</option>
+                </Select>
+              </FormGroup>
+            </div>
+          </div>
 
           <div className="col-12">
-            <button
-              type="submit"
-              className="btn btn-primary save"
-              disabled={!user.country || user.country === "----"}
+            <AnimatedButton
+              disabled={!userCountry || userCountry === "----"}
               aria-label="submit"
             >
-              Create Client
-            </button>
+              Create User
+            </AnimatedButton>
           </div>
         </form>
       </ContentSection>
