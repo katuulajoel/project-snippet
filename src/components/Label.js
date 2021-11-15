@@ -8,7 +8,7 @@ const Label = ({ name, required = true, children }) => (
       <FormGroup>
         <label className="control-label" aria-label={name}>
           {name}
-          {required ? <span className="label-style">*</span> : ""}
+          {required && <span className="label-style">*</span>}
         </label>
         {children}
       </FormGroup>
