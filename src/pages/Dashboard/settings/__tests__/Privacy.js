@@ -7,58 +7,45 @@ import { configureStore } from "../../../../redux/store";
 
 afterEach(cleanup);
 
-let user_admin = {
-  Auth: {
-    user: {
-      id: 1,
-      can_contribute: true,
-      display_name: "Admin Tunga",
-      display_type: "Client Manager",
-      display_category: null,
-      is_developer: false,
-      is_designer: false,
-      is_project_owner: false,
-      is_client_manager: false,
-      is_client_support_officer: false,
-      is_admin: true,
-      username: "admin",
-      first_name: "Admin",
-      last_name: "Tunga",
-      email: "admin2@tunga.io",
-      is_staff: true,
-      settings: {
-        switches: {},
-        visibility: {},
+let user = (role) => {
+  return {
+    Auth: {
+      user: {
+        id: 1,
+        can_contribute: true,
+        display_name: "Admin Tunga",
+        display_type: "Client Manager",
+        display_category: null,
+        is_developer: false,
+        is_designer: false,
+        is_project_owner: false,
+        is_client_manager: false,
+        is_client_support_officer: false,
+        is_admin: false,
+        username: "admin",
+        first_name: "Admin",
+        last_name: "Tunga",
+        email: "admin2@tunga.io",
+        is_staff: true,
+        ...{ ...role },
       },
     },
-  },
-};
-
-let user_dev = {
-  Auth: {
-    user: {
-      id: 1,
-      can_contribute: true,
-      display_name: "Admin Tunga",
-      display_type: "Client Manager",
-      display_category: null,
-      is_developer: true,
-      is_designer: false,
-      is_project_owner: false,
-      is_client_manager: true,
-      is_client_support_officer: false,
-      is_admin: false,
-      username: "admin",
-      first_name: "Admin",
-      last_name: "Tunga",
-      email: "admin2@tunga.io",
-      is_staff: true,
+    profile: {
       settings: {
-        switches: {},
-        visibility: {},
+        switches: {
+          cookie_analytics_customization: true,
+          cookie_performance_functionality: true,
+          cookie_targeting_advertising: true,
+          event_email: false,
+          new_task_progress_report_email: false,
+          newsletter_email: false,
+          task_invitation_response_email: false,
+          task_progress_report_reminder_email: false,
+          task_survey_reminder_email: false,
+        },
       },
     },
-  },
+  };
 };
 
 describe("Privacy layout test", () => {
@@ -72,13 +59,17 @@ describe("Privacy layout test", () => {
     );
 
   it("Privacy component snapshot", () => {
-    const { asFragment } = renderComponent(user_dev);
+    const { asFragment } = renderComponent({
+      ...user({ is_developer: true }),
+    });
 
     expect(asFragment(<Privacy />)).toMatchSnapshot();
   });
 
   it("Check Promotional Email Settings checkboxes", async () => {
-    const { getByLabelText } = renderComponent(user_dev);
+    const { getByLabelText } = renderComponent({
+      ...user({ is_developer: true }),
+    });
 
     let label = [
       {
@@ -101,7 +92,12 @@ describe("Privacy layout test", () => {
   });
 
   it("Check Transactional Email Settings checkboxes", async () => {
-    const { getByLabelText } = renderComponent(user_dev);
+    const { getByLabelText } = renderComponent({
+      ...user({
+        is_developer: true,
+        is_client_manager: true,
+      }),
+    });
 
     let label = [
       {
@@ -125,7 +121,9 @@ describe("Privacy layout test", () => {
   });
 
   it("Check Transactional Email Settings checkboxes, user is not a dev or project manager", async () => {
-    const { getByLabelText } = renderComponent(user_admin);
+    const { getByLabelText } = renderComponent({
+      ...user({ is_admin: true, is_staff: true }),
+    });
 
     let label = [
       {
@@ -148,7 +146,10 @@ describe("Privacy layout test", () => {
   });
 
   it("Check open modal", async () => {
-    const { getByLabelText } = renderComponent(user_dev);
+    const { getByLabelText } = renderComponent({
+      ...user,
+      ...{ is_developer: true },
+    });
 
     const button = getByLabelText("submit");
     fireEvent.click(button);

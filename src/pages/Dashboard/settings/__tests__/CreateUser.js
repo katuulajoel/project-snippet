@@ -4,10 +4,33 @@ import { cleanup, render, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import CreateUser from "../Invite/CreateUser";
 import store from "../../../../redux/store";
+import axios from "axios";
 
 afterEach(cleanup);
 
+jest.mock("axios", () => {
+  return {
+    interceptors: {
+      request: { use: jest.fn(), eject: jest.fn() },
+      response: { use: jest.fn(), eject: jest.fn() },
+    },
+    defaults: { xsrfCookieName: "csrftoken" },
+    post: jest.fn(),
+    get: jest.fn(),
+    request: jest.fn(),
+  };
+});
+
 describe("CreateUser comp test", () => {
+  beforeEach(() => {
+    axios.post.mockClear();
+    jest.clearAllMocks();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("CreateUser component snapshot", () => {
     const { asFragment } = render(
       <Provider store={store}>
@@ -54,19 +77,8 @@ describe("CreateUser comp test", () => {
     expect(lastNameInput.value).toBe("Mensah");
   });
 
-  let container;
-
-  beforeEach(() => {
-    container = document.createElement("div");
-    document.body.appendChild(container);
-  });
-
-  afterEach(() => {
-    document.body.removeChild(container);
-    container = null;
-  });
-
-  it("Check form submit", async () => {
+  it("Check form submit", () => {
+    axios.post.mockReturnValue(Promise.resolve({ data: [] }));
     const { queryByLabelText, getByLabelText } = render(
       <Provider store={store}>
         <Router>

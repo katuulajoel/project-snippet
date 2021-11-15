@@ -5,6 +5,7 @@ const propTypes = {
   className: PropTypes.string,
   options: PropTypes.array,
   size: PropTypes.string,
+  children: PropTypes.any,
 };
 
 const Select = (props) => {
@@ -17,6 +18,7 @@ const Select = (props) => {
         props.size ? `form-control-${props.size}` : ""
       }`}
     >
+      {props.children}
       {options &&
         options.map(({ value, name }) => {
           return (
