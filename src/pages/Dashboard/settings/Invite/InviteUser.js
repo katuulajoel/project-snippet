@@ -8,9 +8,6 @@ import * as InviteActions from "../../../../redux/actions/InvitesActions";
 import Label from "../../../../components/Label";
 import { AnimatedButton } from "../../../../components/Button";
 import { getFormData } from "../../../../utils/forms";
-import { success } from "../../../../utils/actions";
-import * as actionTypes from "../../../../configs/constants/ActionTypes";
-import Alert from "../../../../utils/alert";
 
 const InviteUser = () => {
   const dispatch = useDispatch();
@@ -23,19 +20,7 @@ const InviteUser = () => {
     let formdata = new FormData(form);
     let data = getFormData(formdata);
 
-    return InviteActions.invite({ ...data })
-      .then(function () {
-        dispatch(success(actionTypes.SET_BUTTON, false));
-        Alert("Invitation Successfully Sent.");
-        form.reset();
-      })
-      .catch(function (error) {
-        dispatch(success(actionTypes.SET_BUTTON, false));
-        if (error.response.data && error.response.data["email"]) {
-          // Request made and server responded
-          Alert(error.response.data["email"][0], false);
-        }
-      });
+    return InviteActions.invite({ ...data })(dispatch, () => form.reset());
   };
 
   return (

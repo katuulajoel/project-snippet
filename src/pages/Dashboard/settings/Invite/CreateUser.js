@@ -8,11 +8,8 @@ import { Input } from "reactstrap";
 import * as inviteActions from "../../../../redux/actions/InvitesActions";
 import { FormGroup } from "react-bootstrap";
 import { getFormData } from "../../../../utils/forms";
-import { success } from "../../../../utils/actions";
-import Select from "../../../../components/Select";
-import * as actionTypes from "../../../../configs/constants/ActionTypes";
-import Alert from "../../../../utils/alert";
 import { AnimatedButton } from "../../../../components/Button";
+import Select from "../../../../components/Select";
 
 const CreateUser = (props) => {
   const [countries, setCountries] = useState([...(props.countries || [])]);
@@ -44,19 +41,7 @@ const CreateUser = (props) => {
       vat_number: data.vat_number,
     };
 
-    return inviteActions
-      .createUser({ ...data })
-      .then(function () {
-        dispatch(success(actionTypes.SET_BUTTON, false));
-        Alert("Client Successfully Created.");
-        form.reset();
-      })
-      .catch(function (error) {
-        dispatch(success(actionTypes.SET_BUTTON, false));
-        if (error.response.data && error.response.data["email"]) {
-          Alert(error.response.data["email"][0], false);
-        }
-      });
+    return inviteActions.createUser({ ...data })(dispatch, () => form.reset());
   };
 
   return (
