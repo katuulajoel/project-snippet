@@ -6,7 +6,7 @@ import Dashboard from "./DashboardReducer";
 import Projects from "./ProjectsReducer";
 import TestResults from "./TestResultsReducers";
 import profile from "./ProfileReducer";
-import button from "./ButtonReducer";
+import common from "./CommonReducer";
 
 const appReducer = combineReducers({
   Auth,
@@ -16,7 +16,7 @@ const appReducer = combineReducers({
   Projects,
   TestResults,
   profile,
-  button,
+  common,
 });
 
 export default appReducer;
