@@ -44,7 +44,7 @@ const CreateUser = (props) => {
       vat_number: data.vat_number,
     };
 
-    if (data["country"] == "Choose") {
+    if (data["country"] == "choose") {
       Alert("Chooose a country");
 
       dispatch(success(SET_BUTTON, false));
@@ -173,7 +173,9 @@ const CreateUser = (props) => {
                   aria-label="country-input"
                   options={countries}
                   required
-                />
+                >
+                  <option value="choose">Choose Country</option>
+                </Select>
               </FormGroup>
             </div>
           </div>
