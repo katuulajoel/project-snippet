@@ -341,8 +341,10 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               options=""
               required=""
             >
-              <option>
-                Choose
+              <option
+                value="choose"
+              >
+                Choose Country
               </option>
             </select>
           </div>
