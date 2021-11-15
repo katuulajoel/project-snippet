@@ -6,10 +6,13 @@ import InviteContainer from "./InviteContainer";
 import Label from "../../../../components/Label";
 import { Input } from "reactstrap";
 import * as inviteActions from "../../../../redux/actions/InvitesActions";
+import { SET_BUTTON } from "../../../../configs/constants/ActionTypes";
 import { FormGroup } from "react-bootstrap";
 import { getFormData } from "../../../../utils/forms";
 import { AnimatedButton } from "../../../../components/Button";
 import Select from "../../../../components/Select";
+import Alert from "../../../../utils/alert";
+import { success } from "../../../../utils/actions";
 
 const CreateUser = (props) => {
   const [countries, setCountries] = useState([...(props.countries || [])]);
@@ -40,6 +43,13 @@ const CreateUser = (props) => {
       country: data.country,
       vat_number: data.vat_number,
     };
+
+    if (data["country"] == "Choose") {
+      Alert("Chooose a country");
+
+      dispatch(success(SET_BUTTON, false));
+      return;
+    }
 
     return inviteActions.createUser({ ...data })(dispatch, () => form.reset());
   };
@@ -160,7 +170,6 @@ const CreateUser = (props) => {
                   defaultValue="Canada"
                   name="country"
                   onChange={(e) => setUserCountry(e.target.value)}
-                  dispatch={dispatch}
                   aria-label="country-input"
                   options={countries}
                   required
