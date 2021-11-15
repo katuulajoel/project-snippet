@@ -44,6 +44,9 @@ const PendingInvite = () => {
       <InfiniteScroll
         dataLength={invites && invites.count ? invites.count : 0}
         next={fetchMoreData}
+        // TODO:
+        //    Currently api returns all pending invites so no need
+        //    to handle hasMore since there is nothing new to call for.
         hasMore={false}
         loader={<Progress />}
         scrollableTarget="main-content"
