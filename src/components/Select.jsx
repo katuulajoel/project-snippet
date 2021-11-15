@@ -17,6 +17,7 @@ const Select = (props) => {
         props.size ? `form-control-${props.size}` : ""
       }`}
     >
+      <option>Choose</option>
       {options &&
         options.map(({ value, name }) => {
           return (
