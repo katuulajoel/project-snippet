@@ -456,6 +456,9 @@ Array [
               ]
             }
           >
+            <option>
+              Choose
+            </option>
             <option
               data-testid="option-20"
               defaultValue={20}

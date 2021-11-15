@@ -340,7 +340,11 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
               name="country"
               options=""
               required=""
-            />
+            >
+              <option>
+                Choose
+              </option>
+            </select>
           </div>
         </div>
       </div>

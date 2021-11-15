@@ -4,12 +4,20 @@ exports[`Select component test CountrySelector component snapshot 1`] = `
 <DocumentFragment>
   <select
     class="form-control  "
-  />
+  >
+    <option>
+      Choose
+    </option>
+  </select>
 </DocumentFragment>
 `;
 
 exports[`Select component test Snapshot test for Select component 1`] = `
 <select
   className="form-control  "
-/>
+>
+  <option>
+    Choose
+  </option>
+</select>
 `;
