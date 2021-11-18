@@ -28,7 +28,7 @@ const Alert = (msg, success = true) => {
       let toast = document.querySelector(".toast-container");
       toast.remove();
     }
-  }, 2500);
+  }, 5000);
 };
 
 export default Alert;
