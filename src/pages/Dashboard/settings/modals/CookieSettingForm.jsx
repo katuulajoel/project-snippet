@@ -45,9 +45,9 @@ const CookieSettingForm = (props) => {
                   type="checkbox"
                   id={elementId}
                   defaultChecked={
-                    (props.settings && props.settings[name]) ||
-                    defaultChecked ||
-                    cookie.cookieConsents.indexOf(id) > -1
+                    name == "essential_cookies"
+                      ? defaultChecked
+                      : props.settings && props.settings.switches[name]
                   }
                   disabled={disabled}
                   aria-label={`check-${id}`}
