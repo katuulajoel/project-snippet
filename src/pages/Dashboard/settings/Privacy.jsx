@@ -11,11 +11,13 @@ export default function Privacy() {
   const { settings } = useSelector(({ profile }) => profile);
   const { user } = useSelector(({ Auth }) => Auth);
 
+  // console.log(settings);
   useEffect(() => {
     actions.getSettings()(dispatch);
   }, []);
-
-  const onCookieSettings = async () => {
+  // console.log("settings", settings);
+  const onCookieSettings = async (settings) => {
+    // console.log("settings", settings);
     await openModal({
       body: <CookieSettingForm onChange={onChange} settings={settings} />,
       title: "Cookie Settings",
@@ -27,7 +29,8 @@ export default function Privacy() {
     setting[name] = value ? "on" : "off";
 
     if (settings && settings.switches[name] !== setting[name]) {
-      actions.updateSettings({ switches: setting })(dispatch);
+      // console.log("onChange", name, value, setting);
+      actions.updateSettings({ ...setting })(dispatch);
     }
   };
 
@@ -103,7 +106,7 @@ export default function Privacy() {
               <button
                 className="save"
                 aria-label="submit"
-                onClick={onCookieSettings}
+                onClick={() => onCookieSettings(settings)}
               >
                 Cookie Settings
               </button>
@@ -111,62 +114,58 @@ export default function Privacy() {
           </div>
         </div>
 
-        <div className="section">
-          {settings && settings.switches && (
-            <>
-              <div className="section-title">Promotional Email Settings</div>
-              {labels.promo.map((label) => {
-                return (
-                  <div className="form-check" key={`day-${label.name}`}>
-                    <label
-                      className="form-check-label"
-                      htmlFor={`check-${label.name}`}
-                    >
-                      {label.label}
-                    </label>
-                    <input
-                      className="switch form-check-input"
-                      id={`check-${label.name}`}
-                      type="checkbox"
-                      aria-label={`check-${label.name}`}
-                      defaultChecked={settings.switches[label.name]}
-                      onChange={(e) => onChange(label.name, e.target.checked)}
-                    />
-                  </div>
-                );
-              })}
-            </>
-          )}
-        </div>
+        {settings && settings.switches && (
+          <div className="section">
+            <div className="section-title">Promotional Email Settings</div>
+            {labels.promo.map((label) => {
+              return (
+                <div className="form-check" key={`day-${label.name}`}>
+                  <label
+                    className="form-check-label"
+                    htmlFor={`check-${label.name}`}
+                  >
+                    {label.label}
+                  </label>
+                  <input
+                    className="switch form-check-input"
+                    id={`check-${label.name}`}
+                    type="checkbox"
+                    aria-label={`check-${label.name}`}
+                    defaultChecked={settings.switches[label.name]}
+                    onChange={(e) => onChange(label.name, e.target.checked)}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        )}
 
-        <div className="section">
-          {settings && settings.switches && (
-            <>
-              <div className="section-title">Transactional Email Settings</div>
-              {labels.trans.map((label) => {
-                return (
-                  <div className="form-check" key={`day-${label.name}`}>
-                    <label
-                      className="form-check-label"
-                      htmlFor={`check-${label.name}`}
-                    >
-                      {label.label}
-                    </label>
+        {settings && settings.switches && (
+          <div className="section">
+            <div className="section-title">Transactional Email Settings</div>
+            {labels.trans.map((label) => {
+              return (
+                <div className="form-check" key={`day-${label.name}`}>
+                  <label
+                    className="form-check-label"
+                    htmlFor={`check-${label.name}`}
+                  >
+                    {label.label}
+                  </label>
 
-                    <input
-                      className="switch form-check-input"
-                      id={`check-${label.name}`}
-                      type="checkbox"
-                      aria-label={`check-${label.name}`}
-                      defaultChecked={settings.switches[label.name]}
-                      onChange={(e) => onChange(label.name, e.target.value)}
-                    />
-                  </div>
-                );
-              })}
-            </>
-          )}
-        </div>
+                  <input
+                    className="switch form-check-input"
+                    id={`check-${label.name}`}
+                    type="checkbox"
+                    aria-label={`check-${label.name}`}
+                    defaultChecked={settings.switches[label.name]}
+                    onChange={(e) => onChange(label.name, e.target.checked)}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         <div className="section agreements">
           <div className="section-title">Agreements and Policies</div>
