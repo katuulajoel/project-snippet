@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { Row, Col } from "reactstrap";
 /* ------------------------- Component dependencies ------------------------- */
 // import CustomInputGroup from "../../../components/CustomInputGroup";
-import Button from "../../../../components/Button";
+import { AnimatedButton } from "../../../../components/Button";
 import FormInput from "./FormInput";
 
 const ChangePassword = ({ onSave }) => {
@@ -37,9 +37,7 @@ const ChangePassword = ({ onSave }) => {
       </Row>
       <Row>
         <Col>
-          <Button className="save" type="submit">
-            Save
-          </Button>
+          <AnimatedButton targetform="#changePassword">Save</AnimatedButton>
         </Col>
       </Row>
     </form>

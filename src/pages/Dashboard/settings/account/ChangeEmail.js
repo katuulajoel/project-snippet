@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { Row, Col } from "reactstrap";
 
 /* ------------------------- Component dependencies ------------------------- */
-import Button from "../../../../components/Button";
+import { AnimatedButton } from "../../../../components/Button";
 import FormInput from "./FormInput";
 
 const ChangeEmail = ({ onSave }) => {
@@ -26,13 +26,13 @@ const ChangeEmail = ({ onSave }) => {
 
       <Row>
         <Col>
-          <Button
-            className="save"
-            type="submit"
+          <AnimatedButton
+            targetform="#changeEmail"
+            // type="submit"
             // disabled={user.email === this.state.email} // TODO: add toast to notify user whats is going wrong
           >
             Save
-          </Button>
+          </AnimatedButton>
         </Col>
       </Row>
     </form>
