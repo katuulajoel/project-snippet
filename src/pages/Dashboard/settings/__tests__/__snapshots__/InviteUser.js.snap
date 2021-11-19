@@ -209,7 +209,7 @@ exports[`InviteUser comp test InviteUser component snapshot 1`] = `
         class="col-12"
       >
         <button
-          class="btn btn-primary save animate"
+          class="btn btn-primary save animate undefined"
           type="submit"
         >
           Send Invite

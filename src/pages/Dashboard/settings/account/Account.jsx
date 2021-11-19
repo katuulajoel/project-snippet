@@ -32,7 +32,6 @@ const Account = () => {
 
     let formdata = new FormData(document.querySelector("#addAdminEmail"));
     let data = getFormData(formdata);
-    console.log("addAdminEmail", data);
 
     return updateAuthUser(data)(dispatch);
   };
@@ -40,24 +39,24 @@ const Account = () => {
   const changePassword = (e) => {
     e.preventDefault();
 
-    let formdata = new FormData(document.querySelector("#changePassword"));
+    let form = document.querySelector("#changePassword");
+    let formdata = new FormData(form);
     let data = getFormData(formdata);
     if (data) {
       data["new_password2"] = data["new_password1"];
     }
-    console.log("changePassword", data);
 
-    return updatePassword(data)(dispatch);
+    return updatePassword(data)(dispatch, () => form.reset());
   };
 
   const changeEmail = (e) => {
     e.preventDefault();
 
-    let formdata = new FormData(document.querySelector("#changeEmail"));
+    let form = document.querySelector("#changeEmail");
+    let formdata = new FormData(form);
     let data = getFormData(formdata);
-    console.log("changeEmail", data);
 
-    return updateAccountInfo(data)(dispatch);
+    return updateAccountInfo(data)(dispatch, () => form.reset());
   };
 
   const deactivate = (e) => {

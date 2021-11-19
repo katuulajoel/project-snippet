@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 export const COOKIE_OPTIONS = [
   {
     id: "essential",
-    name: "",
+    name: "essential_cookies",
     title: "Essential Website Cookies",
     content:
       "These cookies are strictly necessary to provide you with services available through our website and to use some of its features, such as logging in, filling forms and setting your privacy settings. Because these cookies are strictly necessary to deliver the website, you cannot refuse them without impacting how our website functions.",
@@ -82,7 +82,7 @@ export const COOKIE_OPTIONS = [
   },
   {
     id: "target_advert",
-    name: "cookie_analytics_customization",
+    name: "cookie_targeting_advertising",
     title: "Targeting and Advertising Cookies",
     content:
       "These cookies are used to make advertising messages more relevant to you and your interests. They also perform functions like preventing the same ad from continuously reappearing, ensuring that ads are properly displayed, and in some cases selecting advertisements that are based on your interests.",
