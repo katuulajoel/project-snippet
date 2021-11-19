@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addEventListeners, BUTTON_EVENTS } from "../utils/events";
 import { filterButtonProps } from "../utils/forms";
@@ -46,6 +46,7 @@ Button.propTypes = {
 
 export const AnimatedButton = ({ children, ...props }) => {
   const dispatch = useDispatch();
+  const [active, setActive] = useState(false);
   const { common } = useSelector((store) => store);
 
   const setSubmit = () => {
@@ -57,23 +58,39 @@ export const AnimatedButton = ({ children, ...props }) => {
   };
 
   useEffect(() => {
+    if (!common.button) {
+      setActive(false);
+    }
+  }, [common.button]);
+
+  useEffect(() => {
     dispatch({
       type: actionTypes.SET_BUTTON,
       data: false,
     });
-    let forms = document.querySelectorAll("form");
-    let form = forms[1] ? forms[1] : forms[0];
+    let form;
+    if (props.targetform) {
+      form = document.querySelector(props.targetform);
+    } else {
+      let forms = document.querySelectorAll("form");
+      form = forms[1] ? forms[1] : forms[0];
+    }
+
     form.addEventListener("submit", setSubmit);
     return () => form.removeEventListener("submit", setSubmit);
   }, []);
 
   return (
     <button
-      type={common && common.button ? "button" : "submit"}
-      className="btn btn-primary save animate"
+      type={active && common && common.button ? "button" : "submit"}
+      onClick={() => {
+        setActive(true);
+        console.log(props.targetform);
+      }}
       {...props}
+      className={`btn btn-primary save animate ${props.className}`}
     >
-      {common && common.button ? <Loading /> : children}
+      {active && common && common.button ? <Loading /> : children}
     </button>
   );
 };
@@ -81,6 +98,8 @@ export const AnimatedButton = ({ children, ...props }) => {
 AnimatedButton.propTypes = {
   default: PropTypes.bool,
   children: PropTypes.any,
+  className: PropTypes.string,
+  targetform: PropTypes.string,
 };
 
 export default Button;
