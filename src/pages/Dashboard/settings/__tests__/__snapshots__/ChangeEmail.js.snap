@@ -107,7 +107,7 @@ exports[`ChangeEmail layout test Snapshot test for ChangeEmail component 1`] = `
         class="col"
       >
         <button
-          class="btn btn-primary save animate undefined"
+          class="btn btn-primary save animate loader-opaque"
           targetform="#changeEmail"
           type="submit"
         >

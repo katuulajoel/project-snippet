@@ -49,7 +49,7 @@ exports[`AddAdminEmail layout test Snapshot test for AddAdminEmail component 1`]
       >
         <button
           aria-label="addAdminEmail-submit"
-          class="btn btn-primary save animate undefined"
+          class="btn btn-primary save animate loader-opaque"
           targetform="#addAdminEmail"
           type="submit"
         >
