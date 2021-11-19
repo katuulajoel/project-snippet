@@ -355,7 +355,7 @@ exports[`CreateUser comp test CreateUser component snapshot 1`] = `
       >
         <button
           aria-label="submit"
-          class="btn btn-primary save animate"
+          class="btn btn-primary save animate undefined"
           disabled=""
           type="submit"
         >

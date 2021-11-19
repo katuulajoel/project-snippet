@@ -128,7 +128,8 @@ exports[`Account layout test Snapshot test for Account component 1`] = `
           class="col"
         >
           <button
-            class="btn btn-default save  "
+            class="btn btn-primary save animate undefined"
+            targetform="#changePassword"
             type="submit"
           >
             Save
@@ -241,7 +242,8 @@ exports[`Account layout test Snapshot test for Account component 1`] = `
           class="col"
         >
           <button
-            class="btn btn-default save  "
+            class="btn btn-primary save animate undefined"
+            targetform="#changeEmail"
             type="submit"
           >
             Save
