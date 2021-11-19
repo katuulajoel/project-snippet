@@ -34,32 +34,33 @@ const CookieSettingForm = (props) => {
 
   return (
     <form id={props.id} onSubmit={onSave} className="cookie-settings">
-      {COOKIE_OPTIONS.map(
-        ({ id, name, title, content, defaultChecked, disabled }, i) => {
-          let elementId = `consent-${id}`;
-          return (
-            <FormGroup key={i}>
-              <FormCheck className={disabled ? "disabled" : ""}>
-                <span>{title}</span>
-                <input
-                  type="checkbox"
-                  id={elementId}
-                  defaultChecked={
-                    name == "essential_cookies"
-                      ? defaultChecked
-                      : props.settings && props.settings.switches[name]
-                  }
-                  disabled={disabled}
-                  aria-label={`check-${id}`}
-                  onChange={(e) => props.onChange(name, e.target.checked)}
-                />
-                <label htmlFor={elementId}></label>
-              </FormCheck>
-              <div style={{ paddingLeft: "30px" }}>{content}</div>
-            </FormGroup>
-          );
-        }
-      )}
+      {props.settings &&
+        COOKIE_OPTIONS.map(
+          ({ id, name, title, content, defaultChecked, disabled }, i) => {
+            let elementId = `consent-${id}`;
+            return (
+              <FormGroup key={i}>
+                <FormCheck className={disabled ? "disabled" : ""}>
+                  <span>{title}</span>
+                  <input
+                    type="checkbox"
+                    id={elementId}
+                    defaultChecked={
+                      name == "essential_cookies"
+                        ? defaultChecked
+                        : props.settings && props.settings.switches[name]
+                    }
+                    disabled={disabled}
+                    aria-label={`check-${id}`}
+                    onChange={(e) => props.onChange(name, e.target.checked)}
+                  />
+                  <label htmlFor={elementId}></label>
+                </FormCheck>
+                <div style={{ paddingLeft: "30px" }}>{content}</div>
+              </FormGroup>
+            );
+          }
+        )}
 
       <FormGroup>
         Learn more from the {"Cookies"} section of our{" "}
