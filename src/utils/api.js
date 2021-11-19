@@ -6,12 +6,16 @@ axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.withCredentials = true;
 axios.interceptors.response.use(undefined, (err) => {
   const url = `${
-    process.env.REACT_APP_NODE_ENV === "production" ? window.location.origin + "/" : process.env.REACT_APP_BACKEND_ROOT
+    process.env.REACT_APP_NODE_ENV === "production"
+      ? window.location.origin + "/"
+      : process.env.REACT_APP_BACKEND_ROOT
   }api/auth/verify/`;
 
   if (
     err.request.responseURL !== url &&
-    (err.response.status === 403 || err.response.data.detail === "Authentication credentials were not provided.")
+    (err.response.status === 403 ||
+      err.response.data.detail ===
+        "Authentication credentials were not provided.")
   ) {
     window.location.pathname = `/login`;
   }
@@ -40,7 +44,9 @@ export const ENDPOINT_RESET_PASSWORD_CONFIRM = getEndpointUrl(
   "auth/password/reset/confirm/"
 );
 
-export const ENDPOINT_USER_INFO = getEndpointUrl("me/settings/");
+// ACCOUNT
+export const ENDPOINT_ACCOUNT_SETTINGS = getEndpointUrl("me/settings/");
+export const ENDPOINT_USER_INFO = getEndpointUrl("me/user/");
 export const ENDPOINT_ACCOUNT_INFO = getEndpointUrl("me/account/");
 export const ENDPOINT_RESET_PASSWORD = getEndpointUrl("auth/password/reset/");
 
