@@ -37,7 +37,12 @@ const ChangePassword = ({ onSave }) => {
       </Row>
       <Row>
         <Col>
-          <AnimatedButton targetform="#changePassword">Save</AnimatedButton>
+          <AnimatedButton
+            targetform="#changePassword"
+            className="loader-opaque"
+          >
+            Save
+          </AnimatedButton>
         </Col>
       </Row>
     </form>

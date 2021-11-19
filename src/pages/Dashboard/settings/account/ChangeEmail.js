@@ -28,6 +28,7 @@ const ChangeEmail = ({ onSave }) => {
         <Col>
           <AnimatedButton
             targetform="#changeEmail"
+            className="loader-opaque"
             // type="submit"
             // disabled={user.email === this.state.email} // TODO: add toast to notify user whats is going wrong
           >

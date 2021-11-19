@@ -20,6 +20,7 @@ const AddAdminEmail = ({ onSave }) => {
           <AnimatedButton
             aria-label="addAdminEmail-submit"
             targetform="#addAdminEmail"
+            className="loader-opaque"
           >
             Save
           </AnimatedButton>
