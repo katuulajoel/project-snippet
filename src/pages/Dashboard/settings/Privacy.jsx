@@ -4,20 +4,18 @@ import styled from "styled-components";
 // import Button from "../../../components/Button";
 import CookieSettingForm from "./modals/CookieSettingForm";
 import { openModal } from "../../../utils/modals";
-import * as actions from "../../../redux/actions/ProfileActions";
+import * as actions from "../../../redux/actions/SettingsActions";
 
 export default function Privacy() {
   const dispatch = useDispatch();
   const { settings } = useSelector(({ profile }) => profile);
   const { user } = useSelector(({ Auth }) => Auth);
 
-  // console.log(settings);
   useEffect(() => {
     actions.getSettings()(dispatch);
   }, []);
-  // console.log("settings", settings);
+
   const onCookieSettings = async (settings) => {
-    // console.log("settings", settings);
     await openModal({
       body: <CookieSettingForm onChange={onChange} settings={settings} />,
       title: "Cookie Settings",
@@ -29,7 +27,6 @@ export default function Privacy() {
     setting[name] = value ? "on" : "off";
 
     if (settings && settings.switches[name] !== setting[name]) {
-      // console.log("onChange", name, value, setting);
       actions.updateSettings({ ...setting })(dispatch);
     }
   };
