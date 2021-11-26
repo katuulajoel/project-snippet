@@ -41,15 +41,7 @@ exports[`Project Planning test Should match snapshot test 1`] = `
       </span>
     </div>
     <div
-<<<<<<< HEAD
       className="sc-dIsUp fVYmYp"
-=======
-<<<<<<< HEAD
-      className="sc-crzoAE jcOPyC"
-=======
-      className="sc-bqGGPW hTYNYG"
->>>>>>> 77c2b52 (Add project documents)
->>>>>>> 27cf5cb (Add project documents)
     >
       <div>
         22nd Jan 2020
@@ -86,7 +78,7 @@ exports[`Project Planning test Should match snapshot test 1`] = `
         />
         <span>
           Today, 
-          7th Dec 2021
+          9th Dec 2021
         </span>
       </div>
       <div
