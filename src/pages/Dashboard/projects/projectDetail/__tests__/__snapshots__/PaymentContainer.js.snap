@@ -3,7 +3,7 @@
 exports[`Project Payments test Should match snapshot test 1`] = `
 Array [
   <div
-    className="sc-bqGGPW lkZMzU"
+    className="sc-ksluID blVMPM"
   >
     <ul>
       <li>
@@ -85,7 +85,7 @@ Array [
         </a>
       </div>
       <div
-        className="sc-kEqXSa gFzwRf"
+        className="sc-iqAclL gDylRc"
       >
         <a
           className="add-btn"

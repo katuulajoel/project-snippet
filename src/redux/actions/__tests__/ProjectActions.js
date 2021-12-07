@@ -24,6 +24,12 @@ import {
   CREATE_DOCUMENT_START,
   CREATE_DOCUMENT_SUCCESS,
   CREATE_DOCUMENT_FAILED,
+  UPDATE_PROJECT_START,
+  UPDATE_PROJECT_SUCCESS,
+  UPDATE_PROJECT_FAILED,
+  DELETE_DOCUMENT_START,
+  DELETE_DOCUMENT_SUCCESS,
+  DELETE_DOCUMENT_FAILED,
 } from "../../../configs/constants/ActionTypes";
 
 const middlewares = [thunk];
@@ -290,6 +296,74 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.updateDocument(123, {}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should update project", async () => {
+    axios.patch.mockReturnValue(Promise.resolve({ data: { id: 1234 } }));
+    const expectedActions = [
+      { type: UPDATE_PROJECT_START },
+      {
+        type: UPDATE_PROJECT_SUCCESS,
+        data: { id: 1234 },
+      },
+    ];
+
+    await store.dispatch(actions.updateProject(123, {}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch UPDATE_PROJECT_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.patch.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: UPDATE_PROJECT_START },
+      {
+        type: UPDATE_PROJECT_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.updateProject(123, {}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should delete document", async () => {
+    axios.delete.mockReturnValue(Promise.resolve({ data: {} }));
+    const expectedActions = [
+      { type: DELETE_DOCUMENT_START },
+      {
+        type: DELETE_DOCUMENT_SUCCESS,
+        data: 123,
+      },
+    ];
+
+    await store.dispatch(actions.deleteDocument(123));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch DELETE_DOCUMENT_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.delete.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: DELETE_DOCUMENT_START },
+      {
+        type: DELETE_DOCUMENT_FAILED,
+        error: "Error!",
+      },
+    ];
+
+    await store.dispatch(actions.deleteDocument(123));
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

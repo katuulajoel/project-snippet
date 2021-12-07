@@ -44,8 +44,10 @@ const DateRangeForm = (props) => {
 
     if (proceed && !error) {
       if (new Date(start) > new Date(end)) {
+        console.log("here");
         setstartError("Start date is greater than end date");
       } else {
+        console.log("here noew", { start, end });
         proceed({ start, end });
       }
     }

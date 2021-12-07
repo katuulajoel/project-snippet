@@ -31,7 +31,7 @@ export const HeaderActions = styled.div`
   margin: 0 0 0 auto;
   button {
     height: fit-content;
-    padding: 16px;
+    padding: 40px 0 0 0;
 
     i {
       color: #8f9bb3;
@@ -56,8 +56,8 @@ export const HeaderActions = styled.div`
 export const StyledModalHeader = styled.div`
   display: flex;
   flex-direction: row;
-  padding-bottom: 28px;
   border-bottom: none;
+  padding: 0 40px 40px 40px;
 
   h3 {
     padding: 16px; /* TODO: fix the styling of the modal header */
@@ -67,6 +67,7 @@ export const StyledModalHeader = styled.div`
     line-height: 27px;
     color: #151a30;
     margin-bottom: 0px;
+    padding: 40px 0 0 0;
 
     span {
       color: #8f9bb3;

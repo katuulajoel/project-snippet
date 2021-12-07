@@ -58,6 +58,11 @@ export const ENDPOINT_USERS = getEndpointUrl("users/");
 export const ENDPOINT_PROGRESS_EVENTS = getEndpointUrl("progress-events/");
 export const ENDPOINT_DOCUMENTS = getEndpointUrl("documents/");
 
+export const ENDPOINT_NOTIFICATIONS = getEndpointUrl("me/notification/");
+export const ENDPOINT_SKILLS = getEndpointUrl("skills/");
+export const ENDPOINT_TEST_RESULTS = getEndpointUrl("results/");
+export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");
+
 export const USER_TYPE_DEVELOPER = 1;
 export const USER_TYPE_PROJECT_OWNER = 2;
 export const USER_TYPE_PROJECT_MANAGER = 3;
@@ -85,16 +90,40 @@ export const INVOICE_TYPES = {
   credit_nota: "Credit Note",
 };
 
-// Account
-export const ENDPOINT_NOTIFICATIONS = getEndpointUrl("me/notification/");
-export const ENDPOINT_SKILLS = getEndpointUrl("skills/");
-export const ENDPOINT_TEST_RESULTS = getEndpointUrl("results/");
-export const ENDPOINT_PAYONEER_SIGNUP = getEndpointUrl("payoneer/");
+function flattenJson(jsonData, key) {
+  let flattenedData = {};
+
+  if (jsonData) {
+    if (jsonData instanceof File) {
+      if (key) {
+        let flattenedUpdate = {};
+        flattenedUpdate[key] = jsonData;
+        flattenedData = { ...flattenedData, ...flattenedUpdate };
+      }
+    } else if (typeof jsonData === "object") {
+      Object.keys(jsonData).forEach((nestedKey) => {
+        flattenedData = {
+          ...flattenedData,
+          ...flattenJson(
+            jsonData[nestedKey],
+            `${key ? `${key}${key.endsWith("]") ? "" : "."}` : ""}${nestedKey}`
+          ),
+        };
+      });
+    } else if (key) {
+      let flattenedUpdate = {};
+      flattenedUpdate[key] = jsonData;
+      flattenedData = { ...flattenedData, ...flattenedUpdate };
+    }
+  }
+  return flattenedData;
+}
 
 export function composeFormData(data) {
+  let flattenedData = flattenJson(data);
   let formData = new FormData();
-  Object.keys(data).forEach((key) => {
-    formData.append(key, data[key]);
+  Object.keys(flattenedData).forEach((key) => {
+    formData.append(key, flattenedData[key]);
   });
   return formData;
 }

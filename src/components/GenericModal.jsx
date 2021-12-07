@@ -70,14 +70,14 @@ const GenericModal = ({
               options={options}
             />
           )}
-          <ModalBody>
+          <StyledModalBody>
             <div>{renderModalContent()}</div>
             {options.isPrompt && (
               <div className="form-group">
                 <textarea onChange={(e) => onResponseChange(e)} />
               </div>
             )}
-          </ModalBody>
+          </StyledModalBody>
           {!options.hideActions && (
             <StyledModalFooter>
               {!options.hideCancel && (
@@ -115,9 +115,12 @@ const GenericModal = ({
   );
 };
 
+const StyledModalBody = styled(ModalBody)`
+  padding: 0 40px 40px 40px;
+`;
+
 const StyledModalFooter = styled(ModalFooter)`
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding: 20px 40px;
   background: rgba(237, 241, 247, 0.25);
 
   button {

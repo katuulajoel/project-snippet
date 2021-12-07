@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Project Payments test Should match snapshot test 1`] = `
+<div
+  className="project-docs"
+>
+  <div
+    className="section"
+  >
+    <div
+      className="section-title"
+    >
+      <span>
+        Proposal
+         
+        Documents
+      </span>
+    </div>
+    <div
+      className="file-list "
+    />
+  </div>
+  <div
+    className="section"
+  >
+    <div
+      className="section-title"
+    >
+      <span>
+        Requirements
+         
+        Documents
+      </span>
+    </div>
+    <div
+      className="file-list "
+    />
+  </div>
+  <div
+    className="section"
+  >
+    <div
+      className="section-title"
+    >
+      <span>
+        Estimate
+         
+        Documents
+      </span>
+    </div>
+    <div
+      className="file-list "
+    />
+  </div>
+  <div
+    className="section"
+  >
+    <div
+      className="section-title"
+    >
+      <span>
+        Contracts
+         
+      </span>
+    </div>
+    <div
+      className="file-list "
+    />
+  </div>
+  <div
+    className="section"
+  >
+    <div
+      className="section-title"
+    >
+      <span>
+        Other
+         
+        Documents
+      </span>
+    </div>
+    <div
+      className="file-list "
+    >
+      <div
+        className="section-item"
+        style={
+          Object {
+            "marginBottom": "16px",
+          }
+        }
+      >
+        <a
+          rel="noreferrer"
+          style={
+            Object {
+              "textDecoration": "auto",
+            }
+          }
+          target="_blank"
+        >
+          <i
+            className="tg-ic-link-variant  "
+          />
+           
+          Document Name
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -25,6 +25,7 @@ import {
   UPDATE_PROJECT_START,
   UPDATE_PROJECT_FAILED,
   TOGGLE_PROJECT_FILTER,
+  DELETE_DOCUMENT_SUCCESS,
 } from "../../../configs/constants/ActionTypes";
 
 const initialState = {
@@ -158,6 +159,22 @@ describe("Auth reducers tests", () => {
     ).toEqual({
       ...initialState,
       documents: [{ id: 123, updated: true }],
+    });
+
+    expect(
+      reducer(
+        {
+          ...initialState,
+          documents: [{ id: 123 }, { id: 124 }],
+        },
+        {
+          type: DELETE_DOCUMENT_SUCCESS,
+          data: 124,
+        }
+      )
+    ).toEqual({
+      ...initialState,
+      documents: [{ id: 123 }],
     });
   });
 

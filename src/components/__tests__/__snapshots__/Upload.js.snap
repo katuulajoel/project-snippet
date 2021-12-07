@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Document picker test Snapshot test for Login component 1`] = `
+<div
+  className="sc-bdnxRM furQPt upload-input"
+>
+  <div>
+    <input />
+    <div>
+      <div
+        className="filename"
+      >
+        <i
+          className="tg-ic-file"
+        />
+         
+      </div>
+    </div>
+  </div>
+</div>
+`;
