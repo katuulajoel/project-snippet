@@ -2,10 +2,10 @@
 
 exports[`ModalHeader component test Snapshot test for ModalHeader component 1`] = `
 <div
-  className="sc-dlnjwi jGxFhh"
+  className="sc-dlnjwi fuwZqP"
 >
   <div
-    className="sc-gtsrHT eYgyKJ actions"
+    className="sc-gtsrHT gQgEzS actions"
   >
     <button
       className="btn btn-icon sc-bdnxRM gIqEUJ  "

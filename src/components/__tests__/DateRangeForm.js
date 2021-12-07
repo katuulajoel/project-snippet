@@ -1,7 +1,28 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import renderer from "react-test-renderer";
 import DateRangeForm from "../DateRangeForm";
 import mount from "enzyme/build/mount";
+
+jest.mock("../../utils/styles", () => {
+  const styles = jest.requireActual("../../utils/styles");
+  const StyledForm = ({ children, onSubmit }) => (
+    <>
+      {children}
+      <button
+        type="button"
+        className="mocked-submit"
+        onClick={() => onSubmit({ preventDefault: () => {} })}
+      >
+        submit
+      </button>
+    </>
+  );
+  return {
+    ...styles,
+    StyledForm,
+  };
+});
 
 describe("Auth layout test", () => {
   it("Snapshot test for NavBar component", () => {
@@ -29,6 +50,11 @@ describe("Auth layout test", () => {
     });
     endDateInput.simulate("change", {
       target: { value: date.toISOString() },
+    });
+    wrapper.find(".mocked-submit").simulate("click");
+    expect(proceedMock).toHaveBeenCalledWith({
+      start: "2021-10-19T11:24:08.429Z",
+      end: "2021-10-19T11:24:08.429Z",
     });
   });
 });

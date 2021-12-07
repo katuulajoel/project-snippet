@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import PaymentContainer from "../PaymentContainer";
-import { BrowserRouter } from "react-router-dom";
+import Docs from "../Docs";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
@@ -21,6 +20,7 @@ const mockAppState = {
   Projects: {
     isMakingRequest: {},
     project: null,
+    documents: [{ type: "other" }],
   },
 };
 
@@ -34,21 +34,11 @@ describe("Project Payments test", () => {
     global.URL.createObjectURL = jest.fn(() => "details");
     const tree = renderer
       .create(
-        <BrowserRouter>
-          <Provider store={mockAppStore(mockAppState)}>
-            <PaymentContainer project={{ id: 123 }} />
-          </Provider>
-        </BrowserRouter>
+        <Provider store={mockAppStore(mockAppState)}>
+          <Docs project={{ id: 123 }} />
+        </Provider>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
-  });
-
-  it("should download csv", () => {
-    /* const wrapper = mount(
-      <Provider store={mockAppStore(mockAppState)}>
-        <PaymentContainer project={{ id: 123 }} />
-      </Provider>
-    ); */
   });
 });

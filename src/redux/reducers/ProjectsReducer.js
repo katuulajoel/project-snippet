@@ -26,6 +26,7 @@ import {
   CREATE_DOCUMENT_START,
   CREATE_DOCUMENT_SUCCESS,
   CREATE_DOCUMENT_FAILED,
+  DELETE_DOCUMENT_SUCCESS,
 } from "../../configs/constants/ActionTypes";
 import { reducerUpdate } from "../../utils/reducers";
 
@@ -40,10 +41,14 @@ function projectPMFilter(state = false, action) {
 
 function documents(state = [], action) {
   switch (action.type) {
+    case FETCH_PROJECT_SUCCESS:
+      return [...(action.data.documents || [])];
     case CREATE_DOCUMENT_SUCCESS:
       return [action.data, ...state];
     case UPDATE_DOCUMENT_SUCCESS:
       return reducerUpdate(state, action);
+    case DELETE_DOCUMENT_SUCCESS:
+      return [...state.filter((item) => item.id !== action.data)];
     default:
       return state;
   }

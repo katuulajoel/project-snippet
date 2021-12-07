@@ -10,6 +10,7 @@ import Progress from "../../../../components/Progress";
 import PaymentContainer from "./PaymentContainer";
 import { FETCH_PROJECT_SUCCESS } from "../../../../configs/constants/ActionTypes";
 import Planning from "./Planning";
+import Docs from "./Docs";
 
 const ProjectDetail = ({ match }) => {
   const { isMakingRequest, project } = useSelector(({ Projects }) => Projects);
@@ -33,7 +34,7 @@ const ProjectDetail = ({ match }) => {
   return hasProjectAccess(project) || isPM() ? (
     <Switch>
       {[
-        ["docs", <></>],
+        ["docs", <Docs project={project} key={"document"} />],
         ["plan", <Planning project={project} key={"plan"} />],
         ["pay", <PaymentContainer project={project} key={"payment"} />],
         ["reports", <></>],

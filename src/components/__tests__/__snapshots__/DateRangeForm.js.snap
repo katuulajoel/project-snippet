@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Auth layout test Snapshot test for NavBar component 1`] = `
-<form
-  className="sc-gtsrHT sc-jSFjdj jKtEre dJWzYt"
-  onSubmit={[Function]}
->
+Array [
   <div
     className="form-group"
   >
@@ -16,7 +13,7 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
         *
       </span>
     </label>
-  </div>
+  </div>,
   <div>
     <div
       className="form-group"
@@ -116,6 +113,13 @@ exports[`Auth layout test Snapshot test for NavBar component 1`] = `
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </div>,
+  <button
+    className="mocked-submit"
+    onClick={[Function]}
+    type="button"
+  >
+    submit
+  </button>,
+]
 `;

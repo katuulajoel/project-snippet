@@ -31,6 +31,9 @@ import {
   UPDATE_DOCUMENT_START,
   UPDATE_DOCUMENT_SUCCESS,
   UPDATE_DOCUMENT_FAILED,
+  DELETE_DOCUMENT_START,
+  DELETE_DOCUMENT_SUCCESS,
+  DELETE_DOCUMENT_FAILED,
 } from "../../configs/constants/ActionTypes";
 import { success, start, failed } from "../../utils/actions";
 
@@ -176,6 +179,20 @@ export function updateDocument(id, document) {
       })
       .catch(function (error) {
         dispatch(failed(UPDATE_DOCUMENT_FAILED, error));
+      });
+  };
+}
+
+export function deleteDocument(id) {
+  return (dispatch) => {
+    dispatch(start(DELETE_DOCUMENT_START));
+    axios
+      .delete(ENDPOINT_DOCUMENTS + id + "/")
+      .then(function () {
+        dispatch(success(DELETE_DOCUMENT_SUCCESS, id));
+      })
+      .catch(function (error) {
+        dispatch(failed(DELETE_DOCUMENT_FAILED, error));
       });
   };
 }

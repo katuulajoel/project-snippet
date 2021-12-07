@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Document picker test Snapshot test for Login component 1`] = `
+<div
+  className="document-input"
+>
+  <a
+    className="add-btn"
+    href="#"
+    onClick={[Function]}
+  >
+    <i
+      className="tg-ic-round-add tunga-ic-sz-sm "
+    />
+      Add New
+  </a>
+</div>
+`;

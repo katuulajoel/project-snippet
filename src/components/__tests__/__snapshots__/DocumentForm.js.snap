@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Document form test Snapshot test for Login component 1`] = `
+Array [
+  <div
+    className="form-group"
+  >
+    <label>
+      Document Name
+      <span
+        className="label-style"
+      >
+        *
+      </span>
+    </label>
+    <div
+      className="sc-bdnxRM iEBWwR"
+      data-testid="input"
+    >
+      <input
+        className="form-control"
+        data-testid=""
+        id=""
+        label="Label"
+        onChange={[Function]}
+        placeholder="Enter name of document e.g. Final Proposal"
+        required={true}
+        type="input"
+      />
+    </div>
+  </div>,
+  <div
+    className="form-group"
+  >
+    <label>
+      Document Link
+    </label>
+    <div
+      className="sc-bdnxRM iEBWwR"
+      data-testid="input"
+    >
+      <input
+        className="form-control"
+        data-testid=""
+        id=""
+        label="Label"
+        name="url"
+        onChange={[Function]}
+        placeholder="Enter link to document e.g. Google Docs"
+        type="input"
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    className="legend-label"
+  >
+    <div>
+      <label>
+        or upload document
+      </label>
+    </div>
+  </div>,
+  <div
+    className="form-group"
+  >
+    <button
+      className="mocked-upload-change"
+      onClick={[Function]}
+      type="button"
+    >
+      upload
+    </button>
+  </div>,
+  <button
+    className="mocked-submit"
+    onClick={[Function]}
+    type="button"
+  >
+    submit
+  </button>,
+]
+`;

@@ -5,6 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
+import { mount } from "enzyme";
+import * as authActions from "../../../../../utils/auth";
+import * as ProjectUtils from "../../../../../utils/projectUtils";
 
 const middlewares = [thunk];
 
@@ -36,7 +39,6 @@ const mockAppStore = (state) => {
 
 describe("Project Planning test", () => {
   it("Should match snapshot test", () => {
-    // global.URL.createObjectURL = jest.fn(() => "details");
     const tree = renderer
       .create(
         <BrowserRouter>
@@ -47,5 +49,30 @@ describe("Project Planning test", () => {
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it("ComponentDidMount", () => {
+    jest.spyOn(authActions, "isAdminOrClient").mockReturnValue(true);
+    const onManagePlanSpy = jest.spyOn(ProjectUtils, "onManagePlan");
+    const wrapper = mount(
+      <BrowserRouter>
+        <Provider
+          store={mockAppStore({
+            Projects: {
+              project: { ...mockAppState.Projects.project, documents: [] },
+            },
+          })}
+        >
+          <Planning />
+        </Provider>
+      </BrowserRouter>
+    );
+
+    console.log(wrapper.find(".section-title a").debug());
+
+    wrapper.find(".section-title a").at(0).simulate("click");
+    expect(onManagePlanSpy).toHaveBeenCalled();
+    // console.log(wrapper.debug());
+    // expect(showUrl.calledOnce).toBe(true)
   });
 });
