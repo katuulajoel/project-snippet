@@ -10,6 +10,7 @@ import { FormGroup } from "reactstrap";
 import Input from "../../../../../components/Input";
 import TextArea from "../../../../../components/TextArea";
 import FieldError from "../../../../../components/FieldError";
+import { validURL } from "../../../../../utils/stringUtils";
 
 /* --------------------------- Style dependencies --------------------------- */
 import { StyledForm } from "../../../../../utils/styles";
@@ -20,10 +21,13 @@ const PlanningForm = (props) => {
   const [plan, setPlan] = useState(props.plan || {});
   const [errors, setErrors] = useState({ url: false });
 
-  const isValidUrl = (string) => {
-    const regex =
-      /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-/]))?/;
-    return regex.test(string);
+  const validationHandler = (inputName, inputValue) => {
+    setErrors({
+      ...errors,
+      [inputName]:
+        inputValue.length >= 1 && !validURL(inputValue) ? "Invalid link" : "",
+    });
+    return inputValue.length >= 1 && !validURL(inputValue);
   };
 
   const onChangeValue = (key, value) => {
@@ -39,7 +43,9 @@ const PlanningForm = (props) => {
   const onSave = (e) => {
     e.preventDefault();
 
-    setErrors({ url: !isValidUrl(plan.url) });
+    if (validationHandler("url", plan.url)) {
+      return;
+    }
 
     if (proceed) {
       proceed(plan);

@@ -18,7 +18,7 @@ describe("Project Planning test", () => {
     wrapper
       .find("input")
       .first()
-      .simulate("change", { target: { value: "url" } });
+      .simulate("change", { target: { value: "https://google.com" } });
     wrapper
       .find("input")
       .at(1)
@@ -32,7 +32,7 @@ describe("Project Planning test", () => {
     expect(proceedStub).toHaveBeenCalledWith({
       id: 123,
       reason: "description",
-      url: "url",
+      url: "https://google.com",
       title: "title",
     });
   });
