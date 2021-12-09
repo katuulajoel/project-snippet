@@ -34,16 +34,13 @@ const DocumentForm = ({ id, proceed }) => {
     return inputValue.length >= 1 && !validURL(inputValue);
   };
 
-  const handleLinksChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    if (!validationHandler(name, value)) {
-      setDocument({ ...document, [name]: value });
-    }
-  };
-
   const onSave = (e) => {
     e.preventDefault();
+
+    if (!document.file && validationHandler("url", document.url)) {
+      return;
+    }
+
     if (document.file || document.url) {
       proceed(document);
       setErrors({});
@@ -73,7 +70,7 @@ const DocumentForm = ({ id, proceed }) => {
         <Input
           name="url"
           placeholder="Enter link to document e.g. Google Docs"
-          onChange={(e) => handleLinksChange(e)}
+          onChange={(e) => onChange("url", e.target.value)}
           value={document.url}
         />
       </FormGroup>

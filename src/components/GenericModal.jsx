@@ -42,7 +42,7 @@ const GenericModal = ({
   };
 
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.current.contains(event.target)) {
+    if (wrapperRef && !wrapperRef.current?.contains(event.target)) {
       options.dismissAsCancel ? cancel() : dismiss();
     }
   };

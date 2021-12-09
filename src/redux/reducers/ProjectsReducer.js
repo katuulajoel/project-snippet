@@ -42,7 +42,7 @@ function projectPMFilter(state = false, action) {
 function documents(state = [], action) {
   switch (action.type) {
     case FETCH_PROJECT_SUCCESS:
-      return [...(action.data.documents || [])];
+      return [...(action.data?.documents || [])];
     case CREATE_DOCUMENT_SUCCESS:
       return [action.data, ...state];
     case UPDATE_DOCUMENT_SUCCESS:

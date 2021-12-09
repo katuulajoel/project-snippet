@@ -30,14 +30,16 @@ import usePrevious from "../../../../hooks/usePrevious";
 
 const Planning = () => {
   const dispatch = useDispatch();
-  const { project, isMakingRequest } = useSelector(({ Projects }) => Projects);
+  const { project, isMakingRequest, documents } = useSelector(
+    ({ Projects }) => Projects
+  );
   const prevIsMakingRequest = usePrevious(isMakingRequest);
   const [planningDoc, setPlanningDoc] = useState({});
   const hasAccess = isAdminOrClient(project) || isPMAndHasProjectAcess(project);
 
   useEffect(() => {
     getLatestPlanningDoc();
-  }, []);
+  }, [documents]);
 
   useEffect(() => {
     if (
@@ -51,7 +53,7 @@ const Planning = () => {
 
   const getLatestPlanningDoc = () => {
     let localDoc = null;
-    (project.documents || []).forEach((doc) => {
+    (documents || []).forEach((doc) => {
       if (
         doc.type === "planning" &&
         (!localDoc ||

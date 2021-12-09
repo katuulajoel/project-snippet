@@ -4,7 +4,6 @@ import store from "../redux/store";
 import ProjectDateForm from "../pages/Dashboard/projects/projectDetail/components/ProjectDateForm";
 import MilestoneForm from "../pages/Dashboard/projects/projectDetail/components/MilestoneForm";
 import PlanningForm from "../pages/Dashboard/projects/projectDetail/components/PlanningForm";
-import { Header } from "./invoiceUtils";
 import {
   createDocument,
   createProgressEvent,
@@ -55,7 +54,7 @@ export const onManageSchedule = (project, timeline = {}) => {
         form: `timeline-form`,
       },
     },
-    header: <Header title={`${timeline ? "Update" : "Add"} timeline`} />,
+    title: `${timeline ? "Update" : "Add"} timeline`,
   }).then((data) => {
     if (data.reason) {
       let changes = parseChangeLog(
@@ -90,7 +89,7 @@ export const onManageMilestone = (project, milestone = {}) => {
         form: `milestone-form`,
       },
     },
-    header: <Header title={`${milestone ? "Update" : "Add"} Milestone`} />,
+    title: `${milestone ? "Update" : "Add"} Milestone`,
   }).then((data) => {
     if (data.reason) {
       let changes = parseChangeLog(
@@ -134,7 +133,7 @@ export const onManagePlan = (project, plan = {}) => {
         form: `planning-form`,
       },
     },
-    header: <Header title={`${plan ? "Update" : "Add"} detailed planning`} />,
+    title: `${plan ? "Update" : "Add"} detailed planning`,
   }).then((data) => {
     if (data.reason) {
       let changes = parseChangeLog(["reason", "title", "url"], data, plan);

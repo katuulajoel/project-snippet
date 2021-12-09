@@ -174,7 +174,6 @@ describe("Dashboard test - Test Results", () => {
     expect(userHeader).toBeDefined();
     expect(codingTestsHeader).toBeDefined();
     expect(selectComponent).not.toBeNull();
-    // expect(mockedOnChange).toHaveBeenCalledTimes(0);
 
     fireEvent.keyDown(selectComponent.firstChild, { key: "ArrowDown" });
     await waitFor(() => {
