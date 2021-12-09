@@ -48,13 +48,13 @@ export const onManageSchedule = (project, timeline = {}) => {
     ),
     options: {
       className: "modal-payments",
-      ok: `Save ${timeline ? "Changes" : ""}`,
+      ok: `Save ${Object.keys(timeline).length != 0 ? "Changes" : ""}`,
       form: {
         type: "submit",
         form: `timeline-form`,
       },
     },
-    title: `${timeline ? "Update" : "Add"} timeline`,
+    title: `${Object.keys(timeline).length != 0 ? "Update" : "Add"} timeline`,
   }).then((data) => {
     if (data.reason) {
       let changes = parseChangeLog(
@@ -83,13 +83,13 @@ export const onManageMilestone = (project, milestone = {}) => {
     ),
     options: {
       className: "modal-payments",
-      ok: `Save ${milestone ? "Changes" : ""}`,
+      ok: `Save ${Object.keys(milestone).length != 0 ? "Changes" : ""}`,
       form: {
         type: "submit",
         form: `milestone-form`,
       },
     },
-    title: `${milestone ? "Update" : "Add"} Milestone`,
+    title: `${Object.keys(milestone).length != 0 ? "Update" : "Add"} Milestone`,
   }).then((data) => {
     if (data.reason) {
       let changes = parseChangeLog(
@@ -127,13 +127,15 @@ export const onManagePlan = (project, plan = {}) => {
     ),
     options: {
       className: "modal-payments",
-      ok: `Save ${plan ? "Changes" : ""}`,
+      ok: `Save ${Object.keys(plan).length != 0 ? "Changes" : ""}`,
       form: {
         type: "submit",
         form: `planning-form`,
       },
     },
-    title: `${plan ? "Update" : "Add"} detailed planning`,
+    title: `${
+      Object.keys(plan).length != 0 ? "Update" : "Add"
+    } detailed planning`,
   }).then((data) => {
     if (data.reason) {
       let changes = parseChangeLog(["reason", "title", "url"], data, plan);
