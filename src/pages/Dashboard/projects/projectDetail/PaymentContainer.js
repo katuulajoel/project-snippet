@@ -11,25 +11,16 @@ import Payments from "../../payments/Payments";
 import Payouts from "../../payments/Payouts";
 import { NavActions } from "../../payments/styles";
 import { downloadCsv } from "../../../../utils/invoiceUtils";
-import Timesheets from "../../payments/Timesheets";
 
 const PaymentContainer = ({ project }) => {
   let { pathname } = useLocation();
   const dispatch = useDispatch();
-
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
   const [createAction, setcreateAction] = useState(null);
   let filter = pathname.split("/")[5];
   let type = pathname.split("/")[4];
 
   const { csv } = useSelector(({ Invoice }) => Invoice);
-
-  const startingMonth = 2020;
-  const diff = parseInt(new Date().getFullYear()) - startingMonth;
-  const mapMonth = Array.from({ length: diff }).map(
-    (_, i) => startingMonth + i + 1
-  );
 
   useEffect(() => {
     if (csv) {
@@ -82,18 +73,6 @@ const PaymentContainer = ({ project }) => {
                     </span>
                   );
                 })}
-              </NavActions>
-            ) : (
-              <NavActions>
-                <select onChange={(e) => setCurrentYear(e.target.value)}>
-                  {mapMonth.reverse().map((year) => {
-                    return (
-                      <option value={year} key={year}>
-                        {year}
-                      </option>
-                    );
-                  })}
-                </select>
               </NavActions>
             )
           }
@@ -171,13 +150,6 @@ const PaymentContainer = ({ project }) => {
         </>
       )}
       <Switch>
-        <Route
-          path={`/projects/${project.id}/pay/timesheets`}
-          exact
-          render={() => {
-            return <Timesheets currentYear={currentYear} />;
-          }}
-        />
         <Route
           path={`/projects/${project.id}/pay/${type}/:filter`}
           render={(props) => {
