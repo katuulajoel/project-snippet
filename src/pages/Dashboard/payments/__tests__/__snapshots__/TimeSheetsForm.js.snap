@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeSheets Form tests TimeSheetsForm component snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-gtsrHT clkBpL"
+  >
+    <div
+      class="header"
+    >
+      <h4>
+        , 
+      </h4>
+      <div
+        class="arrow"
+      >
+        <svg
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18.75 5.25L5.25 18.75"
+            stroke="#7F8C9F"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <path
+            d="M18.75 18.75L5.25 5.25"
+            stroke="#7F8C9F"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+    </div>
+    <h6>
+      Fill out the timesheet for team members
+    </h6>
+    <div
+      class="inp-div"
+    >
+      <div
+        class="user"
+      >
+        <div
+          class="sc-bdnxRM eNsiXn avatar-initials"
+        >
+          <div
+            class="avatar avatar-initials"
+          >
+            JD
+          </div>
+        </div>
+        John Doe — 
+        <span
+          style="color: silver;"
+        >
+          Designer
+        </span>
+      </div>
+      <hr />
+      <input
+        disabled=""
+        placeholder="Enter total hours worked"
+        required=""
+        type="number"
+        value="23"
+      />
+      <span
+        class="span-append"
+      >
+        /0 total hrs
+      </span>
+    </div>
+    <div>
+      <input
+        class="total-input"
+        disabled=""
+        name="total"
+        placeholder="Total"
+        required=""
+        type="number"
+      />
+      <span
+        class="span-append-total"
+      >
+        23/0 total hrs
+      </span>
+      <div
+        class="btn-flex-end"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

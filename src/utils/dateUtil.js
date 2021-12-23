@@ -41,3 +41,12 @@ export function convertToDateString(date) {
     -2
   )}-${("0" + date.getUTCDate()).slice(-2)}`;
 }
+
+export const formatMonth = (month) => {
+  month = parseInt(month) + 1;
+  if (month >= 10) {
+    return month;
+  } else {
+    return `0${month}`;
+  }
+};

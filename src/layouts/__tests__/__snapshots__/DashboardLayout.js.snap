@@ -185,7 +185,17 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-jrsJWt fuWeUk"
+    className="sc-kEqXSa geqNqL"
   />,
+  <div
+    className="sc-jrsJWt ixlKMC nav-closed"
+  >
+    <div
+      className="overlay open"
+    />
+    <div
+      className="main"
+    />
+  </div>,
 ]
 `;

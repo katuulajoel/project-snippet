@@ -185,12 +185,12 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-jrsJWt fuWeUk"
+    className="sc-kEqXSa geqNqL"
   >
     <div>
       <div>
         <div
-          className="sc-kEqXSa jgSBmE"
+          className="sc-iqAclL eRhpMP"
         >
           <div
             className="filter-links"
@@ -199,7 +199,7 @@ Array [
             Results
           </h3>
           <div
-            className="sc-iemWCZ diiTwt"
+            className="sc-dIvrsQ eMrhtZ"
             style={
               Object {
                 "float": "right",
@@ -259,7 +259,7 @@ Array [
         className="table-responsive"
       >
         <table
-          className="sc-dIsUp sc-hBMUJo gLKFTs gwrDnf table"
+          className="sc-bqGGPW sc-fnVZcZ dnFgSz hWzpKt table"
           role="table"
         >
           <thead>
@@ -426,13 +426,13 @@ Array [
         </table>
       </div>
       <div
-        className="sc-fnVZcZ jnZroa"
+        className="sc-fFSPTT kVtiYo"
       >
         <span>
           Showing
         </span>
         <div
-          className="sc-fFSPTT cBhSjn"
+          className="sc-bkbkJK izspcl"
         >
           <select
             className="form-control form-control "
@@ -497,7 +497,7 @@ Array [
             className="pagination"
           >
             <li
-              className="sc-iqAclL bIORFd page-item"
+              className="sc-crzoAE eNdjef page-item"
               onClick={[Function]}
             >
               <a
@@ -518,7 +518,7 @@ Array [
               }
             />
             <li
-              className="sc-iqAclL bIORFd next page-item"
+              className="sc-crzoAE eNdjef next page-item"
               onClick={[Function]}
             >
               <a
@@ -534,6 +534,16 @@ Array [
         </nav>
       </div>
     </div>
+  </div>,
+  <div
+    className="sc-jrsJWt ixlKMC nav-closed"
+  >
+    <div
+      className="overlay open"
+    />
+    <div
+      className="main"
+    />
   </div>,
 ]
 `;

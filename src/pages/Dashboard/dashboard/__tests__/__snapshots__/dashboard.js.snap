@@ -185,7 +185,7 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-kEqXSa geqNqL"
+    className="sc-iqAclL bDzMSQ"
   >
     <div
       className="row"
@@ -194,7 +194,7 @@ Array [
         className="col-sm-8"
       >
         <div
-          className="sc-bqGGPW dtAQkC dashboard-card"
+          className="sc-ksluID iElPNa dashboard-card"
         >
           <div
             className="sc-bdnxRM eNsiXn avatar-initials"
@@ -226,7 +226,7 @@ Array [
             <span
               className="sub-text"
             >
-              Thu, 9th Dec 2021
+              Thu, 23rd Dec 2021
             </span>
           </div>
         </div>
@@ -304,6 +304,16 @@ Array [
         </div>
       </div>
     </div>
+  </div>,
+  <div
+    className="sc-kEqXSa cRBHnV nav-closed"
+  >
+    <div
+      className="overlay open"
+    />
+    <div
+      className="main"
+    />
   </div>,
 ]
 `;

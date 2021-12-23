@@ -34,6 +34,12 @@ import {
   DELETE_DOCUMENT_START,
   DELETE_DOCUMENT_SUCCESS,
   DELETE_DOCUMENT_FAILED,
+  LIST_TIMESHEETS_START,
+  LIST_TIMESHEETS_SUCCESS,
+  LIST_TIMESHEETS_FAILED,
+  CREATE_TIMESHEET_START,
+  CREATE_TIMESHEET_SUCCESS,
+  CREATE_TIMESHEET_FAILED,
 } from "../../configs/constants/ActionTypes";
 import { success, start, failed } from "../../utils/actions";
 
@@ -193,6 +199,34 @@ export function deleteDocument(id) {
       })
       .catch(function (error) {
         dispatch(failed(DELETE_DOCUMENT_FAILED, error));
+      });
+  };
+}
+
+export function listTimesheets(id, year) {
+  return (dispatch) => {
+    dispatch(start(LIST_TIMESHEETS_START));
+    axios
+      .get(`${ENDPOINT_PROJECTS}${id}/timesheets/?year=${year}`)
+      .then((response) => {
+        dispatch(success(LIST_TIMESHEETS_SUCCESS, response.data));
+      })
+      .catch((error) => {
+        dispatch(failed(LIST_TIMESHEETS_FAILED, error));
+      });
+  };
+}
+
+export function createTimesheet(timesheet, id) {
+  return (dispatch) => {
+    dispatch(start(CREATE_TIMESHEET_START));
+    axios
+      .post(`${ENDPOINT_PROJECTS}${id}/timesheet/`, timesheet)
+      .then(function (response) {
+        dispatch(success(CREATE_TIMESHEET_SUCCESS, response.data));
+      })
+      .catch(function (error) {
+        dispatch(failed(CREATE_TIMESHEET_FAILED, error));
       });
   };
 }

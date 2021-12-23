@@ -170,10 +170,20 @@ exports[`Settings index comp test Settings index component snapshot 1`] = `
     </ul>
   </div>
   <div
-    class="sc-jrsJWt itdHgX"
+    class="sc-kEqXSa dcuRaE"
   >
     <div
       class="content-card settings-card settings-container clearfix false"
+    />
+  </div>
+  <div
+    class="sc-jrsJWt ixlKMC nav-closed"
+  >
+    <div
+      class="overlay open"
+    />
+    <div
+      class="main"
     />
   </div>
 </DocumentFragment>

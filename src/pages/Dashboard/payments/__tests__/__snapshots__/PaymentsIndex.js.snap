@@ -193,16 +193,16 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-kEqXSa geqNqL"
+    className="sc-iqAclL bDzMSQ"
   >
     <div
-      className="sc-ezzafa cxUxAv"
+      className="sc-bYwzuL drbQab"
     >
       <div
-        className="sc-giAqHp bGFtMO"
+        className="sc-ezzafa hYMDUn"
       >
         <div
-          className="sc-dIvrsQ gJrOoh"
+          className="sc-hHEiqL iJqdDX"
           style={
             Object {
               "float": "right",
@@ -303,7 +303,7 @@ Array [
             </a>
           </div>
           <div
-            className="sc-dIvrsQ gJrOoh"
+            className="sc-hHEiqL iJqdDX"
           >
             <a
               className="add-btn"
@@ -330,6 +330,16 @@ Array [
         </p>
       </div>
     </div>
+  </div>,
+  <div
+    className="sc-kEqXSa cRBHnV nav-closed"
+  >
+    <div
+      className="overlay open"
+    />
+    <div
+      className="main"
+    />
   </div>,
 ]
 `;
