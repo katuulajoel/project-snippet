@@ -30,6 +30,12 @@ import {
   DELETE_DOCUMENT_START,
   DELETE_DOCUMENT_SUCCESS,
   DELETE_DOCUMENT_FAILED,
+  CREATE_TIMESHEET_FAILED,
+  CREATE_TIMESHEET_START,
+  CREATE_TIMESHEET_SUCCESS,
+  LIST_TIMESHEETS_START,
+  LIST_TIMESHEETS_SUCCESS,
+  LIST_TIMESHEETS_FAILED,
 } from "../../../configs/constants/ActionTypes";
 
 const middlewares = [thunk];
@@ -55,11 +61,6 @@ describe("Invoice actions tests", () => {
     axios.post.mockClear();
     jest.clearAllMocks();
     store.clearActions();
-  });
-
-  afterEach(() => {
-    store.clearActions();
-    jest.clearAllMocks();
   });
 
   it("should fetch project", async () => {
@@ -364,6 +365,71 @@ describe("Invoice actions tests", () => {
     ];
 
     await store.dispatch(actions.deleteDocument(123));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should create Timesheets ", async () => {
+    axios.post.mockReturnValue(Promise.resolve({ data: { id: 1234 } }));
+    const expectedActions = [
+      { type: CREATE_TIMESHEET_START },
+      {
+        type: CREATE_TIMESHEET_SUCCESS,
+        data: { id: 1234 },
+      },
+    ];
+
+    await store.dispatch(actions.createTimesheet({}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch CREATE_TIMESHEET_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.post.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: CREATE_TIMESHEET_START },
+      {
+        type: CREATE_TIMESHEET_FAILED,
+        error: "Error!",
+      },
+    ];
+    await store.dispatch(actions.createTimesheet({}));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should fetch timesheets", async () => {
+    axios.get.mockReturnValue(Promise.resolve({ data: { id: 1234 } }));
+    const expectedActions = [
+      { type: LIST_TIMESHEETS_START },
+      {
+        type: LIST_TIMESHEETS_SUCCESS,
+        data: { id: 1234 },
+      },
+    ];
+    await store.dispatch(actions.listTimesheets(123, null));
+    const storeActions = await store.getActions();
+    expect(storeActions).toEqual(expectedActions);
+  });
+
+  it("should dispatch LIST_TIMESHEETS_FAILED with error", async () => {
+    const error = {
+      message: "Error!",
+    };
+    axios.get.mockRejectedValue(error);
+
+    const expectedActions = [
+      { type: LIST_TIMESHEETS_START },
+      {
+        type: LIST_TIMESHEETS_FAILED,
+        error: "Error!",
+      },
+    ];
+    await store.dispatch(actions.listTimesheets(123, null));
     const storeActions = await store.getActions();
     expect(storeActions).toEqual(expectedActions);
   });

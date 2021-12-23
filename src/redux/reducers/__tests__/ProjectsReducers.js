@@ -36,6 +36,7 @@ const initialState = {
   project: null,
   projects: { results: [], next: null },
   projectPMFilter: false,
+  timesheets: { results: [] },
 };
 
 describe("Auth reducers tests", () => {

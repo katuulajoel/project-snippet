@@ -9,6 +9,8 @@ import PropTypes from "prop-types";
 import NavBar from "../components/NavBar";
 import SideBar from "../components/SideBar";
 import styled, { withTheme } from "styled-components";
+import { NavProvider } from "./RightSideNav/NavContext";
+import RightSideNav from "./RightSideNav/RightSideNav";
 
 window.isAgreementOpen = false;
 const DashboardLayout = ({ children }) => {
@@ -25,7 +27,10 @@ const DashboardLayout = ({ children }) => {
     <>
       <NavBar ref={divRef} />
       <SideBar />
-      <MainContent navHeight={navHeight}>{children}</MainContent>
+      <NavProvider>
+        <MainContent navHeight={navHeight}>{children}</MainContent>
+        <RightSideNav />
+      </NavProvider>
     </>
   );
 };

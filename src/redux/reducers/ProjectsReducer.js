@@ -27,6 +27,12 @@ import {
   CREATE_DOCUMENT_SUCCESS,
   CREATE_DOCUMENT_FAILED,
   DELETE_DOCUMENT_SUCCESS,
+  LIST_TIMESHEETS_SUCCESS,
+  LIST_TIMESHEETS_FAILED,
+  LIST_TIMESHEETS_START,
+  CREATE_TIMESHEET_START,
+  // CREATE_TIMESHEET_SUCCESS,
+  CREATE_TIMESHEET_FAILED,
 } from "../../configs/constants/ActionTypes";
 import { reducerUpdate } from "../../utils/reducers";
 
@@ -49,6 +55,15 @@ function documents(state = [], action) {
       return reducerUpdate(state, action);
     case DELETE_DOCUMENT_SUCCESS:
       return [...state.filter((item) => item.id !== action.data)];
+    default:
+      return state;
+  }
+}
+
+function timesheets(state = { results: [] }, action) {
+  switch (action.type) {
+    case LIST_TIMESHEETS_SUCCESS:
+      return action.data;
     default:
       return state;
   }
@@ -108,6 +123,10 @@ function isMakingRequest(_, action) {
       return { updateDocument: true };
     case CREATE_DOCUMENT_START:
       return { createDocument: true };
+    case LIST_TIMESHEETS_START:
+      return { listTimeSheets: true };
+    case CREATE_TIMESHEET_START:
+      return { createTimeSheet: true };
     default:
       return {};
   }
@@ -131,6 +150,10 @@ function errors(state = {}, action) {
       return { updateDocument: action.error };
     case CREATE_DOCUMENT_FAILED:
       return { createDocument: action.error };
+    case LIST_TIMESHEETS_FAILED:
+      return { listTimeSheets: action.error };
+    case CREATE_TIMESHEET_FAILED:
+      return { createTimeSheet: action.error };
     default:
       return state;
   }
@@ -144,6 +167,7 @@ const Projects = combineReducers({
   errors,
   progressEvents,
   documents,
+  timesheets,
 });
 
 export default Projects;
