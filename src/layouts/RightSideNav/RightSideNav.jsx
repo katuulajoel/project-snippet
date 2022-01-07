@@ -49,6 +49,7 @@ const Wrapper = styled.div`
     bottom: 0;
     transition: 0.5s;
     right: -480px;
+    overflow: scroll;
   }
 
   &.nav-open {

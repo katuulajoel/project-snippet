@@ -3,7 +3,7 @@
 exports[`Dashboard layout test Snapshot test for Login component 1`] = `
 Array [
   <nav
-    className="sc-iCoGMd wWrIP navbar "
+    className="sc-jrsJWt gDvGPH navbar "
   >
     <div
       className="title-bar"
@@ -63,7 +63,7 @@ Array [
     />
   </nav>,
   <div
-    className="sc-pNWdM ibuYVp sidebar"
+    className="sc-iqAclL jSqxmH sidebar"
     id="sidebar"
   >
     <img
@@ -185,10 +185,10 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-kEqXSa geqNqL"
+    className="sc-dIsUp ciAnEt"
   />,
   <div
-    className="sc-jrsJWt ixlKMC nav-closed"
+    className="sc-crzoAE jJjdZa nav-closed"
   >
     <div
       className="overlay open"

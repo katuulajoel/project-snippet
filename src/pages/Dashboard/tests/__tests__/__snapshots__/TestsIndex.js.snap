@@ -3,7 +3,7 @@
 exports[`Dashboard test Should match snapshot test 1`] = `
 Array [
   <nav
-    className="sc-iCoGMd wWrIP navbar "
+    className="sc-jrsJWt gDvGPH navbar "
   >
     <div
       className="title-bar"
@@ -63,7 +63,7 @@ Array [
     />
   </nav>,
   <div
-    className="sc-pNWdM ibuYVp sidebar"
+    className="sc-iqAclL jSqxmH sidebar"
     id="sidebar"
   >
     <img
@@ -185,12 +185,12 @@ Array [
     </ul>
   </div>,
   <div
-    className="sc-kEqXSa geqNqL"
+    className="sc-dIsUp ciAnEt"
   >
     <div>
       <div>
         <div
-          className="sc-iqAclL eRhpMP"
+          className="sc-bqGGPW jiFgZd"
         >
           <div
             className="filter-links"
@@ -199,7 +199,7 @@ Array [
             Results
           </h3>
           <div
-            className="sc-dIvrsQ eMrhtZ"
+            className="sc-dlMDgC cSnlab"
             style={
               Object {
                 "float": "right",
@@ -259,7 +259,7 @@ Array [
         className="table-responsive"
       >
         <table
-          className="sc-bqGGPW sc-fnVZcZ dnFgSz hWzpKt table"
+          className="sc-fnVZcZ sc-bkbkJK hZeIXS bRrokN table"
           role="table"
         >
           <thead>
@@ -426,13 +426,13 @@ Array [
         </table>
       </div>
       <div
-        className="sc-fFSPTT kVtiYo"
+        className="sc-iemWCZ diYneA"
       >
         <span>
           Showing
         </span>
         <div
-          className="sc-bkbkJK izspcl"
+          className="sc-dIvrsQ ibTjCj"
         >
           <select
             className="form-control form-control "
@@ -497,7 +497,7 @@ Array [
             className="pagination"
           >
             <li
-              className="sc-crzoAE eNdjef page-item"
+              className="sc-ksluID ccZosH page-item"
               onClick={[Function]}
             >
               <a
@@ -518,7 +518,7 @@ Array [
               }
             />
             <li
-              className="sc-crzoAE eNdjef next page-item"
+              className="sc-ksluID ccZosH next page-item"
               onClick={[Function]}
             >
               <a
@@ -536,7 +536,7 @@ Array [
     </div>
   </div>,
   <div
-    className="sc-jrsJWt ixlKMC nav-closed"
+    className="sc-crzoAE jJjdZa nav-closed"
   >
     <div
       className="overlay open"

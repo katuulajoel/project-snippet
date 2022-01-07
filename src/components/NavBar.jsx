@@ -12,6 +12,9 @@ import Button from "../components/Button";
 import Icon from "../components/Icon";
 import { useSelector } from "react-redux";
 import Progress from "./Progress";
+import useRightNav from "../layouts/RightSideNav/useRightNav";
+import Navigation from "../layouts/RightSideNav/Navigation";
+import Overview from "../pages/Dashboard/projects/projectDetail/Overview";
 
 function getMainPath(str) {
   const regex = /^\/([^?\\/]+)/;
@@ -22,6 +25,8 @@ const NavBar = (props, ref) => {
   const { className } = props;
   let history = useHistory();
   const { isMakingRequest, project } = useSelector(({ Projects }) => Projects);
+
+  const { open } = useRightNav();
 
   const getNavTitle = () => {
     let title = "Dashboard";
@@ -53,6 +58,18 @@ const NavBar = (props, ref) => {
 
   const viewTitle = getNavTitle();
 
+  // TODO: move this to another file
+  let navSections = [
+    {
+      component: <></>,
+      title: "Activity",
+    },
+    {
+      component: <Overview project={project} history={history} />,
+      title: "Overview",
+    },
+  ];
+
   return (
     <Wrapper ref={ref} className={`navbar ${className || ""}`}>
       <div className="title-bar">
@@ -60,16 +77,28 @@ const NavBar = (props, ref) => {
           {viewTitle}
         </Link>
         <ul className="navbar-nav ml-auto">
-          {viewTitle === "Tests" ? (
+          {viewTitle === "Tests" && (
             <li>
               <StyledButton id="createResult" variant={"primary"}>
                 <Icon name="round-add" />
                 &nbsp;&nbsp;&nbsp;Add New Result
               </StyledButton>
             </li>
-          ) : (
+          )}
+          {!(project?.title || viewTitle === "Tests") && (
             <li>
               <SearchBox navHieght={ref} variant="search" clear={true} />
+            </li>
+          )}
+          {project?.title && (
+            <li>
+              <Button
+                className="right-nav-button"
+                onClick={() => open(<Navigation navSections={navSections} />)}
+              >
+                <Icon name="dots-horizontal" />
+                &nbsp;&nbsp;&nbsp;More
+              </Button>
             </li>
           )}
         </ul>
@@ -105,6 +134,36 @@ const Wrapper = styled.nav`
       &.hover {
         color: #000000;
       }
+    }
+  }
+
+  .right-nav-button {
+    color: #8f9bb3;
+    background: rgba(143, 155, 179, 0.1);
+    border: none;
+    border-radius: 6px;
+    box-shadow: none;
+    line-height: 22px;
+    font-size: 14px;
+    text-align: right;
+
+    i {
+      font-size: 3px;
+      vertical-align: middle;
+    }
+
+    &:hover,
+    &:visited,
+    &:link,
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled):active:focus,
+    &:focus {
+      outline: 0;
+      box-shadow: none;
+      border: none;
+      border-radius: 6px;
+      color: #8f9bb3;
+      background: rgba(143, 155, 179, 0.2);
     }
   }
 
