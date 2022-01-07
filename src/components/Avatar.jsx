@@ -37,6 +37,13 @@ const Wrapper = styled.div`
   margin-right: 5px;
   border-radius: 100%;
 
+  .verified {
+    color: #40bb56;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+  }
+
   .avatar {
     width: 48px;
     height: 48px;

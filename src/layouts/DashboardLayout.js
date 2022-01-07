@@ -24,14 +24,12 @@ const DashboardLayout = ({ children }) => {
   }, [divRef.current]);
 
   return (
-    <>
+    <NavProvider>
       <NavBar ref={divRef} />
       <SideBar />
-      <NavProvider>
-        <MainContent navHeight={navHeight}>{children}</MainContent>
-        <RightSideNav />
-      </NavProvider>
-    </>
+      <MainContent navHeight={navHeight}>{children}</MainContent>
+      <RightSideNav />
+    </NavProvider>
   );
 };
 

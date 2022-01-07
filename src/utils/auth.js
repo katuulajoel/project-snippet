@@ -63,6 +63,17 @@ export function isPMAndHasProjectAcess(project) {
   return hasProjectAccess(project) && isPM();
 }
 
+export function isCM() {
+  return getUser().is_client_manager && !getUser().is_admin;
+}
+export function isCSO() {
+  return getUser().is_client_support_officer && !getUser().is_admin;
+}
+
+export function isCMOrCSOAndHasProjectAcess(project) {
+  return hasProjectAccess(project) && (isCM() || isCSO());
+}
+
 export function isProjectClient(project) {
   const userId = getUser().id;
   if (project.owner && project.owner.id === userId) {

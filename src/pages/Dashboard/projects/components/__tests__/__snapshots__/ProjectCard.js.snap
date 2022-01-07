@@ -32,7 +32,7 @@ exports[`Auth layout test Snapshot test for Login component 1`] = `
       className="group-avatars-container"
     >
       <div
-        className="sc-bdnxRM eNsiXn initial_group_avatar active-project avatar-initials"
+        className="sc-bdnxRM gAMLqP initial_group_avatar active-project avatar-initials"
       >
         <div
           className="avatar initial_group_avatar active-project avatar-initials"
