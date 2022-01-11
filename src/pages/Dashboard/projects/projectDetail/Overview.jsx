@@ -12,7 +12,7 @@ import { isAdmin, isCMOrCSOAndHasProjectAcess } from "../../../../utils/auth";
 import styled from "styled-components";
 import { generateUserIntials } from "../../../../utils/stringUtils";
 
-const Overview = ({ project, match, history }) => {
+const Overview = ({ project, history }) => {
   return (
     <Wrapper>
       <div className="section">
@@ -23,7 +23,9 @@ const Overview = ({ project, match, history }) => {
               className="btn-no-outline close-ic-btn"
               size="dash"
               name="circle-edit-outline"
-              onClick={() => history.push(`${match.url}/settings/details`)}
+              onClick={() =>
+                history.push(`/projects/${project.id}/settings/details`)
+              }
             />
           )}
         </div>
@@ -40,7 +42,9 @@ const Overview = ({ project, match, history }) => {
               className="btn-no-outline close-ic-btn"
               size="dash"
               name="circle-edit-outline"
-              onClick={() => history.push(`${match.url}/settings/details`)}
+              onClick={() =>
+                history.push(`/projects/${project.id}/settings/details`)
+              }
             />
           )}
         </div>
@@ -58,14 +62,18 @@ const Overview = ({ project, match, history }) => {
               className="btn-no-outline close-ic-btn"
               size="dash"
               name="circle-edit-outline"
-              onClick={() => history.push(`${match.url}/settings/details`)}
+              onClick={() =>
+                history.push(`/projects/${project.id}/settings/details`)
+              }
             />
           )}
         </div>
 
         <div className="section-content">
           <p style={{ textTransform: "capitalize" }}>
-            {project.category || "No project type"}
+            {project.category === "project"
+              ? "Managed"
+              : project.category || "No project type"}
           </p>
         </div>
       </div>
@@ -90,7 +98,9 @@ const Overview = ({ project, match, history }) => {
               className="btn-no-outline close-ic-btn"
               size="dash"
               name="circle-edit-outline"
-              onClick={() => history.push(`${match.url}/settings/team`)}
+              onClick={() =>
+                history.push(`/projects/${project.id}/settings/team`)
+              }
             />
           )}
         </div>
@@ -195,6 +205,10 @@ const Wrapper = styled.div`
         display: flex;
         align-items: baseline;
         padding: 5px 0px;
+
+        > p {
+          align-self: center;
+        }
       }
 
       .team-header {
