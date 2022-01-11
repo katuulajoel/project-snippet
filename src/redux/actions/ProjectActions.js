@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import {
   composeFormData,
   ENDPOINT_PROJECTS,
   ENDPOINT_PROGRESS_EVENTS,
   ENDPOINT_DOCUMENTS,
+  ENDPOINT_ACTIVITIES,
 } from "../../utils/api";
 
 import {
@@ -40,6 +42,9 @@ import {
   CREATE_TIMESHEET_START,
   CREATE_TIMESHEET_SUCCESS,
   CREATE_TIMESHEET_FAILED,
+  LIST_ACTIVITIES_START,
+  LIST_ACTIVITIES_SUCCESS,
+  LIST_ACTIVITIES_FAILED,
 } from "../../configs/constants/ActionTypes";
 import { success, start, failed } from "../../utils/actions";
 
@@ -230,3 +235,17 @@ export function createTimesheet(timesheet, id) {
       });
   };
 }
+
+/* export function listActivities(filter) {
+  return (dispatch) => {
+    dispatch(start(LIST_ACTIVITIES_START));
+    axios
+      .get(ENDPOINT_ACTIVITIES, { params: filter })
+      .then(function (response) {
+        dispatch(success(LIST_ACTIVITIES_SUCCESS, response.data));
+      })
+      .catch(function (error) {
+        dispatch(failed(LIST_ACTIVITIES_FAILED, error));
+      });
+  };
+} */

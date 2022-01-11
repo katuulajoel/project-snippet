@@ -57,6 +57,7 @@ export const ENDPOINT_NOTIFICATION_LOG = getEndpointUrl("notification-log/");
 export const ENDPOINT_USERS = getEndpointUrl("users/");
 export const ENDPOINT_PROGRESS_EVENTS = getEndpointUrl("progress-events/");
 export const ENDPOINT_DOCUMENTS = getEndpointUrl("documents/");
+export const ENDPOINT_ACTIVITIES = getEndpointUrl("activity/");
 
 export const ENDPOINT_NOTIFICATIONS = getEndpointUrl("me/notification/");
 export const ENDPOINT_SKILLS = getEndpointUrl("skills/");
