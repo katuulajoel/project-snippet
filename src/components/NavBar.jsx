@@ -15,6 +15,7 @@ import Progress from "./Progress";
 import useRightNav from "../layouts/RightSideNav/useRightNav";
 import Navigation from "../layouts/RightSideNav/Navigation";
 import Overview from "../pages/Dashboard/projects/projectDetail/Overview";
+import Activity from "../pages/Dashboard/projects/projectDetail/Activity";
 
 function getMainPath(str) {
   const regex = /^\/([^?\\/]+)/;
@@ -61,7 +62,7 @@ const NavBar = (props, ref) => {
   // TODO: move this to another file
   let navSections = [
     {
-      component: <></>,
+      component: <Activity project={project} />,
       title: "Activity",
     },
     {

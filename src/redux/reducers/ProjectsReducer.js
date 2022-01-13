@@ -33,8 +33,38 @@ import {
   CREATE_TIMESHEET_START,
   // CREATE_TIMESHEET_SUCCESS,
   CREATE_TIMESHEET_FAILED,
+  LIST_ACTIVITIES_START,
+  LIST_ACTIVITIES_SUCCESS,
+  LIST_ACTIVITIES_FAILED,
+  LIST_MORE_ACTIVITIES_START,
+  LIST_MORE_ACTIVITIES_SUCCESS,
+  LIST_MORE_ACTIVITIES_FAILED,
 } from "../../configs/constants/ActionTypes";
 import { reducerUpdate } from "../../utils/reducers";
+
+function activities(
+  state = { data: [], next: null, previous: null, count: 0 },
+  action
+) {
+  switch (action.type) {
+    case LIST_ACTIVITIES_SUCCESS:
+      return {
+        data: action.data.results,
+        next: action.data.next,
+        previous: action.data.previous,
+        count: action.data.count,
+      };
+    case LIST_MORE_ACTIVITIES_SUCCESS:
+      return {
+        data: [...state.data, ...action.data.results],
+        next: action.data.next,
+        previous: action.data.previous,
+        count: action.data.count,
+      };
+    default:
+      return state;
+  }
+}
 
 function projectPMFilter(state = false, action) {
   switch (action.type) {
@@ -127,6 +157,10 @@ function isMakingRequest(_, action) {
       return { listTimeSheets: true };
     case CREATE_TIMESHEET_START:
       return { createTimeSheet: true };
+    case LIST_ACTIVITIES_START:
+      return { listActivities: true };
+    case LIST_MORE_ACTIVITIES_START:
+      return { listMoreActivities: true };
     default:
       return {};
   }
@@ -154,6 +188,10 @@ function errors(state = {}, action) {
       return { listTimeSheets: action.error };
     case CREATE_TIMESHEET_FAILED:
       return { createTimeSheet: action.error };
+    case LIST_ACTIVITIES_FAILED:
+      return { listActivities: action.error };
+    case LIST_MORE_ACTIVITIES_FAILED:
+      return { listMoreActivities: action.error };
     default:
       return state;
   }
@@ -168,6 +206,7 @@ const Projects = combineReducers({
   progressEvents,
   documents,
   timesheets,
+  activities,
 });
 
 export default Projects;

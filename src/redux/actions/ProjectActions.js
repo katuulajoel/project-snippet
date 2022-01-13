@@ -45,6 +45,9 @@ import {
   LIST_ACTIVITIES_START,
   LIST_ACTIVITIES_SUCCESS,
   LIST_ACTIVITIES_FAILED,
+  LIST_MORE_ACTIVITIES_START,
+  LIST_MORE_ACTIVITIES_SUCCESS,
+  LIST_MORE_ACTIVITIES_FAILED,
 } from "../../configs/constants/ActionTypes";
 import { success, start, failed } from "../../utils/actions";
 
@@ -236,7 +239,7 @@ export function createTimesheet(timesheet, id) {
   };
 }
 
-/* export function listActivities(filter) {
+export function listActivities(filter) {
   return (dispatch) => {
     dispatch(start(LIST_ACTIVITIES_START));
     axios
@@ -248,4 +251,18 @@ export function createTimesheet(timesheet, id) {
         dispatch(failed(LIST_ACTIVITIES_FAILED, error));
       });
   };
-} */
+}
+
+export function listMoreActivities(url) {
+  return (dispatch) => {
+    dispatch(start(LIST_MORE_ACTIVITIES_START));
+    axios
+      .get(url)
+      .then(function (response) {
+        dispatch(success(LIST_MORE_ACTIVITIES_SUCCESS, response.data));
+      })
+      .catch(function (error) {
+        dispatch(failed(LIST_MORE_ACTIVITIES_FAILED, error));
+      });
+  };
+}

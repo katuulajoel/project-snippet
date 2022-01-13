@@ -85,6 +85,12 @@ export const INVOICE_TYPE_FINAL = "final";
 export const INVOICE_TYPE_SALE = "sale";
 export const INVOICE_TYPE_PURCHASE = "purchase";
 export const INVOICE_TYPE_CREDIT_NOTE = "credit_nota";
+export const INVOICE_TYPE_COMMITMENT = "commitment";
+export const PROGRESS_EVENT_TYPE_CM = "cm";
+export const PROGRESS_EVENT_TYPE_CLIENT = "client";
+export const PROGRESS_EVENT_TYPE_MILESTONE = "milestone";
+export const PROGRESS_EVENT_TYPE_CLIENT_DEVELOPER_RATING = "developer_rating";
+export const PROGRESS_EVENT_TYPE_MILESTONE_INTERNAL = "internal";
 export const INVOICE_TYPES = {
   sale: "Payment",
   purchase: "Payout",
