@@ -11,8 +11,10 @@ import Avatar from "../../../../components/Avatar";
 import { isAdmin, isCMOrCSOAndHasProjectAcess } from "../../../../utils/auth";
 import styled from "styled-components";
 import { generateUserIntials } from "../../../../utils/stringUtils";
+import useRightNav from "../../../../layouts/RightSideNav/useRightNav";
 
 const Overview = ({ project, history }) => {
+  const { close } = useRightNav();
   return (
     <Wrapper>
       <div className="section">
@@ -23,9 +25,10 @@ const Overview = ({ project, history }) => {
               className="btn-no-outline close-ic-btn"
               size="dash"
               name="circle-edit-outline"
-              onClick={() =>
-                history.push(`/projects/${project.id}/settings/details`)
-              }
+              onClick={() => {
+                history.push(`/projects/${project.id}/settings/details`);
+                close();
+              }}
             />
           )}
         </div>
@@ -42,9 +45,10 @@ const Overview = ({ project, history }) => {
               className="btn-no-outline close-ic-btn"
               size="dash"
               name="circle-edit-outline"
-              onClick={() =>
-                history.push(`/projects/${project.id}/settings/details`)
-              }
+              onClick={() => {
+                history.push(`/projects/${project.id}/settings/details`);
+                close();
+              }}
             />
           )}
         </div>
@@ -62,9 +66,10 @@ const Overview = ({ project, history }) => {
               className="btn-no-outline close-ic-btn"
               size="dash"
               name="circle-edit-outline"
-              onClick={() =>
-                history.push(`/projects/${project.id}/settings/details`)
-              }
+              onClick={() => {
+                history.push(`/projects/${project.id}/settings/details`);
+                close();
+              }}
             />
           )}
         </div>
@@ -98,9 +103,10 @@ const Overview = ({ project, history }) => {
               className="btn-no-outline close-ic-btn"
               size="dash"
               name="circle-edit-outline"
-              onClick={() =>
-                history.push(`/projects/${project.id}/settings/team`)
-              }
+              onClick={() => {
+                history.push(`/projects/${project.id}/settings/team`);
+                close();
+              }}
             />
           )}
         </div>
