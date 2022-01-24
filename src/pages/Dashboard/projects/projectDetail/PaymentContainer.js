@@ -55,7 +55,9 @@ const PaymentContainer = ({ project }) => {
             },
           ]}
           rightActions={
-            createAction && createAction.visibility && type !== "timesheets" ? (
+            createAction &&
+            createAction.visibility &&
+            type !== "timesheets" && (
               <NavActions>
                 {(createAction.add ? createAction.add : []).map((item, idx) => {
                   return (
